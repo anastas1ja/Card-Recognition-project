@@ -1,0 +1,64 @@
+---
+MainSourceFile:  'C:/Users/astan/Desktop/moj_esl/esl/esl/card_recognizer_dram_hls/solution1/.autopilot/db/card_recognizer_dram_hls.pp.0.cpp'
+Diagnostics:     
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1211_1:  '
+    FileOffset:      1211
+    FilePath:        'C:\Xilinx\Vitis_HLS\2022.2\common\technology\autopilot\ap_int_base.h'
+    Replacements:    
+      - FilePath:        'C:\Users\astan\Desktop\moj_esl\esl\esl\card_recognizer_dram_hls\solution1\.autopilot\db\card_recognizer_dram_hls.pp.0.cpp'
+        Offset:          51741
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1211_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_676_1:  '
+    FileOffset:      676
+    FilePath:        'C:\Xilinx\Vitis_HLS\2022.2\common\technology\autopilot\ap_int_ref.h'
+    Replacements:    
+      - FilePath:        'C:\Users\astan\Desktop\moj_esl\esl\esl\card_recognizer_dram_hls\solution1\.autopilot\db\card_recognizer_dram_hls.pp.0.cpp'
+        Offset:          258757
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_676_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_690_1:  '
+    FileOffset:      690
+    FilePath:        'C:\Xilinx\Vitis_HLS\2022.2\common\technology\autopilot\ap_int_ref.h'
+    Replacements:    
+      - FilePath:        'C:\Users\astan\Desktop\moj_esl\esl\esl\card_recognizer_dram_hls\solution1\.autopilot\db\card_recognizer_dram_hls.pp.0.cpp'
+        Offset:          259196
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_690_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_704_1:  '
+    FileOffset:      704
+    FilePath:        'C:\Xilinx\Vitis_HLS\2022.2\common\technology\autopilot\ap_int_ref.h'
+    Replacements:    
+      - FilePath:        'C:\Users\astan\Desktop\moj_esl\esl\esl\card_recognizer_dram_hls\solution1\.autopilot\db\card_recognizer_dram_hls.pp.0.cpp'
+        Offset:          259636
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_704_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1245_1:  '
+    FileOffset:      1245
+    FilePath:        'C:\Xilinx\Vitis_HLS\2022.2\common\technology\autopilot\ap_fixed_base.h'
+    Replacements:    
+      - FilePath:        'C:\Users\astan\Desktop\moj_esl\esl\esl\card_recognizer_dram_hls\solution1\.autopilot\db\card_recognizer_dram_hls.pp.0.cpp'
+        Offset:          521361
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1245_1: '
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'ram_2p is not valid value for option interface BRAM''s option ''storage_type'''
+    FileOffset:      271
+    FilePath:        'C:\Users\astan\Desktop\moj_esl\esl\esl\hls_fajlovi\card_recognizer_dram_hls.cpp'
+    Replacements:    
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, ram_2p + bram is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      281
+    FilePath:        'C:\Users\astan\Desktop\moj_esl\esl\esl\hls_fajlovi\card_recognizer_dram_hls.cpp'
+    Replacements:    
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, ram_2p + bram is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      282
+    FilePath:        'C:\Users\astan\Desktop\moj_esl\esl\esl\hls_fajlovi\card_recognizer_dram_hls.cpp'
+    Replacements:    
+...

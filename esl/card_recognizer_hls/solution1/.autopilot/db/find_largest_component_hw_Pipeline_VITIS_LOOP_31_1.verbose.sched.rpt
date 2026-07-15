@@ -1,0 +1,134 @@
+
+
+================================================================
+== Vitis HLS Report for 'find_largest_component_hw_Pipeline_VITIS_LOOP_31_1'
+================================================================
+* Date:           Tue Jun  9 14:11:43 2026
+
+* Version:        2022.2 (Build 3670227 on Oct 13 2022)
+* Project:        card_recognizer_hls
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z010-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  5.727 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                   |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |     Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_31_1  |        ?|        ?|         1|          1|          1|     ?|       yes|
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 1
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 1
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 1, States = { 1 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 5.72>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%i = alloca i32 1"   --->   Operation 4 'alloca' 'i' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%n_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %n"   --->   Operation 5 'read' 'n_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (1.58ns)   --->   "%store_ln0 = store i19 0, i19 %i"   --->   Operation 6 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.inc"   --->   Operation 7 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%i_1 = load i19 %i" [card_recognizer_hls.cpp:31]   --->   Operation 8 'load' 'i_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%zext_ln31_1 = zext i19 %i_1" [card_recognizer_hls.cpp:31]   --->   Operation 9 'zext' 'zext_ln31_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (2.47ns)   --->   "%icmp_ln31 = icmp_slt  i32 %zext_ln31_1, i32 %n_read" [card_recognizer_hls.cpp:31]   --->   Operation 10 'icmp' 'icmp_ln31' <Predicate = true> <Delay = 2.47> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 11 [1/1] (2.16ns)   --->   "%add_ln31 = add i19 %i_1, i19 1" [card_recognizer_hls.cpp:31]   --->   Operation 11 'add' 'add_ln31' <Predicate = true> <Delay = 2.16> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.16> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%br_ln31 = br i1 %icmp_ln31, void %VITIS_LOOP_38_2.loopexit.exitStub, void %for.inc.split" [card_recognizer_hls.cpp:31]   --->   Operation 12 'br' 'br_ln31' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%zext_ln31 = zext i19 %i_1" [card_recognizer_hls.cpp:31]   --->   Operation 13 'zext' 'zext_ln31' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%specpipeline_ln32 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_0" [card_recognizer_hls.cpp:32]   --->   Operation 14 'specpipeline' 'specpipeline_ln32' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%specloopname_ln31 = specloopname void @_ssdm_op_SpecLoopName, void @empty_14" [card_recognizer_hls.cpp:31]   --->   Operation 15 'specloopname' 'specloopname_ln31' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%visited_addr = getelementptr i1 %visited, i64 0, i64 %zext_ln31" [card_recognizer_hls.cpp:33]   --->   Operation 16 'getelementptr' 'visited_addr' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (3.25ns)   --->   "%store_ln33 = store i1 0, i19 %visited_addr" [card_recognizer_hls.cpp:33]   --->   Operation 17 'store' 'store_ln33' <Predicate = (icmp_ln31)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 307200> <RAM>
+ST_1 : Operation 18 [1/1] (1.58ns)   --->   "%store_ln31 = store i19 %add_ln31, i19 %i" [card_recognizer_hls.cpp:31]   --->   Operation 18 'store' 'store_ln31' <Predicate = (icmp_ln31)> <Delay = 1.58>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%br_ln31 = br void %for.inc" [card_recognizer_hls.cpp:31]   --->   Operation 19 'br' 'br_ln31' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 20 'ret' 'ret_ln0' <Predicate = (!icmp_ln31)> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 2.7ns.
+
+ <State 1>: 5.73ns
+The critical path consists of the following:
+	'alloca' operation ('i') [3]  (0 ns)
+	'load' operation ('i', card_recognizer_hls.cpp:31) on local variable 'i' [8]  (0 ns)
+	'add' operation ('add_ln31', card_recognizer_hls.cpp:31) [11]  (2.17 ns)
+	'store' operation ('store_ln31', card_recognizer_hls.cpp:31) of variable 'add_ln31', card_recognizer_hls.cpp:31 on local variable 'i' [19]  (1.59 ns)
+	blocking operation 1.97 ns on control path)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

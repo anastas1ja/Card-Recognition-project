@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low." projectName="card_recognizer_dram_hls" solutionName="solution1" date="2026-07-15T18:02:34.125+0200" type="Warning"/>
+        <logs message="WARNING: [HLS 200-880] The II Violation in module 'find_largest_component_ccl_Pipeline_CCL_X_LOOP' (loop 'CCL_X_LOOP'): Unable to enforce a carried dependence constraint (II = 11, distance = 1, offset = 1) between 'store' operation ('curr_label_V_addr_1_write_ln175', hls_fajlovi/card_recognizer_dram_hls.cpp:175) of variable 'root.V', hls_fajlovi/card_recognizer_dram_hls.cpp:60 on array 'curr_label_V' and 'load' operation ('curr_label_V_load', hls_fajlovi/card_recognizer_dram_hls.cpp:142) on array 'curr_label_V'.&#xD;&#xA;Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html" projectName="card_recognizer_dram_hls" solutionName="solution1" date="2026-07-15T18:02:25.581+0200" type="Warning"/>
+        <logs message="WARNING: [HLS 200-880] The II Violation in module 'find_largest_component_ccl_Pipeline_CCL_X_LOOP' (loop 'CCL_X_LOOP'): Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1) between 'store' operation ('count_addr_write_ln84', hls_fajlovi/card_recognizer_dram_hls.cpp:84) of constant 0 on array 'count' and 'load' operation ('count_load', hls_fajlovi/card_recognizer_dram_hls.cpp:75) on array 'count'.&#xD;&#xA;Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html" projectName="card_recognizer_dram_hls" solutionName="solution1" date="2026-07-15T18:02:25.483+0200" type="Warning"/>
+        <logs message="WARNING: [HLS 200-880] The II Violation in module 'find_largest_component_ccl_Pipeline_CCL_X_LOOP' (loop 'CCL_X_LOOP'): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1) between 'store' operation ('count_addr_write_ln84', hls_fajlovi/card_recognizer_dram_hls.cpp:84) of constant 0 on array 'count' and 'load' operation ('count_load', hls_fajlovi/card_recognizer_dram_hls.cpp:75) on array 'count'.&#xD;&#xA;Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html" projectName="card_recognizer_dram_hls" solutionName="solution1" date="2026-07-15T18:02:25.420+0200" type="Warning"/>
+        <logs message="WARNING: [HLS 200-880] The II Violation in module 'find_largest_component_ccl_Pipeline_CCL_X_LOOP' (loop 'CCL_X_LOOP'): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1) between 'store' operation ('count_addr_write_ln84', hls_fajlovi/card_recognizer_dram_hls.cpp:84) of constant 0 on array 'count' and 'load' operation ('count_load', hls_fajlovi/card_recognizer_dram_hls.cpp:75) on array 'count'.&#xD;&#xA;Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html" projectName="card_recognizer_dram_hls" solutionName="solution1" date="2026-07-15T18:02:25.389+0200" type="Warning"/>
+        <logs message="WARNING: [HLS 200-880] The II Violation in module 'find_largest_component_ccl_Pipeline_CCL_X_LOOP' (loop 'CCL_X_LOOP'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between 'store' operation ('count_addr_write_ln84', hls_fajlovi/card_recognizer_dram_hls.cpp:84) of constant 0 on array 'count' and 'load' operation ('count_load', hls_fajlovi/card_recognizer_dram_hls.cpp:75) on array 'count'.&#xD;&#xA;Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html" projectName="card_recognizer_dram_hls" solutionName="solution1" date="2026-07-15T18:02:25.377+0200" type="Warning"/>
+        <logs message="WARNING: [HLS 200-960] Cannot flatten loop 'CCL_Y_LOOP' (hls_fajlovi/card_recognizer_dram_hls.cpp:127:14) in function 'find_largest_component_ccl' more than one sub loop.&#xD;&#xA;Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-960.html" projectName="card_recognizer_dram_hls" solutionName="solution1" date="2026-07-15T18:02:23.176+0200" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

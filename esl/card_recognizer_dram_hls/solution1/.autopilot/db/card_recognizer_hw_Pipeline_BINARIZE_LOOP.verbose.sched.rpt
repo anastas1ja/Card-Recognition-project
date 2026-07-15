@@ -1,0 +1,159 @@
+
+
+================================================================
+== Vitis HLS Report for 'card_recognizer_hw_Pipeline_BINARIZE_LOOP'
+================================================================
+* Date:           Wed Jul 15 18:02:24 2026
+
+* Version:        2022.2 (Build 3670227 on Oct 13 2022)
+* Project:        card_recognizer_dram_hls
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z010i-clg225-1L
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  4.805 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-------+-------+---------+
+    |  Latency (cycles) |  Latency (absolute) |    Interval   | Pipeline|
+    |   min   |   max   |    min   |    max   |  min  |  max  |   Type  |
+    +---------+---------+----------+----------+-------+-------+---------+
+    |    19203|    19203|  0.192 ms|  0.192 ms|  19203|  19203|       no|
+    +---------+---------+----------+----------+-------+-------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-----------------+---------+---------+----------+-----------+-----------+-------+----------+
+        |                 |  Latency (cycles) | Iteration|  Initiation Interval  |  Trip |          |
+        |    Loop Name    |   min   |   max   |  Latency |  achieved |   target  | Count | Pipelined|
+        +-----------------+---------+---------+----------+-----------+-----------+-------+----------+
+        |- BINARIZE_LOOP  |    19201|    19201|         3|          1|          1|  19200|       yes|
+        +-----------------+---------+---------+----------+-----------+-----------+-------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 3
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 3
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 3, States = { 1 2 3 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 4.05>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%i_3 = alloca i32 1"   --->   Operation 6 'alloca' 'i_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i1 %binary_V, i64 666, i64 22, i64 18446744073709551615"   --->   Operation 7 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i8 %gray_V, i64 666, i64 22, i64 18446744073709551615"   --->   Operation 8 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%trunc_ln_read = read i31 @_ssdm_op_Read.ap_auto.i31, i31 %trunc_ln"   --->   Operation 9 'read' 'trunc_ln_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (1.58ns)   --->   "%store_ln0 = store i15 0, i15 %i_3"   --->   Operation 10 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.inc.i6"   --->   Operation 11 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%i = load i15 %i_3" [hls_fajlovi/card_recognizer_dram_hls.cpp:50]   --->   Operation 12 'load' 'i' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%zext_ln50_1 = zext i15 %i" [hls_fajlovi/card_recognizer_dram_hls.cpp:50]   --->   Operation 13 'zext' 'zext_ln50_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (2.47ns)   --->   "%icmp_ln50 = icmp_eq  i31 %zext_ln50_1, i31 %trunc_ln_read" [hls_fajlovi/card_recognizer_dram_hls.cpp:50]   --->   Operation 14 'icmp' 'icmp_ln50' <Predicate = true> <Delay = 2.47> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 15 [1/1] (1.94ns)   --->   "%add_ln50 = add i15 %i, i15 1" [hls_fajlovi/card_recognizer_dram_hls.cpp:50]   --->   Operation 15 'add' 'add_ln50' <Predicate = true> <Delay = 1.94> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.94> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%br_ln50 = br i1 %icmp_ln50, void %for.inc.i6.split, void %_Z8binarizePK7ap_uintILi8EEPS_ILi1EEii.exit.loopexit.exitStub" [hls_fajlovi/card_recognizer_dram_hls.cpp:50]   --->   Operation 16 'br' 'br_ln50' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%zext_ln50 = zext i15 %i" [hls_fajlovi/card_recognizer_dram_hls.cpp:50]   --->   Operation 17 'zext' 'zext_ln50' <Predicate = (!icmp_ln50)> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%gray_V_addr = getelementptr i8 %gray_V, i64 0, i64 %zext_ln50"   --->   Operation 18 'getelementptr' 'gray_V_addr' <Predicate = (!icmp_ln50)> <Delay = 0.00>
+ST_1 : Operation 19 [2/2] (3.25ns)   --->   "%gray_V_load = load i15 %gray_V_addr"   --->   Operation 19 'load' 'gray_V_load' <Predicate = (!icmp_ln50)> <Delay = 3.25> <CoreInst = "RAM_2P_BRAM">   --->   Core 91 'RAM_2P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 19200> <RAM>
+ST_1 : Operation 20 [1/1] (1.58ns)   --->   "%store_ln50 = store i15 %add_ln50, i15 %i_3" [hls_fajlovi/card_recognizer_dram_hls.cpp:50]   --->   Operation 20 'store' 'store_ln50' <Predicate = (!icmp_ln50)> <Delay = 1.58>
+
+State 2 <SV = 1> <Delay = 4.80>
+ST_2 : Operation 21 [1/2] (3.25ns)   --->   "%gray_V_load = load i15 %gray_V_addr"   --->   Operation 21 'load' 'gray_V_load' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM_2P_BRAM">   --->   Core 91 'RAM_2P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 19200> <RAM>
+ST_2 : Operation 22 [1/1] (1.55ns)   --->   "%icmp_ln1035 = icmp_ugt  i8 %gray_V_load, i8 120"   --->   Operation 22 'icmp' 'icmp_ln1035' <Predicate = true> <Delay = 1.55> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.55> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 29 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 29 'ret' 'ret_ln0' <Predicate = (icmp_ln50)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 3.25>
+ST_3 : Operation 23 [1/1] (0.00ns)   --->   "%specpipeline_ln52 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_0" [hls_fajlovi/card_recognizer_dram_hls.cpp:52]   --->   Operation 23 'specpipeline' 'specpipeline_ln52' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 24 [1/1] (0.00ns)   --->   "%speclooptripcount_ln51 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 19200, i64 19200, i64 19200" [hls_fajlovi/card_recognizer_dram_hls.cpp:51]   --->   Operation 24 'speclooptripcount' 'speclooptripcount_ln51' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 25 [1/1] (0.00ns)   --->   "%specloopname_ln50 = specloopname void @_ssdm_op_SpecLoopName, void @empty_17" [hls_fajlovi/card_recognizer_dram_hls.cpp:50]   --->   Operation 25 'specloopname' 'specloopname_ln50' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 26 [1/1] (0.00ns)   --->   "%binary_V_addr = getelementptr i1 %binary_V, i64 0, i64 %zext_ln50" [hls_fajlovi/card_recognizer_dram_hls.cpp:53]   --->   Operation 26 'getelementptr' 'binary_V_addr' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 27 [1/1] (3.25ns)   --->   "%store_ln53 = store i1 %icmp_ln1035, i15 %binary_V_addr" [hls_fajlovi/card_recognizer_dram_hls.cpp:53]   --->   Operation 27 'store' 'store_ln53' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM_2P_BRAM">   --->   Core 91 'RAM_2P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 19200> <RAM>
+ST_3 : Operation 28 [1/1] (0.00ns)   --->   "%br_ln50 = br void %for.inc.i6" [hls_fajlovi/card_recognizer_dram_hls.cpp:50]   --->   Operation 28 'br' 'br_ln50' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 2.7ns.
+
+ <State 1>: 4.06ns
+The critical path consists of the following:
+	'alloca' operation ('i') [4]  (0 ns)
+	'load' operation ('i', hls_fajlovi/card_recognizer_dram_hls.cpp:50) on local variable 'i' [11]  (0 ns)
+	'add' operation ('add_ln50', hls_fajlovi/card_recognizer_dram_hls.cpp:50) [14]  (1.94 ns)
+	'store' operation ('store_ln50', hls_fajlovi/card_recognizer_dram_hls.cpp:50) of variable 'add_ln50', hls_fajlovi/card_recognizer_dram_hls.cpp:50 on local variable 'i' [26]  (1.59 ns)
+	blocking operation 0.526 ns on control path)
+
+ <State 2>: 4.8ns
+The critical path consists of the following:
+	'load' operation ('gray_V_load') on array 'gray_V' [22]  (3.25 ns)
+	'icmp' operation ('icmp_ln1035') [23]  (1.55 ns)
+
+ <State 3>: 3.25ns
+The critical path consists of the following:
+	'getelementptr' operation ('binary_V_addr', hls_fajlovi/card_recognizer_dram_hls.cpp:53) [24]  (0 ns)
+	'store' operation ('store_ln53', hls_fajlovi/card_recognizer_dram_hls.cpp:53) of variable 'icmp_ln1035' on array 'binary_V' [25]  (3.25 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

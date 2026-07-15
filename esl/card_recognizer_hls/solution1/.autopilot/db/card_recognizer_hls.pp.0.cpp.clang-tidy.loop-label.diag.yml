@@ -1,0 +1,76 @@
+---
+MainSourceFile:  'C:/Users/astan/Desktop/esl/esl/card_recognizer_hls/solution1/.autopilot/db/card_recognizer_hls.pp.0.cpp'
+Diagnostics:     
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_31_1:  '
+    FileOffset:      31
+    FilePath:        card_recognizer_hls.cpp
+    Replacements:    
+      - FilePath:        'C:\Users\astan\Desktop\esl\esl\card_recognizer_hls\solution1\.autopilot\db\card_recognizer_hls.pp.0.cpp'
+        Offset:          753927
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_31_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_38_2:  '
+    FileOffset:      38
+    FilePath:        card_recognizer_hls.cpp
+    Replacements:    
+      - FilePath:        'C:\Users\astan\Desktop\esl\esl\card_recognizer_hls\solution1\.autopilot\db\card_recognizer_hls.pp.0.cpp'
+        Offset:          754040
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_38_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_39_3:  '
+    FileOffset:      39
+    FilePath:        card_recognizer_hls.cpp
+    Replacements:    
+      - FilePath:        'C:\Users\astan\Desktop\esl\esl\card_recognizer_hls\solution1\.autopilot\db\card_recognizer_hls.pp.0.cpp'
+        Offset:          754083
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_39_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_51_4:  '
+    FileOffset:      51
+    FilePath:        card_recognizer_hls.cpp
+    Replacements:    
+      - FilePath:        'C:\Users\astan\Desktop\esl\esl\card_recognizer_hls\solution1\.autopilot\db\card_recognizer_hls.pp.0.cpp'
+        Offset:          754389
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_51_4: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_56_5:  '
+    FileOffset:      56
+    FilePath:        card_recognizer_hls.cpp
+    Replacements:    
+      - FilePath:        'C:\Users\astan\Desktop\esl\esl\card_recognizer_hls\solution1\.autopilot\db\card_recognizer_hls.pp.0.cpp'
+        Offset:          754529
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_56_5: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_72_6:  '
+    FileOffset:      72
+    FilePath:        card_recognizer_hls.cpp
+    Replacements:    
+      - FilePath:        'C:\Users\astan\Desktop\esl\esl\card_recognizer_hls\solution1\.autopilot\db\card_recognizer_hls.pp.0.cpp'
+        Offset:          755149
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_72_6: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_105_1:  '
+    FileOffset:      105
+    FilePath:        card_recognizer_hls.cpp
+    Replacements:    
+      - FilePath:        'C:\Users\astan\Desktop\esl\esl\card_recognizer_hls\solution1\.autopilot\db\card_recognizer_hls.pp.0.cpp'
+        Offset:          756137
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_105_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_114_2:  '
+    FileOffset:      114
+    FilePath:        card_recognizer_hls.cpp
+    Replacements:    
+      - FilePath:        'C:\Users\astan\Desktop\esl\esl\card_recognizer_hls\solution1\.autopilot\db\card_recognizer_hls.pp.0.cpp'
+        Offset:          756401
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_114_2: '
+...

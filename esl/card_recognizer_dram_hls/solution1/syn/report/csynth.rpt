@@ -1,0 +1,241 @@
+
+
+================================================================
+== Synthesis Summary Report of 'card_recognizer_hw'
+================================================================
++ General Information: 
+    * Date:           Wed Jul 15 18:02:35 2026
+    * Version:        2022.2 (Build 3670227 on Oct 13 2022)
+    * Project:        card_recognizer_dram_hls
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: zynq
+    * Target device:  xc7z010i-clg225-1L
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +---------------------------------------------------------+------+------+---------+-----------+----------+---------+-------+----------+----------+---------+-----------+------------+-----+
+    |                         Modules                         | Issue|      | Latency |  Latency  | Iteration|         |  Trip |          |          |         |           |            |     |
+    |                         & Loops                         | Type | Slack| (cycles)|    (ns)   |  Latency | Interval| Count | Pipelined|   BRAM   |   DSP   |     FF    |     LUT    | URAM|
+    +---------------------------------------------------------+------+------+---------+-----------+----------+---------+-------+----------+----------+---------+-----------+------------+-----+
+    |+ card_recognizer_hw                                     |     -|  0.14|   329469|  3.295e+06|         -|   329470|      -|        no|  24 (20%)|  8 (10%)|  1895 (5%)|  3886 (22%)|    -|
+    | + card_recognizer_hw_Pipeline_GRAYSCALE_LOOP            |     -|  1.03|    19206|  1.921e+05|         -|    19206|      -|        no|         -|   2 (2%)|  129 (~0%)|   148 (~0%)|    -|
+    |  o GRAYSCALE_LOOP                                       |     -|  7.30|    19204|  1.920e+05|         6|        1|  19200|       yes|         -|        -|          -|           -|    -|
+    | + card_recognizer_hw_Pipeline_BINARIZE_LOOP             |     -|  2.50|    19203|  1.920e+05|         -|    19203|      -|        no|         -|        -|   51 (~0%)|    86 (~0%)|    -|
+    |  o BINARIZE_LOOP                                        |     -|  7.30|    19201|  1.920e+05|         3|        1|  19200|       yes|         -|        -|          -|           -|    -|
+    | + find_largest_component_ccl                            |     -|  0.14|   271840|  2.718e+06|         -|   271840|      -|        no|    6 (5%)|   1 (1%)|   834 (2%)|  2479 (14%)|    -|
+    |  + find_largest_component_ccl_Pipeline_INIT_COMPONENTS  |     -|  2.38|      258|  2.580e+03|         -|      258|      -|        no|         -|        -|   11 (~0%)|    52 (~0%)|    -|
+    |   o INIT_COMPONENTS                                     |     -|  7.30|      256|  2.560e+03|         1|        1|    256|       yes|         -|        -|          -|           -|    -|
+    |  + find_largest_component_ccl_Pipeline_INIT_ROWS        |     -|  3.43|      162|  1.620e+03|         -|      162|      -|        no|         -|        -|   10 (~0%)|    53 (~0%)|    -|
+    |   o INIT_ROWS                                           |     -|  7.30|      160|  1.600e+03|         1|        1|    160|       yes|         -|        -|          -|           -|    -|
+    |  + find_largest_component_ccl_Pipeline_SELECT_BEST      |     -|  1.01|      258|  2.580e+03|         -|      258|      -|        no|         -|        -|  132 (~0%)|    214 (1%)|    -|
+    |   o SELECT_BEST                                         |     -|  7.30|      256|  2.560e+03|         3|        1|    255|       yes|         -|        -|          -|           -|    -|
+    |  o CCL_Y_LOOP                                           |     -|  7.30|   271320|  2.713e+06|      2261|        -|    120|        no|         -|        -|          -|           -|    -|
+    |   + find_largest_component_ccl_Pipeline_CLEAR_CURR_ROW  |     -|  3.43|      162|  1.620e+03|         -|      162|      -|        no|         -|        -|   10 (~0%)|    53 (~0%)|    -|
+    |    o CLEAR_CURR_ROW                                     |     -|  7.30|      160|  1.600e+03|         1|        1|    160|       yes|         -|        -|          -|           -|    -|
+    |   + find_largest_component_ccl_Pipeline_CCL_X_LOOP      |     -|  0.14|     1929|  1.929e+04|         -|     1929|      -|        no|         -|        -|   462 (1%)|   1039 (5%)|    -|
+    |    o CCL_X_LOOP                                         |    II|  7.30|     1927|  1.927e+04|        15|       12|    160|       yes|         -|        -|          -|           -|    -|
+    |   + find_largest_component_ccl_Pipeline_COPY_ROW        |     -|  1.07|      162|  1.620e+03|         -|      162|      -|        no|         -|        -|   26 (~0%)|    73 (~0%)|    -|
+    |    o COPY_ROW                                           |     -|  7.30|      160|  1.600e+03|         2|        1|    160|       yes|         -|        -|          -|           -|    -|
+    | + card_recognizer_hw_Pipeline_ROI_Y_LOOP_ROI_X_LOOP     |     -|  1.00|    19205|  1.920e+05|         -|    19205|      -|        no|         -|   1 (1%)|  217 (~0%)|    419 (2%)|    -|
+    |  o ROI_Y_LOOP_ROI_X_LOOP                                |     -|  7.30|    19203|  1.920e+05|         5|        1|  19200|       yes|         -|        -|          -|           -|    -|
+    +---------------------------------------------------------+------+------+---------+-----------+----------+---------+-------+----------+----------+---------+-----------+------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* S_AXILITE Interfaces
++---------------+------------+---------------+--------+----------+
+| Interface     | Data Width | Address Width | Offset | Register |
++---------------+------------+---------------+--------+----------+
+| s_axi_control | 32         | 6             | 16     | 0        |
++---------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++---------------+------------------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| Interface     | Register         | Offset | Width | Access | Description                      | Bit Fields                                                           |
++---------------+------------------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| s_axi_control | CTRL             | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_control | GIER             | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                             |
+| s_axi_control | IP_IER           | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                        |
+| s_axi_control | IP_ISR           | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                        |
+| s_axi_control | result_rank      | 0x10   | 32    | R      | Data signal of result_rank       |                                                                      |
+| s_axi_control | result_rank_ctrl | 0x14   | 32    | R      | Control signal of result_rank    | 0=result_rank_ap_vld                                                 |
+| s_axi_control | result_suit      | 0x20   | 32    | R      | Data signal of result_suit       |                                                                      |
+| s_axi_control | result_suit_ctrl | 0x24   | 32    | R      | Control signal of result_suit    | 0=result_suit_ap_vld                                                 |
+| s_axi_control | width            | 0x30   | 32    | W      | Data signal of width             |                                                                      |
+| s_axi_control | height           | 0x38   | 32    | W      | Data signal of height            |                                                                      |
++---------------+------------------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+
+* AP_MEMORY
++--------------------+----------+
+| Interface          | Bitwidth |
++--------------------+----------+
+| input_rgb_address0 | 15       |
+| input_rgb_q0       | 24       |
++--------------------+----------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------+
+| Interface | Type       | Ports     |
++-----------+------------+-----------+
+| ap_clk    | clock      | ap_clk    |
+| ap_rst_n  | reset      | ap_rst_n  |
+| interrupt | interrupt  | interrupt |
+| ap_ctrl   | ap_ctrl_hs |           |
++-----------+------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++-------------+-----------+---------------+
+| Argument    | Direction | Datatype      |
++-------------+-----------+---------------+
+| input_rgb   | in        | ap_uint<24>*  |
+| result_rank | out       | unsigned int* |
+| result_suit | out       | unsigned int* |
+| width       | in        | int           |
+| height      | in        | int           |
++-------------+-----------+---------------+
+
+* SW-to-HW Mapping
++-------------+--------------------+----------+----------+--------------------------------------------+
+| Argument    | HW Interface       | HW Type  | HW Usage | HW Info                                    |
++-------------+--------------------+----------+----------+--------------------------------------------+
+| input_rgb   | input_rgb_address0 | port     | offset   |                                            |
+| input_rgb   | input_rgb_ce0      | port     |          |                                            |
+| input_rgb   | input_rgb_q0       | port     |          |                                            |
+| result_rank | s_axi_control      | register |          | name=result_rank offset=0x10 range=32      |
+| result_rank | s_axi_control      | register |          | name=result_rank_ctrl offset=0x14 range=32 |
+| result_suit | s_axi_control      | register |          | name=result_suit offset=0x20 range=32      |
+| result_suit | s_axi_control      | register |          | name=result_suit_ctrl offset=0x24 range=32 |
+| width       | s_axi_control      | register |          | name=width offset=0x30 range=32            |
+| height      | s_axi_control      | register |          | name=height offset=0x38 range=32           |
++-------------+--------------------+----------+----------+--------------------------------------------+
+
+
+================================================================
+== Bind Op Report
+================================================================
++---------------------------------------------------------+-----+--------+--------------+-----+--------+---------+
+| Name                                                    | DSP | Pragma | Variable     | Op  | Impl   | Latency |
++---------------------------------------------------------+-----+--------+--------------+-----+--------+---------+
+| + card_recognizer_hw                                    | 8   |        |              |     |        |         |
+|   mul_32s_32s_32_2_1_U78                                | 3   |        | n            | mul | auto   | 1       |
+|   sub_ln230_fu_270_p2                                   | -   |        | sub_ln230    | sub | fabric | 0       |
+|   sub_ln231_fu_233_p2                                   | -   |        | sub_ln231    | sub | fabric | 0       |
+|   add_ln233_fu_283_p2                                   | -   |        | add_ln233    | add | fabric | 0       |
+|   sub_ln233_1_fu_380_p2                                 | -   |        | sub_ln233_1  | sub | fabric | 0       |
+|   add_ln234_fu_243_p2                                   | -   |        | add_ln234    | add | fabric | 0       |
+|   mul_mul_10s_11ns_22_4_1_U79                           | 1   |        | mul_ln234    | mul | dsp48  | 3       |
+|   sub_ln234_fu_332_p2                                   | -   |        | sub_ln234    | sub | fabric | 0       |
+|   sub_ln234_1_fu_364_p2                                 | -   |        | sub_ln234_1  | sub | fabric | 0       |
+|   x1_fu_449_p2                                          | -   |        | x1           | add | fabric | 0       |
+|   y1_fu_455_p2                                          | -   |        | y1           | add | fabric | 0       |
+|  + card_recognizer_hw_Pipeline_GRAYSCALE_LOOP           | 2   |        |              |     |        |         |
+|    add_ln33_fu_124_p2                                   | -   |        | add_ln33     | add | fabric | 0       |
+|    mul_8ns_8ns_15_1_1_U1                                | -   |        | mul_ln40     | mul | auto   | 0       |
+|    mac_muladd_8ns_8ns_15ns_16_4_1_U3                    | 1   |        | mul_ln40_1   | mul | dsp48  | 3       |
+|    mac_muladd_8ns_5ns_15ns_15_4_1_U2                    | 1   |        | mul_ln40_2   | mul | dsp48  | 3       |
+|    mac_muladd_8ns_5ns_15ns_15_4_1_U2                    | 1   |        | add_ln40     | add | dsp48  | 3       |
+|    mac_muladd_8ns_8ns_15ns_16_4_1_U3                    | 1   |        | add_ln40_1   | add | dsp48  | 3       |
+|  + card_recognizer_hw_Pipeline_BINARIZE_LOOP            | 0   |        |              |     |        |         |
+|    add_ln50_fu_98_p2                                    | -   |        | add_ln50     | add | fabric | 0       |
+|  + find_largest_component_ccl                           | 1   |        |              |     |        |         |
+|    add_ln127_fu_235_p2                                  | -   |        | add_ln127    | add | fabric | 0       |
+|    mul_mul_15s_15s_15_4_1_U61                           | 1   |        | empty        | mul | dsp48  | 3       |
+|   + find_largest_component_ccl_Pipeline_INIT_COMPONENTS | 0   |        |              |     |        |         |
+|     i_2_fu_143_p2                                       | -   |        | i_2          | add | fabric | 0       |
+|   + find_largest_component_ccl_Pipeline_INIT_ROWS       | 0   |        |              |     |        |         |
+|     add_ln117_fu_110_p2                                 | -   |        | add_ln117    | add | fabric | 0       |
+|   + find_largest_component_ccl_Pipeline_CLEAR_CURR_ROW  | 0   |        |              |     |        |         |
+|     add_ln130_fu_78_p2                                  | -   |        | add_ln130    | add | fabric | 0       |
+|   + find_largest_component_ccl_Pipeline_SELECT_BEST     | 0   |        |              |     |        |         |
+|     add_ln205_fu_262_p2                                 | -   |        | add_ln205    | add | fabric | 0       |
+|   + find_largest_component_ccl_Pipeline_CCL_X_LOOP      | 0   |        |              |     |        |         |
+|     add_ln137_fu_585_p2                                 | -   |        | add_ln137    | add | fabric | 0       |
+|     add_ln139_fu_534_p2                                 | -   |        | add_ln139    | add | fabric | 0       |
+|     add_ln142_fu_548_p2                                 | -   |        | add_ln142    | add | fabric | 0       |
+|     add_ln83_fu_807_p2                                  | -   |        | add_ln83     | add | fabric | 0       |
+|     next_label_3_fu_822_p2                              | -   |        | next_label_3 | add | fabric | 0       |
+|     add_ln183_fu_866_p2                                 | -   |        | add_ln183    | add | fabric | 0       |
+|   + find_largest_component_ccl_Pipeline_COPY_ROW        | 0   |        |              |     |        |         |
+|     add_ln189_fu_106_p2                                 | -   |        | add_ln189    | add | fabric | 0       |
+|  + card_recognizer_hw_Pipeline_ROI_Y_LOOP_ROI_X_LOOP    | 1   |        |              |     |        |         |
+|    add_ln246_fu_200_p2                                  | -   |        | add_ln246    | add | fabric | 0       |
+|    add_ln246_1_fu_223_p2                                | -   |        | add_ln246_1  | add | fabric | 0       |
+|    mac_muladd_7ns_15s_8ns_15_4_1_U69                    | 1   |        | mul_ln246    | mul | dsp48  | 3       |
+|    mac_muladd_7ns_15s_8ns_15_4_1_U69                    | 1   |        | add_ln253    | add | dsp48  | 3       |
+|    add_ln255_fu_346_p2                                  | -   |        | add_ln255    | add | fabric | 0       |
+|    add_ln249_fu_315_p2                                  | -   |        | add_ln249    | add | fabric | 0       |
++---------------------------------------------------------+-----+--------+--------------+-----+--------+---------+
+
+
+================================================================
+== Bind Storage Report
+================================================================
++-------------------------------+------+------+--------+----------------+---------+------+---------+
+| Name                          | BRAM | URAM | Pragma | Variable       | Storage | Impl | Latency |
++-------------------------------+------+------+--------+----------------+---------+------+---------+
+| + card_recognizer_hw          | 24   | 0    |        |                |         |      |         |
+|   gray_V_U                    | 16   | -    | pragma | gray_V         | ram_2p  | bram | 1       |
+|   binary_V_U                  | 2    | -    | pragma | binary_V       | ram_2p  | bram | 1       |
+|  + find_largest_component_ccl | 6    | 0    |        |                |         |      |         |
+|    prev_label_V_U             | -    | -    |        | prev_label_V   | ram_1p  | auto | 1       |
+|    prev_label_V_1_U           | -    | -    |        | prev_label_V_1 | ram_1p  | auto | 1       |
+|    curr_label_V_U             | -    | -    |        | curr_label_V   | ram_1p  | auto | 1       |
+|    curr_label_V_1_U           | -    | -    |        | curr_label_V_1 | ram_1p  | auto | 1       |
+|    parent_V_U                 | 1    | -    |        | parent_V       | ram_t2p | auto | 1       |
+|    min_x_V_U                  | 1    | -    |        | min_x_V        | ram_t2p | auto | 1       |
+|    min_y_V_U                  | 1    | -    |        | min_y_V        | ram_t2p | auto | 1       |
+|    max_x_V_U                  | 1    | -    |        | max_x_V        | ram_t2p | auto | 1       |
+|    max_y_V_U                  | 1    | -    |        | max_y_V        | ram_t2p | auto | 1       |
+|    count_U                    | 2    | -    |        | count          | ram_1p  | auto | 1       |
++-------------------------------+------+------+--------+----------------+---------+------+---------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------------+-------------------------------------------------------------+----------------------------------------------------------------------------------------+
+| Type            | Options                                                     | Location                                                                               |
++-----------------+-------------------------------------------------------------+----------------------------------------------------------------------------------------+
+| loop_tripcount  | min=19200 max=19200                                         | hls_fajlovi/card_recognizer_dram_hls.cpp:34 in to_grayscale                            |
+| pipeline        | II=1                                                        | hls_fajlovi/card_recognizer_dram_hls.cpp:35 in to_grayscale                            |
+| loop_tripcount  | min=19200 max=19200                                         | hls_fajlovi/card_recognizer_dram_hls.cpp:51 in binarize                                |
+| pipeline        | II=1                                                        | hls_fajlovi/card_recognizer_dram_hls.cpp:52 in binarize                                |
+| inline          |                                                             | hls_fajlovi/card_recognizer_dram_hls.cpp:58 in find_root                               |
+| inline          |                                                             | hls_fajlovi/card_recognizer_dram_hls.cpp:74 in merge_components                        |
+| array_partition | variable=prev_label cyclic factor=2                         | hls_fajlovi/card_recognizer_dram_hls.cpp:101 in find_largest_component_ccl, prev_label |
+| array_partition | variable=curr_label cyclic factor=2                         | hls_fajlovi/card_recognizer_dram_hls.cpp:102 in find_largest_component_ccl, curr_label |
+| loop_tripcount  | min=256 max=256                                             | hls_fajlovi/card_recognizer_dram_hls.cpp:106 in find_largest_component_ccl             |
+| pipeline        | II=1                                                        | hls_fajlovi/card_recognizer_dram_hls.cpp:107 in find_largest_component_ccl             |
+| loop_tripcount  | min=160 max=160                                             | hls_fajlovi/card_recognizer_dram_hls.cpp:118 in find_largest_component_ccl             |
+| pipeline        | II=1                                                        | hls_fajlovi/card_recognizer_dram_hls.cpp:119 in find_largest_component_ccl             |
+| loop_tripcount  | min=120 max=120                                             | hls_fajlovi/card_recognizer_dram_hls.cpp:128 in find_largest_component_ccl             |
+| loop_tripcount  | min=160 max=160                                             | hls_fajlovi/card_recognizer_dram_hls.cpp:131 in find_largest_component_ccl             |
+| pipeline        | II=1                                                        | hls_fajlovi/card_recognizer_dram_hls.cpp:132 in find_largest_component_ccl             |
+| loop_tripcount  | min=160 max=160                                             | hls_fajlovi/card_recognizer_dram_hls.cpp:138 in find_largest_component_ccl             |
+| loop_tripcount  | min=160 max=160                                             | hls_fajlovi/card_recognizer_dram_hls.cpp:190 in find_largest_component_ccl             |
+| pipeline        | II=1                                                        | hls_fajlovi/card_recognizer_dram_hls.cpp:191 in find_largest_component_ccl             |
+| loop_tripcount  | min=255 max=255                                             | hls_fajlovi/card_recognizer_dram_hls.cpp:206 in find_largest_component_ccl             |
+| pipeline        | II=1                                                        | hls_fajlovi/card_recognizer_dram_hls.cpp:207 in find_largest_component_ccl             |
+| loop_tripcount  | min=120 max=120                                             | hls_fajlovi/card_recognizer_dram_hls.cpp:247 in analyze_top_left_roi                   |
+| loop_tripcount  | min=160 max=160                                             | hls_fajlovi/card_recognizer_dram_hls.cpp:250 in analyze_top_left_roi                   |
+| pipeline        | II=1                                                        | hls_fajlovi/card_recognizer_dram_hls.cpp:251 in analyze_top_left_roi                   |
+| interface       | mode=ap_memory port=input_rgb storage_type=ram_2p latency=1 | hls_fajlovi/card_recognizer_dram_hls.cpp:271 in card_recognizer_hw, input_rgb          |
+| interface       | s_axilite port=result_rank                                  | hls_fajlovi/card_recognizer_dram_hls.cpp:272 in card_recognizer_hw, result_rank        |
+| interface       | s_axilite port=result_suit                                  | hls_fajlovi/card_recognizer_dram_hls.cpp:273 in card_recognizer_hw, result_suit        |
+| interface       | s_axilite port=width                                        | hls_fajlovi/card_recognizer_dram_hls.cpp:274 in card_recognizer_hw, width              |
+| interface       | s_axilite port=height                                       | hls_fajlovi/card_recognizer_dram_hls.cpp:275 in card_recognizer_hw, height             |
+| interface       | s_axilite port=return                                       | hls_fajlovi/card_recognizer_dram_hls.cpp:276 in card_recognizer_hw, return             |
+| bind_storage    | variable=gray type=ram_2p impl=bram                         | hls_fajlovi/card_recognizer_dram_hls.cpp:281 in card_recognizer_hw, gray               |
+| bind_storage    | variable=binary type=ram_2p impl=bram                       | hls_fajlovi/card_recognizer_dram_hls.cpp:282 in card_recognizer_hw, binary             |
++-----------------+-------------------------------------------------------------+----------------------------------------------------------------------------------------+
+
+

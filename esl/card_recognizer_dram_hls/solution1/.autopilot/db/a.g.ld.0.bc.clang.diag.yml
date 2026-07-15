@@ -1,0 +1,1662 @@
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                   Line: 1048, Column: 12 }
+Function:        _ZN11ap_int_baseILi24ELb0EE5rangeEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_range_ref<24, false>::ap_range_ref(ap_int_base<24, false>*, int, int)'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_ref.h', 
+                       Line: 304, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'ap_int_base<24, false>::range(int, int)'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 1045, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_ref.h', 
+                   Line: 315, Column: 76 }
+Function:        _ZNK12ap_range_refILi24ELb0EEcvyEv
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_range_ref<24, false>::to_uint64() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_ref.h', 
+                       Line: 665, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'ap_range_ref<24, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_ref.h', 
+                       Line: 315, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                   Line: 215, Column: 76 }
+Function:        _ZN11ap_int_baseILi8ELb0EEC2Ej
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ssdm_int<8, false>::ssdm_int(unsigned char)'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_common.h', 
+                       Line: 523, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'ap_int_base<8, false>::ap_int_base(unsigned int)'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 215, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+Function:        _ZN7ap_uintILi8EEC2Ej
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::ap_int_base(unsigned int)'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 215, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'ap_uint<8>::ap_uint(unsigned int)'
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 37, 
+                   Column: 30 }
+Function:        _Z12to_grayscalePK7ap_uintILi24EEPS_ILi8EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<24, false>::range(int, int)'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 1045, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'to_grayscale(ap_uint<24> const*, ap_uint<8>*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 30, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 39, 
+                   Column: 26 }
+Function:        _Z12to_grayscalePK7ap_uintILi24EEPS_ILi8EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_range_ref<24, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_ref.h', 
+                       Line: 315, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'to_grayscale(ap_uint<24> const*, ap_uint<8>*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 30, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 39, 
+                   Column: 30 }
+Function:        _Z12to_grayscalePK7ap_uintILi24EEPS_ILi8EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<24, false>::range(int, int)'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 1045, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'to_grayscale(ap_uint<24> const*, ap_uint<8>*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 30, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 38, 
+                   Column: 26 }
+Function:        _Z12to_grayscalePK7ap_uintILi24EEPS_ILi8EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_range_ref<24, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_ref.h', 
+                       Line: 315, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'to_grayscale(ap_uint<24> const*, ap_uint<8>*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 30, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 38, 
+                   Column: 30 }
+Function:        _Z12to_grayscalePK7ap_uintILi24EEPS_ILi8EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<24, false>::range(int, int)'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 1045, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'to_grayscale(ap_uint<24> const*, ap_uint<8>*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 30, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 37, 
+                   Column: 26 }
+Function:        _Z12to_grayscalePK7ap_uintILi24EEPS_ILi8EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_range_ref<24, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_ref.h', 
+                       Line: 315, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'to_grayscale(ap_uint<24> const*, ap_uint<8>*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 30, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                   Line: 214, Column: 67 }
+Function:        _ZN11ap_int_baseILi32ELb1EEC2Ei
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ssdm_int<32, true>::ssdm_int(int)'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_common.h', 
+                       Line: 515, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'ap_int_base<32, true>::ap_int_base(int)'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 214, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                   Line: 1788, Column: 337 }
+Function:        _ZgtILi8ELb0EEbRK11ap_int_baseIXT_EXT0_EEi
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<32, true>::ap_int_base(int)'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 214, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'bool operator><8, false>(ap_int_base<8, false> const&, int)'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 1788, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                   Line: 1788, Column: 335 }
+Function:        _ZgtILi8ELb0EEbRK11ap_int_baseIXT_EXT0_EEi
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'bool ap_int_base<8, false>::operator><32, true>(ap_int_base<32, true> const&) const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 1034, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'bool operator><8, false>(ap_int_base<8, false> const&, int)'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 1788, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                   Line: 214, Column: 67 }
+Function:        _ZN11ap_int_baseILi1ELb0EEC2Ei
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          _ZN8ssdm_intILi1ELb0EEC2EDq1_j
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_common.h', 
+                       Line: 523, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'ap_int_base<1, false>::ap_int_base(int)'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 214, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+Function:        _ZN7ap_uintILi1EEC2Ei
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<1, false>::ap_int_base(int)'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 214, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'ap_uint<1>::ap_uint(int)'
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 53, 
+                   Column: 23 }
+Function:        _Z8binarizePK7ap_uintILi8EEPS_ILi1EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'bool operator><8, false>(ap_int_base<8, false> const&, int)'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 1788, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'binarize(ap_uint<8> const*, ap_uint<1>*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 48, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                   Line: 214, Column: 67 }
+Function:        _ZN11ap_int_baseILi8ELb0EEC2Ei
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ssdm_int<8, false>::ssdm_int(unsigned char)'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_common.h', 
+                       Line: 523, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'ap_int_base<8, false>::ap_int_base(int)'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 214, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+Function:        _ZN7ap_uintILi8EEC2Ei
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::ap_int_base(int)'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 214, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'ap_uint<8>::ap_uint(int)'
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                   Line: 1788, Column: 2233 }
+Function:        _ZneILi8ELb0EEbRK11ap_int_baseIXT_EXT0_EEi
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<32, true>::ap_int_base(int)'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 214, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'bool operator!=<8, false>(ap_int_base<8, false> const&, int)'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 1788, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                   Line: 1788, Column: 2230 }
+Function:        _ZneILi8ELb0EEbRK11ap_int_baseIXT_EXT0_EEi
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'bool ap_int_base<8, false>::operator!=<32, true>(ap_int_base<32, true> const&) const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 1022, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'bool operator!=<8, false>(ap_int_base<8, false> const&, int)'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 1788, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 59, 
+                   Column: 22 }
+Function:        _Z9find_rootPK7ap_uintILi8EES0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_root(ap_uint<8> const*, ap_uint<8>)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 57, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 60, 
+                   Column: 25 }
+Function:        _Z9find_rootPK7ap_uintILi8EES0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_root(ap_uint<8> const*, ap_uint<8>)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 57, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                   Line: 1788, Column: 1853 }
+Function:        _ZeqILi8ELb0EEbRK11ap_int_baseIXT_EXT0_EEi
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<32, true>::ap_int_base(int)'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 214, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'bool operator==<8, false>(ap_int_base<8, false> const&, int)'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 1788, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                   Line: 1788, Column: 1850 }
+Function:        _ZeqILi8ELb0EEbRK11ap_int_baseIXT_EXT0_EEi
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'bool ap_int_base<8, false>::operator==<32, true>(ap_int_base<32, true> const&) const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 1018, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'bool operator==<8, false>(ap_int_base<8, false> const&, int)'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 1788, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 75, 
+                   Column: 11 }
+Function:        _Z16merge_componentsP7ap_uintILi8EES1_S1_S1_S1_PjS0_S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'bool operator==<8, false>(ap_int_base<8, false> const&, int)'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 1788, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 73, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 85, 
+                   Column: 12 }
+Function:        _Z16merge_componentsP7ap_uintILi8EES1_S1_S1_S1_PjS0_S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 73, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 84, 
+                   Column: 11 }
+Function:        _Z16merge_componentsP7ap_uintILi8EES1_S1_S1_S1_PjS0_S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 73, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 83, 
+                   Column: 11 }
+Function:        _Z16merge_componentsP7ap_uintILi8EES1_S1_S1_S1_PjS0_S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 73, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 83, 
+                   Column: 26 }
+Function:        _Z16merge_componentsP7ap_uintILi8EES1_S1_S1_S1_PjS0_S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 73, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 82, 
+                   Column: 42 }
+Function:        _Z16merge_componentsP7ap_uintILi8EES1_S1_S1_S1_PjS0_S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 73, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 82, 
+                   Column: 56 }
+Function:        _Z16merge_componentsP7ap_uintILi8EES1_S1_S1_S1_PjS0_S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 73, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 82, 
+                   Column: 21 }
+Function:        _Z16merge_componentsP7ap_uintILi8EES1_S1_S1_S1_PjS0_S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'bool ap_int_base<8, false>::operator><8, false>(ap_int_base<8, false> const&) const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 1034, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 73, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 82, 
+                   Column: 29 }
+Function:        _Z16merge_componentsP7ap_uintILi8EES1_S1_S1_S1_PjS0_S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 73, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 82, 
+                   Column: 15 }
+Function:        _Z16merge_componentsP7ap_uintILi8EES1_S1_S1_S1_PjS0_S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 73, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 81, 
+                   Column: 42 }
+Function:        _Z16merge_componentsP7ap_uintILi8EES1_S1_S1_S1_PjS0_S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 73, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 81, 
+                   Column: 56 }
+Function:        _Z16merge_componentsP7ap_uintILi8EES1_S1_S1_S1_PjS0_S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 73, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 81, 
+                   Column: 21 }
+Function:        _Z16merge_componentsP7ap_uintILi8EES1_S1_S1_S1_PjS0_S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'bool ap_int_base<8, false>::operator><8, false>(ap_int_base<8, false> const&) const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 1034, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 73, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 81, 
+                   Column: 29 }
+Function:        _Z16merge_componentsP7ap_uintILi8EES1_S1_S1_S1_PjS0_S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 73, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 81, 
+                   Column: 15 }
+Function:        _Z16merge_componentsP7ap_uintILi8EES1_S1_S1_S1_PjS0_S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 73, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 80, 
+                   Column: 42 }
+Function:        _Z16merge_componentsP7ap_uintILi8EES1_S1_S1_S1_PjS0_S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 73, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 80, 
+                   Column: 56 }
+Function:        _Z16merge_componentsP7ap_uintILi8EES1_S1_S1_S1_PjS0_S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 73, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 80, 
+                   Column: 21 }
+Function:        _Z16merge_componentsP7ap_uintILi8EES1_S1_S1_S1_PjS0_S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'bool ap_int_base<8, false>::operator<<8, false>(ap_int_base<8, false> const&) const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 1026, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 73, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 80, 
+                   Column: 29 }
+Function:        _Z16merge_componentsP7ap_uintILi8EES1_S1_S1_S1_PjS0_S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 73, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 80, 
+                   Column: 15 }
+Function:        _Z16merge_componentsP7ap_uintILi8EES1_S1_S1_S1_PjS0_S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 73, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 79, 
+                   Column: 42 }
+Function:        _Z16merge_componentsP7ap_uintILi8EES1_S1_S1_S1_PjS0_S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 73, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 79, 
+                   Column: 56 }
+Function:        _Z16merge_componentsP7ap_uintILi8EES1_S1_S1_S1_PjS0_S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 73, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 79, 
+                   Column: 21 }
+Function:        _Z16merge_componentsP7ap_uintILi8EES1_S1_S1_S1_PjS0_S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'bool ap_int_base<8, false>::operator<<8, false>(ap_int_base<8, false> const&) const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 1026, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 73, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 79, 
+                   Column: 29 }
+Function:        _Z16merge_componentsP7ap_uintILi8EES1_S1_S1_S1_PjS0_S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 73, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 79, 
+                   Column: 15 }
+Function:        _Z16merge_componentsP7ap_uintILi8EES1_S1_S1_S1_PjS0_S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 73, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 75, 
+                   Column: 54 }
+Function:        _Z16merge_componentsP7ap_uintILi8EES1_S1_S1_S1_PjS0_S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 73, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 75, 
+                   Column: 37 }
+Function:        _Z16merge_componentsP7ap_uintILi8EES1_S1_S1_S1_PjS0_S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'bool ap_int_base<8, false>::operator==<8, false>(ap_int_base<8, false> const&) const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 1018, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 73, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 75, 
+                   Column: 24 }
+Function:        _Z16merge_componentsP7ap_uintILi8EES1_S1_S1_S1_PjS0_S0_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'bool operator==<8, false>(ap_int_base<8, false> const&, int)'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 1788, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 73, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 208, 
+                   Column: 16 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'bool operator==<8, false>(ap_int_base<8, false> const&, int)'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 1788, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_largest_component_ccl(ap_uint<1> const*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 91, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 183, 
+                   Column: 27 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_largest_component_ccl(ap_uint<1> const*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 91, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 182, 
+                   Column: 49 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_largest_component_ccl(ap_uint<1> const*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 91, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 182, 
+                   Column: 28 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'bool ap_int_base<8, false>::operator><8, false>(ap_int_base<8, false> const&) const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 1034, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_largest_component_ccl(ap_uint<1> const*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 91, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 182, 
+                   Column: 36 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_largest_component_ccl(ap_uint<1> const*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 91, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 181, 
+                   Column: 49 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_largest_component_ccl(ap_uint<1> const*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 91, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 181, 
+                   Column: 28 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'bool ap_int_base<8, false>::operator><8, false>(ap_int_base<8, false> const&) const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 1034, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_largest_component_ccl(ap_uint<1> const*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 91, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 181, 
+                   Column: 36 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_largest_component_ccl(ap_uint<1> const*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 91, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 180, 
+                   Column: 49 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_largest_component_ccl(ap_uint<1> const*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 91, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 180, 
+                   Column: 28 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'bool ap_int_base<8, false>::operator<<8, false>(ap_int_base<8, false> const&) const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 1026, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_largest_component_ccl(ap_uint<1> const*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 91, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 180, 
+                   Column: 36 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_largest_component_ccl(ap_uint<1> const*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 91, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 179, 
+                   Column: 49 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_largest_component_ccl(ap_uint<1> const*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 91, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 179, 
+                   Column: 28 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'bool ap_int_base<8, false>::operator<<8, false>(ap_int_base<8, false> const&) const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 1026, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_largest_component_ccl(ap_uint<1> const*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 91, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 179, 
+                   Column: 36 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_largest_component_ccl(ap_uint<1> const*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 91, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 174, 
+                   Column: 36 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'find_root(ap_uint<8> const*, ap_uint<8>)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 57, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_largest_component_ccl(ap_uint<1> const*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 91, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 173, 
+                   Column: 28 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'bool operator!=<8, false>(ap_int_base<8, false> const&, int)'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 1788, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_largest_component_ccl(ap_uint<1> const*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 91, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 169, 
+                   Column: 27 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_largest_component_ccl(ap_uint<1> const*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 91, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 168, 
+                   Column: 27 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_largest_component_ccl(ap_uint<1> const*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 91, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 167, 
+                   Column: 27 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_largest_component_ccl(ap_uint<1> const*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 91, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 166, 
+                   Column: 27 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_largest_component_ccl(ap_uint<1> const*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 91, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 165, 
+                   Column: 27 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_largest_component_ccl(ap_uint<1> const*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 91, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 164, 
+                   Column: 28 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_largest_component_ccl(ap_uint<1> const*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 91, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 162, 
+                   Column: 28 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'bool operator==<8, false>(ap_int_base<8, false> const&, int)'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 1788, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_largest_component_ccl(ap_uint<1> const*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 91, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 157, 
+                   Column: 25 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 73, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_largest_component_ccl(ap_uint<1> const*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 91, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 156, 
+                   Column: 48 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'bool ap_int_base<8, false>::operator<<8, false>(ap_int_base<8, false> const&) const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 1026, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_largest_component_ccl(ap_uint<1> const*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 91, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 155, 
+                   Column: 48 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'bool ap_int_base<8, false>::operator<<8, false>(ap_int_base<8, false> const&) const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 1026, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_largest_component_ccl(ap_uint<1> const*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 91, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 154, 
+                   Column: 39 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'bool ap_int_base<8, false>::operator!=<8, false>(ap_int_base<8, false> const&) const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 1022, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_largest_component_ccl(ap_uint<1> const*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 91, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 152, 
+                   Column: 32 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'bool operator==<8, false>(ap_int_base<8, false> const&, int)'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 1788, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_largest_component_ccl(ap_uint<1> const*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 91, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 151, 
+                   Column: 39 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'find_root(ap_uint<8> const*, ap_uint<8>)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 57, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_largest_component_ccl(ap_uint<1> const*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 91, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 150, 
+                   Column: 24 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'bool operator!=<8, false>(ap_int_base<8, false> const&, int)'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 1788, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_largest_component_ccl(ap_uint<1> const*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 91, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 147, 
+                   Column: 30 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'find_root(ap_uint<8> const*, ap_uint<8>)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 57, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_largest_component_ccl(ap_uint<1> const*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 91, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 146, 
+                   Column: 26 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'bool operator!=<8, false>(ap_int_base<8, false> const&, int)'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 1788, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_largest_component_ccl(ap_uint<1> const*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 91, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 141, 
+                   Column: 17 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<1, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'find_largest_component_ccl(ap_uint<1> const*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 91, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 226, 
+                   Column: 9 }
+Function:        _Z20analyze_top_left_roiPK7ap_uintILi1EE4BBoxi
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<1, false>::operator!() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 901, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'analyze_top_left_roi(ap_uint<1> const*, BBox, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 225, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 254, 
+                   Column: 21 }
+Function:        _Z20analyze_top_left_roiPK7ap_uintILi1EE4BBoxi
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<1, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'analyze_top_left_roi(ap_uint<1> const*, BBox, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 225, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 239, 
+                   Column: 14 }
+Function:        _Z20analyze_top_left_roiPK7ap_uintILi1EE4BBoxi
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'analyze_top_left_roi(ap_uint<1> const*, BBox, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 225, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 238, 
+                   Column: 14 }
+Function:        _Z20analyze_top_left_roiPK7ap_uintILi1EE4BBoxi
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'analyze_top_left_roi(ap_uint<1> const*, BBox, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 225, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 231, 
+                   Column: 44 }
+Function:        _Z20analyze_top_left_roiPK7ap_uintILi1EE4BBoxi
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'analyze_top_left_roi(ap_uint<1> const*, BBox, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 225, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 231, 
+                   Column: 22 }
+Function:        _Z20analyze_top_left_roiPK7ap_uintILi1EE4BBoxi
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'analyze_top_left_roi(ap_uint<1> const*, BBox, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 225, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 230, 
+                   Column: 44 }
+Function:        _Z20analyze_top_left_roiPK7ap_uintILi1EE4BBoxi
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'analyze_top_left_roi(ap_uint<1> const*, BBox, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 225, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 230, 
+                   Column: 22 }
+Function:        _Z20analyze_top_left_roiPK7ap_uintILi1EE4BBoxi
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ap_int_base<8, false>::operator unsigned long long() const'
+    DebugLoc:        { File: 'C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h', 
+                       Line: 541, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'analyze_top_left_roi(ap_uint<1> const*, BBox, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 225, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 270, 
+                   Column: 0 }
+Function:        _Z18card_recognizer_hwP7ap_uintILi24EEPjS2_ii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'to_grayscale(ap_uint<24> const*, ap_uint<8>*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 30, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'card_recognizer_hw(ap_uint<24>*, unsigned int*, unsigned int*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 270, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 270, 
+                   Column: 0 }
+Function:        _Z18card_recognizer_hwP7ap_uintILi24EEPjS2_ii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'binarize(ap_uint<8> const*, ap_uint<1>*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 48, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'card_recognizer_hw(ap_uint<24>*, unsigned int*, unsigned int*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 270, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 270, 
+                   Column: 0 }
+Function:        _Z18card_recognizer_hwP7ap_uintILi24EEPjS2_ii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'analyze_top_left_roi(ap_uint<1> const*, BBox, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 225, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'card_recognizer_hw(ap_uint<24>*, unsigned int*, unsigned int*, int, int)'
+    DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, 
+                       Line: 270, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 92, 
+                   Column: 13 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          prev_label
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Cyclic
+  - String:          ' partitioning'
+  - String:          ' with factor '
+  - Factor:          '2'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: hls_fajlovi/card_recognizer_dram_hls.cpp, Line: 93, 
+                   Column: 13 }
+Function:        _Z26find_largest_component_cclPK7ap_uintILi1EEii
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          curr_label
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Cyclic
+  - String:          ' partitioning'
+  - String:          ' with factor '
+  - Factor:          '2'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...

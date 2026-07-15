@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1784131350088">
+  <ports id="1" name="curr_label_V_1" type="PortType" coreName="RAM" coreId="825368659" bitwidth="8" direction="DirOut" iftype="IfTypeRegister" arraysize="80">
+    <dataInputObjs>getelementptr</dataInputObjs>
+  </ports>
+  <ports id="2" name="curr_label_V" type="PortType" coreName="RAM" coreId="1702129263" bitwidth="8" direction="DirOut" iftype="IfTypeRegister" arraysize="80">
+    <dataInputObjs>getelementptr</dataInputObjs>
+  </ports>
+  <ports id="3" name="prev_label_V_1" type="PortType" coreName="RAM" coreId="1702129263" bitwidth="8" direction="DirOut" iftype="IfTypeRegister" arraysize="80">
+    <dataInputObjs>getelementptr</dataInputObjs>
+  </ports>
+  <ports id="4" name="prev_label_V" type="PortType" coreName="RAM" coreId="1702129263" bitwidth="8" direction="DirOut" iftype="IfTypeRegister" arraysize="80">
+    <dataInputObjs>getelementptr</dataInputObjs>
+  </ports>
+  <edges id="43" source_obj="//@blocks.0/@node_objs.0" sink_obj="//@blocks.0/@node_objs.1"/>
+  <edges id="44" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.0" sink_obj="//@blocks.0/@node_objs.2"/>
+  <edges id="45" source_obj="//@blocks.0/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.0"/>
+  <edges id="46" source_obj="//@regions.0/@basic_blocks.0/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.1"/>
+  <edges id="49" source_obj="//@regions.0/@basic_blocks.0/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.2"/>
+  <edges id="52" source_obj="//@regions.0/@basic_blocks.0/@node_objs.1" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.3"/>
+  <edges id="53" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.1" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.3"/>
+  <edges id="54" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.3"/>
+  <edges id="55" source_obj="//@regions.0/@basic_blocks.0/@node_objs.2" sink_obj="//@regions.0/@basic_blocks.4/@node_objs.0"/>
+  <edges id="56" source_obj="//@blocks.0/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.4/@node_objs.0"/>
+  <edges id="57" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.0" sink_obj="//@regions.0/@basic_blocks.4/@node_objs.1"/>
+  <edges id="59" source_obj="//@regions.0/@basic_blocks.1/@node_objs.2" sink_obj="//@regions.0/@basic_blocks.2/@node_objs.0"/>
+  <edges id="61" source_obj="//@regions.0/@basic_blocks.1/@node_objs.5" sink_obj="//@regions.0/@basic_blocks.2/@node_objs.1"/>
+  <edges id="62" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.4" sink_obj="//@regions.0/@basic_blocks.2/@node_objs.2"/>
+  <edges id="65" source_obj="//@regions.0/@basic_blocks.0/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.1/@node_objs.0"/>
+  <edges id="69" source_obj="//@regions.0/@basic_blocks.1/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.1/@node_objs.1"/>
+  <edges id="70" source_obj="//@regions.0/@basic_blocks.1/@node_objs.2" sink_obj="//@ports.3"/>
+  <edges id="73" source_obj="//@regions.0/@basic_blocks.1/@node_objs.1" sink_obj="//@regions.0/@basic_blocks.1/@node_objs.2"/>
+  <edges id="74" source_obj="//@regions.0/@basic_blocks.1/@node_objs.3" sink_obj="//@ports.2"/>
+  <edges id="76" source_obj="//@regions.0/@basic_blocks.1/@node_objs.1" sink_obj="//@regions.0/@basic_blocks.1/@node_objs.3"/>
+  <edges id="77" source_obj="//@regions.0/@basic_blocks.0/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.1/@node_objs.4"/>
+  <edges id="78" source_obj="//@regions.0/@basic_blocks.1/@node_objs.5" sink_obj="//@ports.1"/>
+  <edges id="80" source_obj="//@regions.0/@basic_blocks.1/@node_objs.1" sink_obj="//@regions.0/@basic_blocks.1/@node_objs.5"/>
+  <edges id="81" source_obj="//@regions.0/@basic_blocks.1/@node_objs.4" sink_obj="//@regions.0/@basic_blocks.1/@node_objs.6"/>
+  <edges id="82" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.2" sink_obj="//@regions.0/@basic_blocks.1/@node_objs.6"/>
+  <edges id="83" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.3" sink_obj="//@regions.0/@basic_blocks.1/@node_objs.6"/>
+  <edges id="85" source_obj="//@regions.0/@basic_blocks.1/@node_objs.3" sink_obj="//@regions.0/@basic_blocks.3/@node_objs.0"/>
+  <edges id="86" source_obj="//@regions.0/@basic_blocks.3/@node_objs.1" sink_obj="//@ports.0"/>
+  <edges id="88" source_obj="//@regions.0/@basic_blocks.1/@node_objs.1" sink_obj="//@regions.0/@basic_blocks.3/@node_objs.1"/>
+  <edges id="90" source_obj="//@regions.0/@basic_blocks.3/@node_objs.1" sink_obj="//@regions.0/@basic_blocks.3/@node_objs.2"/>
+  <edges id="91" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.4" sink_obj="//@regions.0/@basic_blocks.3/@node_objs.3"/>
+  <edges id="111" edge_type="CtrlEdge" source_obj="//@blocks.0" sink_obj="//@regions.0/@basic_blocks.0"/>
+  <edges id="112" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.0" sink_obj="//@blocks.1"/>
+  <edges id="113" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.0" sink_obj="//@regions.0/@basic_blocks.1"/>
+  <edges id="114" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.1" sink_obj="//@regions.0/@basic_blocks.3"/>
+  <edges id="115" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.1" sink_obj="//@regions.0/@basic_blocks.2"/>
+  <edges id="116" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.2" sink_obj="//@regions.0/@basic_blocks.4"/>
+  <edges id="117" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.3" sink_obj="//@regions.0/@basic_blocks.4"/>
+  <edges id="118" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.4" sink_obj="//@regions.0/@basic_blocks.0" is_back_edge="1"/>
+  <edges id="119" edge_type="VirtEdge" source_obj="//@blocks.0/@node_objs.1" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.0"/>
+  <edges id="120" edge_type="VirtEdge" source_obj="//@blocks.0/@node_objs.1" sink_obj="//@regions.0/@basic_blocks.4/@node_objs.0"/>
+  <edges id="121" edge_type="VirtEdge" source_obj="//@regions.0/@basic_blocks.0/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.4/@node_objs.0"/>
+  <blocks id="8" name="newFuncRoot" type="BlockType">
+    <controlOutputObjs>for.inc69</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="5" name="x" originalName="x" coreId="0" bitwidth="8" opcode="alloca" m_display="0" m_topoIndex="1" m_clusterGroupNumber="-1">
+      <dataOutputObjs>store</dataOutputObjs>
+      <dataOutputObjs>load</dataOutputObjs>
+      <dataOutputObjs>store</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="6" name="x_write_ln0" coreId="0" opcode="store" m_display="0" m_delay="1.58" m_topoIndex="2" m_clusterGroupNumber="-1">
+      <dataInputObjs>alloca</dataInputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="7" name="br_ln0" coreId="2613955248" opcode="br" m_display="0" m_topoIndex="3" m_clusterGroupNumber="-1">
+      <controlInputObjs>for.inc69</controlInputObjs>
+    </node_objs>
+  </blocks>
+  <blocks id="38" name="CCL_Y_LOOP.exitStub" type="BlockType">
+    <controlInputObjs>for.inc69</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="37" name="_ln0" coreId="2613234920" opcode="ret" m_display="0" m_topoIndex="24" m_clusterGroupNumber="-1"/>
+  </blocks>
+  <regions anchor_node="-1" region_type="8" interval="1" typeName="Pipeline" iiViolation="" id="132" pipe_depth="1" RegionName="INIT_ROWS">
+    <basic_blocks id="13" name="for.inc69" type="BlockType">
+      <controlInputObjs>newFuncRoot</controlInputObjs>
+      <controlInputObjs>arrayidx68.exit</controlInputObjs>
+      <controlOutputObjs>br</controlOutputObjs>
+      <controlOutputObjs>br</controlOutputObjs>
+      <controlOutputObjs>CCL_Y_LOOP.exitStub</controlOutputObjs>
+      <controlOutputObjs>for.inc69.split</controlOutputObjs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="9" name="x_1" lineNumber="120" originalName="x" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." coreId="0" contextFuncName="find_largest_component_ccl" bitwidth="8" opcode="load" m_display="0" m_topoIndex="4" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="120" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="find_largest_component_ccl"/>
+        <dataInputObjs>alloca</dataInputObjs>
+        <dataOutputObjs>icmp</dataOutputObjs>
+        <dataOutputObjs>add</dataOutputObjs>
+        <dataOutputObjs>partselect</dataOutputObjs>
+        <dataOutputObjs>trunc</dataOutputObjs>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="10" name="icmp_ln117" lineNumber="117" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="icmp_ln117_fu_104_p2" coreName="Cmp" implIndex="auto" control="no" opType="icmp" coreId="9" contextFuncName="find_largest_component_ccl" bitwidth="1" opcode="icmp" m_display="0" m_delay="1.55" m_topoIndex="5" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="117" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="find_largest_component_ccl"/>
+        <dataInputObjs>load</dataInputObjs>
+        <dataOutputObjs>br</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="11" name="add_ln117" lineNumber="117" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="add_ln117_fu_110_p2" coreName="Adder" implIndex="fabric" control="no" opType="add" coreId="1" contextFuncName="find_largest_component_ccl" bitwidth="8" opcode="add" m_display="0" m_delay="1.91" m_topoIndex="6" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="117" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="find_largest_component_ccl"/>
+        <dataInputObjs>load</dataInputObjs>
+        <dataOutputObjs>store</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="12" name="br_ln117" lineNumber="117" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." coreId="2614205376" contextFuncName="find_largest_component_ccl" opcode="br" m_display="0" m_topoIndex="7" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="117" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="find_largest_component_ccl"/>
+        <dataInputObjs>icmp</dataInputObjs>
+        <controlInputObjs>for.inc69.split</controlInputObjs>
+        <controlInputObjs>CCL_Y_LOOP.exitStub</controlInputObjs>
+      </node_objs>
+      <fileValidLineNumbers fileName="hls_fajlovi/card_recognizer_dram_hls.cpp">
+        <validLinenumbers>120</validLinenumbers>
+        <validLinenumbers>117</validLinenumbers>
+      </fileValidLineNumbers>
+    </basic_blocks>
+    <basic_blocks id="24" name="for.inc69.split" type="BlockType">
+      <controlInputObjs>for.inc69</controlInputObjs>
+      <controlOutputObjs>br</controlOutputObjs>
+      <controlOutputObjs>arrayidx68.case.1</controlOutputObjs>
+      <controlOutputObjs>arrayidx68.case.0</controlOutputObjs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="17" name="lshr_ln" lineNumber="120" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="lshr_ln_fu_116_p4" coreId="2614235088" contextFuncName="find_largest_component_ccl" bitwidth="7" opcode="partselect" m_display="0" m_topoIndex="8" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="120" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="find_largest_component_ccl"/>
+        <dataInputObjs>load</dataInputObjs>
+        <dataOutputObjs>zext</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="18" name="zext_ln120" lineNumber="120" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="zext_ln120_fu_126_p1" coreId="354477629" contextFuncName="find_largest_component_ccl" bitwidth="64" opcode="zext" m_display="0" m_topoIndex="9" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="120" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="find_largest_component_ccl"/>
+        <dataInputObjs>partselect</dataInputObjs>
+        <dataOutputObjs>getelementptr</dataOutputObjs>
+        <dataOutputObjs>getelementptr</dataOutputObjs>
+        <dataOutputObjs>getelementptr</dataOutputObjs>
+        <dataOutputObjs>getelementptr</dataOutputObjs>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="19" name="prev_label_V_addr" lineNumber="120" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." coreId="2613810432" contextFuncName="find_largest_component_ccl" bitwidth="7" opcode="getelementptr" m_display="0" m_topoIndex="10" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="120" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="find_largest_component_ccl"/>
+        <dataInputObjs>zext</dataInputObjs>
+        <dataOutputObjs>store</dataOutputObjs>
+        <dataOutputObjs>prev_label_V</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="20" name="prev_label_V_1_addr" lineNumber="120" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." coreId="542329856" contextFuncName="find_largest_component_ccl" bitwidth="7" opcode="getelementptr" m_display="0" m_topoIndex="11" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="120" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="find_largest_component_ccl"/>
+        <dataInputObjs>zext</dataInputObjs>
+        <dataOutputObjs>prev_label_V_1</dataOutputObjs>
+        <dataOutputObjs>store</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="21" name="trunc_ln120" lineNumber="120" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="trunc_ln120_fu_134_p1" coreId="7955712" contextFuncName="find_largest_component_ccl" bitwidth="1" opcode="trunc" m_display="0" m_topoIndex="12" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="120" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="find_largest_component_ccl"/>
+        <dataInputObjs>load</dataInputObjs>
+        <dataOutputObjs>br</dataOutputObjs>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="22" name="curr_label_V_addr" lineNumber="121" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." coreId="0" contextFuncName="find_largest_component_ccl" bitwidth="7" opcode="getelementptr" m_display="0" m_topoIndex="13" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="121" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="find_largest_component_ccl"/>
+        <dataInputObjs>zext</dataInputObjs>
+        <dataOutputObjs>store</dataOutputObjs>
+        <dataOutputObjs>curr_label_V</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="23" name="br_ln120" lineNumber="120" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." coreId="0" contextFuncName="find_largest_component_ccl" opcode="br" m_display="0" m_topoIndex="14" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="120" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="find_largest_component_ccl"/>
+        <dataInputObjs>trunc</dataInputObjs>
+        <controlInputObjs>arrayidx68.case.0</controlInputObjs>
+        <controlInputObjs>arrayidx68.case.1</controlInputObjs>
+      </node_objs>
+      <fileValidLineNumbers fileName="hls_fajlovi/card_recognizer_dram_hls.cpp">
+        <validLinenumbers>120</validLinenumbers>
+        <validLinenumbers>121</validLinenumbers>
+      </fileValidLineNumbers>
+    </basic_blocks>
+    <basic_blocks id="28" name="arrayidx68.case.0" type="BlockType">
+      <controlInputObjs>for.inc69.split</controlInputObjs>
+      <controlOutputObjs>br</controlOutputObjs>
+      <controlOutputObjs>arrayidx68.exit</controlOutputObjs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="25" name="prev_label_V_addr_write_ln120" lineNumber="120" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." coreName="RAM" implIndex="auto" control="no" opType="ram" coreId="82" contextFuncName="find_largest_component_ccl" opcode="store" m_display="0" m_delay="2.32" m_topoIndex="15" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="120" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="find_largest_component_ccl"/>
+        <dataInputObjs>getelementptr</dataInputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="26" name="curr_label_V_addr_write_ln121" lineNumber="121" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." coreName="RAM" implIndex="auto" control="no" opType="ram" coreId="82" contextFuncName="find_largest_component_ccl" opcode="store" m_display="0" m_delay="2.32" m_topoIndex="16" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="121" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="find_largest_component_ccl"/>
+        <dataInputObjs>getelementptr</dataInputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="27" name="br_ln121" lineNumber="121" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." coreId="2613225600" contextFuncName="find_largest_component_ccl" opcode="br" m_display="0" m_topoIndex="17" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="121" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="find_largest_component_ccl"/>
+        <controlInputObjs>arrayidx68.exit</controlInputObjs>
+      </node_objs>
+      <fileValidLineNumbers fileName="hls_fajlovi/card_recognizer_dram_hls.cpp">
+        <validLinenumbers>120</validLinenumbers>
+        <validLinenumbers>121</validLinenumbers>
+      </fileValidLineNumbers>
+    </basic_blocks>
+    <basic_blocks id="33" name="arrayidx68.case.1" type="BlockType">
+      <controlInputObjs>for.inc69.split</controlInputObjs>
+      <controlOutputObjs>br</controlOutputObjs>
+      <controlOutputObjs>arrayidx68.exit</controlOutputObjs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="29" name="prev_label_V_1_addr_write_ln120" lineNumber="120" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." coreName="RAM" implIndex="auto" control="no" opType="ram" coreId="82" contextFuncName="find_largest_component_ccl" opcode="store" m_display="0" m_delay="2.32" m_topoIndex="18" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="120" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="find_largest_component_ccl"/>
+        <dataInputObjs>getelementptr</dataInputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="30" name="curr_label_V_1_addr" lineNumber="121" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." coreId="1717924352" contextFuncName="find_largest_component_ccl" bitwidth="7" opcode="getelementptr" m_display="0" m_topoIndex="19" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="121" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="find_largest_component_ccl"/>
+        <dataInputObjs>zext</dataInputObjs>
+        <dataOutputObjs>curr_label_V_1</dataOutputObjs>
+        <dataOutputObjs>store</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="31" name="curr_label_V_1_addr_write_ln121" lineNumber="121" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." coreName="RAM" implIndex="auto" control="no" opType="ram" coreId="82" contextFuncName="find_largest_component_ccl" opcode="store" m_display="0" m_delay="2.32" m_topoIndex="20" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="121" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="find_largest_component_ccl"/>
+        <dataInputObjs>getelementptr</dataInputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="32" name="br_ln121" lineNumber="121" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." coreId="1718773072" contextFuncName="find_largest_component_ccl" opcode="br" m_display="0" m_topoIndex="21" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="121" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="find_largest_component_ccl"/>
+        <controlInputObjs>arrayidx68.exit</controlInputObjs>
+      </node_objs>
+      <fileValidLineNumbers fileName="hls_fajlovi/card_recognizer_dram_hls.cpp">
+        <validLinenumbers>120</validLinenumbers>
+        <validLinenumbers>121</validLinenumbers>
+      </fileValidLineNumbers>
+    </basic_blocks>
+    <basic_blocks id="36" name="arrayidx68.exit" type="BlockType">
+      <controlInputObjs>arrayidx68.case.0</controlInputObjs>
+      <controlInputObjs>arrayidx68.case.1</controlInputObjs>
+      <controlOutputObjs>br</controlOutputObjs>
+      <controlOutputObjs>br</controlOutputObjs>
+      <controlOutputObjs>for.inc69</controlOutputObjs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="34" name="x_write_ln117" lineNumber="117" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." coreId="2613230080" contextFuncName="find_largest_component_ccl" opcode="store" m_display="0" m_delay="1.58" m_topoIndex="22" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="117" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="find_largest_component_ccl"/>
+        <dataInputObjs>add</dataInputObjs>
+        <dataInputObjs>alloca</dataInputObjs>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="35" name="br_ln117" lineNumber="117" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." coreId="1953392928" contextFuncName="find_largest_component_ccl" opcode="br" m_display="0" m_topoIndex="23" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="117" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="find_largest_component_ccl"/>
+        <controlInputObjs>for.inc69</controlInputObjs>
+      </node_objs>
+      <fileValidLineNumbers fileName="hls_fajlovi/card_recognizer_dram_hls.cpp">
+        <validLinenumbers>117</validLinenumbers>
+      </fileValidLineNumbers>
+    </basic_blocks>
+  </regions>
+  <ScheduleInfo time="0"/>
+  <regnodes realName="x_reg_143">
+    <nodeIds>5</nodeIds>
+  </regnodes>
+  <expressionNodes realName="curr_label_V_addr_gep_fu_54">
+    <nodeIds>22</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="x_fu_36">
+    <nodeIds>5</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="zext_ln120_fu_126">
+    <nodeIds>18</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="icmp_ln117_fu_104">
+    <nodeIds>10</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="curr_label_V_1_addr_gep_fu_82">
+    <nodeIds>30</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="prev_label_V_1_addr_gep_fu_47">
+    <nodeIds>20</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="prev_label_V_addr_gep_fu_40">
+    <nodeIds>19</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="trunc_ln120_fu_134">
+    <nodeIds>21</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="add_ln117_fu_110">
+    <nodeIds>11</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="lshr_ln_fu_116">
+    <nodeIds>17</nodeIds>
+  </expressionNodes>
+  <ioNodes realName="store_ln117_store_fu_138">
+    <nodeIds>34</nodeIds>
+  </ioNodes>
+  <ioNodes realName="x_1_load_fu_101">
+    <nodeIds>9</nodeIds>
+  </ioNodes>
+  <ioNodes realName="store_ln0_store_fu_96">
+    <nodeIds>6</nodeIds>
+  </ioNodes>
+  <memoryPorts dataString="curr_label_V">
+    <nodeIds>26</nodeIds>
+  </memoryPorts>
+  <memoryPorts dataString="curr_label_V_1">
+    <nodeIds>31</nodeIds>
+  </memoryPorts>
+  <memoryPorts dataString="prev_label_V">
+    <nodeIds>25</nodeIds>
+  </memoryPorts>
+  <memoryPorts dataString="prev_label_V_1">
+    <nodeIds>29</nodeIds>
+  </memoryPorts>
+  <ioPorts name="curr_label_V(p0)">
+    <contents name="store">
+      <nodeIds>26</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="curr_label_V_1(p0)">
+    <contents name="store">
+      <nodeIds>31</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="prev_label_V(p0)">
+    <contents name="store">
+      <nodeIds>25</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="prev_label_V_1(p0)">
+    <contents name="store">
+      <nodeIds>29</nodeIds>
+    </contents>
+  </ioPorts>
+  <fsm>
+    <states id="1">
+      <operations id="5" stage="1" latency="1"/>
+      <operations id="6" stage="1" latency="1"/>
+      <operations id="7" stage="1" latency="1"/>
+      <operations id="9" stage="1" latency="1"/>
+      <operations id="10" stage="1" latency="1"/>
+      <operations id="11" stage="1" latency="1"/>
+      <operations id="12" stage="1" latency="1"/>
+      <operations id="14" stage="1" latency="1"/>
+      <operations id="15" stage="1" latency="1"/>
+      <operations id="16" stage="1" latency="1"/>
+      <operations id="17" stage="1" latency="1"/>
+      <operations id="18" stage="1" latency="1"/>
+      <operations id="19" stage="1" latency="1"/>
+      <operations id="20" stage="1" latency="1"/>
+      <operations id="21" stage="1" latency="1"/>
+      <operations id="22" stage="1" latency="1"/>
+      <operations id="23" stage="1" latency="1"/>
+      <operations id="25" stage="1" latency="1"/>
+      <operations id="26" stage="1" latency="1"/>
+      <operations id="27" stage="1" latency="1"/>
+      <operations id="29" stage="1" latency="1"/>
+      <operations id="30" stage="1" latency="1"/>
+      <operations id="31" stage="1" latency="1"/>
+      <operations id="32" stage="1" latency="1"/>
+      <operations id="34" stage="1" latency="1"/>
+      <operations id="35" stage="1" latency="1"/>
+      <operations id="37" stage="1" latency="1"/>
+    </states>
+  </fsm>
+  <CFGRegionsRoot>
+    <cfgRegions mId="1" mTag="find_largest_component_ccl_Pipeline_INIT_ROWS" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1" mMinLatency="162" mMaxLatency="162">
+      <subRegions>2</subRegions>
+      <subRegions>3</subRegions>
+      <subRegions>4</subRegions>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="2" mTag="Entry" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1">
+      <basicBlocks>8</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="3" mTag="INIT_ROWS" mII="1" mDepth="1" mMinTripCount="160" mMaxTripCount="160" mMinLatency="160" mMaxLatency="160" mType="1">
+      <basicBlocks>13</basicBlocks>
+      <basicBlocks>24</basicBlocks>
+      <basicBlocks>28</basicBlocks>
+      <basicBlocks>33</basicBlocks>
+      <basicBlocks>36</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="4" mTag="Return" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1">
+      <basicBlocks>38</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+  </CFGRegionsRoot>
+</cdfg:DBCdfg>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="card_recognizer_dram_hls.cpp" path="C:\Users\astan\Desktop\moj_esl\esl\esl\hls_fajlovi\card_recognizer_dram_hls.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="testbench.cpp" path="C:\Users\astan\Desktop\moj_esl\esl\esl\testbench.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

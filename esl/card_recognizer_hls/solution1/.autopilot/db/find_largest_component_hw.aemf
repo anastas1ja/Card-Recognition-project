@@ -1,0 +1,1080 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1781007110582">
+  <ports id="1" name="width" type="PortType" coreId="844904496" bitwidth="32">
+    <dataOutputObjs>read</dataOutputObjs>
+  </ports>
+  <ports id="2" name="height" type="PortType" coreId="1668445020" bitwidth="32">
+    <dataOutputObjs>read</dataOutputObjs>
+  </ports>
+  <ports id="6" name="binary" type="PortType" coreName="RAM" coreId="1668445020" bitwidth="2" iftype="IfTypeRegister" arraysize="307200">
+    <dataOutputObjs>getelementptr</dataOutputObjs>
+    <dataOutputObjs>call</dataOutputObjs>
+  </ports>
+  <ports id="16" name="ap_return" direction="DirOut">
+    <dataInputObjs>ret</dataInputObjs>
+  </ports>
+  <edges id="87" source_obj="//@ports.1" sink_obj="//@blocks.0/@node_objs.4"/>
+  <edges id="89" source_obj="//@ports.0" sink_obj="//@blocks.0/@node_objs.5"/>
+  <edges id="92" source_obj="//@blocks.0/@node_objs.4" sink_obj="//@blocks.0/@node_objs.7"/>
+  <edges id="93" source_obj="//@blocks.0/@node_objs.5" sink_obj="//@blocks.0/@node_objs.7"/>
+  <edges id="96" source_obj="//@blocks.0/@node_objs.7" sink_obj="//@blocks.0/@node_objs.8"/>
+  <edges id="97" source_obj="//@blocks.0/@node_objs.5" sink_obj="//@blocks.0/@node_objs.9"/>
+  <edges id="98" source_obj="//@blocks.0/@node_objs.4" sink_obj="//@blocks.0/@node_objs.10"/>
+  <edges id="99" source_obj="//@blocks.0/@node_objs.5" sink_obj="//@blocks.0/@node_objs.11"/>
+  <edges id="100" source_obj="//@blocks.0/@node_objs.10" sink_obj="//@blocks.0/@node_objs.12"/>
+  <edges id="101" source_obj="//@blocks.0/@node_objs.11" sink_obj="//@blocks.0/@node_objs.12"/>
+  <edges id="104" source_obj="//@blocks.0/@node_objs.3" sink_obj="//@blocks.0/@node_objs.13"/>
+  <edges id="107" source_obj="//@blocks.0/@node_objs.2" sink_obj="//@blocks.0/@node_objs.14"/>
+  <edges id="110" source_obj="//@blocks.0/@node_objs.1" sink_obj="//@blocks.0/@node_objs.15"/>
+  <edges id="112" source_obj="//@blocks.0/@node_objs.0" sink_obj="//@blocks.0/@node_objs.16"/>
+  <edges id="113" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@blocks.0/@node_objs.17"/>
+  <edges id="114" source_obj="//@blocks.0/@node_objs.0" sink_obj="//@blocks.1/@node_objs.0"/>
+  <edges id="115" source_obj="//@blocks.0/@node_objs.2" sink_obj="//@blocks.1/@node_objs.1"/>
+  <edges id="116" source_obj="//@blocks.1/@node_objs.0" sink_obj="//@blocks.1/@node_objs.2"/>
+  <edges id="117" source_obj="//@blocks.1/@node_objs.2" sink_obj="//@blocks.1/@node_objs.3"/>
+  <edges id="118" source_obj="//@blocks.0/@node_objs.5" sink_obj="//@blocks.1/@node_objs.3"/>
+  <edges id="119" source_obj="//@blocks.1/@node_objs.1" sink_obj="//@blocks.1/@node_objs.4"/>
+  <edges id="120" source_obj="//@blocks.0/@node_objs.12" sink_obj="//@blocks.1/@node_objs.4"/>
+  <edges id="121" source_obj="//@blocks.1/@node_objs.1" sink_obj="//@blocks.1/@node_objs.5"/>
+  <edges id="123" source_obj="//@blocks.1/@node_objs.4" sink_obj="//@blocks.1/@node_objs.6"/>
+  <edges id="124" edge_type="CtrlEdge" source_obj="//@blocks.2" sink_obj="//@blocks.1/@node_objs.6"/>
+  <edges id="125" edge_type="CtrlEdge" source_obj="//@blocks.7" sink_obj="//@blocks.1/@node_objs.6"/>
+  <edges id="126" sink_obj="//@blocks.3/@node_objs.0"/>
+  <edges id="128" source_obj="//@blocks.2/@node_objs.10" sink_obj="//@blocks.3/@node_objs.0"/>
+  <edges id="129" source_obj="//@blocks.3/@node_objs.0" sink_obj="//@blocks.3/@node_objs.1"/>
+  <edges id="130" source_obj="//@blocks.3/@node_objs.1" sink_obj="//@blocks.3/@node_objs.2"/>
+  <edges id="131" edge_type="CtrlEdge" source_obj="//@blocks.4" sink_obj="//@blocks.3/@node_objs.2"/>
+  <edges id="132" edge_type="CtrlEdge" source_obj="//@blocks.5" sink_obj="//@blocks.3/@node_objs.2"/>
+  <edges id="133" edge_type="CtrlEdge" source_obj="//@blocks.6" sink_obj="//@blocks.5/@node_objs.0"/>
+  <edges id="134" source_obj="//@blocks.0/@node_objs.3" sink_obj="//@blocks.4/@node_objs.0"/>
+  <edges id="135" source_obj="//@blocks.2/@node_objs.1" sink_obj="//@blocks.4/@node_objs.1"/>
+  <edges id="136" source_obj="//@blocks.4/@node_objs.1" sink_obj="//@blocks.4/@node_objs.2"/>
+  <edges id="137" source_obj="//@blocks.4/@node_objs.2" sink_obj="//@blocks.4/@node_objs.3"/>
+  <edges id="141" source_obj="//@blocks.2/@node_objs.7" sink_obj="//@blocks.4/@node_objs.4"/>
+  <edges id="147" source_obj="//@blocks.3/@node_objs.0" sink_obj="//@blocks.4/@node_objs.5"/>
+  <edges id="150" source_obj="//@blocks.0/@node_objs.4" sink_obj="//@blocks.4/@node_objs.6"/>
+  <edges id="151" source_obj="//@blocks.0/@node_objs.5" sink_obj="//@blocks.4/@node_objs.6"/>
+  <edges id="152" source_obj="//@blocks.0/@node_objs.6" sink_obj="//@blocks.4/@node_objs.6"/>
+  <edges id="153" source_obj="//@blocks.0/@node_objs.6" sink_obj="//@blocks.4/@node_objs.7"/>
+  <edges id="154" source_obj="//@blocks.4/@node_objs.7" sink_obj="//@blocks.4/@node_objs.8"/>
+  <edges id="155" source_obj="//@blocks.4/@node_objs.0" sink_obj="//@blocks.4/@node_objs.8"/>
+  <edges id="156" source_obj="//@blocks.4/@node_objs.8" sink_obj="//@blocks.4/@node_objs.9"/>
+  <edges id="157" source_obj="//@blocks.4/@node_objs.7" sink_obj="//@blocks.4/@node_objs.9"/>
+  <edges id="158" source_obj="//@blocks.4/@node_objs.0" sink_obj="//@blocks.4/@node_objs.9"/>
+  <edges id="159" source_obj="//@blocks.4/@node_objs.9" sink_obj="//@blocks.4/@node_objs.10"/>
+  <edges id="160" source_obj="//@blocks.0/@node_objs.3" sink_obj="//@blocks.4/@node_objs.10"/>
+  <edges id="161" edge_type="CtrlEdge" source_obj="//@blocks.6" sink_obj="//@blocks.4/@node_objs.11"/>
+  <edges id="162" source_obj="//@blocks.2/@node_objs.1" sink_obj="//@blocks.6/@node_objs.0"/>
+  <edges id="165" source_obj="//@blocks.1/@node_objs.5" sink_obj="//@blocks.6/@node_objs.1"/>
+  <edges id="166" source_obj="//@blocks.0/@node_objs.2" sink_obj="//@blocks.6/@node_objs.1"/>
+  <edges id="167" source_obj="//@blocks.2/@node_objs.3" sink_obj="//@blocks.6/@node_objs.2"/>
+  <edges id="168" source_obj="//@blocks.0/@node_objs.1" sink_obj="//@blocks.6/@node_objs.2"/>
+  <edges id="169" source_obj="//@blocks.6/@node_objs.0" sink_obj="//@blocks.6/@node_objs.3"/>
+  <edges id="170" source_obj="//@blocks.0/@node_objs.0" sink_obj="//@blocks.6/@node_objs.3"/>
+  <edges id="171" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@blocks.6/@node_objs.4"/>
+  <edges id="172" source_obj="//@blocks.0/@node_objs.1" sink_obj="//@blocks.2/@node_objs.0"/>
+  <edges id="173" source_obj="//@blocks.1/@node_objs.3" sink_obj="//@blocks.2/@node_objs.1"/>
+  <edges id="174" source_obj="//@blocks.1/@node_objs.0" sink_obj="//@blocks.2/@node_objs.1"/>
+  <edges id="176" source_obj="//@blocks.2/@node_objs.0" sink_obj="//@blocks.2/@node_objs.2"/>
+  <edges id="178" source_obj="//@blocks.1/@node_objs.3" sink_obj="//@blocks.2/@node_objs.3"/>
+  <edges id="179" source_obj="//@blocks.2/@node_objs.0" sink_obj="//@blocks.2/@node_objs.3"/>
+  <edges id="180" source_obj="//@blocks.2/@node_objs.2" sink_obj="//@blocks.2/@node_objs.3"/>
+  <edges id="181" source_obj="//@blocks.2/@node_objs.3" sink_obj="//@blocks.2/@node_objs.4"/>
+  <edges id="182" source_obj="//@blocks.2/@node_objs.4" sink_obj="//@blocks.2/@node_objs.5"/>
+  <edges id="183" source_obj="//@blocks.0/@node_objs.9" sink_obj="//@blocks.2/@node_objs.5"/>
+  <edges id="184" source_obj="//@blocks.2/@node_objs.3" sink_obj="//@blocks.2/@node_objs.6"/>
+  <edges id="185" source_obj="//@blocks.2/@node_objs.6" sink_obj="//@blocks.2/@node_objs.7"/>
+  <edges id="186" source_obj="//@blocks.2/@node_objs.1" sink_obj="//@blocks.2/@node_objs.8"/>
+  <edges id="187" source_obj="//@blocks.2/@node_objs.8" sink_obj="//@blocks.2/@node_objs.9"/>
+  <edges id="188" source_obj="//@blocks.2/@node_objs.5" sink_obj="//@blocks.2/@node_objs.9"/>
+  <edges id="189" source_obj="//@blocks.2/@node_objs.9" sink_obj="//@blocks.2/@node_objs.10"/>
+  <edges id="190" source_obj="//@ports.2" sink_obj="//@blocks.2/@node_objs.11"/>
+  <edges id="192" source_obj="//@blocks.2/@node_objs.10" sink_obj="//@blocks.2/@node_objs.11"/>
+  <edges id="193" source_obj="//@blocks.2/@node_objs.11" sink_obj="//@blocks.2/@node_objs.12"/>
+  <edges id="194" source_obj="//@blocks.2/@node_objs.12" sink_obj="//@blocks.2/@node_objs.13"/>
+  <edges id="197" source_obj="//@blocks.2/@node_objs.13" sink_obj="//@blocks.2/@node_objs.14"/>
+  <edges id="198" edge_type="CtrlEdge" source_obj="//@blocks.5" sink_obj="//@blocks.2/@node_objs.14"/>
+  <edges id="199" edge_type="CtrlEdge" source_obj="//@blocks.3" sink_obj="//@blocks.2/@node_objs.14"/>
+  <edges id="200" source_obj="//@blocks.0/@node_objs.3" sink_obj="//@blocks.7/@node_objs.0"/>
+  <edges id="201" source_obj="//@blocks.7/@node_objs.0" sink_obj="//@blocks.7/@node_objs.1"/>
+  <edges id="202" sink_obj="//@blocks.0/@node_objs.8"/>
+  <edges id="203" sink_obj="//@blocks.4/@node_objs.6"/>
+  <edges id="204" sink_obj="//@blocks.4/@node_objs.6"/>
+  <edges id="205" source_obj="//@ports.2" sink_obj="//@blocks.4/@node_objs.6"/>
+  <edges id="206" sink_obj="//@blocks.4/@node_objs.6"/>
+  <edges id="214" edge_type="CtrlEdge" source_obj="//@blocks.0" sink_obj="//@blocks.1"/>
+  <edges id="215" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@blocks.7"/>
+  <edges id="216" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@blocks.2"/>
+  <edges id="217" edge_type="CtrlEdge" source_obj="//@blocks.2" sink_obj="//@blocks.3"/>
+  <edges id="218" edge_type="CtrlEdge" source_obj="//@blocks.2" sink_obj="//@blocks.5"/>
+  <edges id="219" edge_type="CtrlEdge" source_obj="//@blocks.3" sink_obj="//@blocks.5"/>
+  <edges id="220" edge_type="CtrlEdge" source_obj="//@blocks.3" sink_obj="//@blocks.4"/>
+  <edges id="221" edge_type="CtrlEdge" source_obj="//@blocks.4" sink_obj="//@blocks.6"/>
+  <edges id="222" edge_type="CtrlEdge" source_obj="//@blocks.5" sink_obj="//@blocks.6"/>
+  <edges id="223" edge_type="CtrlEdge" source_obj="//@blocks.6" sink_obj="//@blocks.1" is_back_edge="1"/>
+  <edges id="224" edge_type="VirtEdge" source_obj="//@blocks.4/@node_objs.5" sink_obj="//@blocks.4/@node_objs.6"/>
+  <edges id="225" edge_type="VirtEdge" source_obj="//@blocks.4/@node_objs.4" sink_obj="//@blocks.4/@node_objs.6"/>
+  <edges id="226" edge_type="VirtEdge" source_obj="//@blocks.4/@node_objs.3" sink_obj="//@blocks.4/@node_objs.6"/>
+  <edges id="227" edge_type="VirtEdge" source_obj="//@blocks.2/@node_objs.12" sink_obj="//@blocks.4/@node_objs.6"/>
+  <edges id="228" edge_type="VirtEdge" source_obj="//@blocks.3/@node_objs.1" sink_obj="//@blocks.4/@node_objs.5"/>
+  <edges id="229" edge_type="VirtEdge" source_obj="//@blocks.4/@node_objs.6" sink_obj="//@blocks.4/@node_objs.7"/>
+  <edges id="230" edge_type="VirtEdge" source_obj="//@blocks.4/@node_objs.0" sink_obj="//@blocks.4/@node_objs.10"/>
+  <edges id="231" edge_type="VirtEdge" source_obj="//@blocks.0/@node_objs.14" sink_obj="//@blocks.1/@node_objs.1"/>
+  <edges id="232" edge_type="VirtEdge" source_obj="//@blocks.0/@node_objs.16" sink_obj="//@blocks.1/@node_objs.0"/>
+  <edges id="233" edge_type="VirtEdge" source_obj="//@blocks.0/@node_objs.13" sink_obj="//@blocks.7/@node_objs.0"/>
+  <edges id="234" edge_type="VirtEdge" source_obj="//@blocks.0/@node_objs.15" sink_obj="//@blocks.2/@node_objs.0"/>
+  <edges id="235" edge_type="VirtEdge" source_obj="//@blocks.0/@node_objs.13" sink_obj="//@blocks.4/@node_objs.0"/>
+  <edges id="236" edge_type="VirtEdge" source_obj="//@blocks.0/@node_objs.13" sink_obj="//@blocks.4/@node_objs.10"/>
+  <edges id="237" edge_type="VirtEdge" source_obj="//@blocks.0/@node_objs.14" sink_obj="//@blocks.6/@node_objs.1"/>
+  <edges id="238" edge_type="VirtEdge" source_obj="//@blocks.0/@node_objs.15" sink_obj="//@blocks.6/@node_objs.2"/>
+  <edges id="239" edge_type="VirtEdge" source_obj="//@blocks.0/@node_objs.16" sink_obj="//@blocks.6/@node_objs.3"/>
+  <edges id="240" edge_type="VirtEdge" source_obj="//@blocks.1/@node_objs.0" sink_obj="//@blocks.6/@node_objs.3"/>
+  <edges id="241" edge_type="VirtEdge" source_obj="//@blocks.1/@node_objs.1" sink_obj="//@blocks.6/@node_objs.1"/>
+  <edges id="242" edge_type="VirtEdge" source_obj="//@blocks.2/@node_objs.0" sink_obj="//@blocks.6/@node_objs.2"/>
+  <edges id="243" edge_type="VirtEdge" source_obj="//@blocks.0/@node_objs.8" sink_obj="//@blocks.4/@node_objs.6"/>
+  <edges source_obj="//@blocks.7/@node_objs.1" sink_obj="//@ports.3"/>
+  <blocks id="25" name="entry" type="BlockType">
+    <controlOutputObjs>for.body8</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="7" name="x" originalName="x" coreId="0" bitwidth="31" opcode="alloca" m_display="0" m_topoIndex="1" m_clusterGroupNumber="-1">
+      <dataOutputObjs>store</dataOutputObjs>
+      <dataOutputObjs>load</dataOutputObjs>
+      <dataOutputObjs>store</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="8" name="y" originalName="y" coreId="0" bitwidth="31" opcode="alloca" m_display="0" m_topoIndex="2" m_clusterGroupNumber="-1">
+      <dataOutputObjs>store</dataOutputObjs>
+      <dataOutputObjs>store</dataOutputObjs>
+      <dataOutputObjs>load</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="9" name="indvar_flatten" coreId="0" bitwidth="64" opcode="alloca" m_display="0" m_topoIndex="3" m_clusterGroupNumber="-1">
+      <dataOutputObjs>store</dataOutputObjs>
+      <dataOutputObjs>load</dataOutputObjs>
+      <dataOutputObjs>store</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="10" name="best_count" originalName="best_count" coreId="0" bitwidth="32" opcode="alloca" m_display="0" m_topoIndex="4" m_clusterGroupNumber="-1">
+      <dataOutputObjs>store</dataOutputObjs>
+      <dataOutputObjs>load</dataOutputObjs>
+      <dataOutputObjs>store</dataOutputObjs>
+      <dataOutputObjs>load</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="11" name="height_read" coreId="0" bitwidth="32" opcode="read" m_display="0" m_topoIndex="5" m_clusterGroupNumber="-1">
+      <dataInputObjs>height</dataInputObjs>
+      <dataOutputObjs>mul</dataOutputObjs>
+      <dataOutputObjs>zext</dataOutputObjs>
+      <dataOutputObjs>call</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="12" name="width_read" coreId="4294967295" bitwidth="32" opcode="read" m_display="0" m_topoIndex="6" m_clusterGroupNumber="-1">
+      <dataInputObjs>width</dataInputObjs>
+      <dataOutputObjs>mul</dataOutputObjs>
+      <dataOutputObjs>trunc</dataOutputObjs>
+      <dataOutputObjs>zext</dataOutputObjs>
+      <dataOutputObjs>icmp</dataOutputObjs>
+      <dataOutputObjs>call</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="13" name="best_count_3_loc" coreId="4294967295" bitwidth="32" opcode="alloca" m_display="0" m_topoIndex="7" m_clusterGroupNumber="-1">
+      <dataOutputObjs>call</dataOutputObjs>
+      <dataOutputObjs>load</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="14" name="n" lineNumber="23" originalName="n" fileName="card_recognizer_hls.cpp" fileDirectory=".." coreName="Multiplier" implIndex="auto" control="no" opType="mul" coreId="3" contextFuncName="find_largest_component_hw" bitwidth="32" opcode="mul" nodeLatency="1" m_display="0" m_delay="6.91" m_topoIndex="8" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="23" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>read</dataInputObjs>
+      <dataInputObjs>read</dataInputObjs>
+      <dataOutputObjs>call</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="15" name="_ln23" lineNumber="23" fileName="card_recognizer_hls.cpp" fileDirectory=".." rtlName="grp_find_largest_component_hw_Pipeline_VITIS_LOOP_31_1_fu_115" coreId="4294967295" contextFuncName="find_largest_component_hw" opcode="call" nodeLabel="2.0" nodeLatency="1" m_display="0" m_delay="5.72" m_topoIndex="14" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="23" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>mul</dataInputObjs>
+      <constName>find_largest_component_hw_Pipeline_VITIS_LOOP_31_1</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="16" name="trunc_ln38" lineNumber="38" fileName="card_recognizer_hls.cpp" fileDirectory=".." rtlName="trunc_ln38_fu_155_p1" coreId="0" contextFuncName="find_largest_component_hw" bitwidth="19" opcode="trunc" m_display="0" m_topoIndex="9" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="38" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>read</dataInputObjs>
+      <dataOutputObjs>mul</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="17" name="zext_ln38" lineNumber="38" fileName="card_recognizer_hls.cpp" fileDirectory=".." rtlName="grp_fu_185_p00" coreId="0" contextFuncName="find_largest_component_hw" bitwidth="64" opcode="zext" nodeLabel="2.0" m_display="0" m_topoIndex="15" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="38" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>read</dataInputObjs>
+      <dataOutputObjs>mul</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="18" name="zext_ln38_1" lineNumber="38" fileName="card_recognizer_hls.cpp" fileDirectory=".." rtlName="grp_fu_185_p10" coreId="4294967295" contextFuncName="find_largest_component_hw" bitwidth="64" opcode="zext" nodeLabel="2.0" m_display="0" m_topoIndex="16" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="38" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>read</dataInputObjs>
+      <dataOutputObjs>mul</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="19" name="mul_ln38" lineNumber="38" fileName="card_recognizer_hls.cpp" fileDirectory=".." rtlName="mul_32ns_32ns_64_2_1_U34" coreName="Multiplier" implIndex="auto" control="no" opType="mul" coreId="3" contextFuncName="find_largest_component_hw" bitwidth="64" opcode="mul" nodeLabel="2.0" nodeLatency="1" m_display="0" m_delay="6.91" m_topoIndex="17" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="38" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>zext</dataInputObjs>
+      <dataInputObjs>zext</dataInputObjs>
+      <dataOutputObjs>icmp</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="20" name="best_count_write_ln38" lineNumber="38" fileName="card_recognizer_hls.cpp" fileDirectory=".." coreId="0" contextFuncName="find_largest_component_hw" opcode="store" m_display="0" m_delay="1.58" m_topoIndex="10" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="38" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>alloca</dataInputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="21" name="indvar_flatten_write_ln38" lineNumber="38" fileName="card_recognizer_hls.cpp" fileDirectory=".." coreId="0" contextFuncName="find_largest_component_hw" opcode="store" m_display="0" m_delay="1.58" m_topoIndex="11" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="38" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>alloca</dataInputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="22" name="y_write_ln38" lineNumber="38" fileName="card_recognizer_hls.cpp" fileDirectory=".." coreId="4294967295" contextFuncName="find_largest_component_hw" opcode="store" m_display="0" m_delay="1.58" m_topoIndex="12" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="38" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>alloca</dataInputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="23" name="x_write_ln38" lineNumber="38" fileName="card_recognizer_hls.cpp" fileDirectory=".." coreId="4294967295" contextFuncName="find_largest_component_hw" opcode="store" m_display="0" m_delay="1.58" m_topoIndex="13" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="38" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>alloca</dataInputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="24" name="br_ln38" lineNumber="38" fileName="card_recognizer_hls.cpp" fileDirectory=".." coreId="0" contextFuncName="find_largest_component_hw" opcode="br" nodeLabel="3.0" m_display="0" m_topoIndex="18" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="38" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <controlInputObjs>for.body8</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="card_recognizer_hls.cpp">
+      <validLinenumbers>23</validLinenumbers>
+      <validLinenumbers>38</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="33" name="for.body8" type="BlockType">
+    <controlInputObjs>entry</controlInputObjs>
+    <controlInputObjs>cleanup</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>for.end99.loopexit</controlOutputObjs>
+    <controlOutputObjs>for.inc96.loopexit</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="26" name="x_1" lineNumber="39" originalName="x" fileName="card_recognizer_hls.cpp" fileDirectory=".." coreId="0" contextFuncName="find_largest_component_hw" bitwidth="31" opcode="load" nodeLabel="4.0" m_display="0" m_topoIndex="19" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="39" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>alloca</dataInputObjs>
+      <dataOutputObjs>zext</dataOutputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="27" name="indvar_flatten_load" lineNumber="38" fileName="card_recognizer_hls.cpp" fileDirectory=".." coreId="0" contextFuncName="find_largest_component_hw" bitwidth="64" opcode="load" nodeLabel="4.0" m_display="0" m_topoIndex="20" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="38" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>alloca</dataInputObjs>
+      <dataOutputObjs>icmp</dataOutputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="28" name="zext_ln39" lineNumber="39" fileName="card_recognizer_hls.cpp" fileDirectory=".." rtlName="zext_ln39_fu_197_p1" coreId="4294967295" contextFuncName="find_largest_component_hw" bitwidth="32" opcode="zext" nodeLabel="4.0" m_display="0" m_topoIndex="21" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="39" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>load</dataInputObjs>
+      <dataOutputObjs>icmp</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="29" name="icmp_ln39" lineNumber="39" fileName="card_recognizer_hls.cpp" fileDirectory=".." rtlName="icmp_ln39_fu_201_p2" coreName="Cmp" implIndex="auto" control="no" opType="icmp" coreId="9" contextFuncName="find_largest_component_hw" bitwidth="1" opcode="icmp" nodeLabel="4.0" m_display="0" m_delay="2.47" m_topoIndex="22" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="39" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>zext</dataInputObjs>
+      <dataInputObjs>read</dataInputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="30" name="icmp_ln38" lineNumber="38" fileName="card_recognizer_hls.cpp" fileDirectory=".." rtlName="icmp_ln38_fu_206_p2" coreName="Cmp" implIndex="auto" control="no" opType="icmp" coreId="9" contextFuncName="find_largest_component_hw" bitwidth="1" opcode="icmp" nodeLabel="4.0" m_display="0" m_delay="2.77" m_topoIndex="23" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="38" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>load</dataInputObjs>
+      <dataInputObjs>mul</dataInputObjs>
+      <dataOutputObjs>br</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="31" name="add_ln38" lineNumber="38" fileName="card_recognizer_hls.cpp" fileDirectory=".." rtlName="add_ln38_fu_211_p2" coreName="Adder" implIndex="fabric" control="no" opType="add" coreId="1" contextFuncName="find_largest_component_hw" bitwidth="64" opcode="add" nodeLabel="4.0" m_display="0" m_delay="3.52" m_topoIndex="24" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="38" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>load</dataInputObjs>
+      <dataOutputObjs>store</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="32" name="br_ln38" lineNumber="38" fileName="card_recognizer_hls.cpp" fileDirectory=".." coreId="0" contextFuncName="find_largest_component_hw" opcode="br" nodeLabel="4.0" m_display="0" m_topoIndex="25" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="38" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>icmp</dataInputObjs>
+      <controlInputObjs>for.inc96.loopexit</controlInputObjs>
+      <controlInputObjs>for.end99.loopexit</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="card_recognizer_hls.cpp">
+      <validLinenumbers>39</validLinenumbers>
+      <validLinenumbers>38</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="51" name="for.inc96.loopexit" type="BlockType">
+    <controlInputObjs>for.body8</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>lor.lhs.false</controlOutputObjs>
+    <controlOutputObjs>if.then</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="34" name="y_load" lineNumber="38" fileName="card_recognizer_hls.cpp" fileDirectory=".." coreId="0" contextFuncName="find_largest_component_hw" bitwidth="31" opcode="load" nodeLabel="4.0" m_display="0" m_topoIndex="26" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="38" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>alloca</dataInputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="36" name="select_ln38" lineNumber="38" fileName="card_recognizer_hls.cpp" fileDirectory=".." rtlName="select_ln38_fu_242_p3" coreName="Sel" implIndex="auto_sel" control="no" opType="select" coreId="73" contextFuncName="find_largest_component_hw" bitwidth="31" opcode="select" nodeLabel="7.0" m_display="0" m_delay="0.73" m_topoIndex="35" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="38" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>icmp</dataInputObjs>
+      <dataInputObjs>load</dataInputObjs>
+      <dataOutputObjs>zext</dataOutputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+      <dataOutputObjs>trunc</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="37" name="add_ln38_1" lineNumber="38" fileName="card_recognizer_hls.cpp" fileDirectory=".." rtlName="add_ln38_1_fu_220_p2" coreName="Adder" implIndex="fabric" control="no" opType="add" coreId="1" contextFuncName="find_largest_component_hw" bitwidth="31" opcode="add" nodeLabel="4.0" m_display="0" m_delay="2.52" m_topoIndex="27" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="38" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>load</dataInputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="38" name="select_ln38_1" lineNumber="38" fileName="card_recognizer_hls.cpp" fileDirectory=".." rtlName="select_ln38_1_fu_226_p3" coreName="Sel" implIndex="auto_sel" control="no" opType="select" coreId="73" contextFuncName="find_largest_component_hw" bitwidth="31" opcode="select" nodeLabel="4.0" m_display="0" m_delay="0.73" m_topoIndex="28" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="38" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>icmp</dataInputObjs>
+      <dataInputObjs>load</dataInputObjs>
+      <dataInputObjs>add</dataInputObjs>
+      <dataOutputObjs>store</dataOutputObjs>
+      <dataOutputObjs>trunc</dataOutputObjs>
+      <dataOutputObjs>zext</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="39" name="trunc_ln38_1" lineNumber="38" fileName="card_recognizer_hls.cpp" fileDirectory=".." rtlName="grp_fu_311_p0" coreId="0" contextFuncName="find_largest_component_hw" bitwidth="19" opcode="trunc" nodeLabel="4.0" m_display="0" m_topoIndex="29" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="38" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>select</dataInputObjs>
+      <dataOutputObjs>mul</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="40" name="mul_ln38_1" lineNumber="38" fileName="card_recognizer_hls.cpp" fileDirectory=".." rtlName="mul_mul_19s_19s_19_4_1_U35" coreName="DSP48" implIndex="dsp48" control="no" opType="mul" coreId="119" contextFuncName="find_largest_component_hw" bitwidth="19" opcode="mul" nodeLabel="4.0" nodeLatency="3" m_display="0" m_delay="2.15" m_topoIndex="30" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="38" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>trunc</dataInputObjs>
+      <dataInputObjs>trunc</dataInputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="41" name="zext_ln38_2" lineNumber="38" fileName="card_recognizer_hls.cpp" fileDirectory=".." rtlName="zext_ln38_2_fu_238_p1" coreId="0" contextFuncName="find_largest_component_hw" bitwidth="32" opcode="zext" nodeLabel="5.0" m_display="0" m_topoIndex="33" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="38" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>select</dataInputObjs>
+      <dataOutputObjs>sitofp</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="42" name="conv_mid2" lineNumber="38" fileName="card_recognizer_hls.cpp" fileDirectory=".." rtlName="sitofp_32ns_32_6_no_dsp_1_U32" coreName="Int2Float" implIndex="auto" control="no" opType="sitofp" coreId="62" contextFuncName="find_largest_component_hw" bitwidth="32" opcode="sitofp" nodeLabel="5.0" nodeLatency="5" m_display="0" m_delay="6.41" m_topoIndex="34" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="38" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>zext</dataInputObjs>
+      <dataOutputObjs>store</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="43" name="trunc_ln39" lineNumber="39" fileName="card_recognizer_hls.cpp" fileDirectory=".." rtlName="trunc_ln39_fu_248_p1" coreId="0" contextFuncName="find_largest_component_hw" bitwidth="19" opcode="trunc" nodeLabel="7.0" m_display="0" m_topoIndex="36" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="39" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>select</dataInputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="45" name="add_ln40" lineNumber="40" fileName="card_recognizer_hls.cpp" fileDirectory=".." rtlName="add_ln40_fu_252_p2" coreName="Adder" implIndex="fabric" control="no" opType="add" coreId="1" contextFuncName="find_largest_component_hw" bitwidth="19" opcode="add" nodeLabel="7.0" m_display="0" m_delay="2.16" m_topoIndex="37" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="40" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>trunc</dataInputObjs>
+      <dataInputObjs>mul</dataInputObjs>
+      <dataOutputObjs>zext</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="46" name="zext_ln42" lineNumber="42" fileName="card_recognizer_hls.cpp" fileDirectory=".." rtlName="zext_ln42_fu_257_p1" coreId="0" contextFuncName="find_largest_component_hw" bitwidth="64" opcode="zext" nodeLabel="9.0" m_display="0" m_topoIndex="38" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="42" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>add</dataInputObjs>
+      <dataOutputObjs>getelementptr</dataOutputObjs>
+      <dataOutputObjs>getelementptr</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="47" name="binary_addr" lineNumber="42" fileName="card_recognizer_hls.cpp" fileDirectory=".." coreId="0" contextFuncName="find_largest_component_hw" bitwidth="19" opcode="getelementptr" nodeLabel="9.0" m_display="0" m_topoIndex="39" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="42" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>binary</dataInputObjs>
+      <dataInputObjs>zext</dataInputObjs>
+      <dataOutputObjs>load</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="48" name="binary_load" lineNumber="42" fileName="card_recognizer_hls.cpp" fileDirectory=".." coreName="RAM" implIndex="auto" control="no" opType="ram" coreId="82" contextFuncName="find_largest_component_hw" bitwidth="2" opcode="load" nodeLabel="9.0" nodeLatency="1" m_display="0" m_delay="3.25" m_topoIndex="40" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="42" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>getelementptr</dataInputObjs>
+      <dataOutputObjs>icmp</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="49" name="icmp_ln42" lineNumber="42" fileName="card_recognizer_hls.cpp" fileDirectory=".." rtlName="icmp_ln42_fu_261_p2" coreName="Cmp" implIndex="auto" control="no" opType="icmp" coreId="9" contextFuncName="find_largest_component_hw" bitwidth="1" opcode="icmp" nodeLabel="10.0" m_display="0" m_delay="0.95" m_topoIndex="41" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="42" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>load</dataInputObjs>
+      <dataOutputObjs>br</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="50" name="br_ln42" lineNumber="42" fileName="card_recognizer_hls.cpp" fileDirectory=".." coreId="0" contextFuncName="find_largest_component_hw" opcode="br" nodeLabel="10.0" m_display="0" m_topoIndex="42" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="42" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>icmp</dataInputObjs>
+      <controlInputObjs>if.then</controlInputObjs>
+      <controlInputObjs>lor.lhs.false</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="card_recognizer_hls.cpp">
+      <validLinenumbers>38</validLinenumbers>
+      <validLinenumbers>39</validLinenumbers>
+      <validLinenumbers>40</validLinenumbers>
+      <validLinenumbers>42</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="55" name="lor.lhs.false" type="BlockType">
+    <controlInputObjs>for.inc96.loopexit</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>if.then</controlOutputObjs>
+    <controlOutputObjs>VITIS_LOOP_51_4</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="52" name="visited_addr_1" lineNumber="42" fileName="card_recognizer_hls.cpp" fileDirectory=".." coreId="0" contextFuncName="find_largest_component_hw" bitwidth="19" opcode="getelementptr" nodeLabel="10.0" m_display="0" m_topoIndex="43" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="42" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>zext</dataInputObjs>
+      <dataOutputObjs>load</dataOutputObjs>
+      <dataOutputObjs>store</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="53" name="visited_load" lineNumber="42" fileName="card_recognizer_hls.cpp" fileDirectory=".." coreName="RAM" implIndex="auto" control="no" opType="ram" coreId="82" contextFuncName="find_largest_component_hw" bitwidth="1" opcode="load" nodeLabel="10.0" nodeLatency="1" m_display="0" m_delay="3.25" m_topoIndex="44" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="42" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>getelementptr</dataInputObjs>
+      <dataOutputObjs>br</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="54" name="br_ln42" lineNumber="42" fileName="card_recognizer_hls.cpp" fileDirectory=".." coreId="1818846815" contextFuncName="find_largest_component_hw" opcode="br" nodeLabel="11.0" m_display="0" m_topoIndex="45" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="42" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>load</dataInputObjs>
+      <controlInputObjs>VITIS_LOOP_51_4</controlInputObjs>
+      <controlInputObjs>if.then</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="card_recognizer_hls.cpp">
+      <validLinenumbers>42</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="68" name="VITIS_LOOP_51_4" type="BlockType">
+    <controlInputObjs>lor.lhs.false</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>cleanup</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="56" name="best_count_load_1" lineNumber="70" fileName="card_recognizer_hls.cpp" fileDirectory=".." coreId="1431323424" contextFuncName="find_largest_component_hw" bitwidth="32" opcode="load" nodeLabel="20.0" m_display="0" m_topoIndex="53" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="70" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>alloca</dataInputObjs>
+      <dataOutputObjs>icmp</dataOutputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="57" name="zext_ln48" lineNumber="48" fileName="card_recognizer_hls.cpp" fileDirectory=".." rtlName="zext_ln48_fu_267_p1" coreId="808606824" contextFuncName="find_largest_component_hw" bitwidth="32" opcode="zext" nodeLabel="11.0" m_display="0" m_topoIndex="46" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="48" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>select</dataInputObjs>
+      <dataOutputObjs>sitofp</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="58" name="conv1" lineNumber="48" fileName="card_recognizer_hls.cpp" fileDirectory=".." rtlName="sitofp_32ns_32_6_no_dsp_1_U32" coreName="Int2Float" implIndex="auto" control="no" opType="sitofp" coreId="62" contextFuncName="find_largest_component_hw" bitwidth="32" opcode="sitofp" nodeLabel="11.0" nodeLatency="5" m_display="0" m_delay="6.41" m_topoIndex="47" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="48" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>zext</dataInputObjs>
+      <dataOutputObjs>store</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="59" name="0_write_ln48" lineNumber="48" fileName="card_recognizer_hls.cpp" fileDirectory=".." coreName="RAM" implIndex="auto" control="no" opType="ram" coreId="82" contextFuncName="find_largest_component_hw" opcode="store" nodeLabel="17.0" m_display="0" m_delay="3.25" m_topoIndex="51" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="48" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>sitofp</dataInputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="60" name="0_write_ln48" lineNumber="48" fileName="card_recognizer_hls.cpp" fileDirectory=".." coreName="RAM" implIndex="auto" control="no" opType="ram" coreId="82" contextFuncName="find_largest_component_hw" opcode="store" nodeLabel="11.0" m_display="0" m_delay="3.25" m_topoIndex="48" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="48" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>sitofp</dataInputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="61" name="visited_addr_1_write_ln49" lineNumber="49" fileName="card_recognizer_hls.cpp" fileDirectory=".." coreName="RAM" implIndex="auto" control="no" opType="ram" coreId="82" contextFuncName="find_largest_component_hw" opcode="store" nodeLabel="11.0" m_display="0" m_delay="3.25" m_topoIndex="49" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="49" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>getelementptr</dataInputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="62" name="_ln0" rtlName="grp_find_largest_component_hw_Pipeline_VITIS_LOOP_51_4_fu_122" coreId="807414835" opcode="call" nodeLabel="18.0" nodeLatency="1" m_display="0" m_topoIndex="52" m_clusterGroupNumber="-1">
+      <dataInputObjs>read</dataInputObjs>
+      <dataInputObjs>read</dataInputObjs>
+      <dataInputObjs>alloca</dataInputObjs>
+      <dataInputObjs>binary</dataInputObjs>
+      <constName>find_largest_component_hw_Pipeline_VITIS_LOOP_51_4</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="63" name="best_count_3_loc_load" coreId="539111731" bitwidth="32" opcode="load" nodeLabel="20.0" m_display="0" m_topoIndex="54" m_clusterGroupNumber="-1">
+      <dataInputObjs>alloca</dataInputObjs>
+      <dataOutputObjs>icmp</dataOutputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="64" name="icmp_ln70" lineNumber="70" fileName="card_recognizer_hls.cpp" fileDirectory=".." rtlName="icmp_ln70_fu_274_p2" coreName="Cmp" implIndex="auto" control="no" opType="icmp" coreId="9" contextFuncName="find_largest_component_hw" bitwidth="1" opcode="icmp" nodeLabel="20.0" m_display="0" m_delay="2.47" m_topoIndex="55" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="70" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>load</dataInputObjs>
+      <dataInputObjs>load</dataInputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="65" name="select_ln70" lineNumber="70" fileName="card_recognizer_hls.cpp" fileDirectory=".." rtlName="select_ln70_fu_280_p3" coreName="Sel" implIndex="auto_sel" control="no" opType="select" coreId="73" contextFuncName="find_largest_component_hw" bitwidth="32" opcode="select" nodeLabel="20.0" m_display="0" m_delay="0.69" m_topoIndex="56" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="70" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>icmp</dataInputObjs>
+      <dataInputObjs>load</dataInputObjs>
+      <dataInputObjs>load</dataInputObjs>
+      <dataOutputObjs>store</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="66" name="best_count_write_ln70" lineNumber="70" fileName="card_recognizer_hls.cpp" fileDirectory=".." coreId="1936024608" contextFuncName="find_largest_component_hw" opcode="store" nodeLabel="20.0" m_display="0" m_delay="1.58" m_topoIndex="57" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="70" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>select</dataInputObjs>
+      <dataInputObjs>alloca</dataInputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="67" name="br_ln70" lineNumber="70" fileName="card_recognizer_hls.cpp" fileDirectory=".." coreId="1933474832" contextFuncName="find_largest_component_hw" opcode="br" nodeLabel="20.0" m_display="0" m_topoIndex="58" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="70" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <controlInputObjs>cleanup</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="card_recognizer_hls.cpp">
+      <validLinenumbers>70</validLinenumbers>
+      <validLinenumbers>48</validLinenumbers>
+      <validLinenumbers>49</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="70" name="if.then" type="BlockType">
+    <controlInputObjs>for.inc96.loopexit</controlInputObjs>
+    <controlInputObjs>lor.lhs.false</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>cleanup</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="69" name="br_ln42" lineNumber="42" fileName="card_recognizer_hls.cpp" fileDirectory=".." coreId="841888306" contextFuncName="find_largest_component_hw" opcode="br" nodeLabel="11.0" m_display="0" m_topoIndex="50" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="42" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <controlInputObjs>cleanup</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="card_recognizer_hls.cpp">
+      <validLinenumbers>42</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="76" name="cleanup" type="BlockType">
+    <controlInputObjs>VITIS_LOOP_51_4</controlInputObjs>
+    <controlInputObjs>if.then</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>for.body8</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="71" name="add_ln39" lineNumber="39" fileName="card_recognizer_hls.cpp" fileDirectory=".." rtlName="add_ln39_fu_293_p2" coreName="Adder" implIndex="fabric" control="no" opType="add" coreId="1" contextFuncName="find_largest_component_hw" bitwidth="31" opcode="add" nodeLabel="20.0" m_display="0" m_delay="2.52" m_topoIndex="59" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="39" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>select</dataInputObjs>
+      <dataOutputObjs>store</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="72" name="indvar_flatten_write_ln39" lineNumber="39" fileName="card_recognizer_hls.cpp" fileDirectory=".." coreId="1952675172" contextFuncName="find_largest_component_hw" opcode="store" nodeLabel="20.0" m_display="0" m_delay="1.58" m_topoIndex="60" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="39" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>add</dataInputObjs>
+      <dataInputObjs>alloca</dataInputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="73" name="y_write_ln39" lineNumber="39" fileName="card_recognizer_hls.cpp" fileDirectory=".." coreId="1634548282" contextFuncName="find_largest_component_hw" opcode="store" nodeLabel="20.0" m_display="0" m_delay="1.58" m_topoIndex="61" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="39" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>select</dataInputObjs>
+      <dataInputObjs>alloca</dataInputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="74" name="x_write_ln39" lineNumber="39" fileName="card_recognizer_hls.cpp" fileDirectory=".." coreId="1601200424" contextFuncName="find_largest_component_hw" opcode="store" nodeLabel="20.0" m_display="0" m_delay="1.58" m_topoIndex="62" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="39" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>add</dataInputObjs>
+      <dataInputObjs>alloca</dataInputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="75" name="br_ln39" lineNumber="39" fileName="card_recognizer_hls.cpp" fileDirectory=".." coreId="1550345076" contextFuncName="find_largest_component_hw" opcode="br" nodeLabel="20.0" m_display="0" m_topoIndex="63" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="39" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <controlInputObjs>for.body8</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="card_recognizer_hls.cpp">
+      <validLinenumbers>39</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="79" name="for.end99.loopexit" type="BlockType">
+    <controlInputObjs>for.body8</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="77" name="best_count_load" lineNumber="80" fileName="card_recognizer_hls.cpp" fileDirectory=".." coreId="2036689696" contextFuncName="find_largest_component_hw" bitwidth="32" opcode="load" nodeLabel="4.0" m_display="0" m_topoIndex="31" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="80" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>alloca</dataInputObjs>
+      <dataOutputObjs>ret</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="78" name="_ln80" lineNumber="80" fileName="card_recognizer_hls.cpp" fileDirectory=".." coreId="1917853796" contextFuncName="find_largest_component_hw" opcode="ret" nodeLabel="4.0" m_display="0" m_topoIndex="32" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="card_recognizer_hls.cpp" linenumber="80" fileDirectory="C:\Users\astan\Desktop\esl\esl" functionName="find_largest_component_hw"/>
+      <dataInputObjs>load</dataInputObjs>
+      <dataOutputObjs>ap_return</dataOutputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="card_recognizer_hls.cpp">
+      <validLinenumbers>80</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <ScheduleInfo time="0"/>
+  <ScheduleInfo time="1"/>
+  <ScheduleInfo time="2"/>
+  <ScheduleInfo time="3"/>
+  <ScheduleInfo time="4"/>
+  <ScheduleInfo time="5"/>
+  <ScheduleInfo time="6"/>
+  <ScheduleInfo time="7"/>
+  <ScheduleInfo time="8"/>
+  <ScheduleInfo time="9"/>
+  <ScheduleInfo time="10"/>
+  <ScheduleInfo time="11"/>
+  <ScheduleInfo time="12"/>
+  <ScheduleInfo time="13"/>
+  <ScheduleInfo time="14"/>
+  <ScheduleInfo time="15"/>
+  <ScheduleInfo time="16"/>
+  <ScheduleInfo time="17"/>
+  <ScheduleInfo time="18"/>
+  <ScheduleInfo time="19"/>
+  <ScheduleInfo time="20"/>
+  <regnodes realName="add_ln38_reg_402">
+    <nodeIds>31</nodeIds>
+  </regnodes>
+  <regnodes realName="icmp_ln39_reg_394">
+    <nodeIds>29</nodeIds>
+  </regnodes>
+  <regnodes realName="select_ln38_reg_423">
+    <nodeIds>36</nodeIds>
+  </regnodes>
+  <regnodes realName="best_count_3_loc_reg_360">
+    <nodeIds>13</nodeIds>
+  </regnodes>
+  <regnodes realName="trunc_ln38_reg_366">
+    <nodeIds>16</nodeIds>
+  </regnodes>
+  <regnodes realName="best_count_reg_338">
+    <nodeIds>10</nodeIds>
+  </regnodes>
+  <regnodes realName="binary_addr_reg_439">
+    <nodeIds>47</nodeIds>
+  </regnodes>
+  <regnodes realName="visited_load_reg_453">
+    <nodeIds>53</nodeIds>
+  </regnodes>
+  <regnodes realName="select_ln38_1_reg_407">
+    <nodeIds>38</nodeIds>
+  </regnodes>
+  <regnodes realName="zext_ln48_reg_457">
+    <nodeIds>57</nodeIds>
+  </regnodes>
+  <regnodes realName="add_ln40_reg_429">
+    <nodeIds>45</nodeIds>
+  </regnodes>
+  <regnodes realName="y_reg_324">
+    <nodeIds>8</nodeIds>
+  </regnodes>
+  <regnodes realName="width_read_reg_352">
+    <nodeIds>12</nodeIds>
+  </regnodes>
+  <regnodes realName="indvar_flatten_reg_331">
+    <nodeIds>9</nodeIds>
+  </regnodes>
+  <regnodes realName="icmp_ln42_reg_444">
+    <nodeIds>49</nodeIds>
+  </regnodes>
+  <regnodes realName="mul_ln38_reg_386">
+    <nodeIds>19</nodeIds>
+  </regnodes>
+  <regnodes realName="trunc_ln38_1_reg_413">
+    <nodeIds>39</nodeIds>
+  </regnodes>
+  <regnodes realName="height_read_reg_345">
+    <nodeIds>11</nodeIds>
+  </regnodes>
+  <regnodes realName="reg_143">
+    <nodeIds>42</nodeIds>
+    <nodeIds>58</nodeIds>
+  </regnodes>
+  <regnodes realName="visited_addr_1_reg_448">
+    <nodeIds>52</nodeIds>
+  </regnodes>
+  <regnodes realName="zext_ln38_2_reg_418">
+    <nodeIds>41</nodeIds>
+  </regnodes>
+  <regnodes realName="zext_ln38_reg_376">
+    <nodeIds>17</nodeIds>
+  </regnodes>
+  <regnodes realName="zext_ln38_1_reg_381">
+    <nodeIds>18</nodeIds>
+  </regnodes>
+  <regnodes realName="zext_ln42_reg_434">
+    <nodeIds>46</nodeIds>
+  </regnodes>
+  <regnodes realName="x_reg_317">
+    <nodeIds>7</nodeIds>
+  </regnodes>
+  <regnodes realName="n_reg_371">
+    <nodeIds>14</nodeIds>
+  </regnodes>
+  <expressionNodes realName="trunc_ln38_fu_155">
+    <nodeIds>16</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="add_ln40_fu_252">
+    <nodeIds>45</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="indvar_flatten_fu_52">
+    <nodeIds>9</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="trunc_ln38_1_fu_234">
+    <nodeIds>39</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="zext_ln38_2_fu_238">
+    <nodeIds>41</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="select_ln70_fu_280">
+    <nodeIds>65</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="select_ln38_fu_242">
+    <nodeIds>36</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="select_ln38_1_fu_226">
+    <nodeIds>38</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="zext_ln48_fu_267">
+    <nodeIds>57</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="trunc_ln39_fu_248">
+    <nodeIds>43</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="icmp_ln70_fu_274">
+    <nodeIds>64</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="y_fu_48">
+    <nodeIds>8</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="best_count_fu_56">
+    <nodeIds>10</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="zext_ln38_1_fu_182">
+    <nodeIds>18</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="add_ln38_fu_211">
+    <nodeIds>31</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="x_fu_44">
+    <nodeIds>7</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="zext_ln42_fu_257">
+    <nodeIds>46</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="icmp_ln42_fu_261">
+    <nodeIds>49</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="add_ln38_1_fu_220">
+    <nodeIds>37</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="best_count_3_loc_fu_60">
+    <nodeIds>13</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="icmp_ln38_fu_206">
+    <nodeIds>30</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="visited_addr_1_gep_fu_89">
+    <nodeIds>52</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="zext_ln38_fu_179">
+    <nodeIds>17</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="add_ln39_fu_293">
+    <nodeIds>71</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="icmp_ln39_fu_201">
+    <nodeIds>29</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="zext_ln39_fu_197">
+    <nodeIds>28</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="binary_addr_gep_fu_76">
+    <nodeIds>47</nodeIds>
+  </expressionNodes>
+  <moduleNodes realName="grp_fu_149">
+    <nodeIds>14</nodeIds>
+  </moduleNodes>
+  <moduleNodes realName="grp_find_largest_component_hw_Pipeline_VITIS_LOOP_51_4_fu_122">
+    <nodeIds>62</nodeIds>
+  </moduleNodes>
+  <moduleNodes realName="grp_fu_311">
+    <nodeIds>40</nodeIds>
+  </moduleNodes>
+  <moduleNodes realName="grp_fu_137">
+    <nodeIds>42</nodeIds>
+    <nodeIds>58</nodeIds>
+  </moduleNodes>
+  <moduleNodes realName="grp_fu_185">
+    <nodeIds>19</nodeIds>
+  </moduleNodes>
+  <moduleNodes realName="grp_find_largest_component_hw_Pipeline_VITIS_LOOP_31_1_fu_115">
+    <nodeIds>15</nodeIds>
+  </moduleNodes>
+  <ioNodes realName="grp_load_fu_140">
+    <nodeIds>77</nodeIds>
+    <nodeIds>56</nodeIds>
+  </ioNodes>
+  <ioNodes realName="store_ln39_store_fu_302">
+    <nodeIds>73</nodeIds>
+  </ioNodes>
+  <ioNodes realName="store_ln39_store_fu_298">
+    <nodeIds>72</nodeIds>
+  </ioNodes>
+  <ioNodes realName="store_ln70_store_fu_288">
+    <nodeIds>66</nodeIds>
+  </ioNodes>
+  <ioNodes realName="x_1_load_fu_191">
+    <nodeIds>26</nodeIds>
+  </ioNodes>
+  <ioNodes realName="height_read_read_fu_64">
+    <nodeIds>11</nodeIds>
+  </ioNodes>
+  <ioNodes realName="y_load_load_fu_217">
+    <nodeIds>34</nodeIds>
+  </ioNodes>
+  <ioNodes realName="best_count_3_loc_load_load_fu_271">
+    <nodeIds>63</nodeIds>
+  </ioNodes>
+  <ioNodes realName="store_ln38_store_fu_164">
+    <nodeIds>21</nodeIds>
+  </ioNodes>
+  <ioNodes realName="store_ln38_store_fu_174">
+    <nodeIds>23</nodeIds>
+  </ioNodes>
+  <ioNodes realName="indvar_flatten_load_load_fu_194">
+    <nodeIds>27</nodeIds>
+  </ioNodes>
+  <ioNodes realName="width_read_read_fu_70">
+    <nodeIds>12</nodeIds>
+  </ioNodes>
+  <ioNodes realName="store_ln38_store_fu_159">
+    <nodeIds>20</nodeIds>
+  </ioNodes>
+  <ioNodes realName="store_ln38_store_fu_169">
+    <nodeIds>22</nodeIds>
+  </ioNodes>
+  <ioNodes realName="store_ln39_store_fu_306">
+    <nodeIds>74</nodeIds>
+  </ioNodes>
+  <memoryPorts dataString="binary">
+    <nodeIds>48</nodeIds>
+  </memoryPorts>
+  <memoryPorts dataString="binary" portID="100">
+    <nodeIds>62</nodeIds>
+  </memoryPorts>
+  <memoryPorts dataString="queue_x">
+    <nodeIds>59</nodeIds>
+  </memoryPorts>
+  <memoryPorts dataString="queue_x" portID="100">
+    <nodeIds>62</nodeIds>
+  </memoryPorts>
+  <memoryPorts dataString="queue_y">
+    <nodeIds>60</nodeIds>
+  </memoryPorts>
+  <memoryPorts dataString="queue_y" portID="100">
+    <nodeIds>62</nodeIds>
+  </memoryPorts>
+  <memoryPorts dataString="visited">
+    <nodeIds>53</nodeIds>
+    <nodeIds>61</nodeIds>
+  </memoryPorts>
+  <memoryPorts dataString="visited" portID="100">
+    <nodeIds>15</nodeIds>
+    <nodeIds>62</nodeIds>
+  </memoryPorts>
+  <ioPorts name="binary(p0)">
+    <contents name="load">
+      <nodeIds>48</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="height">
+    <contents name="read">
+      <nodeIds>11</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="width">
+    <contents name="read">
+      <nodeIds>12</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="ap_return">
+    <contents name="ret">
+      <nodeIds>78</nodeIds>
+    </contents>
+  </ioPorts>
+  <fsm>
+    <states id="1">
+      <operations id="7" stage="1" latency="1"/>
+      <operations id="8" stage="1" latency="1"/>
+      <operations id="9" stage="1" latency="1"/>
+      <operations id="10" stage="1" latency="1"/>
+      <operations id="11" stage="1" latency="1"/>
+      <operations id="12" stage="1" latency="1"/>
+      <operations id="13" stage="1" latency="1"/>
+      <operations id="14" stage="2" latency="2"/>
+      <operations id="16" stage="1" latency="1"/>
+      <operations id="20" stage="1" latency="1"/>
+      <operations id="21" stage="1" latency="1"/>
+      <operations id="22" stage="1" latency="1"/>
+      <operations id="23" stage="1" latency="1"/>
+    </states>
+    <states id="2">
+      <operations id="14" stage="1" latency="2"/>
+    </states>
+    <states id="3">
+      <operations id="15" stage="2" latency="2"/>
+      <operations id="17" stage="1" latency="1"/>
+      <operations id="18" stage="1" latency="1"/>
+      <operations id="19" stage="2" latency="2"/>
+    </states>
+    <states id="4">
+      <operations id="15" stage="1" latency="2"/>
+      <operations id="19" stage="1" latency="2"/>
+      <operations id="24" stage="1" latency="1"/>
+    </states>
+    <states id="5">
+      <operations id="26" stage="1" latency="1"/>
+      <operations id="27" stage="1" latency="1"/>
+      <operations id="28" stage="1" latency="1"/>
+      <operations id="29" stage="1" latency="1"/>
+      <operations id="30" stage="1" latency="1"/>
+      <operations id="31" stage="1" latency="1"/>
+      <operations id="32" stage="1" latency="1"/>
+      <operations id="34" stage="1" latency="1"/>
+      <operations id="37" stage="1" latency="1"/>
+      <operations id="38" stage="1" latency="1"/>
+      <operations id="39" stage="1" latency="1"/>
+      <operations id="40" stage="4" latency="4"/>
+      <operations id="77" stage="1" latency="1"/>
+      <operations id="78" stage="1" latency="1"/>
+    </states>
+    <states id="6">
+      <operations id="40" stage="3" latency="4"/>
+      <operations id="41" stage="1" latency="1"/>
+      <operations id="42" stage="6" latency="6"/>
+    </states>
+    <states id="7">
+      <operations id="40" stage="2" latency="4"/>
+      <operations id="42" stage="5" latency="6"/>
+    </states>
+    <states id="8">
+      <operations id="36" stage="1" latency="1"/>
+      <operations id="40" stage="1" latency="4"/>
+      <operations id="42" stage="4" latency="6"/>
+      <operations id="43" stage="1" latency="1"/>
+      <operations id="45" stage="1" latency="1"/>
+    </states>
+    <states id="9">
+      <operations id="42" stage="3" latency="6"/>
+    </states>
+    <states id="10">
+      <operations id="42" stage="2" latency="6"/>
+      <operations id="46" stage="1" latency="1"/>
+      <operations id="47" stage="1" latency="1"/>
+      <operations id="48" stage="2" latency="2"/>
+    </states>
+    <states id="11">
+      <operations id="35" stage="1" latency="1"/>
+      <operations id="42" stage="1" latency="6"/>
+      <operations id="44" stage="1" latency="1"/>
+      <operations id="48" stage="1" latency="2"/>
+      <operations id="49" stage="1" latency="1"/>
+      <operations id="50" stage="1" latency="1"/>
+      <operations id="52" stage="1" latency="1"/>
+      <operations id="53" stage="2" latency="2"/>
+    </states>
+    <states id="12">
+      <operations id="53" stage="1" latency="2"/>
+      <operations id="54" stage="1" latency="1"/>
+      <operations id="57" stage="1" latency="1"/>
+      <operations id="58" stage="6" latency="6"/>
+      <operations id="60" stage="1" latency="1"/>
+      <operations id="61" stage="1" latency="1"/>
+      <operations id="69" stage="1" latency="1"/>
+    </states>
+    <states id="13">
+      <operations id="58" stage="5" latency="6"/>
+    </states>
+    <states id="14">
+      <operations id="58" stage="4" latency="6"/>
+    </states>
+    <states id="15">
+      <operations id="58" stage="3" latency="6"/>
+    </states>
+    <states id="16">
+      <operations id="58" stage="2" latency="6"/>
+    </states>
+    <states id="17">
+      <operations id="58" stage="1" latency="6"/>
+    </states>
+    <states id="18">
+      <operations id="59" stage="1" latency="1"/>
+    </states>
+    <states id="19">
+      <operations id="62" stage="2" latency="2"/>
+    </states>
+    <states id="20">
+      <operations id="62" stage="1" latency="2"/>
+    </states>
+    <states id="21">
+      <operations id="56" stage="1" latency="1"/>
+      <operations id="63" stage="1" latency="1"/>
+      <operations id="64" stage="1" latency="1"/>
+      <operations id="65" stage="1" latency="1"/>
+      <operations id="66" stage="1" latency="1"/>
+      <operations id="67" stage="1" latency="1"/>
+      <operations id="71" stage="1" latency="1"/>
+      <operations id="72" stage="1" latency="1"/>
+      <operations id="73" stage="1" latency="1"/>
+      <operations id="74" stage="1" latency="1"/>
+      <operations id="75" stage="1" latency="1"/>
+    </states>
+    <transitions inState="1" outState="2">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="2" outState="3">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="3" outState="4">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="4" outState="5">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="5" outState="6">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="6" outState="7">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="7" outState="8">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="8" outState="9">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="9" outState="10">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="10" outState="11">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="11" outState="12">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="12" outState="13">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="13" outState="14">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="14" outState="15">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="15" outState="16">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="16" outState="17">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="17" outState="18">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="18" outState="19">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="19" outState="20">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="20" outState="21">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="12" outState="21">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="21" outState="5">
+      <condition id="-1"/>
+    </transitions>
+  </fsm>
+  <CFGRegionsRoot>
+    <cfgRegions mId="1" mTag="find_largest_component_hw" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1" mMinLatency="-1" mMaxLatency="-1">
+      <subRegions>2</subRegions>
+      <subRegions>3</subRegions>
+      <subRegions>4</subRegions>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="2" mTag="Entry" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1" mMinLatency="-2" mMaxLatency="-2">
+      <basicBlocks>25</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="3" mTag="VITIS_LOOP_38_2_VITIS_LOOP_39_3" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1" mMinLatency="-1" mMaxLatency="-1" mType="1">
+      <basicBlocks>33</basicBlocks>
+      <basicBlocks>51</basicBlocks>
+      <basicBlocks>55</basicBlocks>
+      <basicBlocks>68</basicBlocks>
+      <basicBlocks>70</basicBlocks>
+      <basicBlocks>76</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="4" mTag="Return" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1">
+      <basicBlocks>79</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+  </CFGRegionsRoot>
+</cdfg:DBCdfg>

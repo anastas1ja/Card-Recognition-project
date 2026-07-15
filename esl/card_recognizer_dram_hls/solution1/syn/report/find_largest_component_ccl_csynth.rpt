@@ -1,0 +1,244 @@
+
+
+================================================================
+== Vitis HLS Report for 'find_largest_component_ccl'
+================================================================
+* Date:           Wed Jul 15 18:02:32 2026
+
+* Version:        2022.2 (Build 3670227 on Oct 13 2022)
+* Project:        card_recognizer_dram_hls
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z010i-clg225-1L
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  7.164 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+--------+--------+---------+
+    |  Latency (cycles) |  Latency (absolute) |     Interval    | Pipeline|
+    |   min   |   max   |    min   |    max   |   min  |   max  |   Type  |
+    +---------+---------+----------+----------+--------+--------+---------+
+    |   271840|   271840|  2.718 ms|  2.718 ms|  271840|  271840|       no|
+    +---------+---------+----------+----------+--------+--------+---------+
+
+    + Detail: 
+        * Instance: 
+        +----------------------------------------------------------------+-----------------------------------------------------+---------+---------+-----------+-----------+------+------+---------+
+        |                                                                |                                                     |  Latency (cycles) |   Latency (absolute)  |   Interval  | Pipeline|
+        |                            Instance                            |                        Module                       |   min   |   max   |    min    |    max    |  min |  max |   Type  |
+        +----------------------------------------------------------------+-----------------------------------------------------+---------+---------+-----------+-----------+------+------+---------+
+        |grp_find_largest_component_ccl_Pipeline_INIT_COMPONENTS_fu_130  |find_largest_component_ccl_Pipeline_INIT_COMPONENTS  |      258|      258|   2.580 us|   2.580 us|   258|   258|       no|
+        |grp_find_largest_component_ccl_Pipeline_INIT_ROWS_fu_146        |find_largest_component_ccl_Pipeline_INIT_ROWS        |      162|      162|   1.620 us|   1.620 us|   162|   162|       no|
+        |grp_find_largest_component_ccl_Pipeline_CLEAR_CURR_ROW_fu_158   |find_largest_component_ccl_Pipeline_CLEAR_CURR_ROW   |      162|      162|   1.620 us|   1.620 us|   162|   162|       no|
+        |grp_find_largest_component_ccl_Pipeline_SELECT_BEST_fu_164      |find_largest_component_ccl_Pipeline_SELECT_BEST      |      258|      258|   2.580 us|   2.580 us|   258|   258|       no|
+        |grp_find_largest_component_ccl_Pipeline_CCL_X_LOOP_fu_180       |find_largest_component_ccl_Pipeline_CCL_X_LOOP       |     1929|     1929|  19.290 us|  19.290 us|  1929|  1929|       no|
+        |grp_find_largest_component_ccl_Pipeline_COPY_ROW_fu_201         |find_largest_component_ccl_Pipeline_COPY_ROW         |      162|      162|   1.620 us|   1.620 us|   162|   162|       no|
+        +----------------------------------------------------------------+-----------------------------------------------------+---------+---------+-----------+-----------+------+------+---------+
+
+        * Loop: 
+        +--------------+---------+---------+----------+-----------+-----------+------+----------+
+        |              |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |   Loop Name  |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +--------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- CCL_Y_LOOP  |   271320|   271320|      2261|          -|          -|   120|        no|
+        +--------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+----+-------+-------+-----+
+|       Name      | BRAM_18K| DSP|   FF  |  LUT  | URAM|
++-----------------+---------+----+-------+-------+-----+
+|DSP              |        -|   1|      -|      -|    -|
+|Expression       |        -|   -|      0|     58|    -|
+|FIFO             |        -|   -|      -|      -|    -|
+|Instance         |        -|   -|    651|   1484|    -|
+|Memory           |        6|   -|     32|     40|    0|
+|Multiplexer      |        -|   -|      -|    897|    -|
+|Register         |        -|   -|    151|      -|    -|
++-----------------+---------+----+-------+-------+-----+
+|Total            |        6|   1|    834|   2479|    0|
++-----------------+---------+----+-------+-------+-----+
+|Available        |      120|  80|  35200|  17600|    0|
++-----------------+---------+----+-------+-------+-----+
+|Utilization (%)  |        5|   1|      2|     14|    0|
++-----------------+---------+----+-------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    +----------------------------------------------------------------+-----------------------------------------------------+---------+----+-----+------+-----+
+    |                            Instance                            |                        Module                       | BRAM_18K| DSP|  FF |  LUT | URAM|
+    +----------------------------------------------------------------+-----------------------------------------------------+---------+----+-----+------+-----+
+    |grp_find_largest_component_ccl_Pipeline_CCL_X_LOOP_fu_180       |find_largest_component_ccl_Pipeline_CCL_X_LOOP       |        0|   0|  462|  1039|    0|
+    |grp_find_largest_component_ccl_Pipeline_CLEAR_CURR_ROW_fu_158   |find_largest_component_ccl_Pipeline_CLEAR_CURR_ROW   |        0|   0|   10|    53|    0|
+    |grp_find_largest_component_ccl_Pipeline_COPY_ROW_fu_201         |find_largest_component_ccl_Pipeline_COPY_ROW         |        0|   0|   26|    73|    0|
+    |grp_find_largest_component_ccl_Pipeline_INIT_COMPONENTS_fu_130  |find_largest_component_ccl_Pipeline_INIT_COMPONENTS  |        0|   0|   11|    52|    0|
+    |grp_find_largest_component_ccl_Pipeline_INIT_ROWS_fu_146        |find_largest_component_ccl_Pipeline_INIT_ROWS        |        0|   0|   10|    53|    0|
+    |grp_find_largest_component_ccl_Pipeline_SELECT_BEST_fu_164      |find_largest_component_ccl_Pipeline_SELECT_BEST      |        0|   0|  132|   214|    0|
+    +----------------------------------------------------------------+-----------------------------------------------------+---------+----+-----+------+-----+
+    |Total                                                           |                                                     |        0|   0|  651|  1484|    0|
+    +----------------------------------------------------------------+-----------------------------------------------------+---------+----+-----+------+-----+
+
+    * DSP: 
+    +----------------------------+------------------------+-----------+
+    |          Instance          |         Module         | Expression|
+    +----------------------------+------------------------+-----------+
+    |mul_mul_15s_15s_15_4_1_U61  |mul_mul_15s_15s_15_4_1  |    i0 * i1|
+    +----------------------------+------------------------+-----------+
+
+    * Memory: 
+    +------------------+-------------------------------------------------------+---------+---+----+-----+------+-----+------+-------------+
+    |      Memory      |                         Module                        | BRAM_18K| FF| LUT| URAM| Words| Bits| Banks| W*Bits*Banks|
+    +------------------+-------------------------------------------------------+---------+---+----+-----+------+-----+------+-------------+
+    |count_U           |find_largest_component_ccl_count_RAM_AUTO_1R1W         |        1|  0|   0|    0|   256|   32|     1|         8192|
+    |parent_V_U        |find_largest_component_ccl_parent_V_RAM_AUTO_1R1W      |        1|  0|   0|    0|   256|    8|     1|         2048|
+    |min_x_V_U         |find_largest_component_ccl_parent_V_RAM_AUTO_1R1W      |        1|  0|   0|    0|   256|    8|     1|         2048|
+    |min_y_V_U         |find_largest_component_ccl_parent_V_RAM_AUTO_1R1W      |        1|  0|   0|    0|   256|    8|     1|         2048|
+    |max_x_V_U         |find_largest_component_ccl_parent_V_RAM_AUTO_1R1W      |        1|  0|   0|    0|   256|    8|     1|         2048|
+    |max_y_V_U         |find_largest_component_ccl_parent_V_RAM_AUTO_1R1W      |        1|  0|   0|    0|   256|    8|     1|         2048|
+    |prev_label_V_U    |find_largest_component_ccl_prev_label_V_RAM_AUTO_1R1W  |        0|  8|  10|    0|    80|    8|     1|          640|
+    |prev_label_V_1_U  |find_largest_component_ccl_prev_label_V_RAM_AUTO_1R1W  |        0|  8|  10|    0|    80|    8|     1|          640|
+    |curr_label_V_U    |find_largest_component_ccl_prev_label_V_RAM_AUTO_1R1W  |        0|  8|  10|    0|    80|    8|     1|          640|
+    |curr_label_V_1_U  |find_largest_component_ccl_prev_label_V_RAM_AUTO_1R1W  |        0|  8|  10|    0|    80|    8|     1|          640|
+    +------------------+-------------------------------------------------------+---------+---+----+-----+------+-----+------+-------------+
+    |Total             |                                                       |        6| 32|  40|    0|  1856|  104|    10|        20992|
+    +------------------+-------------------------------------------------------+---------+---+----+-----+------+-----+------+-------------+
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +---------------------------------+----------+----+---+----+------------+------------+
+    |          Variable Name          | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +---------------------------------+----------+----+---+----+------------+------------+
+    |add_ln127_fu_235_p2              |         +|   0|  0|  38|          31|           1|
+    |icmp_ln127_fu_230_p2             |      icmp|   0|  0|  18|          32|          32|
+    |ap_block_state2_on_subcall_done  |        or|   0|  0|   2|           1|           1|
+    +---------------------------------+----------+----+---+----+------------+------------+
+    |Total                            |          |   0|  0|  58|          64|          34|
+    +---------------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------+----+-----------+-----+-----------+
+    |           Name          | LUT| Input Size| Bits| Total Bits|
+    +-------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                |  65|         13|    1|         13|
+    |count_address0           |  20|          4|    8|         32|
+    |count_ce0                |  20|          4|    1|          4|
+    |count_d0                 |  14|          3|   32|         96|
+    |count_we0                |  14|          3|    1|          3|
+    |curr_label_V_1_address0  |  25|          5|    7|         35|
+    |curr_label_V_1_ce0       |  25|          5|    1|          5|
+    |curr_label_V_1_d0        |  20|          4|    8|         32|
+    |curr_label_V_1_we0       |  20|          4|    1|          4|
+    |curr_label_V_address0    |  25|          5|    7|         35|
+    |curr_label_V_ce0         |  25|          5|    1|          5|
+    |curr_label_V_d0          |  20|          4|    8|         32|
+    |curr_label_V_we0         |  20|          4|    1|          4|
+    |max_x_V_address0         |  20|          4|    8|         32|
+    |max_x_V_ce0              |  20|          4|    1|          4|
+    |max_x_V_ce1              |   9|          2|    1|          2|
+    |max_x_V_d0               |  14|          3|    8|         24|
+    |max_x_V_we0              |  14|          3|    1|          3|
+    |max_x_V_we1              |   9|          2|    1|          2|
+    |max_y_V_address0         |  20|          4|    8|         32|
+    |max_y_V_ce0              |  20|          4|    1|          4|
+    |max_y_V_ce1              |   9|          2|    1|          2|
+    |max_y_V_d0               |  14|          3|    8|         24|
+    |max_y_V_we0              |  14|          3|    1|          3|
+    |max_y_V_we1              |   9|          2|    1|          2|
+    |min_x_V_address0         |  20|          4|    8|         32|
+    |min_x_V_ce0              |  20|          4|    1|          4|
+    |min_x_V_ce1              |   9|          2|    1|          2|
+    |min_x_V_d0               |  14|          3|    8|         24|
+    |min_x_V_we0              |  14|          3|    1|          3|
+    |min_x_V_we1              |   9|          2|    1|          2|
+    |min_y_V_address0         |  20|          4|    8|         32|
+    |min_y_V_ce0              |  20|          4|    1|          4|
+    |min_y_V_ce1              |   9|          2|    1|          2|
+    |min_y_V_d0               |  14|          3|    8|         24|
+    |min_y_V_we0              |  14|          3|    1|          3|
+    |min_y_V_we1              |   9|          2|    1|          2|
+    |next_label_fu_46         |   9|          2|   32|         64|
+    |parent_V_address0        |  20|          4|    8|         32|
+    |parent_V_ce0             |  20|          4|    1|          4|
+    |parent_V_ce1             |   9|          2|    1|          2|
+    |parent_V_d0              |  14|          3|    8|         24|
+    |parent_V_we0             |  14|          3|    1|          3|
+    |parent_V_we1             |   9|          2|    1|          2|
+    |prev_label_V_1_address0  |  20|          4|    7|         28|
+    |prev_label_V_1_ce0       |  20|          4|    1|          4|
+    |prev_label_V_1_d0        |  14|          3|    8|         24|
+    |prev_label_V_1_we0       |  14|          3|    1|          3|
+    |prev_label_V_address0    |  20|          4|    7|         28|
+    |prev_label_V_ce0         |  20|          4|    1|          4|
+    |prev_label_V_d0          |  14|          3|    8|         24|
+    |prev_label_V_we0         |  14|          3|    1|          3|
+    |y_fu_50                  |   9|          2|   31|         62|
+    +-------------------------+----+-----------+-----+-----------+
+    |Total                    | 897|        185|  274|        879|
+    +-------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-----------------------------------------------------------------------------+----+----+-----+-----------+
+    |                                     Name                                    | FF | LUT| Bits| Const Bits|
+    +-----------------------------------------------------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                                                                    |  12|   0|   12|          0|
+    |empty_42_reg_389                                                             |   8|   0|    8|          0|
+    |empty_reg_399                                                                |  15|   0|   15|          0|
+    |grp_find_largest_component_ccl_Pipeline_CCL_X_LOOP_fu_180_ap_start_reg       |   1|   0|    1|          0|
+    |grp_find_largest_component_ccl_Pipeline_CLEAR_CURR_ROW_fu_158_ap_start_reg   |   1|   0|    1|          0|
+    |grp_find_largest_component_ccl_Pipeline_COPY_ROW_fu_201_ap_start_reg         |   1|   0|    1|          0|
+    |grp_find_largest_component_ccl_Pipeline_INIT_COMPONENTS_fu_130_ap_start_reg  |   1|   0|    1|          0|
+    |grp_find_largest_component_ccl_Pipeline_INIT_ROWS_fu_146_ap_start_reg        |   1|   0|    1|          0|
+    |grp_find_largest_component_ccl_Pipeline_SELECT_BEST_fu_164_ap_start_reg      |   1|   0|    1|          0|
+    |next_label_fu_46                                                             |  32|   0|   32|          0|
+    |next_label_load_reg_394                                                      |  32|   0|   32|          0|
+    |trunc_ln127_reg_376                                                          |  15|   0|   15|          0|
+    |y_fu_50                                                                      |  31|   0|   31|          0|
+    +-----------------------------------------------------------------------------+----+----+-----+-----------+
+    |Total                                                                        | 151|   0|  151|          0|
+    +-----------------------------------------------------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-------------------+-----+-----+------------+----------------------------+--------------+
+|     RTL Ports     | Dir | Bits|  Protocol  |        Source Object       |    C Type    |
++-------------------+-----+-----+------------+----------------------------+--------------+
+|ap_clk             |   in|    1|  ap_ctrl_hs|  find_largest_component_ccl|  return value|
+|ap_rst             |   in|    1|  ap_ctrl_hs|  find_largest_component_ccl|  return value|
+|ap_start           |   in|    1|  ap_ctrl_hs|  find_largest_component_ccl|  return value|
+|ap_done            |  out|    1|  ap_ctrl_hs|  find_largest_component_ccl|  return value|
+|ap_idle            |  out|    1|  ap_ctrl_hs|  find_largest_component_ccl|  return value|
+|ap_ready           |  out|    1|  ap_ctrl_hs|  find_largest_component_ccl|  return value|
+|ap_return_0        |  out|    8|  ap_ctrl_hs|  find_largest_component_ccl|  return value|
+|ap_return_1        |  out|    8|  ap_ctrl_hs|  find_largest_component_ccl|  return value|
+|ap_return_2        |  out|    8|  ap_ctrl_hs|  find_largest_component_ccl|  return value|
+|ap_return_3        |  out|    8|  ap_ctrl_hs|  find_largest_component_ccl|  return value|
+|ap_return_4        |  out|   32|  ap_ctrl_hs|  find_largest_component_ccl|  return value|
+|ap_return_5        |  out|    1|  ap_ctrl_hs|  find_largest_component_ccl|  return value|
+|width              |   in|   32|     ap_none|                       width|        scalar|
+|height             |   in|   32|     ap_none|                      height|        scalar|
+|binary_V_address0  |  out|   15|   ap_memory|                    binary_V|         array|
+|binary_V_ce0       |  out|    1|   ap_memory|                    binary_V|         array|
+|binary_V_q0        |   in|    1|   ap_memory|                    binary_V|         array|
++-------------------+-----+-----+------------+----------------------------+--------------+
+

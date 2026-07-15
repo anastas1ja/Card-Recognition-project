@@ -1,0 +1,433 @@
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vitis_HLS/2022.2/bin/unwrapped/win64.o/vitis_hls.exe'
+INFO: [HLS 200-10] For user 'astan' on host 'desktop-khih5hg' (Windows NT_amd64 version 6.2) on Wed Jul 15 18:01:50 +0200 2026
+INFO: [HLS 200-10] In directory 'C:/Users/astan/Desktop/moj_esl/esl/esl'
+Sourcing Tcl script 'C:/Users/astan/Desktop/moj_esl/esl/esl/card_recognizer_dram_hls/solution1/csynth.tcl'
+INFO: [HLS 200-1510] Running: source C:/Users/astan/Desktop/moj_esl/esl/esl/card_recognizer_dram_hls/solution1/csynth.tcl
+INFO: [HLS 200-1510] Running: open_project card_recognizer_dram_hls 
+INFO: [HLS 200-10] Opening project 'C:/Users/astan/Desktop/moj_esl/esl/esl/card_recognizer_dram_hls'.
+INFO: [HLS 200-1510] Running: set_top card_recognizer_hw 
+INFO: [HLS 200-1510] Running: add_files hls_fajlovi/card_recognizer_dram_hls.cpp 
+INFO: [HLS 200-10] Adding design file 'hls_fajlovi/card_recognizer_dram_hls.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb testbench.cpp -cflags -Wno-unknown-pragmas -Wno-unknown-pragmas -Wno-unknown-pragmas -csimflags -Wno-unknown-pragmas 
+INFO: [HLS 200-10] Adding test bench file 'testbench.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
+INFO: [HLS 200-10] Opening solution 'C:/Users/astan/Desktop/moj_esl/esl/esl/card_recognizer_dram_hls/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1611] Setting target device to 'xc7z010i-clg225-1L'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-1464] Running solution command: config_export -format=ip_catalog
+INFO: [HLS 200-1510] Running: set_part xc7z010i-clg225-1L 
+INFO: [HLS 200-1510] Running: create_clock -period 10ns -name default 
+INFO: [HLS 200-1510] Running: config_export -format ip_catalog 
+INFO: [HLS 200-1510] Running: source ./card_recognizer_dram_hls/solution1/directives.tcl
+INFO: [HLS 200-1510] Running: set_directive_top -name card_recognizer_hw card_recognizer_hw 
+INFO: [HLS 200-1510] Running: csynth_design 
+Running Dispatch Server on port: 65355
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 10.193 seconds; current allocated memory: 95.883 MB.
+INFO: [HLS 200-10] Analyzing design file 'hls_fajlovi/card_recognizer_dram_hls.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 9.61 seconds; current allocated memory: 97.027 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 214-131] Inlining function 'ap_range_ref<24, false>::ap_range_ref(ap_int_base<24, false>*, int, int)' into 'ap_int_base<24, false>::range(int, int)' (C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h:1048:12)
+INFO: [HLS 214-131] Inlining function 'ap_range_ref<24, false>::to_uint64() const' into 'ap_range_ref<24, false>::operator unsigned long long() const' (C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_ref.h:315:76)
+INFO: [HLS 214-131] Inlining function 'ssdm_int<8, false>::ssdm_int(unsigned char)' into 'ap_int_base<8, false>::ap_int_base(unsigned int)' (C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h:215:76)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::ap_int_base(unsigned int)' into 'ap_uint<8>::ap_uint(unsigned int)'
+INFO: [HLS 214-131] Inlining function 'ap_int_base<24, false>::range(int, int)' into 'to_grayscale(ap_uint<24> const*, ap_uint<8>*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:37:30)
+INFO: [HLS 214-131] Inlining function 'ap_range_ref<24, false>::operator unsigned long long() const' into 'to_grayscale(ap_uint<24> const*, ap_uint<8>*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:39:26)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<24, false>::range(int, int)' into 'to_grayscale(ap_uint<24> const*, ap_uint<8>*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:39:30)
+INFO: [HLS 214-131] Inlining function 'ap_range_ref<24, false>::operator unsigned long long() const' into 'to_grayscale(ap_uint<24> const*, ap_uint<8>*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:38:26)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<24, false>::range(int, int)' into 'to_grayscale(ap_uint<24> const*, ap_uint<8>*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:38:30)
+INFO: [HLS 214-131] Inlining function 'ap_range_ref<24, false>::operator unsigned long long() const' into 'to_grayscale(ap_uint<24> const*, ap_uint<8>*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:37:26)
+INFO: [HLS 214-131] Inlining function 'ssdm_int<32, true>::ssdm_int(int)' into 'ap_int_base<32, true>::ap_int_base(int)' (C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h:214:67)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<32, true>::ap_int_base(int)' into 'bool operator><8, false>(ap_int_base<8, false> const&, int)' (C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h:1788:337)
+INFO: [HLS 214-131] Inlining function 'bool ap_int_base<8, false>::operator><32, true>(ap_int_base<32, true> const&) const' into 'bool operator><8, false>(ap_int_base<8, false> const&, int)' (C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h:1788:335)
+INFO: [HLS 214-131] Inlining function '_ZN8ssdm_intILi1ELb0EEC2EDq1_j' into 'ap_int_base<1, false>::ap_int_base(int)' (C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h:214:67)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<1, false>::ap_int_base(int)' into 'ap_uint<1>::ap_uint(int)'
+INFO: [HLS 214-131] Inlining function 'bool operator><8, false>(ap_int_base<8, false> const&, int)' into 'binarize(ap_uint<8> const*, ap_uint<1>*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:53:23)
+INFO: [HLS 214-131] Inlining function 'ssdm_int<8, false>::ssdm_int(unsigned char)' into 'ap_int_base<8, false>::ap_int_base(int)' (C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h:214:67)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::ap_int_base(int)' into 'ap_uint<8>::ap_uint(int)'
+INFO: [HLS 214-131] Inlining function 'ap_int_base<32, true>::ap_int_base(int)' into 'bool operator!=<8, false>(ap_int_base<8, false> const&, int)' (C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h:1788:2233)
+INFO: [HLS 214-131] Inlining function 'bool ap_int_base<8, false>::operator!=<32, true>(ap_int_base<32, true> const&) const' into 'bool operator!=<8, false>(ap_int_base<8, false> const&, int)' (C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h:1788:2230)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'find_root(ap_uint<8> const*, ap_uint<8>)' (hls_fajlovi/card_recognizer_dram_hls.cpp:59:22)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'find_root(ap_uint<8> const*, ap_uint<8>)' (hls_fajlovi/card_recognizer_dram_hls.cpp:60:25)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<32, true>::ap_int_base(int)' into 'bool operator==<8, false>(ap_int_base<8, false> const&, int)' (C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h:1788:1853)
+INFO: [HLS 214-131] Inlining function 'bool ap_int_base<8, false>::operator==<32, true>(ap_int_base<32, true> const&) const' into 'bool operator==<8, false>(ap_int_base<8, false> const&, int)' (C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h:1788:1850)
+INFO: [HLS 214-131] Inlining function 'bool operator==<8, false>(ap_int_base<8, false> const&, int)' into 'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)' (hls_fajlovi/card_recognizer_dram_hls.cpp:75:11)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)' (hls_fajlovi/card_recognizer_dram_hls.cpp:85:12)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)' (hls_fajlovi/card_recognizer_dram_hls.cpp:84:11)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)' (hls_fajlovi/card_recognizer_dram_hls.cpp:83:11)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)' (hls_fajlovi/card_recognizer_dram_hls.cpp:83:26)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)' (hls_fajlovi/card_recognizer_dram_hls.cpp:82:42)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)' (hls_fajlovi/card_recognizer_dram_hls.cpp:82:56)
+INFO: [HLS 214-131] Inlining function 'bool ap_int_base<8, false>::operator><8, false>(ap_int_base<8, false> const&) const' into 'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)' (hls_fajlovi/card_recognizer_dram_hls.cpp:82:21)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)' (hls_fajlovi/card_recognizer_dram_hls.cpp:82:29)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)' (hls_fajlovi/card_recognizer_dram_hls.cpp:82:15)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)' (hls_fajlovi/card_recognizer_dram_hls.cpp:81:42)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)' (hls_fajlovi/card_recognizer_dram_hls.cpp:81:56)
+INFO: [HLS 214-131] Inlining function 'bool ap_int_base<8, false>::operator><8, false>(ap_int_base<8, false> const&) const' into 'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)' (hls_fajlovi/card_recognizer_dram_hls.cpp:81:21)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)' (hls_fajlovi/card_recognizer_dram_hls.cpp:81:29)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)' (hls_fajlovi/card_recognizer_dram_hls.cpp:81:15)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)' (hls_fajlovi/card_recognizer_dram_hls.cpp:80:42)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)' (hls_fajlovi/card_recognizer_dram_hls.cpp:80:56)
+INFO: [HLS 214-131] Inlining function 'bool ap_int_base<8, false>::operator<<8, false>(ap_int_base<8, false> const&) const' into 'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)' (hls_fajlovi/card_recognizer_dram_hls.cpp:80:21)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)' (hls_fajlovi/card_recognizer_dram_hls.cpp:80:29)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)' (hls_fajlovi/card_recognizer_dram_hls.cpp:80:15)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)' (hls_fajlovi/card_recognizer_dram_hls.cpp:79:42)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)' (hls_fajlovi/card_recognizer_dram_hls.cpp:79:56)
+INFO: [HLS 214-131] Inlining function 'bool ap_int_base<8, false>::operator<<8, false>(ap_int_base<8, false> const&) const' into 'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)' (hls_fajlovi/card_recognizer_dram_hls.cpp:79:21)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)' (hls_fajlovi/card_recognizer_dram_hls.cpp:79:29)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)' (hls_fajlovi/card_recognizer_dram_hls.cpp:79:15)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)' (hls_fajlovi/card_recognizer_dram_hls.cpp:75:54)
+INFO: [HLS 214-131] Inlining function 'bool ap_int_base<8, false>::operator==<8, false>(ap_int_base<8, false> const&) const' into 'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)' (hls_fajlovi/card_recognizer_dram_hls.cpp:75:37)
+INFO: [HLS 214-131] Inlining function 'bool operator==<8, false>(ap_int_base<8, false> const&, int)' into 'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)' (hls_fajlovi/card_recognizer_dram_hls.cpp:75:24)
+INFO: [HLS 214-131] Inlining function 'bool operator==<8, false>(ap_int_base<8, false> const&, int)' into 'find_largest_component_ccl(ap_uint<1> const*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:208:16)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'find_largest_component_ccl(ap_uint<1> const*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:183:27)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'find_largest_component_ccl(ap_uint<1> const*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:182:49)
+INFO: [HLS 214-131] Inlining function 'bool ap_int_base<8, false>::operator><8, false>(ap_int_base<8, false> const&) const' into 'find_largest_component_ccl(ap_uint<1> const*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:182:28)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'find_largest_component_ccl(ap_uint<1> const*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:182:36)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'find_largest_component_ccl(ap_uint<1> const*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:181:49)
+INFO: [HLS 214-131] Inlining function 'bool ap_int_base<8, false>::operator><8, false>(ap_int_base<8, false> const&) const' into 'find_largest_component_ccl(ap_uint<1> const*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:181:28)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'find_largest_component_ccl(ap_uint<1> const*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:181:36)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'find_largest_component_ccl(ap_uint<1> const*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:180:49)
+INFO: [HLS 214-131] Inlining function 'bool ap_int_base<8, false>::operator<<8, false>(ap_int_base<8, false> const&) const' into 'find_largest_component_ccl(ap_uint<1> const*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:180:28)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'find_largest_component_ccl(ap_uint<1> const*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:180:36)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'find_largest_component_ccl(ap_uint<1> const*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:179:49)
+INFO: [HLS 214-131] Inlining function 'bool ap_int_base<8, false>::operator<<8, false>(ap_int_base<8, false> const&) const' into 'find_largest_component_ccl(ap_uint<1> const*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:179:28)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'find_largest_component_ccl(ap_uint<1> const*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:179:36)
+INFO: [HLS 214-131] Inlining function 'find_root(ap_uint<8> const*, ap_uint<8>)' into 'find_largest_component_ccl(ap_uint<1> const*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:174:36)
+INFO: [HLS 214-131] Inlining function 'bool operator!=<8, false>(ap_int_base<8, false> const&, int)' into 'find_largest_component_ccl(ap_uint<1> const*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:173:28)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'find_largest_component_ccl(ap_uint<1> const*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:169:27)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'find_largest_component_ccl(ap_uint<1> const*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:168:27)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'find_largest_component_ccl(ap_uint<1> const*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:167:27)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'find_largest_component_ccl(ap_uint<1> const*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:166:27)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'find_largest_component_ccl(ap_uint<1> const*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:165:27)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'find_largest_component_ccl(ap_uint<1> const*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:164:28)
+INFO: [HLS 214-131] Inlining function 'bool operator==<8, false>(ap_int_base<8, false> const&, int)' into 'find_largest_component_ccl(ap_uint<1> const*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:162:28)
+INFO: [HLS 214-131] Inlining function 'merge_components(ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, ap_uint<8>*, unsigned int*, ap_uint<8>, ap_uint<8>)' into 'find_largest_component_ccl(ap_uint<1> const*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:157:25)
+INFO: [HLS 214-131] Inlining function 'bool ap_int_base<8, false>::operator<<8, false>(ap_int_base<8, false> const&) const' into 'find_largest_component_ccl(ap_uint<1> const*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:156:48)
+INFO: [HLS 214-131] Inlining function 'bool ap_int_base<8, false>::operator<<8, false>(ap_int_base<8, false> const&) const' into 'find_largest_component_ccl(ap_uint<1> const*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:155:48)
+INFO: [HLS 214-131] Inlining function 'bool ap_int_base<8, false>::operator!=<8, false>(ap_int_base<8, false> const&) const' into 'find_largest_component_ccl(ap_uint<1> const*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:154:39)
+INFO: [HLS 214-131] Inlining function 'bool operator==<8, false>(ap_int_base<8, false> const&, int)' into 'find_largest_component_ccl(ap_uint<1> const*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:152:32)
+INFO: [HLS 214-131] Inlining function 'find_root(ap_uint<8> const*, ap_uint<8>)' into 'find_largest_component_ccl(ap_uint<1> const*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:151:39)
+INFO: [HLS 214-131] Inlining function 'bool operator!=<8, false>(ap_int_base<8, false> const&, int)' into 'find_largest_component_ccl(ap_uint<1> const*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:150:24)
+INFO: [HLS 214-131] Inlining function 'find_root(ap_uint<8> const*, ap_uint<8>)' into 'find_largest_component_ccl(ap_uint<1> const*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:147:30)
+INFO: [HLS 214-131] Inlining function 'bool operator!=<8, false>(ap_int_base<8, false> const&, int)' into 'find_largest_component_ccl(ap_uint<1> const*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:146:26)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<1, false>::operator unsigned long long() const' into 'find_largest_component_ccl(ap_uint<1> const*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:141:17)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<1, false>::operator!() const' into 'analyze_top_left_roi(ap_uint<1> const*, BBox, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:226:9)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<1, false>::operator unsigned long long() const' into 'analyze_top_left_roi(ap_uint<1> const*, BBox, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:254:21)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'analyze_top_left_roi(ap_uint<1> const*, BBox, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:239:14)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'analyze_top_left_roi(ap_uint<1> const*, BBox, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:238:14)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'analyze_top_left_roi(ap_uint<1> const*, BBox, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:231:44)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'analyze_top_left_roi(ap_uint<1> const*, BBox, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:231:22)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'analyze_top_left_roi(ap_uint<1> const*, BBox, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:230:44)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<8, false>::operator unsigned long long() const' into 'analyze_top_left_roi(ap_uint<1> const*, BBox, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:230:22)
+INFO: [HLS 214-178] Inlining function 'to_grayscale(ap_uint<24> const*, ap_uint<8>*, int, int)' into 'card_recognizer_hw(ap_uint<24>*, unsigned int*, unsigned int*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:270:0)
+INFO: [HLS 214-178] Inlining function 'binarize(ap_uint<8> const*, ap_uint<1>*, int, int)' into 'card_recognizer_hw(ap_uint<24>*, unsigned int*, unsigned int*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:270:0)
+INFO: [HLS 214-178] Inlining function 'analyze_top_left_roi(ap_uint<1> const*, BBox, int)' into 'card_recognizer_hw(ap_uint<24>*, unsigned int*, unsigned int*, int, int)' (hls_fajlovi/card_recognizer_dram_hls.cpp:270:0)
+INFO: [HLS 214-248] Applying array_partition to 'prev_label': Cyclic partitioning with factor 2 on dimension 1. (hls_fajlovi/card_recognizer_dram_hls.cpp:92:13)
+INFO: [HLS 214-248] Applying array_partition to 'curr_label': Cyclic partitioning with factor 2 on dimension 1. (hls_fajlovi/card_recognizer_dram_hls.cpp:93:13)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 9.282 seconds; current allocated memory: 99.285 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.009 seconds; current allocated memory: 99.297 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.228 seconds; current allocated memory: 112.543 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.155 seconds; current allocated memory: 122.910 MB.
+INFO: [XFORM 203-510] Pipelining loop 'CCL_X_LOOP' (hls_fajlovi/card_recognizer_dram_hls.cpp:124) in function 'find_largest_component_ccl' automatically.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (hls_fajlovi/card_recognizer_dram_hls.cpp:142:35) to (hls_fajlovi/card_recognizer_dram_hls.cpp:150:21) in function 'find_largest_component_ccl'... converting 5 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (hls_fajlovi/card_recognizer_dram_hls.cpp:207:9) to (hls_fajlovi/card_recognizer_dram_hls.cpp:205:5) in function 'find_largest_component_ccl'... converting 4 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (hls_fajlovi/card_recognizer_dram_hls.cpp:251:9) to (hls_fajlovi/card_recognizer_dram_hls.cpp:249:9) in function 'card_recognizer_hw'... converting 3 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'card_recognizer_hw' (hls_fajlovi/card_recognizer_dram_hls.cpp:33:9)...3 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.495 seconds; current allocated memory: 154.633 MB.
+WARNING: [HLS 200-960] Cannot flatten loop 'CCL_Y_LOOP' (hls_fajlovi/card_recognizer_dram_hls.cpp:127:14) in function 'find_largest_component_ccl' more than one sub loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-960.html
+INFO: [XFORM 203-541] Flattening a loop nest 'ROI_Y_LOOP' (hls_fajlovi/card_recognizer_dram_hls.cpp:243:18) in function 'card_recognizer_hw'.
+INFO: [HLS 200-472] Inferring partial write operation for 'parent.V' (hls_fajlovi/card_recognizer_dram_hls.cpp:108:12)
+INFO: [HLS 200-472] Inferring partial write operation for 'min_x.V' (hls_fajlovi/card_recognizer_dram_hls.cpp:109:18)
+INFO: [HLS 200-472] Inferring partial write operation for 'min_y.V' (hls_fajlovi/card_recognizer_dram_hls.cpp:110:18)
+INFO: [HLS 200-472] Inferring partial write operation for 'max_x.V' (hls_fajlovi/card_recognizer_dram_hls.cpp:111:18)
+INFO: [HLS 200-472] Inferring partial write operation for 'max_y.V' (hls_fajlovi/card_recognizer_dram_hls.cpp:112:18)
+INFO: [HLS 200-472] Inferring partial write operation for 'count' (hls_fajlovi/card_recognizer_dram_hls.cpp:113:18)
+INFO: [HLS 200-472] Inferring partial write operation for 'prev_label.V' (hls_fajlovi/card_recognizer_dram_hls.cpp:120:16)
+INFO: [HLS 200-472] Inferring partial write operation for 'curr_label.V' (hls_fajlovi/card_recognizer_dram_hls.cpp:121:23)
+INFO: [HLS 200-472] Inferring partial write operation for 'curr_label.V' (hls_fajlovi/card_recognizer_dram_hls.cpp:133:16)
+INFO: [HLS 200-472] Inferring partial write operation for 'min_x.V' (hls_fajlovi/card_recognizer_dram_hls.cpp:79:48)
+INFO: [HLS 200-472] Inferring partial write operation for 'min_y.V' (hls_fajlovi/card_recognizer_dram_hls.cpp:80:48)
+INFO: [HLS 200-472] Inferring partial write operation for 'max_x.V' (hls_fajlovi/card_recognizer_dram_hls.cpp:81:48)
+INFO: [HLS 200-472] Inferring partial write operation for 'max_y.V' (hls_fajlovi/card_recognizer_dram_hls.cpp:82:48)
+INFO: [HLS 200-472] Inferring partial write operation for 'count' (hls_fajlovi/card_recognizer_dram_hls.cpp:83:17)
+INFO: [HLS 200-472] Inferring partial write operation for 'count' (hls_fajlovi/card_recognizer_dram_hls.cpp:84:17)
+INFO: [HLS 200-472] Inferring partial write operation for 'parent.V' (hls_fajlovi/card_recognizer_dram_hls.cpp:85:18)
+INFO: [HLS 200-472] Inferring partial write operation for 'parent.V' (hls_fajlovi/card_recognizer_dram_hls.cpp:164:36)
+INFO: [HLS 200-472] Inferring partial write operation for 'min_x.V' (hls_fajlovi/card_recognizer_dram_hls.cpp:165:35)
+INFO: [HLS 200-472] Inferring partial write operation for 'min_y.V' (hls_fajlovi/card_recognizer_dram_hls.cpp:166:35)
+INFO: [HLS 200-472] Inferring partial write operation for 'max_x.V' (hls_fajlovi/card_recognizer_dram_hls.cpp:167:35)
+INFO: [HLS 200-472] Inferring partial write operation for 'max_y.V' (hls_fajlovi/card_recognizer_dram_hls.cpp:168:35)
+INFO: [HLS 200-472] Inferring partial write operation for 'count' (hls_fajlovi/card_recognizer_dram_hls.cpp:169:35)
+INFO: [HLS 200-472] Inferring partial write operation for 'curr_label.V' (hls_fajlovi/card_recognizer_dram_hls.cpp:175:35)
+INFO: [HLS 200-472] Inferring partial write operation for 'min_x.V' (hls_fajlovi/card_recognizer_dram_hls.cpp:179:55)
+INFO: [HLS 200-472] Inferring partial write operation for 'min_y.V' (hls_fajlovi/card_recognizer_dram_hls.cpp:180:55)
+INFO: [HLS 200-472] Inferring partial write operation for 'max_x.V' (hls_fajlovi/card_recognizer_dram_hls.cpp:181:55)
+INFO: [HLS 200-472] Inferring partial write operation for 'max_y.V' (hls_fajlovi/card_recognizer_dram_hls.cpp:182:55)
+INFO: [HLS 200-472] Inferring partial write operation for 'count' (hls_fajlovi/card_recognizer_dram_hls.cpp:183:32)
+INFO: [HLS 200-472] Inferring partial write operation for 'prev_label.V' (hls_fajlovi/card_recognizer_dram_hls.cpp:192:16)
+INFO: [HLS 200-472] Inferring partial write operation for 'gray.V' (hls_fajlovi/card_recognizer_dram_hls.cpp:40:17)
+INFO: [HLS 200-472] Inferring partial write operation for 'binary.V' (hls_fajlovi/card_recognizer_dram_hls.cpp:53:12)
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 0.835 seconds; current allocated memory: 240.699 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'card_recognizer_hw' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'card_recognizer_hw_Pipeline_GRAYSCALE_LOOP' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln40_1) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln40_2) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'GRAYSCALE_LOOP'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 6, loop 'GRAYSCALE_LOOP'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.498 seconds; current allocated memory: 245.801 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.107 seconds; current allocated memory: 247.102 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'card_recognizer_hw_Pipeline_BINARIZE_LOOP' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'BINARIZE_LOOP'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'BINARIZE_LOOP'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.103 seconds; current allocated memory: 247.434 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.058 seconds; current allocated memory: 247.473 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'find_largest_component_ccl_Pipeline_INIT_COMPONENTS' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'INIT_COMPONENTS'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 1, loop 'INIT_COMPONENTS'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 247.691 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.067 seconds; current allocated memory: 247.727 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'find_largest_component_ccl_Pipeline_INIT_ROWS' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'INIT_ROWS'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 1, loop 'INIT_ROWS'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.085 seconds; current allocated memory: 248.082 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.059 seconds; current allocated memory: 248.227 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'find_largest_component_ccl_Pipeline_CLEAR_CURR_ROW' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'CLEAR_CURR_ROW'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 1, loop 'CLEAR_CURR_ROW'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.087 seconds; current allocated memory: 248.480 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.067 seconds; current allocated memory: 248.648 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'find_largest_component_ccl_Pipeline_CCL_X_LOOP' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'CCL_X_LOOP'.
+WARNING: [HLS 200-880] The II Violation in module 'find_largest_component_ccl_Pipeline_CCL_X_LOOP' (loop 'CCL_X_LOOP'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between 'store' operation ('count_addr_write_ln84', hls_fajlovi/card_recognizer_dram_hls.cpp:84) of constant 0 on array 'count' and 'load' operation ('count_load', hls_fajlovi/card_recognizer_dram_hls.cpp:75) on array 'count'.
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'find_largest_component_ccl_Pipeline_CCL_X_LOOP' (loop 'CCL_X_LOOP'): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1) between 'store' operation ('count_addr_write_ln84', hls_fajlovi/card_recognizer_dram_hls.cpp:84) of constant 0 on array 'count' and 'load' operation ('count_load', hls_fajlovi/card_recognizer_dram_hls.cpp:75) on array 'count'.
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'find_largest_component_ccl_Pipeline_CCL_X_LOOP' (loop 'CCL_X_LOOP'): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1) between 'store' operation ('count_addr_write_ln84', hls_fajlovi/card_recognizer_dram_hls.cpp:84) of constant 0 on array 'count' and 'load' operation ('count_load', hls_fajlovi/card_recognizer_dram_hls.cpp:75) on array 'count'.
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'find_largest_component_ccl_Pipeline_CCL_X_LOOP' (loop 'CCL_X_LOOP'): Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1) between 'store' operation ('count_addr_write_ln84', hls_fajlovi/card_recognizer_dram_hls.cpp:84) of constant 0 on array 'count' and 'load' operation ('count_load', hls_fajlovi/card_recognizer_dram_hls.cpp:75) on array 'count'.
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'find_largest_component_ccl_Pipeline_CCL_X_LOOP' (loop 'CCL_X_LOOP'): Unable to enforce a carried dependence constraint (II = 11, distance = 1, offset = 1) between 'store' operation ('curr_label_V_addr_1_write_ln175', hls_fajlovi/card_recognizer_dram_hls.cpp:175) of variable 'root.V', hls_fajlovi/card_recognizer_dram_hls.cpp:60 on array 'curr_label_V' and 'load' operation ('curr_label_V_load', hls_fajlovi/card_recognizer_dram_hls.cpp:142) on array 'curr_label_V'.
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 12, Depth = 15, loop 'CCL_X_LOOP'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.477 seconds; current allocated memory: 251.734 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.368 seconds; current allocated memory: 251.750 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'find_largest_component_ccl_Pipeline_COPY_ROW' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'COPY_ROW'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, loop 'COPY_ROW'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.425 seconds; current allocated memory: 251.859 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.073 seconds; current allocated memory: 251.859 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'find_largest_component_ccl_Pipeline_SELECT_BEST' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'SELECT_BEST'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'SELECT_BEST'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.175 seconds; current allocated memory: 252.293 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.136 seconds; current allocated memory: 252.383 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'find_largest_component_ccl' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=empty) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.238 seconds; current allocated memory: 252.652 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.202 seconds; current allocated memory: 252.695 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'card_recognizer_hw_Pipeline_ROI_Y_LOOP_ROI_X_LOOP' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln246) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'ROI_Y_LOOP_ROI_X_LOOP'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 5, loop 'ROI_Y_LOOP_ROI_X_LOOP'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.352 seconds; current allocated memory: 253.062 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.148 seconds; current allocated memory: 253.160 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'card_recognizer_hw' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln234) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.393 seconds; current allocated memory: 253.809 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.315 seconds; current allocated memory: 254.039 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'card_recognizer_hw_Pipeline_GRAYSCALE_LOOP' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'card_recognizer_hw_Pipeline_GRAYSCALE_LOOP' pipeline 'GRAYSCALE_LOOP' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_8ns_5ns_15ns_15_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_8ns_8ns_15ns_16_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_8ns_8ns_15_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'card_recognizer_hw_Pipeline_GRAYSCALE_LOOP'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.565 seconds; current allocated memory: 256.035 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'card_recognizer_hw_Pipeline_BINARIZE_LOOP' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'card_recognizer_hw_Pipeline_BINARIZE_LOOP' pipeline 'BINARIZE_LOOP' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'card_recognizer_hw_Pipeline_BINARIZE_LOOP'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.304 seconds; current allocated memory: 257.621 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'find_largest_component_ccl_Pipeline_INIT_COMPONENTS' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'find_largest_component_ccl_Pipeline_INIT_COMPONENTS'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.213 seconds; current allocated memory: 258.492 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'find_largest_component_ccl_Pipeline_INIT_ROWS' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'find_largest_component_ccl_Pipeline_INIT_ROWS'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.243 seconds; current allocated memory: 259.129 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'find_largest_component_ccl_Pipeline_CLEAR_CURR_ROW' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'find_largest_component_ccl_Pipeline_CLEAR_CURR_ROW'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 0.224 seconds; current allocated memory: 259.711 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'find_largest_component_ccl_Pipeline_CCL_X_LOOP' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'find_largest_component_ccl_Pipeline_CCL_X_LOOP' pipeline 'CCL_X_LOOP' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mux_21_8_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'find_largest_component_ccl_Pipeline_CCL_X_LOOP'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.274 seconds; current allocated memory: 261.754 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'find_largest_component_ccl_Pipeline_COPY_ROW' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'find_largest_component_ccl_Pipeline_COPY_ROW' pipeline 'COPY_ROW' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mux_21_8_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'find_largest_component_ccl_Pipeline_COPY_ROW'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 1.449 seconds; current allocated memory: 265.180 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'find_largest_component_ccl_Pipeline_SELECT_BEST' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'find_largest_component_ccl_Pipeline_SELECT_BEST' pipeline 'SELECT_BEST' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'find_largest_component_ccl_Pipeline_SELECT_BEST'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.28 seconds; current allocated memory: 265.750 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'find_largest_component_ccl' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'mul_mul_15s_15s_15_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'find_largest_component_ccl'.
+INFO: [RTMG 210-278] Implementing memory 'card_recognizer_hw_find_largest_component_ccl_prev_label_V_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'card_recognizer_hw_find_largest_component_ccl_parent_V_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'card_recognizer_hw_find_largest_component_ccl_count_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.54 seconds; current allocated memory: 269.211 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'card_recognizer_hw_Pipeline_ROI_Y_LOOP_ROI_X_LOOP' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'card_recognizer_hw_Pipeline_ROI_Y_LOOP_ROI_X_LOOP' pipeline 'ROI_Y_LOOP_ROI_X_LOOP' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_7ns_15s_8ns_15_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'card_recognizer_hw_Pipeline_ROI_Y_LOOP_ROI_X_LOOP'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.555 seconds; current allocated memory: 270.699 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'card_recognizer_hw' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'card_recognizer_hw/input_rgb' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'card_recognizer_hw/result_rank' to 's_axilite & ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'card_recognizer_hw/result_suit' to 's_axilite & ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'card_recognizer_hw/width' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'card_recognizer_hw/height' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'card_recognizer_hw' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'result_rank', 'result_suit', 'width', 'height' and 'return' to AXI-Lite port control.
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_32_2_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_mul_10s_11ns_22_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'card_recognizer_hw'.
+INFO: [RTMG 210-278] Implementing memory 'card_recognizer_hw_gray_V_RAM_2P_BRAM_1R1W' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'card_recognizer_hw_binary_V_RAM_2P_BRAM_1R1W' using block RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 1.066 seconds; current allocated memory: 273.145 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 2.709 seconds; current allocated memory: 277.902 MB.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 2 seconds. CPU system time: 1 seconds. Elapsed time: 1.821 seconds; current allocated memory: 285.309 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for card_recognizer_hw.
+INFO: [VLOG 209-307] Generating Verilog RTL for card_recognizer_hw.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were NOT satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 139.59 MHz
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 12 seconds. CPU system time: 6 seconds. Elapsed time: 35.83 seconds; current allocated memory: 190.465 MB.
+INFO: [HLS 200-112] Total CPU user time: 14 seconds. Total CPU system time: 8 seconds. Total elapsed time: 48.957 seconds; peak allocated memory: 286.316 MB.

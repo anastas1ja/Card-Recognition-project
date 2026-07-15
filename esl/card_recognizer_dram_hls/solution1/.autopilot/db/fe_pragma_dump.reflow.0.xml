@@ -1,0 +1,71 @@
+<pragmas>
+<pragma file="hls_fajlovi/card_recognizer_dram_hls.cpp" line="35" pragmaType="pipeline" parentfunction="to_grayscale" off="0" ii="1" rewind="0" style=""/>
+<pragma file="hls_fajlovi/card_recognizer_dram_hls.cpp" line="34" pragmaType="loop_tripcount" parentfunction="to_grayscale" min="19200" max="19200" avg="19200"/>
+<pragma file="C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_ref.h" line="665" pragmaType="inline" parentfunction="to_uint64" off="0" region="0" recursive="0"/>
+<pragma file="C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_ref.h" line="315" pragmaType="inline" parentfunction="ap_range_ref<24, false>::operator unsigned long long() const" off="0" region="0" recursive="0"/>
+<pragma file="C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_ref.h" line="303" pragmaType="inline" parentfunction="ap_range_ref<24, false>::ap_range_ref(ap_int_base<24, false>*, int, int)" off="0" region="0" recursive="0"/>
+<pragma file="hls_fajlovi/card_recognizer_dram_hls.cpp" line="247" pragmaType="loop_tripcount" parentfunction="analyze_top_left_roi" min="120" max="120" avg="120"/>
+<pragma file="hls_fajlovi/card_recognizer_dram_hls.cpp" line="251" pragmaType="pipeline" parentfunction="analyze_top_left_roi" off="0" ii="1" rewind="0" style=""/>
+<pragma file="hls_fajlovi/card_recognizer_dram_hls.cpp" line="250" pragmaType="loop_tripcount" parentfunction="analyze_top_left_roi" min="160" max="160" avg="160"/>
+<pragma file="C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h" line="1018" pragmaType="inline" parentfunction="bool ap_int_base<8, false>::operator==<8, false>(ap_int_base<8, false> const&) const" off="0" region="0" recursive="0"/>
+<pragma file="C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h" line="901" pragmaType="inline" parentfunction="ap_int_base<1, false>::operator!() const" off="0" region="0" recursive="0"/>
+<pragma file="hls_fajlovi/card_recognizer_dram_hls.cpp" line="271" pragmaType="interface" parentfunction="card_recognizer_hw" mode="ap_memory" port="input_rgb" storage_type="666" impl="208" latency="1" name="" depth="-1"/>
+<pragma file="hls_fajlovi/card_recognizer_dram_hls.cpp" line="272" pragmaType="interface" parentfunction="card_recognizer_hw" mode="s_axilite" port="result_rank" bundle="" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="hls_fajlovi/card_recognizer_dram_hls.cpp" line="273" pragmaType="interface" parentfunction="card_recognizer_hw" mode="s_axilite" port="result_suit" bundle="" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="hls_fajlovi/card_recognizer_dram_hls.cpp" line="274" pragmaType="interface" parentfunction="card_recognizer_hw" mode="s_axilite" port="width" bundle="" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="hls_fajlovi/card_recognizer_dram_hls.cpp" line="275" pragmaType="interface" parentfunction="card_recognizer_hw" mode="s_axilite" port="height" bundle="" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="hls_fajlovi/card_recognizer_dram_hls.cpp" line="276" pragmaType="interface" parentfunction="card_recognizer_hw" mode="s_axilite" port="" bundle="" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="hls_fajlovi/card_recognizer_dram_hls.cpp" line="281" pragmaType="bind_storage" parentfunction="card_recognizer_hw" op="666" impl="22" latency="-1" variable="_ZZ18card_recognizer_hwP7ap_uintILi24EEPjS2_iiE4gray"/>
+<pragma file="hls_fajlovi/card_recognizer_dram_hls.cpp" line="282" pragmaType="bind_storage" parentfunction="card_recognizer_hw" op="666" impl="22" latency="-1" variable="_ZZ18card_recognizer_hwP7ap_uintILi24EEPjS2_iiE6binary"/>
+<pragma file="C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h" line="1034" pragmaType="inline" parentfunction="bool ap_int_base<8, false>::operator><8, false>(ap_int_base<8, false> const&) const" off="0" region="0" recursive="0"/>
+<pragma file="C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h" line="214" pragmaType="inline" parentfunction="ap_int_base<1, false>::ap_int_base(int)" off="0" region="0" recursive="0"/>
+<pragma file="hls_fajlovi/card_recognizer_dram_hls.cpp" line="58" pragmaType="inline" parentfunction="find_root" off="0" region="0" recursive="0"/>
+<pragma file="C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h" line="214" pragmaType="inline" parentfunction="ap_int_base<32, true>::ap_int_base(int)" off="0" region="0" recursive="0"/>
+<pragma file="C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h" line="1788" pragmaType="inline" parentfunction="bool operator><8, false>(ap_int_base<8, false> const&, int)" off="0" region="0" recursive="0"/>
+<pragma file="C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h" line="215" pragmaType="inline" parentfunction="ap_int_base<8, false>::ap_int_base(unsigned int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<8>::ap_uint(unsigned int)" off="0" region="0" recursive="0"/>
+<pragma file="C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h" line="1034" pragmaType="inline" parentfunction="bool ap_int_base<8, false>::operator><32, true>(ap_int_base<32, true> const&) const" off="0" region="0" recursive="0"/>
+<pragma file="C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h" line="1045" pragmaType="inline" parentfunction="range" off="0" region="0" recursive="0"/>
+<pragma file="C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h" line="1788" pragmaType="inline" parentfunction="bool operator==<8, false>(ap_int_base<8, false> const&, int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<1>::ap_uint(int)" off="0" region="0" recursive="0"/>
+<pragma file="hls_fajlovi/card_recognizer_dram_hls.cpp" line="207" pragmaType="pipeline" parentfunction="find_largest_component_ccl" off="0" ii="1" rewind="0" style=""/>
+<pragma file="hls_fajlovi/card_recognizer_dram_hls.cpp" line="206" pragmaType="loop_tripcount" parentfunction="find_largest_component_ccl" min="255" max="255" avg="255"/>
+<pragma file="hls_fajlovi/card_recognizer_dram_hls.cpp" line="128" pragmaType="loop_tripcount" parentfunction="find_largest_component_ccl" min="120" max="120" avg="120"/>
+<pragma file="hls_fajlovi/card_recognizer_dram_hls.cpp" line="132" pragmaType="pipeline" parentfunction="find_largest_component_ccl" off="0" ii="1" rewind="0" style=""/>
+<pragma file="hls_fajlovi/card_recognizer_dram_hls.cpp" line="131" pragmaType="loop_tripcount" parentfunction="find_largest_component_ccl" min="160" max="160" avg="160"/>
+<pragma file="hls_fajlovi/card_recognizer_dram_hls.cpp" line="138" pragmaType="loop_tripcount" parentfunction="find_largest_component_ccl" min="160" max="160" avg="160"/>
+<pragma file="hls_fajlovi/card_recognizer_dram_hls.cpp" line="191" pragmaType="pipeline" parentfunction="find_largest_component_ccl" off="0" ii="1" rewind="0" style=""/>
+<pragma file="hls_fajlovi/card_recognizer_dram_hls.cpp" line="190" pragmaType="loop_tripcount" parentfunction="find_largest_component_ccl" min="160" max="160" avg="160"/>
+<pragma file="hls_fajlovi/card_recognizer_dram_hls.cpp" line="119" pragmaType="pipeline" parentfunction="find_largest_component_ccl" off="0" ii="1" rewind="0" style=""/>
+<pragma file="hls_fajlovi/card_recognizer_dram_hls.cpp" line="118" pragmaType="loop_tripcount" parentfunction="find_largest_component_ccl" min="160" max="160" avg="160"/>
+<pragma file="hls_fajlovi/card_recognizer_dram_hls.cpp" line="107" pragmaType="pipeline" parentfunction="find_largest_component_ccl" off="0" ii="1" rewind="0" style=""/>
+<pragma file="hls_fajlovi/card_recognizer_dram_hls.cpp" line="106" pragmaType="loop_tripcount" parentfunction="find_largest_component_ccl" min="256" max="256" avg="256"/>
+<pragma file="hls_fajlovi/card_recognizer_dram_hls.cpp" line="101" pragmaType="array_partition" parentfunction="find_largest_component_ccl" dim="1" factor="2" mode="cyclic" dynamic="0" variable="prev_label"/>
+<pragma file="hls_fajlovi/card_recognizer_dram_hls.cpp" line="102" pragmaType="array_partition" parentfunction="find_largest_component_ccl" dim="1" factor="2" mode="cyclic" dynamic="0" variable="curr_label"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<8>::ap_uint(int)" off="0" region="0" recursive="0"/>
+<pragma file="C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h" line="541" pragmaType="inline" parentfunction="ap_int_base<1, false>::operator unsigned long long() const" off="0" region="0" recursive="0"/>
+<pragma file="C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h" line="1022" pragmaType="inline" parentfunction="bool ap_int_base<8, false>::operator!=<8, false>(ap_int_base<8, false> const&) const" off="0" region="0" recursive="0"/>
+<pragma file="C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_common.h" line="523" pragmaType="inline" parentfunction="ssdm_int<8, false>::ssdm_int(unsigned char)" off="0" region="0" recursive="0"/>
+<pragma file="hls_fajlovi/card_recognizer_dram_hls.cpp" line="74" pragmaType="inline" parentfunction="merge_components" off="0" region="0" recursive="0"/>
+<pragma file="C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h" line="1018" pragmaType="inline" parentfunction="bool ap_int_base<8, false>::operator==<32, true>(ap_int_base<32, true> const&) const" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<1>::ap_uint()" off="0" region="0" recursive="0"/>
+<pragma file="C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h" line="175" pragmaType="inline" parentfunction="ap_int_base<1, false>::ap_int_base()" off="0" region="0" recursive="0"/>
+<pragma file="C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h" line="175" pragmaType="inline" parentfunction="ap_int_base<24, false>::ap_int_base()" off="0" region="0" recursive="0"/>
+<pragma file="C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_common.h" line="515" pragmaType="inline" parentfunction="ssdm_int<32, true>::ssdm_int(int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<8>::ap_uint()" off="0" region="0" recursive="0"/>
+<pragma file="C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h" line="1022" pragmaType="inline" parentfunction="bool ap_int_base<8, false>::operator!=<32, true>(ap_int_base<32, true> const&) const" off="0" region="0" recursive="0"/>
+<pragma file="C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h" line="214" pragmaType="inline" parentfunction="ap_int_base<8, false>::ap_int_base(int)" off="0" region="0" recursive="0"/>
+<pragma file="C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h" line="175" pragmaType="inline" parentfunction="ap_int_base<8, false>::ap_int_base()" off="0" region="0" recursive="0"/>
+<pragma file="C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h" line="1026" pragmaType="inline" parentfunction="bool ap_int_base<8, false>::operator<<8, false>(ap_int_base<8, false> const&) const" off="0" region="0" recursive="0"/>
+<pragma file="C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h" line="1788" pragmaType="inline" parentfunction="bool operator!=<8, false>(ap_int_base<8, false> const&, int)" off="0" region="0" recursive="0"/>
+<pragma file="hls_fajlovi/card_recognizer_dram_hls.cpp" line="52" pragmaType="pipeline" parentfunction="binarize" off="0" ii="1" rewind="0" style=""/>
+<pragma file="hls_fajlovi/card_recognizer_dram_hls.cpp" line="51" pragmaType="loop_tripcount" parentfunction="binarize" min="19200" max="19200" avg="19200"/>
+<pragma file="C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_common.h" line="523" pragmaType="inline" parentfunction="_ZN8ssdm_intILi1ELb0EEC2EDq1_j" off="0" region="0" recursive="0"/>
+<pragma file="C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h" line="541" pragmaType="inline" parentfunction="ap_int_base<8, false>::operator unsigned long long() const" off="0" region="0" recursive="0"/>
+<pragma file="C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_common.h" line="0" pragmaType="inline" parentfunction="ssdm_int<1, false>::ssdm_int()" off="0" region="0" recursive="0"/>
+<pragma file="C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_common.h" line="0" pragmaType="inline" parentfunction="ssdm_int<24, false>::ssdm_int()" off="0" region="0" recursive="0"/>
+<pragma file="C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_common.h" line="0" pragmaType="inline" parentfunction="ssdm_int<8, false>::ssdm_int()" off="0" region="0" recursive="0"/>
+<pragma file="C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h" line="0" pragmaType="inline" parentfunction="checkOverflowBaseC" off="0" region="0" recursive="0"/>
+<pragma file="C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h" line="0" pragmaType="inline" parentfunction="checkOverflowBaseC" off="0" region="0" recursive="0"/>
+<pragma file="C:/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot\ap_int_base.h" line="0" pragmaType="inline" parentfunction="checkOverflowBaseC" off="0" region="0" recursive="0"/>
+</pragmas>

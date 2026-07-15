@@ -1,0 +1,1340 @@
+<profile>
+    <ReportVersion>
+        <Version>2022.2</Version>
+    </ReportVersion>
+    <UserAssignments>
+        <unit>ns</unit>
+        <ProductFamily>zynq</ProductFamily>
+        <Part>xc7z010i-clg225-1L</Part>
+        <TopModelName>card_recognizer_hw</TopModelName>
+        <TargetClockPeriod>10.00</TargetClockPeriod>
+        <ClockUncertainty>2.70</ClockUncertainty>
+        <FlowTarget>vivado</FlowTarget>
+    </UserAssignments>
+    <PerformanceEstimates>
+        <PipelineType>no</PipelineType>
+        <SummaryOfTimingAnalysis>
+            <unit>ns</unit>
+            <EstimatedClockPeriod>7.164</EstimatedClockPeriod>
+        </SummaryOfTimingAnalysis>
+        <SummaryOfOverallLatency>
+            <unit>clock cycles</unit>
+            <Best-caseLatency>271846</Best-caseLatency>
+            <Average-caseLatency>300658</Average-caseLatency>
+            <Worst-caseLatency>329469</Worst-caseLatency>
+            <Best-caseRealTimeLatency>2.718 ms</Best-caseRealTimeLatency>
+            <Average-caseRealTimeLatency>3.007 ms</Average-caseRealTimeLatency>
+            <Worst-caseRealTimeLatency>3.295 ms</Worst-caseRealTimeLatency>
+            <Interval-min>271847</Interval-min>
+            <Interval-max>329470</Interval-max>
+        </SummaryOfOverallLatency>
+    </PerformanceEstimates>
+    <AreaEstimates>
+        <Resources>
+            <BRAM_18K>24</BRAM_18K>
+            <DSP>8</DSP>
+            <FF>1895</FF>
+            <LUT>3886</LUT>
+            <URAM>0</URAM>
+        </Resources>
+        <AvailableResources>
+            <BRAM_18K>120</BRAM_18K>
+            <DSP>80</DSP>
+            <FF>35200</FF>
+            <LUT>17600</LUT>
+            <URAM>0</URAM>
+        </AvailableResources>
+    </AreaEstimates>
+    <InterfaceSummary>
+        <RtlPorts>
+            <name>s_axi_control_AWVALID</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_AWREADY</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_AWADDR</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>6</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_WVALID</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_WREADY</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_WDATA</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_WSTRB</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>4</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_ARVALID</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_ARREADY</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_ARADDR</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>6</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_RVALID</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_RREADY</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_RDATA</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_RRESP</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>2</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_BVALID</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_BREADY</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_BRESP</name>
+            <Object>control</Object>
+            <Type>scalar</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <Dir>out</Dir>
+            <Bits>2</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_clk</name>
+            <Object>card_recognizer_hw</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_rst_n</name>
+            <Object>card_recognizer_hw</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>interrupt</name>
+            <Object>card_recognizer_hw</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>input_rgb_address0</name>
+            <Object>input_rgb</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>ap_memory</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>15</Bits>
+            <Attribute>address</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>input_rgb_ce0</name>
+            <Object>input_rgb</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>ap_memory</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>input_rgb_q0</name>
+            <Object>input_rgb</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>ap_memory</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>24</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+    </InterfaceSummary>
+    <RTLDesignHierarchy>
+        <TopModule MAX_DEPTH="4">
+            <ModuleName>card_recognizer_hw</ModuleName>
+            <InstancesList>
+                <Instance>
+                    <InstName>grp_card_recognizer_hw_Pipeline_GRAYSCALE_LOOP_fu_150</InstName>
+                    <ModuleName>card_recognizer_hw_Pipeline_GRAYSCALE_LOOP</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>150</ID>
+                    <BindInstances>add_ln33_fu_124_p2 mul_8ns_8ns_15_1_1_U1 mac_muladd_8ns_8ns_15ns_16_4_1_U3 mac_muladd_8ns_5ns_15ns_15_4_1_U2 mac_muladd_8ns_5ns_15ns_15_4_1_U2 mac_muladd_8ns_8ns_15ns_16_4_1_U3</BindInstances>
+                </Instance>
+                <Instance>
+                    <InstName>grp_card_recognizer_hw_Pipeline_BINARIZE_LOOP_fu_159</InstName>
+                    <ModuleName>card_recognizer_hw_Pipeline_BINARIZE_LOOP</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>159</ID>
+                    <BindInstances>add_ln50_fu_98_p2</BindInstances>
+                </Instance>
+                <Instance>
+                    <InstName>grp_find_largest_component_ccl_fu_168</InstName>
+                    <ModuleName>find_largest_component_ccl</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>168</ID>
+                    <InstancesList>
+                        <Instance>
+                            <InstName>grp_find_largest_component_ccl_Pipeline_INIT_COMPONENTS_fu_130</InstName>
+                            <ModuleName>find_largest_component_ccl_Pipeline_INIT_COMPONENTS</ModuleName>
+                            <IsCompInst>true</IsCompInst>
+                            <ID>130</ID>
+                            <BindInstances>i_2_fu_143_p2</BindInstances>
+                        </Instance>
+                        <Instance>
+                            <InstName>grp_find_largest_component_ccl_Pipeline_INIT_ROWS_fu_146</InstName>
+                            <ModuleName>find_largest_component_ccl_Pipeline_INIT_ROWS</ModuleName>
+                            <IsCompInst>true</IsCompInst>
+                            <ID>146</ID>
+                            <BindInstances>add_ln117_fu_110_p2</BindInstances>
+                        </Instance>
+                        <Instance>
+                            <InstName>grp_find_largest_component_ccl_Pipeline_CLEAR_CURR_ROW_fu_158</InstName>
+                            <ModuleName>find_largest_component_ccl_Pipeline_CLEAR_CURR_ROW</ModuleName>
+                            <IsCompInst>true</IsCompInst>
+                            <ID>158</ID>
+                            <BindInstances>add_ln130_fu_78_p2</BindInstances>
+                        </Instance>
+                        <Instance>
+                            <InstName>grp_find_largest_component_ccl_Pipeline_SELECT_BEST_fu_164</InstName>
+                            <ModuleName>find_largest_component_ccl_Pipeline_SELECT_BEST</ModuleName>
+                            <IsCompInst>true</IsCompInst>
+                            <ID>164</ID>
+                            <BindInstances>add_ln205_fu_262_p2</BindInstances>
+                        </Instance>
+                        <Instance>
+                            <InstName>grp_find_largest_component_ccl_Pipeline_CCL_X_LOOP_fu_180</InstName>
+                            <ModuleName>find_largest_component_ccl_Pipeline_CCL_X_LOOP</ModuleName>
+                            <IsCompInst>true</IsCompInst>
+                            <ID>180</ID>
+                            <BindInstances>add_ln137_fu_585_p2 add_ln139_fu_534_p2 add_ln142_fu_548_p2 add_ln83_fu_807_p2 next_label_3_fu_822_p2 add_ln183_fu_866_p2</BindInstances>
+                        </Instance>
+                        <Instance>
+                            <InstName>grp_find_largest_component_ccl_Pipeline_COPY_ROW_fu_201</InstName>
+                            <ModuleName>find_largest_component_ccl_Pipeline_COPY_ROW</ModuleName>
+                            <IsCompInst>true</IsCompInst>
+                            <ID>201</ID>
+                            <BindInstances>add_ln189_fu_106_p2</BindInstances>
+                        </Instance>
+                    </InstancesList>
+                    <BindInstances>prev_label_V_U prev_label_V_1_U curr_label_V_U curr_label_V_1_U parent_V_U min_x_V_U min_y_V_U max_x_V_U max_y_V_U count_U add_ln127_fu_235_p2 mul_mul_15s_15s_15_4_1_U61</BindInstances>
+                </Instance>
+                <Instance>
+                    <InstName>grp_card_recognizer_hw_Pipeline_ROI_Y_LOOP_ROI_X_LOOP_fu_176</InstName>
+                    <ModuleName>card_recognizer_hw_Pipeline_ROI_Y_LOOP_ROI_X_LOOP</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>176</ID>
+                    <BindInstances>add_ln246_fu_200_p2 add_ln246_1_fu_223_p2 mac_muladd_7ns_15s_8ns_15_4_1_U69 mac_muladd_7ns_15s_8ns_15_4_1_U69 add_ln255_fu_346_p2 add_ln249_fu_315_p2</BindInstances>
+                </Instance>
+            </InstancesList>
+            <BindInstances>mul_32s_32s_32_2_1_U78 sub_ln230_fu_270_p2 sub_ln231_fu_233_p2 add_ln233_fu_283_p2 sub_ln233_1_fu_380_p2 add_ln234_fu_243_p2 mul_mul_10s_11ns_22_4_1_U79 sub_ln234_fu_332_p2 sub_ln234_1_fu_364_p2 x1_fu_449_p2 y1_fu_455_p2 gray_V_U binary_V_U</BindInstances>
+        </TopModule>
+    </RTLDesignHierarchy>
+    <ModuleInformation>
+        <Module>
+            <Name>card_recognizer_hw_Pipeline_GRAYSCALE_LOOP</Name>
+            <Loops>
+                <GRAYSCALE_LOOP/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>6.270</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>19206</Best-caseLatency>
+                    <Average-caseLatency>19206</Average-caseLatency>
+                    <Worst-caseLatency>19206</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>0.192 ms</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0.192 ms</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>0.192 ms</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>19206</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <GRAYSCALE_LOOP>
+                        <Name>GRAYSCALE_LOOP</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>19200</TripCount>
+                        <Latency>19204</Latency>
+                        <AbsoluteTimeLatency>0.192 ms</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>6</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </GRAYSCALE_LOOP>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <DSP>2</DSP>
+                    <AVAIL_DSP>80</AVAIL_DSP>
+                    <UTIL_DSP>2</UTIL_DSP>
+                    <FF>129</FF>
+                    <AVAIL_FF>35200</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>148</LUT>
+                    <AVAIL_LUT>17600</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>120</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="GRAYSCALE_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln33_fu_124_p2" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:33" URAM="0" VARIABLE="add_ln33"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="GRAYSCALE_LOOP" OPTYPE="mul" PRAGMA="" RTLNAME="mul_8ns_8ns_15_1_1_U1" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:40" URAM="0" VARIABLE="mul_ln40"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="1" ID="" IMPL="dsp48" LATENCY="3" LOOP="GRAYSCALE_LOOP" OPTYPE="mul" PRAGMA="" RTLNAME="mac_muladd_8ns_8ns_15ns_16_4_1_U3" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:40" URAM="0" VARIABLE="mul_ln40_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="1" ID="" IMPL="dsp48" LATENCY="3" LOOP="GRAYSCALE_LOOP" OPTYPE="mul" PRAGMA="" RTLNAME="mac_muladd_8ns_5ns_15ns_15_4_1_U2" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:40" URAM="0" VARIABLE="mul_ln40_2"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="1" ID="" IMPL="dsp48" LATENCY="3" LOOP="GRAYSCALE_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="mac_muladd_8ns_5ns_15ns_15_4_1_U2" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:40" URAM="0" VARIABLE="add_ln40"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="1" ID="" IMPL="dsp48" LATENCY="3" LOOP="GRAYSCALE_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="mac_muladd_8ns_8ns_15ns_16_4_1_U3" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:40" URAM="0" VARIABLE="add_ln40_1"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>card_recognizer_hw_Pipeline_BINARIZE_LOOP</Name>
+            <Loops>
+                <BINARIZE_LOOP/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>4.805</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>19203</Best-caseLatency>
+                    <Average-caseLatency>19203</Average-caseLatency>
+                    <Worst-caseLatency>19203</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>0.192 ms</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0.192 ms</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>0.192 ms</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>19203</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <BINARIZE_LOOP>
+                        <Name>BINARIZE_LOOP</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>19200</TripCount>
+                        <Latency>19201</Latency>
+                        <AbsoluteTimeLatency>0.192 ms</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>3</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </BINARIZE_LOOP>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>51</FF>
+                    <AVAIL_FF>35200</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>86</LUT>
+                    <AVAIL_LUT>17600</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>120</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>80</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="BINARIZE_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln50_fu_98_p2" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:50" URAM="0" VARIABLE="add_ln50"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>find_largest_component_ccl_Pipeline_INIT_COMPONENTS</Name>
+            <Loops>
+                <INIT_COMPONENTS/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>4.915</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>258</Best-caseLatency>
+                    <Average-caseLatency>258</Average-caseLatency>
+                    <Worst-caseLatency>258</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>2.580 us</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>2.580 us</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>2.580 us</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>258</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <INIT_COMPONENTS>
+                        <Name>INIT_COMPONENTS</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>256</TripCount>
+                        <Latency>256</Latency>
+                        <AbsoluteTimeLatency>2.560 us</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>1</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </INIT_COMPONENTS>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>11</FF>
+                    <AVAIL_FF>35200</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>52</LUT>
+                    <AVAIL_LUT>17600</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>120</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>80</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="INIT_COMPONENTS" OPTYPE="add" PRAGMA="" RTLNAME="i_2_fu_143_p2" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:105" URAM="0" VARIABLE="i_2"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>find_largest_component_ccl_Pipeline_INIT_ROWS</Name>
+            <Loops>
+                <INIT_ROWS/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>3.873</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>162</Best-caseLatency>
+                    <Average-caseLatency>162</Average-caseLatency>
+                    <Worst-caseLatency>162</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>1.620 us</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>1.620 us</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>1.620 us</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>162</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <INIT_ROWS>
+                        <Name>INIT_ROWS</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>160</TripCount>
+                        <Latency>160</Latency>
+                        <AbsoluteTimeLatency>1.600 us</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>1</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </INIT_ROWS>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>10</FF>
+                    <AVAIL_FF>35200</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>53</LUT>
+                    <AVAIL_LUT>17600</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>120</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>80</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="INIT_ROWS" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_fu_110_p2" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:117" URAM="0" VARIABLE="add_ln117"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>find_largest_component_ccl_Pipeline_CLEAR_CURR_ROW</Name>
+            <Loops>
+                <CLEAR_CURR_ROW/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>3.873</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>162</Best-caseLatency>
+                    <Average-caseLatency>162</Average-caseLatency>
+                    <Worst-caseLatency>162</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>1.620 us</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>1.620 us</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>1.620 us</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>162</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <CLEAR_CURR_ROW>
+                        <Name>CLEAR_CURR_ROW</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>160</TripCount>
+                        <Latency>160</Latency>
+                        <AbsoluteTimeLatency>1.600 us</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>1</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </CLEAR_CURR_ROW>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>10</FF>
+                    <AVAIL_FF>35200</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>53</LUT>
+                    <AVAIL_LUT>17600</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>120</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>80</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="CLEAR_CURR_ROW" OPTYPE="add" PRAGMA="" RTLNAME="add_ln130_fu_78_p2" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:130" URAM="0" VARIABLE="add_ln130"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>find_largest_component_ccl_Pipeline_CCL_X_LOOP</Name>
+            <Loops>
+                <CCL_X_LOOP/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>7.164</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>1929</Best-caseLatency>
+                    <Average-caseLatency>1929</Average-caseLatency>
+                    <Worst-caseLatency>1929</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>19.290 us</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>19.290 us</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>19.290 us</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>1929</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <CCL_X_LOOP>
+                        <Name>CCL_X_LOOP</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>160</TripCount>
+                        <Latency>1927</Latency>
+                        <AbsoluteTimeLatency>19.270 us</AbsoluteTimeLatency>
+                        <PipelineII>12</PipelineII>
+                        <PipelineDepth>15</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </CCL_X_LOOP>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>462</FF>
+                    <AVAIL_FF>35200</AVAIL_FF>
+                    <UTIL_FF>1</UTIL_FF>
+                    <LUT>1039</LUT>
+                    <AVAIL_LUT>17600</AVAIL_LUT>
+                    <UTIL_LUT>5</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>120</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>80</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="CCL_X_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln137_fu_585_p2" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:137" URAM="0" VARIABLE="add_ln137"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="CCL_X_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln139_fu_534_p2" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:139" URAM="0" VARIABLE="add_ln139"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="CCL_X_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln142_fu_548_p2" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:142" URAM="0" VARIABLE="add_ln142"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="CCL_X_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln83_fu_807_p2" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:83" URAM="0" VARIABLE="add_ln83"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="CCL_X_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="next_label_3_fu_822_p2" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:170" URAM="0" VARIABLE="next_label_3"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="CCL_X_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln183_fu_866_p2" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:183" URAM="0" VARIABLE="add_ln183"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>find_largest_component_ccl_Pipeline_COPY_ROW</Name>
+            <Loops>
+                <COPY_ROW/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>6.232</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>162</Best-caseLatency>
+                    <Average-caseLatency>162</Average-caseLatency>
+                    <Worst-caseLatency>162</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>1.620 us</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>1.620 us</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>1.620 us</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>162</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <COPY_ROW>
+                        <Name>COPY_ROW</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>160</TripCount>
+                        <Latency>160</Latency>
+                        <AbsoluteTimeLatency>1.600 us</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>2</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </COPY_ROW>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>26</FF>
+                    <AVAIL_FF>35200</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>73</LUT>
+                    <AVAIL_LUT>17600</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>120</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>80</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="COPY_ROW" OPTYPE="add" PRAGMA="" RTLNAME="add_ln189_fu_106_p2" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:189" URAM="0" VARIABLE="add_ln189"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>find_largest_component_ccl_Pipeline_SELECT_BEST</Name>
+            <Loops>
+                <SELECT_BEST/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>6.287</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>258</Best-caseLatency>
+                    <Average-caseLatency>258</Average-caseLatency>
+                    <Worst-caseLatency>258</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>2.580 us</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>2.580 us</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>2.580 us</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>258</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <SELECT_BEST>
+                        <Name>SELECT_BEST</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>255</TripCount>
+                        <Latency>256</Latency>
+                        <AbsoluteTimeLatency>2.560 us</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>3</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </SELECT_BEST>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>132</FF>
+                    <AVAIL_FF>35200</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>214</LUT>
+                    <AVAIL_LUT>17600</AVAIL_LUT>
+                    <UTIL_LUT>1</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>120</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>80</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="SELECT_BEST" OPTYPE="add" PRAGMA="" RTLNAME="add_ln205_fu_262_p2" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:205" URAM="0" VARIABLE="add_ln205"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>find_largest_component_ccl</Name>
+            <Loops>
+                <CCL_Y_LOOP/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>7.164</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>271840</Best-caseLatency>
+                    <Average-caseLatency>271840</Average-caseLatency>
+                    <Worst-caseLatency>271840</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>2.718 ms</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>2.718 ms</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>2.718 ms</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>271840</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <CCL_Y_LOOP>
+                        <Name>CCL_Y_LOOP</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>120</TripCount>
+                        <Latency>271320</Latency>
+                        <AbsoluteTimeLatency>2.713 ms</AbsoluteTimeLatency>
+                        <IterationLatency>2261</IterationLatency>
+                        <PipelineDepth>2261</PipelineDepth>
+                        <PipelineType>no</PipelineType>
+                        <InstanceList>
+                            <Instance>grp_find_largest_component_ccl_Pipeline_CLEAR_CURR_ROW_fu_158</Instance>
+                            <Instance>grp_find_largest_component_ccl_Pipeline_CCL_X_LOOP_fu_180</Instance>
+                            <Instance>grp_find_largest_component_ccl_Pipeline_COPY_ROW_fu_201</Instance>
+                        </InstanceList>
+                    </CCL_Y_LOOP>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <BRAM_18K>6</BRAM_18K>
+                    <AVAIL_BRAM>120</AVAIL_BRAM>
+                    <UTIL_BRAM>5</UTIL_BRAM>
+                    <DSP>1</DSP>
+                    <AVAIL_DSP>80</AVAIL_DSP>
+                    <UTIL_DSP>1</UTIL_DSP>
+                    <FF>834</FF>
+                    <AVAIL_FF>35200</AVAIL_FF>
+                    <UTIL_FF>2</UTIL_FF>
+                    <LUT>2479</LUT>
+                    <AVAIL_LUT>17600</AVAIL_LUT>
+                    <UTIL_LUT>14</UTIL_LUT>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="prev_label_V_U" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:92" URAM="0" VARIABLE="prev_label_V"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="prev_label_V_1_U" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:92" URAM="0" VARIABLE="prev_label_V_1"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="curr_label_V_U" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:93" URAM="0" VARIABLE="curr_label_V"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="curr_label_V_1_U" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:93" URAM="0" VARIABLE="curr_label_V_1"/>
+                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="parent_V_U" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:94" URAM="0" VARIABLE="parent_V"/>
+                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="min_x_V_U" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:95" URAM="0" VARIABLE="min_x_V"/>
+                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="min_y_V_U" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:96" URAM="0" VARIABLE="min_y_V"/>
+                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="max_x_V_U" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:97" URAM="0" VARIABLE="max_x_V"/>
+                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="max_y_V_U" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:98" URAM="0" VARIABLE="max_y_V"/>
+                <BindNode BINDTYPE="storage" BRAM="2" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="count_U" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:99" URAM="0" VARIABLE="count"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="CCL_Y_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln127_fu_235_p2" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:127" URAM="0" VARIABLE="add_ln127"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="1" ID="" IMPL="dsp48" LATENCY="3" LOOP="CCL_Y_LOOP" OPTYPE="mul" PRAGMA="" RTLNAME="mul_mul_15s_15s_15_4_1_U61" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:127" URAM="0" VARIABLE="empty"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>card_recognizer_hw_Pipeline_ROI_Y_LOOP_ROI_X_LOOP</Name>
+            <Loops>
+                <ROI_Y_LOOP_ROI_X_LOOP/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>6.302</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>19205</Best-caseLatency>
+                    <Average-caseLatency>19205</Average-caseLatency>
+                    <Worst-caseLatency>19205</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>0.192 ms</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0.192 ms</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>0.192 ms</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>19205</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <ROI_Y_LOOP_ROI_X_LOOP>
+                        <Name>ROI_Y_LOOP_ROI_X_LOOP</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>19200</TripCount>
+                        <Latency>19203</Latency>
+                        <AbsoluteTimeLatency>0.192 ms</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>5</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </ROI_Y_LOOP_ROI_X_LOOP>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <DSP>1</DSP>
+                    <AVAIL_DSP>80</AVAIL_DSP>
+                    <UTIL_DSP>1</UTIL_DSP>
+                    <FF>217</FF>
+                    <AVAIL_FF>35200</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>419</LUT>
+                    <AVAIL_LUT>17600</AVAIL_LUT>
+                    <UTIL_LUT>2</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>120</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ROI_Y_LOOP_ROI_X_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln246_fu_200_p2" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:246" URAM="0" VARIABLE="add_ln246"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ROI_Y_LOOP_ROI_X_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln246_1_fu_223_p2" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:246" URAM="0" VARIABLE="add_ln246_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="1" ID="" IMPL="dsp48" LATENCY="3" LOOP="ROI_Y_LOOP_ROI_X_LOOP" OPTYPE="mul" PRAGMA="" RTLNAME="mac_muladd_7ns_15s_8ns_15_4_1_U69" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:246" URAM="0" VARIABLE="mul_ln246"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="1" ID="" IMPL="dsp48" LATENCY="3" LOOP="ROI_Y_LOOP_ROI_X_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="mac_muladd_7ns_15s_8ns_15_4_1_U69" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:253" URAM="0" VARIABLE="add_ln253"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ROI_Y_LOOP_ROI_X_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln255_fu_346_p2" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:255" URAM="0" VARIABLE="add_ln255"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ROI_Y_LOOP_ROI_X_LOOP" OPTYPE="add" PRAGMA="" RTLNAME="add_ln249_fu_315_p2" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:249" URAM="0" VARIABLE="add_ln249"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>card_recognizer_hw</Name>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>7.164</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>271846</Best-caseLatency>
+                    <Average-caseLatency>300658</Average-caseLatency>
+                    <Worst-caseLatency>329469</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>2.718 ms</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>3.007 ms</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>3.295 ms</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>271847 ~ 329470</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <BRAM_18K>24</BRAM_18K>
+                    <AVAIL_BRAM>120</AVAIL_BRAM>
+                    <UTIL_BRAM>20</UTIL_BRAM>
+                    <DSP>8</DSP>
+                    <AVAIL_DSP>80</AVAIL_DSP>
+                    <UTIL_DSP>10</UTIL_DSP>
+                    <FF>1895</FF>
+                    <AVAIL_FF>35200</AVAIL_FF>
+                    <UTIL_FF>5</UTIL_FF>
+                    <LUT>3886</LUT>
+                    <AVAIL_LUT>17600</AVAIL_LUT>
+                    <UTIL_LUT>22</UTIL_LUT>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="3" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32s_32s_32_2_1_U78" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:284" URAM="0" VARIABLE="n"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln230_fu_270_p2" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:230" URAM="0" VARIABLE="sub_ln230"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln231_fu_233_p2" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:231" URAM="0" VARIABLE="sub_ln231"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln233_fu_283_p2" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:233" URAM="0" VARIABLE="add_ln233"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln233_1_fu_380_p2" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:233" URAM="0" VARIABLE="sub_ln233_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln234_fu_243_p2" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:234" URAM="0" VARIABLE="add_ln234"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="1" ID="" IMPL="dsp48" LATENCY="3" LOOP="" OPTYPE="mul" PRAGMA="" RTLNAME="mul_mul_10s_11ns_22_4_1_U79" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:234" URAM="0" VARIABLE="mul_ln234"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln234_fu_332_p2" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:234" URAM="0" VARIABLE="sub_ln234"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln234_1_fu_364_p2" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:234" URAM="0" VARIABLE="sub_ln234_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="x1_fu_449_p2" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:240" URAM="0" VARIABLE="x1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="y1_fu_455_p2" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:241" URAM="0" VARIABLE="y1"/>
+                <BindNode BINDTYPE="storage" BRAM="16" BUNDLEDNAME="" DISPNAME="bind_storage ram_2p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_2p" PRAGMA="pragma" RTLNAME="gray_V_U" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:281" URAM="0" VARIABLE="gray_V"/>
+                <BindNode BINDTYPE="storage" BRAM="2" BUNDLEDNAME="" DISPNAME="bind_storage ram_2p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_2p" PRAGMA="pragma" RTLNAME="binary_V_U" SOURCE="hls_fajlovi/card_recognizer_dram_hls.cpp:282" URAM="0" VARIABLE="binary_V"/>
+            </BindNodes>
+        </Module>
+    </ModuleInformation>
+    <FIFOInformation/>
+    <UserConfigCommands/>
+    <Args>
+        <Arg ArgName="input_rgb" index="0" direction="in" srcType="ap_uint&lt;24&gt;*" srcSize="32">
+            <hwRefs>
+                <hwRef type="port" interface="input_rgb_address0" name="input_rgb_address0" usage="address" direction="out"/>
+                <hwRef type="port" interface="input_rgb_ce0" name="input_rgb_ce0" usage="control" direction="out"/>
+                <hwRef type="port" interface="input_rgb_q0" name="input_rgb_q0" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="result_rank" index="1" direction="out" srcType="unsigned int*" srcSize="32">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="result_rank" usage="data" direction="out"/>
+                <hwRef type="register" interface="s_axi_control" name="result_rank_ctrl" usage="control" direction="out"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="result_suit" index="2" direction="out" srcType="unsigned int*" srcSize="32">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="result_suit" usage="data" direction="out"/>
+                <hwRef type="register" interface="s_axi_control" name="result_suit_ctrl" usage="control" direction="out"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="width" index="3" direction="in" srcType="int" srcSize="32">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="width" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="height" index="4" direction="in" srcType="int" srcSize="32">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="height" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+    </Args>
+    <Interfaces>
+        <Interface InterfaceName="s_axi_control" type="axi4lite" busTypeName="aximm" mode="slave" dataWidth="32" addrWidth="6" portPrefix="s_axi_control_" paramPrefix="C_S_AXI_CONTROL_">
+            <ports>
+                <port>s_axi_control_ARADDR</port>
+                <port>s_axi_control_ARREADY</port>
+                <port>s_axi_control_ARVALID</port>
+                <port>s_axi_control_AWADDR</port>
+                <port>s_axi_control_AWREADY</port>
+                <port>s_axi_control_AWVALID</port>
+                <port>s_axi_control_BREADY</port>
+                <port>s_axi_control_BRESP</port>
+                <port>s_axi_control_BVALID</port>
+                <port>s_axi_control_RDATA</port>
+                <port>s_axi_control_RREADY</port>
+                <port>s_axi_control_RRESP</port>
+                <port>s_axi_control_RVALID</port>
+                <port>s_axi_control_WDATA</port>
+                <port>s_axi_control_WREADY</port>
+                <port>s_axi_control_WSTRB</port>
+                <port>s_axi_control_WVALID</port>
+            </ports>
+            <registers>
+                <register offset="0x00" name="CTRL" access="RW" description="Control signals" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="AP_START" access="RW" description="Control signal Register for 'ap_start'."/>
+                        <field offset="1" width="1" name="AP_DONE" access="R" description="Control signal Register for 'ap_done'."/>
+                        <field offset="2" width="1" name="AP_IDLE" access="R" description="Control signal Register for 'ap_idle'."/>
+                        <field offset="3" width="1" name="AP_READY" access="R" description="Control signal Register for 'ap_ready'."/>
+                        <field offset="4" width="3" name="RESERVED_1" access="R" description="Reserved.  0s on read."/>
+                        <field offset="7" width="1" name="AUTO_RESTART" access="RW" description="Control signal Register for 'auto_restart'."/>
+                        <field offset="8" width="1" name="RESERVED_2" access="R" description="Reserved.  0s on read."/>
+                        <field offset="9" width="1" name="INTERRUPT" access="R" description="Control signal Register for 'interrupt'."/>
+                        <field offset="10" width="22" name="RESERVED_3" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x04" name="GIER" access="RW" description="Global Interrupt Enable Register" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="Enable" access="RW" description="Master enable for the device interrupt output to the system interrupt controller: 0 = Disabled, 1 = Enabled"/>
+                        <field offset="1" width="31" name="RESERVED" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x08" name="IP_IER" access="RW" description="IP Interrupt Enable Register" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="CHAN0_INT_EN" access="RW" description="Enable Channel 0 (ap_done) Interrupt.  0 = Disabled, 1 = Enabled."/>
+                        <field offset="1" width="1" name="CHAN1_INT_EN" access="RW" description="Enable Channel 1 (ap_ready) Interrupt.  0 = Disabled, 1 = Enabled."/>
+                        <field offset="2" width="30" name="RESERVED_0" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x0c" name="IP_ISR" access="RW" description="IP Interrupt Status Register" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="CHAN0_INT_ST" access="RTOW" description="Channel 0 (ap_done) Interrupt Status. 0 = No Channel 0 interrupt, 1 = Channel 0 interrupt."/>
+                        <field offset="1" width="1" name="CHAN1_INT_ST" access="RTOW" description="Channel 1 (ap_ready) Interrupt Status. 0 = No Channel 1 interrupt, 1 = Channel 1 interrupt."/>
+                        <field offset="2" width="30" name="RESERVED_0" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x10" name="result_rank" access="R" description="Data signal of result_rank" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="result_rank" access="R" description="Bit 31 to 0 of result_rank"/>
+                    </fields>
+                </register>
+                <register offset="0x14" name="result_rank_ctrl" access="R" description="Control signal of result_rank" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="result_rank_ap_vld" access="R" description="Control signal result_rank_ap_vld"/>
+                        <field offset="1" width="31" name="RESERVED" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x20" name="result_suit" access="R" description="Data signal of result_suit" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="result_suit" access="R" description="Bit 31 to 0 of result_suit"/>
+                    </fields>
+                </register>
+                <register offset="0x24" name="result_suit_ctrl" access="R" description="Control signal of result_suit" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="result_suit_ap_vld" access="R" description="Control signal result_suit_ap_vld"/>
+                        <field offset="1" width="31" name="RESERVED" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x30" name="width" access="W" description="Data signal of width" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="width" access="W" description="Bit 31 to 0 of width"/>
+                    </fields>
+                </register>
+                <register offset="0x38" name="height" access="W" description="Data signal of height" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="height" access="W" description="Bit 31 to 0 of height"/>
+                    </fields>
+                </register>
+            </registers>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="16" argName="result_rank"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="32" argName="result_suit"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="48" argName="width"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="56" argName="height"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="ap_clk" type="clock" busTypeName="clock" mode="slave">
+            <busParams>
+                <busParam busParamName="ASSOCIATED_BUSIF">s_axi_control</busParam>
+                <busParam busParamName="ASSOCIATED_RESET">ap_rst_n</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_clk">CLK</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_clk</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="ap_rst_n" type="reset" busTypeName="reset" mode="slave">
+            <busParams>
+                <busParam busParamName="POLARITY">ACTIVE_LOW</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_rst_n">RST</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_rst_n</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="interrupt" type="interrupt" busTypeName="interrupt" mode="master" dataWidth="1">
+            <busParams>
+                <busParam busParamName="SENSITIVITY">LEVEL_HIGH</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="interrupt">INTERRUPT</portMap>
+            </portMaps>
+            <ports>
+                <port>interrupt</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="input_rgb_address0" type="data" busTypeName="data" protocol="ap_memory" mode="master" dataWidth="15">
+            <portMaps>
+                <portMap portMapName="input_rgb_address0">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>input_rgb_address0</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0" argName="input_rgb"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="input_rgb_q0" type="data" busTypeName="data" protocol="ap_memory" mode="slave" dataWidth="24">
+            <portMaps>
+                <portMap portMapName="input_rgb_q0">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>input_rgb_q0</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0" argName="input_rgb"/>
+            </constraints>
+        </Interface>
+    </Interfaces>
+    <ReportHWInterface>
+        <section name="HW Interfaces" level="0">
+            <item name="S_AXILITE Interfaces">
+                <table isCollapsed="0">
+                    <keys size="5">Interface, Data Width, Address Width, Offset, Register</keys>
+                    <column name="s_axi_control">32, 6, 16, 0, , , , , </column>
+                </table>
+            </item>
+            <item name="S_AXILITE Registers">
+                <table isCollapsed="0">
+                    <keys size="7">Interface, Register, Offset, Width, Access, Description, Bit Fields</keys>
+                    <column name="s_axi_control">CTRL, 0x00, 32, RW, Control signals, 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 7=AUTO_RESTART 9=INTERRUPT</column>
+                    <column name="s_axi_control">GIER, 0x04, 32, RW, Global Interrupt Enable Register, 0=Enable</column>
+                    <column name="s_axi_control">IP_IER, 0x08, 32, RW, IP Interrupt Enable Register, 0=CHAN0_INT_EN 1=CHAN1_INT_EN</column>
+                    <column name="s_axi_control">IP_ISR, 0x0c, 32, RW, IP Interrupt Status Register, 0=CHAN0_INT_ST 1=CHAN1_INT_ST</column>
+                    <column name="s_axi_control">result_rank, 0x10, 32, R, Data signal of result_rank, </column>
+                    <column name="s_axi_control">result_rank_ctrl, 0x14, 32, R, Control signal of result_rank, 0=result_rank_ap_vld</column>
+                    <column name="s_axi_control">result_suit, 0x20, 32, R, Data signal of result_suit, </column>
+                    <column name="s_axi_control">result_suit_ctrl, 0x24, 32, R, Control signal of result_suit, 0=result_suit_ap_vld</column>
+                    <column name="s_axi_control">width, 0x30, 32, W, Data signal of width, </column>
+                    <column name="s_axi_control">height, 0x38, 32, W, Data signal of height, </column>
+                </table>
+            </item>
+            <item name="AP_MEMORY">
+                <table isCollapsed="0">
+                    <keys size="2">Interface, Bitwidth</keys>
+                    <column name="input_rgb_address0">15, , </column>
+                    <column name="input_rgb_q0">24, , </column>
+                </table>
+            </item>
+            <item name="TOP LEVEL CONTROL">
+                <table isCollapsed="0">
+                    <keys size="3">Interface, Type, Ports</keys>
+                    <column name="ap_clk">clock, ap_clk, </column>
+                    <column name="ap_rst_n">reset, ap_rst_n, </column>
+                    <column name="interrupt">interrupt, interrupt, </column>
+                    <column name="ap_ctrl">ap_ctrl_hs, , </column>
+                </table>
+            </item>
+        </section>
+    </ReportHWInterface>
+    <ReportSWInterface>
+        <section name="SW I/O Information" level="0">
+            <item name="Top Function Arguments">
+                <table isCollapsed="1">
+                    <keys size="3">Argument, Direction, Datatype</keys>
+                    <column name="input_rgb">in, ap_uint&lt;24&gt;*</column>
+                    <column name="result_rank">out, unsigned int*</column>
+                    <column name="result_suit">out, unsigned int*</column>
+                    <column name="width">in, int</column>
+                    <column name="height">in, int</column>
+                </table>
+            </item>
+            <item name="SW-to-HW Mapping">
+                <table isCollapsed="1">
+                    <keys size="5">Argument, HW Interface, HW Type, HW Usage, HW Info</keys>
+                    <column name="input_rgb">input_rgb_address0, port, offset, </column>
+                    <column name="input_rgb">input_rgb_ce0, port, , </column>
+                    <column name="input_rgb">input_rgb_q0, port, , </column>
+                    <column name="result_rank">s_axi_control, register, , name=result_rank offset=0x10 range=32</column>
+                    <column name="result_rank">s_axi_control, register, , name=result_rank_ctrl offset=0x14 range=32</column>
+                    <column name="result_suit">s_axi_control, register, , name=result_suit offset=0x20 range=32</column>
+                    <column name="result_suit">s_axi_control, register, , name=result_suit_ctrl offset=0x24 range=32</column>
+                    <column name="width">s_axi_control, register, , name=width offset=0x30 range=32</column>
+                    <column name="height">s_axi_control, register, , name=height offset=0x38 range=32</column>
+                </table>
+            </item>
+        </section>
+    </ReportSWInterface>
+    <PragmaReport>
+        <Pragma type="loop_tripcount" location="hls_fajlovi/card_recognizer_dram_hls.cpp:34" status="valid" parentFunction="to_grayscale" variable="" isDirective="0" options="min=19200 max=19200"/>
+        <Pragma type="pipeline" location="hls_fajlovi/card_recognizer_dram_hls.cpp:35" status="valid" parentFunction="to_grayscale" variable="" isDirective="0" options="II=1"/>
+        <Pragma type="loop_tripcount" location="hls_fajlovi/card_recognizer_dram_hls.cpp:51" status="valid" parentFunction="binarize" variable="" isDirective="0" options="min=19200 max=19200"/>
+        <Pragma type="pipeline" location="hls_fajlovi/card_recognizer_dram_hls.cpp:52" status="valid" parentFunction="binarize" variable="" isDirective="0" options="II=1"/>
+        <Pragma type="inline" location="hls_fajlovi/card_recognizer_dram_hls.cpp:58" status="valid" parentFunction="find_root" variable="" isDirective="0" options=""/>
+        <Pragma type="inline" location="hls_fajlovi/card_recognizer_dram_hls.cpp:74" status="valid" parentFunction="merge_components" variable="" isDirective="0" options=""/>
+        <Pragma type="array_partition" location="hls_fajlovi/card_recognizer_dram_hls.cpp:101" status="valid" parentFunction="find_largest_component_ccl" variable="prev_label" isDirective="0" options="variable=prev_label cyclic factor=2"/>
+        <Pragma type="array_partition" location="hls_fajlovi/card_recognizer_dram_hls.cpp:102" status="valid" parentFunction="find_largest_component_ccl" variable="curr_label" isDirective="0" options="variable=curr_label cyclic factor=2"/>
+        <Pragma type="loop_tripcount" location="hls_fajlovi/card_recognizer_dram_hls.cpp:106" status="valid" parentFunction="find_largest_component_ccl" variable="" isDirective="0" options="min=256 max=256"/>
+        <Pragma type="pipeline" location="hls_fajlovi/card_recognizer_dram_hls.cpp:107" status="valid" parentFunction="find_largest_component_ccl" variable="" isDirective="0" options="II=1"/>
+        <Pragma type="loop_tripcount" location="hls_fajlovi/card_recognizer_dram_hls.cpp:118" status="valid" parentFunction="find_largest_component_ccl" variable="" isDirective="0" options="min=160 max=160"/>
+        <Pragma type="pipeline" location="hls_fajlovi/card_recognizer_dram_hls.cpp:119" status="valid" parentFunction="find_largest_component_ccl" variable="" isDirective="0" options="II=1"/>
+        <Pragma type="loop_tripcount" location="hls_fajlovi/card_recognizer_dram_hls.cpp:128" status="valid" parentFunction="find_largest_component_ccl" variable="" isDirective="0" options="min=120 max=120"/>
+        <Pragma type="loop_tripcount" location="hls_fajlovi/card_recognizer_dram_hls.cpp:131" status="valid" parentFunction="find_largest_component_ccl" variable="" isDirective="0" options="min=160 max=160"/>
+        <Pragma type="pipeline" location="hls_fajlovi/card_recognizer_dram_hls.cpp:132" status="valid" parentFunction="find_largest_component_ccl" variable="" isDirective="0" options="II=1"/>
+        <Pragma type="loop_tripcount" location="hls_fajlovi/card_recognizer_dram_hls.cpp:138" status="valid" parentFunction="find_largest_component_ccl" variable="" isDirective="0" options="min=160 max=160"/>
+        <Pragma type="loop_tripcount" location="hls_fajlovi/card_recognizer_dram_hls.cpp:190" status="valid" parentFunction="find_largest_component_ccl" variable="" isDirective="0" options="min=160 max=160"/>
+        <Pragma type="pipeline" location="hls_fajlovi/card_recognizer_dram_hls.cpp:191" status="valid" parentFunction="find_largest_component_ccl" variable="" isDirective="0" options="II=1"/>
+        <Pragma type="loop_tripcount" location="hls_fajlovi/card_recognizer_dram_hls.cpp:206" status="valid" parentFunction="find_largest_component_ccl" variable="" isDirective="0" options="min=255 max=255"/>
+        <Pragma type="pipeline" location="hls_fajlovi/card_recognizer_dram_hls.cpp:207" status="valid" parentFunction="find_largest_component_ccl" variable="" isDirective="0" options="II=1"/>
+        <Pragma type="loop_tripcount" location="hls_fajlovi/card_recognizer_dram_hls.cpp:247" status="valid" parentFunction="analyze_top_left_roi" variable="" isDirective="0" options="min=120 max=120"/>
+        <Pragma type="loop_tripcount" location="hls_fajlovi/card_recognizer_dram_hls.cpp:250" status="valid" parentFunction="analyze_top_left_roi" variable="" isDirective="0" options="min=160 max=160"/>
+        <Pragma type="pipeline" location="hls_fajlovi/card_recognizer_dram_hls.cpp:251" status="valid" parentFunction="analyze_top_left_roi" variable="" isDirective="0" options="II=1"/>
+        <Pragma type="interface" location="hls_fajlovi/card_recognizer_dram_hls.cpp:271" status="valid" parentFunction="card_recognizer_hw" variable="input_rgb" isDirective="0" options="mode=ap_memory port=input_rgb storage_type=ram_2p latency=1"/>
+        <Pragma type="interface" location="hls_fajlovi/card_recognizer_dram_hls.cpp:272" status="valid" parentFunction="card_recognizer_hw" variable="result_rank" isDirective="0" options="s_axilite port=result_rank"/>
+        <Pragma type="interface" location="hls_fajlovi/card_recognizer_dram_hls.cpp:273" status="valid" parentFunction="card_recognizer_hw" variable="result_suit" isDirective="0" options="s_axilite port=result_suit"/>
+        <Pragma type="interface" location="hls_fajlovi/card_recognizer_dram_hls.cpp:274" status="valid" parentFunction="card_recognizer_hw" variable="width" isDirective="0" options="s_axilite port=width"/>
+        <Pragma type="interface" location="hls_fajlovi/card_recognizer_dram_hls.cpp:275" status="valid" parentFunction="card_recognizer_hw" variable="height" isDirective="0" options="s_axilite port=height"/>
+        <Pragma type="interface" location="hls_fajlovi/card_recognizer_dram_hls.cpp:276" status="valid" parentFunction="card_recognizer_hw" variable="return" isDirective="0" options="s_axilite port=return"/>
+        <Pragma type="bind_storage" location="hls_fajlovi/card_recognizer_dram_hls.cpp:281" status="valid" parentFunction="card_recognizer_hw" variable="gray" isDirective="0" options="variable=gray type=ram_2p impl=bram"/>
+        <Pragma type="bind_storage" location="hls_fajlovi/card_recognizer_dram_hls.cpp:282" status="valid" parentFunction="card_recognizer_hw" variable="binary" isDirective="0" options="variable=binary type=ram_2p impl=bram"/>
+    </PragmaReport>
+</profile>
+

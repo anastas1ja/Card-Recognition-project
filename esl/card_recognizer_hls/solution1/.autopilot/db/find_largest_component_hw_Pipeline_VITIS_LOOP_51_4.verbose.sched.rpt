@@ -1,0 +1,486 @@
+
+
+================================================================
+== Vitis HLS Report for 'find_largest_component_hw_Pipeline_VITIS_LOOP_51_4'
+================================================================
+* Date:           Tue Jun  9 14:11:44 2026
+
+* Version:        2022.2 (Build 3670227 on Oct 13 2022)
+* Project:        card_recognizer_hls
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z010-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+-----------+------------+
+    |  Clock |  Target  | Estimated | Uncertainty|
+    +--------+----------+-----------+------------+
+    |ap_clk  |  10.00 ns|  31.819 ns|     2.70 ns|
+    +--------+----------+-----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                   |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |     Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_51_4  |        ?|        ?|        13|         13|          1|     ?|       yes|
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 13, depth = 14
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 14
+* Pipeline : 1
+  Pipeline-0 : II = 13, D = 14, States = { 1 2 3 4 5 6 7 8 9 10 11 12 13 14 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.58>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%q_head = alloca i32 1"   --->   Operation 16 'alloca' 'q_head' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%q_tail = alloca i32 1"   --->   Operation 17 'alloca' 'q_tail' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%width_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %width"   --->   Operation 18 'read' 'width_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%height_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %height"   --->   Operation 19 'read' 'height_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (1.58ns)   --->   "%store_ln0 = store i32 1, i32 %q_tail"   --->   Operation 20 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 21 [1/1] (1.58ns)   --->   "%store_ln0 = store i64 0, i64 %q_head"   --->   Operation 21 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%br_ln0 = br void %while.cond"   --->   Operation 22 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 3.52>
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "%best_count = load i64 %q_head" [card_recognizer_hls.cpp:51]   --->   Operation 23 'load' 'best_count' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 24 [1/1] (0.00ns)   --->   "%q_tail_9 = load i32 %q_tail" [card_recognizer_hls.cpp:64]   --->   Operation 24 'load' 'q_tail_9' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 25 [1/1] (0.00ns)   --->   "%trunc_ln51 = trunc i64 %best_count" [card_recognizer_hls.cpp:51]   --->   Operation 25 'trunc' 'trunc_ln51' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 26 [1/1] (0.00ns)   --->   "%sext_ln51 = sext i32 %q_tail_9" [card_recognizer_hls.cpp:51]   --->   Operation 26 'sext' 'sext_ln51' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 27 [1/1] (2.77ns)   --->   "%icmp_ln51 = icmp_slt  i64 %best_count, i64 %sext_ln51" [card_recognizer_hls.cpp:51]   --->   Operation 27 'icmp' 'icmp_ln51' <Predicate = true> <Delay = 2.77> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 2.77> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 28 [1/1] (3.52ns)   --->   "%add_ln54 = add i64 %best_count, i64 1" [card_recognizer_hls.cpp:54]   --->   Operation 28 'add' 'add_ln54' <Predicate = true> <Delay = 3.52> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 3.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 29 [1/1] (0.00ns)   --->   "%br_ln51 = br i1 %icmp_ln51, void %while.end.exitStub, void %for.body34" [card_recognizer_hls.cpp:51]   --->   Operation 29 'br' 'br_ln51' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 30 [1/1] (0.00ns)   --->   "%queue_x_addr = getelementptr i32 %queue_x, i64 0, i64 %best_count" [card_recognizer_hls.cpp:53]   --->   Operation 30 'getelementptr' 'queue_x_addr' <Predicate = (icmp_ln51)> <Delay = 0.00>
+ST_2 : Operation 31 [1/1] (0.00ns)   --->   "%queue_y_addr = getelementptr i32 %queue_y, i64 0, i64 %best_count" [card_recognizer_hls.cpp:53]   --->   Operation 31 'getelementptr' 'queue_y_addr' <Predicate = (icmp_ln51)> <Delay = 0.00>
+ST_2 : Operation 32 [2/2] (3.25ns)   --->   "%p_x = load i19 %queue_x_addr" [card_recognizer_hls.cpp:53]   --->   Operation 32 'load' 'p_x' <Predicate = (icmp_ln51)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 307200> <RAM>
+ST_2 : Operation 33 [2/2] (3.25ns)   --->   "%p_y = load i19 %queue_y_addr" [card_recognizer_hls.cpp:53]   --->   Operation 33 'load' 'p_y' <Predicate = (icmp_ln51)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 307200> <RAM>
+ST_2 : Operation 259 [1/1] (0.00ns)   --->   "%write_ln51 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %best_count_3_out, i32 %trunc_ln51" [card_recognizer_hls.cpp:51]   --->   Operation 259 'write' 'write_ln51' <Predicate = (!icmp_ln51)> <Delay = 0.00>
+ST_2 : Operation 260 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 260 'ret' 'ret_ln0' <Predicate = (!icmp_ln51)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 31.8>
+ST_3 : Operation 34 [1/1] (0.00ns)   --->   "%specpipeline_ln52 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_0" [card_recognizer_hls.cpp:52]   --->   Operation 34 'specpipeline' 'specpipeline_ln52' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 35 [1/1] (0.00ns)   --->   "%specloopname_ln54 = specloopname void @_ssdm_op_SpecLoopName, void @empty_12" [card_recognizer_hls.cpp:54]   --->   Operation 35 'specloopname' 'specloopname_ln54' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 36 [1/2] (3.25ns)   --->   "%p_x = load i19 %queue_x_addr" [card_recognizer_hls.cpp:53]   --->   Operation 36 'load' 'p_x' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 307200> <RAM>
+ST_3 : Operation 37 [1/2] (3.25ns)   --->   "%p_y = load i19 %queue_y_addr" [card_recognizer_hls.cpp:53]   --->   Operation 37 'load' 'p_y' <Predicate = true> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 307200> <RAM>
+ST_3 : Operation 38 [1/1] (0.00ns)   --->   "%data_V = bitcast i32 %p_x" [C:\scratch\2022.2\hls_product\608\2022.2\src\shared\hls\clib/src/hls\utils/x_hls_utils.h:317]   --->   Operation 38 'bitcast' 'data_V' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 39 [1/1] (0.00ns)   --->   "%p_Result_s = bitselect i1 @_ssdm_op_BitSelect.i1.i32.i32, i32 %data_V, i32 31"   --->   Operation 39 'bitselect' 'p_Result_s' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 40 [1/1] (0.00ns)   --->   "%xs_exp_V = partselect i8 @_ssdm_op_PartSelect.i8.i32.i32.i32, i32 %data_V, i32 23, i32 30"   --->   Operation 40 'partselect' 'xs_exp_V' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 41 [1/1] (0.00ns)   --->   "%p_Result_1 = trunc i32 %data_V"   --->   Operation 41 'trunc' 'p_Result_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 42 [1/1] (0.00ns)   --->   "%mantissa = bitconcatenate i25 @_ssdm_op_BitConcatenate.i25.i1.i23.i1, i1 1, i23 %p_Result_1, i1 0" [C:\scratch\2022.2\hls_product\608\2022.2\src\shared\hls\clib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:15]   --->   Operation 42 'bitconcatenate' 'mantissa' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 43 [1/1] (0.00ns)   --->   "%zext_ln15 = zext i25 %mantissa" [C:\scratch\2022.2\hls_product\608\2022.2\src\shared\hls\clib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:15]   --->   Operation 43 'zext' 'zext_ln15' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 44 [1/1] (0.00ns)   --->   "%zext_ln346 = zext i8 %xs_exp_V" [C:\scratch\2022.2\hls_product\608\2022.2\src\shared\hls\clib/src/hls\utils/x_hls_utils.h:346]   --->   Operation 44 'zext' 'zext_ln346' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 45 [1/1] (1.91ns)   --->   "%add_ln346 = add i9 %zext_ln346, i9 385" [C:\scratch\2022.2\hls_product\608\2022.2\src\shared\hls\clib/src/hls\utils/x_hls_utils.h:346]   --->   Operation 45 'add' 'add_ln346' <Predicate = true> <Delay = 1.91> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.91> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 46 [1/1] (0.00ns)   --->   "%isNeg = bitselect i1 @_ssdm_op_BitSelect.i1.i9.i32, i9 %add_ln346, i32 8"   --->   Operation 46 'bitselect' 'isNeg' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 47 [1/1] (1.91ns)   --->   "%sub_ln1512 = sub i8 127, i8 %xs_exp_V"   --->   Operation 47 'sub' 'sub_ln1512' <Predicate = true> <Delay = 1.91> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.91> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 48 [1/1] (0.00ns)   --->   "%sext_ln1512 = sext i8 %sub_ln1512"   --->   Operation 48 'sext' 'sext_ln1512' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 49 [1/1] (0.96ns)   --->   "%ush = select i1 %isNeg, i9 %sext_ln1512, i9 %add_ln346"   --->   Operation 49 'select' 'ush' <Predicate = true> <Delay = 0.96> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.96> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 50 [1/1] (0.00ns)   --->   "%sext_ln1488 = sext i9 %ush"   --->   Operation 50 'sext' 'sext_ln1488' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 51 [1/1] (0.00ns)   --->   "%zext_ln1488 = zext i32 %sext_ln1488"   --->   Operation 51 'zext' 'zext_ln1488' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 52 [1/1] (0.00ns) (grouped into LUT with out node val)   --->   "%r_V = lshr i79 %zext_ln15, i79 %zext_ln1488"   --->   Operation 52 'lshr' 'r_V' <Predicate = true> <Delay = 0.00> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 4.42> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 53 [1/1] (0.00ns) (grouped into LUT with out node val)   --->   "%r_V_1 = shl i79 %zext_ln15, i79 %zext_ln1488"   --->   Operation 53 'shl' 'r_V_1' <Predicate = true> <Delay = 0.00> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 4.42> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 54 [1/1] (0.00ns) (grouped into LUT with out node val)   --->   "%tmp = bitselect i1 @_ssdm_op_BitSelect.i1.i79.i32, i79 %r_V, i32 24"   --->   Operation 54 'bitselect' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 55 [1/1] (0.00ns) (grouped into LUT with out node val)   --->   "%zext_ln818 = zext i1 %tmp"   --->   Operation 55 'zext' 'zext_ln818' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 56 [1/1] (0.00ns) (grouped into LUT with out node val)   --->   "%tmp_1 = partselect i32 @_ssdm_op_PartSelect.i32.i79.i32.i32, i79 %r_V_1, i32 24, i32 55"   --->   Operation 56 'partselect' 'tmp_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 57 [1/1] (4.42ns) (out node of the LUT)   --->   "%val = select i1 %isNeg, i32 %zext_ln818, i32 %tmp_1"   --->   Operation 57 'select' 'val' <Predicate = true> <Delay = 4.42> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.69> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 58 [1/1] (2.55ns)   --->   "%result_V_2 = sub i32 0, i32 %val"   --->   Operation 58 'sub' 'result_V_2' <Predicate = true> <Delay = 2.55> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 59 [1/1] (0.69ns)   --->   "%nx_2 = select i1 %p_Result_s, i32 %result_V_2, i32 %val" [C:\scratch\2022.2\hls_product\608\2022.2\src\shared\hls\clib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:59]   --->   Operation 59 'select' 'nx_2' <Predicate = true> <Delay = 0.69> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.69> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 60 [1/1] (0.00ns)   --->   "%trunc_ln58 = trunc i32 %nx_2" [C:\scratch\2022.2\hls_product\608\2022.2\src\shared\hls\clib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:58]   --->   Operation 60 'trunc' 'trunc_ln58' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 61 [1/1] (2.55ns)   --->   "%nx = add i32 %nx_2, i32 1" [card_recognizer_hls.cpp:57]   --->   Operation 61 'add' 'nx' <Predicate = true> <Delay = 2.55> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 62 [1/1] (2.16ns)   --->   "%add_ln57_1 = add i19 %trunc_ln58, i19 1" [card_recognizer_hls.cpp:57]   --->   Operation 62 'add' 'add_ln57_1' <Predicate = true> <Delay = 2.16> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.16> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 63 [1/1] (0.00ns)   --->   "%data_V_1 = bitcast i32 %p_y" [C:\scratch\2022.2\hls_product\608\2022.2\src\shared\hls\clib/src/hls\utils/x_hls_utils.h:317]   --->   Operation 63 'bitcast' 'data_V_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 64 [1/1] (0.00ns)   --->   "%p_Result_2 = bitselect i1 @_ssdm_op_BitSelect.i1.i32.i32, i32 %data_V_1, i32 31"   --->   Operation 64 'bitselect' 'p_Result_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 65 [1/1] (0.00ns)   --->   "%xs_exp_V_1 = partselect i8 @_ssdm_op_PartSelect.i8.i32.i32.i32, i32 %data_V_1, i32 23, i32 30"   --->   Operation 65 'partselect' 'xs_exp_V_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 66 [1/1] (0.00ns)   --->   "%p_Result_3 = trunc i32 %data_V_1"   --->   Operation 66 'trunc' 'p_Result_3' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 67 [1/1] (0.00ns)   --->   "%mantissa_1 = bitconcatenate i25 @_ssdm_op_BitConcatenate.i25.i1.i23.i1, i1 1, i23 %p_Result_3, i1 0" [C:\scratch\2022.2\hls_product\608\2022.2\src\shared\hls\clib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:15]   --->   Operation 67 'bitconcatenate' 'mantissa_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 68 [1/1] (0.00ns)   --->   "%zext_ln15_1 = zext i25 %mantissa_1" [C:\scratch\2022.2\hls_product\608\2022.2\src\shared\hls\clib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:15]   --->   Operation 68 'zext' 'zext_ln15_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 69 [1/1] (0.00ns)   --->   "%zext_ln346_1 = zext i8 %xs_exp_V_1" [C:\scratch\2022.2\hls_product\608\2022.2\src\shared\hls\clib/src/hls\utils/x_hls_utils.h:346]   --->   Operation 69 'zext' 'zext_ln346_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 70 [1/1] (1.91ns)   --->   "%add_ln346_1 = add i9 %zext_ln346_1, i9 385" [C:\scratch\2022.2\hls_product\608\2022.2\src\shared\hls\clib/src/hls\utils/x_hls_utils.h:346]   --->   Operation 70 'add' 'add_ln346_1' <Predicate = true> <Delay = 1.91> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.91> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 71 [1/1] (0.00ns)   --->   "%isNeg_1 = bitselect i1 @_ssdm_op_BitSelect.i1.i9.i32, i9 %add_ln346_1, i32 8"   --->   Operation 71 'bitselect' 'isNeg_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 72 [1/1] (1.91ns)   --->   "%sub_ln1512_1 = sub i8 127, i8 %xs_exp_V_1"   --->   Operation 72 'sub' 'sub_ln1512_1' <Predicate = true> <Delay = 1.91> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.91> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 73 [1/1] (0.00ns)   --->   "%sext_ln1512_1 = sext i8 %sub_ln1512_1"   --->   Operation 73 'sext' 'sext_ln1512_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 74 [1/1] (0.96ns)   --->   "%ush_1 = select i1 %isNeg_1, i9 %sext_ln1512_1, i9 %add_ln346_1"   --->   Operation 74 'select' 'ush_1' <Predicate = true> <Delay = 0.96> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.96> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 75 [1/1] (0.00ns)   --->   "%sext_ln1488_1 = sext i9 %ush_1"   --->   Operation 75 'sext' 'sext_ln1488_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 76 [1/1] (0.00ns)   --->   "%zext_ln1488_1 = zext i32 %sext_ln1488_1"   --->   Operation 76 'zext' 'zext_ln1488_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 77 [1/1] (0.00ns) (grouped into LUT with out node val_1)   --->   "%r_V_2 = lshr i79 %zext_ln15_1, i79 %zext_ln1488_1"   --->   Operation 77 'lshr' 'r_V_2' <Predicate = true> <Delay = 0.00> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 4.42> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 78 [1/1] (0.00ns) (grouped into LUT with out node val_1)   --->   "%r_V_3 = shl i79 %zext_ln15_1, i79 %zext_ln1488_1"   --->   Operation 78 'shl' 'r_V_3' <Predicate = true> <Delay = 0.00> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 4.42> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 79 [1/1] (0.00ns) (grouped into LUT with out node val_1)   --->   "%tmp_6 = bitselect i1 @_ssdm_op_BitSelect.i1.i79.i32, i79 %r_V_2, i32 24"   --->   Operation 79 'bitselect' 'tmp_6' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 80 [1/1] (0.00ns) (grouped into LUT with out node val_1)   --->   "%zext_ln818_1 = zext i1 %tmp_6"   --->   Operation 80 'zext' 'zext_ln818_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 81 [1/1] (0.00ns) (grouped into LUT with out node val_1)   --->   "%tmp_4 = partselect i32 @_ssdm_op_PartSelect.i32.i79.i32.i32, i79 %r_V_3, i32 24, i32 55"   --->   Operation 81 'partselect' 'tmp_4' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 82 [1/1] (4.42ns) (out node of the LUT)   --->   "%val_1 = select i1 %isNeg_1, i32 %zext_ln818_1, i32 %tmp_4"   --->   Operation 82 'select' 'val_1' <Predicate = true> <Delay = 4.42> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.69> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 83 [1/1] (2.55ns)   --->   "%result_V_6 = sub i32 0, i32 %val_1"   --->   Operation 83 'sub' 'result_V_6' <Predicate = true> <Delay = 2.55> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 84 [1/1] (0.69ns)   --->   "%ny = select i1 %p_Result_2, i32 %result_V_6, i32 %val_1" [C:\scratch\2022.2\hls_product\608\2022.2\src\shared\hls\clib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:59]   --->   Operation 84 'select' 'ny' <Predicate = true> <Delay = 0.69> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.69> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 85 [1/1] (0.00ns) (grouped into LUT with out node and_ln60_1)   --->   "%or_ln60 = or i32 %ny, i32 %nx" [card_recognizer_hls.cpp:60]   --->   Operation 85 'or' 'or_ln60' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 86 [1/1] (0.00ns) (grouped into LUT with out node and_ln60_1)   --->   "%tmp_7 = bitselect i1 @_ssdm_op_BitSelect.i1.i32.i32, i32 %or_ln60, i32 31" [card_recognizer_hls.cpp:60]   --->   Operation 86 'bitselect' 'tmp_7' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 87 [1/1] (0.00ns) (grouped into LUT with out node and_ln60_1)   --->   "%xor_ln60 = xor i1 %tmp_7, i1 1" [card_recognizer_hls.cpp:60]   --->   Operation 87 'xor' 'xor_ln60' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 88 [1/1] (2.47ns)   --->   "%icmp_ln60 = icmp_slt  i32 %nx, i32 %width_read" [card_recognizer_hls.cpp:60]   --->   Operation 88 'icmp' 'icmp_ln60' <Predicate = true> <Delay = 2.47> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 89 [1/1] (2.47ns)   --->   "%icmp_ln60_1 = icmp_slt  i32 %ny, i32 %height_read" [card_recognizer_hls.cpp:60]   --->   Operation 89 'icmp' 'icmp_ln60_1' <Predicate = true> <Delay = 2.47> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 90 [1/1] (0.00ns) (grouped into LUT with out node and_ln60_1)   --->   "%and_ln60 = and i1 %icmp_ln60, i1 %icmp_ln60_1" [card_recognizer_hls.cpp:60]   --->   Operation 90 'and' 'and_ln60' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 91 [1/1] (0.99ns) (out node of the LUT)   --->   "%and_ln60_1 = and i1 %and_ln60, i1 %xor_ln60" [card_recognizer_hls.cpp:60]   --->   Operation 91 'and' 'and_ln60_1' <Predicate = true> <Delay = 0.99> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 92 [1/1] (1.58ns)   --->   "%br_ln60 = br i1 %and_ln60_1, void %for.inc74, void %if.then51" [card_recognizer_hls.cpp:60]   --->   Operation 92 'br' 'br_ln60' <Predicate = true> <Delay = 1.58>
+ST_3 : Operation 93 [1/1] (12.5ns)   --->   "%mul_ln61 = mul i32 %ny, i32 %width_read" [card_recognizer_hls.cpp:61]   --->   Operation 93 'mul' 'mul_ln61' <Predicate = (and_ln60_1)> <Delay = 12.5> <CoreInst = "Mul_LUT">   --->   Core 4 'Mul_LUT' <Latency = 0> <II = 1> <Delay = 12.5> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 94 [1/1] (0.00ns)   --->   "%trunc_ln61 = trunc i32 %mul_ln61" [card_recognizer_hls.cpp:61]   --->   Operation 94 'trunc' 'trunc_ln61' <Predicate = (and_ln60_1)> <Delay = 0.00>
+ST_3 : Operation 95 [1/1] (2.16ns)   --->   "%nidx = add i19 %trunc_ln61, i19 %add_ln57_1" [card_recognizer_hls.cpp:61]   --->   Operation 95 'add' 'nidx' <Predicate = (and_ln60_1)> <Delay = 2.16> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.16> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 96 [1/1] (0.00ns)   --->   "%zext_ln62 = zext i19 %nidx" [card_recognizer_hls.cpp:62]   --->   Operation 96 'zext' 'zext_ln62' <Predicate = (and_ln60_1)> <Delay = 0.00>
+ST_3 : Operation 97 [1/1] (0.00ns)   --->   "%binary_addr = getelementptr i2 %binary, i64 0, i64 %zext_ln62" [card_recognizer_hls.cpp:62]   --->   Operation 97 'getelementptr' 'binary_addr' <Predicate = (and_ln60_1)> <Delay = 0.00>
+ST_3 : Operation 98 [2/2] (3.25ns)   --->   "%binary_load = load i19 %binary_addr" [card_recognizer_hls.cpp:62]   --->   Operation 98 'load' 'binary_load' <Predicate = (and_ln60_1)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 2> <Depth = 307200> <RAM>
+ST_3 : Operation 99 [1/1] (2.55ns)   --->   "%nx_1 = add i32 %nx_2, i32 4294967295" [card_recognizer_hls.cpp:57]   --->   Operation 99 'add' 'nx_1' <Predicate = true> <Delay = 2.55> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 100 [1/1] (2.16ns)   --->   "%add_ln57_2 = add i19 %trunc_ln58, i19 524287" [card_recognizer_hls.cpp:57]   --->   Operation 100 'add' 'add_ln57_2' <Predicate = true> <Delay = 2.16> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.16> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 101 [1/1] (0.00ns) (grouped into LUT with out node and_ln60_3)   --->   "%or_ln60_1 = or i32 %ny, i32 %nx_1" [card_recognizer_hls.cpp:60]   --->   Operation 101 'or' 'or_ln60_1' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 102 [1/1] (0.00ns) (grouped into LUT with out node and_ln60_3)   --->   "%tmp_8 = bitselect i1 @_ssdm_op_BitSelect.i1.i32.i32, i32 %or_ln60_1, i32 31" [card_recognizer_hls.cpp:60]   --->   Operation 102 'bitselect' 'tmp_8' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 103 [1/1] (0.00ns) (grouped into LUT with out node and_ln60_3)   --->   "%xor_ln60_1 = xor i1 %tmp_8, i1 1" [card_recognizer_hls.cpp:60]   --->   Operation 103 'xor' 'xor_ln60_1' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 104 [1/1] (2.47ns)   --->   "%icmp_ln60_2 = icmp_slt  i32 %nx_1, i32 %width_read" [card_recognizer_hls.cpp:60]   --->   Operation 104 'icmp' 'icmp_ln60_2' <Predicate = true> <Delay = 2.47> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 105 [1/1] (0.00ns) (grouped into LUT with out node and_ln60_3)   --->   "%and_ln60_2 = and i1 %icmp_ln60_2, i1 %icmp_ln60_1" [card_recognizer_hls.cpp:60]   --->   Operation 105 'and' 'and_ln60_2' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 106 [1/1] (0.99ns) (out node of the LUT)   --->   "%and_ln60_3 = and i1 %and_ln60_2, i1 %xor_ln60_1" [card_recognizer_hls.cpp:60]   --->   Operation 106 'and' 'and_ln60_3' <Predicate = true> <Delay = 0.99> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 107 [1/1] (12.5ns)   --->   "%mul_ln61_1 = mul i32 %ny, i32 %width_read" [card_recognizer_hls.cpp:61]   --->   Operation 107 'mul' 'mul_ln61_1' <Predicate = (and_ln60_3)> <Delay = 12.5> <CoreInst = "Mul_LUT">   --->   Core 4 'Mul_LUT' <Latency = 0> <II = 1> <Delay = 12.5> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 108 [1/1] (0.00ns)   --->   "%trunc_ln61_1 = trunc i32 %mul_ln61_1" [card_recognizer_hls.cpp:61]   --->   Operation 108 'trunc' 'trunc_ln61_1' <Predicate = (and_ln60_3)> <Delay = 0.00>
+ST_3 : Operation 109 [1/1] (2.16ns)   --->   "%nidx_1 = add i19 %trunc_ln61_1, i19 %add_ln57_2" [card_recognizer_hls.cpp:61]   --->   Operation 109 'add' 'nidx_1' <Predicate = (and_ln60_3)> <Delay = 2.16> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.16> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 110 [1/1] (0.00ns)   --->   "%zext_ln62_1 = zext i19 %nidx_1" [card_recognizer_hls.cpp:62]   --->   Operation 110 'zext' 'zext_ln62_1' <Predicate = (and_ln60_3)> <Delay = 0.00>
+ST_3 : Operation 111 [1/1] (0.00ns)   --->   "%binary_addr_1 = getelementptr i2 %binary, i64 0, i64 %zext_ln62_1" [card_recognizer_hls.cpp:62]   --->   Operation 111 'getelementptr' 'binary_addr_1' <Predicate = (and_ln60_3)> <Delay = 0.00>
+ST_3 : Operation 112 [2/2] (3.25ns)   --->   "%binary_load_1 = load i19 %binary_addr_1" [card_recognizer_hls.cpp:62]   --->   Operation 112 'load' 'binary_load_1' <Predicate = (and_ln60_3)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 2> <Depth = 307200> <RAM>
+ST_3 : Operation 113 [1/1] (2.55ns)   --->   "%ny_1 = add i32 %ny, i32 1" [card_recognizer_hls.cpp:58]   --->   Operation 113 'add' 'ny_1' <Predicate = true> <Delay = 2.55> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 114 [1/1] (0.00ns) (grouped into LUT with out node and_ln60_5)   --->   "%or_ln60_2 = or i32 %ny_1, i32 %nx_2" [card_recognizer_hls.cpp:60]   --->   Operation 114 'or' 'or_ln60_2' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 115 [1/1] (0.00ns) (grouped into LUT with out node and_ln60_5)   --->   "%tmp_9 = bitselect i1 @_ssdm_op_BitSelect.i1.i32.i32, i32 %or_ln60_2, i32 31" [card_recognizer_hls.cpp:60]   --->   Operation 115 'bitselect' 'tmp_9' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 116 [1/1] (0.00ns) (grouped into LUT with out node and_ln60_5)   --->   "%xor_ln60_2 = xor i1 %tmp_9, i1 1" [card_recognizer_hls.cpp:60]   --->   Operation 116 'xor' 'xor_ln60_2' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 117 [1/1] (2.47ns)   --->   "%icmp_ln60_3 = icmp_slt  i32 %nx_2, i32 %width_read" [card_recognizer_hls.cpp:60]   --->   Operation 117 'icmp' 'icmp_ln60_3' <Predicate = true> <Delay = 2.47> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 118 [1/1] (2.47ns)   --->   "%icmp_ln60_4 = icmp_slt  i32 %ny_1, i32 %height_read" [card_recognizer_hls.cpp:60]   --->   Operation 118 'icmp' 'icmp_ln60_4' <Predicate = true> <Delay = 2.47> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 119 [1/1] (0.00ns) (grouped into LUT with out node and_ln60_5)   --->   "%and_ln60_4 = and i1 %icmp_ln60_3, i1 %icmp_ln60_4" [card_recognizer_hls.cpp:60]   --->   Operation 119 'and' 'and_ln60_4' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 120 [1/1] (0.99ns) (out node of the LUT)   --->   "%and_ln60_5 = and i1 %and_ln60_4, i1 %xor_ln60_2" [card_recognizer_hls.cpp:60]   --->   Operation 120 'and' 'and_ln60_5' <Predicate = true> <Delay = 0.99> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 121 [2/2] (6.91ns)   --->   "%mul_ln61_2 = mul i32 %ny_1, i32 %width_read" [card_recognizer_hls.cpp:61]   --->   Operation 121 'mul' 'mul_ln61_2' <Predicate = (and_ln60_5)> <Delay = 6.91> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 1> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 122 [1/1] (2.55ns)   --->   "%ny_2 = add i32 %ny, i32 4294967295" [card_recognizer_hls.cpp:58]   --->   Operation 122 'add' 'ny_2' <Predicate = true> <Delay = 2.55> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 4 <SV = 3> <Delay = 12.3>
+ST_4 : Operation 123 [1/2] (3.25ns)   --->   "%binary_load = load i19 %binary_addr" [card_recognizer_hls.cpp:62]   --->   Operation 123 'load' 'binary_load' <Predicate = (icmp_ln51 & and_ln60_1)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 2> <Depth = 307200> <RAM>
+ST_4 : Operation 124 [1/1] (0.95ns)   --->   "%icmp_ln62 = icmp_eq  i2 %binary_load, i2 3" [card_recognizer_hls.cpp:62]   --->   Operation 124 'icmp' 'icmp_ln62' <Predicate = (icmp_ln51 & and_ln60_1)> <Delay = 0.95> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.95> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 125 [1/1] (1.58ns)   --->   "%br_ln62 = br i1 %icmp_ln62, void %for.inc74, void %land.lhs.true58" [card_recognizer_hls.cpp:62]   --->   Operation 125 'br' 'br_ln62' <Predicate = (icmp_ln51 & and_ln60_1)> <Delay = 1.58>
+ST_4 : Operation 126 [1/1] (0.00ns)   --->   "%visited_addr = getelementptr i1 %visited, i64 0, i64 %zext_ln62" [card_recognizer_hls.cpp:62]   --->   Operation 126 'getelementptr' 'visited_addr' <Predicate = (icmp_ln51 & and_ln60_1 & icmp_ln62)> <Delay = 0.00>
+ST_4 : Operation 127 [2/2] (3.25ns)   --->   "%visited_load = load i19 %visited_addr" [card_recognizer_hls.cpp:62]   --->   Operation 127 'load' 'visited_load' <Predicate = (icmp_ln51 & and_ln60_1 & icmp_ln62)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 307200> <RAM>
+ST_4 : Operation 128 [1/2] (3.25ns)   --->   "%binary_load_1 = load i19 %binary_addr_1" [card_recognizer_hls.cpp:62]   --->   Operation 128 'load' 'binary_load_1' <Predicate = (icmp_ln51 & and_ln60_3)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 2> <Depth = 307200> <RAM>
+ST_4 : Operation 129 [1/1] (0.95ns)   --->   "%icmp_ln62_1 = icmp_eq  i2 %binary_load_1, i2 3" [card_recognizer_hls.cpp:62]   --->   Operation 129 'icmp' 'icmp_ln62_1' <Predicate = (icmp_ln51 & and_ln60_3)> <Delay = 0.95> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.95> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 130 [1/1] (0.00ns)   --->   "%visited_addr_1 = getelementptr i1 %visited, i64 0, i64 %zext_ln62_1" [card_recognizer_hls.cpp:62]   --->   Operation 130 'getelementptr' 'visited_addr_1' <Predicate = (icmp_ln51 & and_ln60_3 & icmp_ln62_1)> <Delay = 0.00>
+ST_4 : Operation 131 [2/2] (3.25ns)   --->   "%visited_load_1 = load i19 %visited_addr_1" [card_recognizer_hls.cpp:62]   --->   Operation 131 'load' 'visited_load_1' <Predicate = (icmp_ln51 & and_ln60_3 & icmp_ln62_1)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 307200> <RAM>
+ST_4 : Operation 132 [1/2] (6.91ns)   --->   "%mul_ln61_2 = mul i32 %ny_1, i32 %width_read" [card_recognizer_hls.cpp:61]   --->   Operation 132 'mul' 'mul_ln61_2' <Predicate = (icmp_ln51 & and_ln60_5)> <Delay = 6.91> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 1> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 133 [1/1] (0.00ns)   --->   "%trunc_ln61_2 = trunc i32 %mul_ln61_2" [card_recognizer_hls.cpp:61]   --->   Operation 133 'trunc' 'trunc_ln61_2' <Predicate = (icmp_ln51 & and_ln60_5)> <Delay = 0.00>
+ST_4 : Operation 134 [1/1] (2.16ns)   --->   "%nidx_2 = add i19 %trunc_ln61_2, i19 %trunc_ln58" [card_recognizer_hls.cpp:61]   --->   Operation 134 'add' 'nidx_2' <Predicate = (icmp_ln51 & and_ln60_5)> <Delay = 2.16> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.16> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 135 [1/1] (0.00ns)   --->   "%zext_ln62_2 = zext i19 %nidx_2" [card_recognizer_hls.cpp:62]   --->   Operation 135 'zext' 'zext_ln62_2' <Predicate = (icmp_ln51 & and_ln60_5)> <Delay = 0.00>
+ST_4 : Operation 136 [1/1] (0.00ns)   --->   "%binary_addr_2 = getelementptr i2 %binary, i64 0, i64 %zext_ln62_2" [card_recognizer_hls.cpp:62]   --->   Operation 136 'getelementptr' 'binary_addr_2' <Predicate = (icmp_ln51 & and_ln60_5)> <Delay = 0.00>
+ST_4 : Operation 137 [2/2] (3.25ns)   --->   "%binary_load_2 = load i19 %binary_addr_2" [card_recognizer_hls.cpp:62]   --->   Operation 137 'load' 'binary_load_2' <Predicate = (icmp_ln51 & and_ln60_5)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 2> <Depth = 307200> <RAM>
+ST_4 : Operation 138 [1/1] (0.00ns) (grouped into LUT with out node and_ln60_7)   --->   "%or_ln60_3 = or i32 %ny_2, i32 %nx_2" [card_recognizer_hls.cpp:60]   --->   Operation 138 'or' 'or_ln60_3' <Predicate = (icmp_ln51)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 139 [1/1] (0.00ns) (grouped into LUT with out node and_ln60_7)   --->   "%tmp_10 = bitselect i1 @_ssdm_op_BitSelect.i1.i32.i32, i32 %or_ln60_3, i32 31" [card_recognizer_hls.cpp:60]   --->   Operation 139 'bitselect' 'tmp_10' <Predicate = (icmp_ln51)> <Delay = 0.00>
+ST_4 : Operation 140 [1/1] (0.00ns) (grouped into LUT with out node and_ln60_7)   --->   "%xor_ln60_3 = xor i1 %tmp_10, i1 1" [card_recognizer_hls.cpp:60]   --->   Operation 140 'xor' 'xor_ln60_3' <Predicate = (icmp_ln51)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 141 [1/1] (2.47ns)   --->   "%icmp_ln60_5 = icmp_slt  i32 %ny_2, i32 %height_read" [card_recognizer_hls.cpp:60]   --->   Operation 141 'icmp' 'icmp_ln60_5' <Predicate = (icmp_ln51)> <Delay = 2.47> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 142 [1/1] (0.00ns) (grouped into LUT with out node and_ln60_7)   --->   "%and_ln60_6 = and i1 %icmp_ln60_3, i1 %icmp_ln60_5" [card_recognizer_hls.cpp:60]   --->   Operation 142 'and' 'and_ln60_6' <Predicate = (icmp_ln51)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 143 [1/1] (0.99ns) (out node of the LUT)   --->   "%and_ln60_7 = and i1 %and_ln60_6, i1 %xor_ln60_3" [card_recognizer_hls.cpp:60]   --->   Operation 143 'and' 'and_ln60_7' <Predicate = (icmp_ln51)> <Delay = 0.99> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 144 [2/2] (6.91ns)   --->   "%mul_ln61_3 = mul i32 %ny_2, i32 %width_read" [card_recognizer_hls.cpp:61]   --->   Operation 144 'mul' 'mul_ln61_3' <Predicate = (icmp_ln51 & and_ln60_7)> <Delay = 6.91> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 1> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+State 5 <SV = 4> <Delay = 12.3>
+ST_5 : Operation 145 [1/2] (3.25ns)   --->   "%visited_load = load i19 %visited_addr" [card_recognizer_hls.cpp:62]   --->   Operation 145 'load' 'visited_load' <Predicate = (icmp_ln51 & and_ln60_1 & icmp_ln62)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 307200> <RAM>
+ST_5 : Operation 146 [1/1] (1.58ns)   --->   "%br_ln62 = br i1 %visited_load, void %if.then61, void %for.inc74" [card_recognizer_hls.cpp:62]   --->   Operation 146 'br' 'br_ln62' <Predicate = (icmp_ln51 & and_ln60_1 & icmp_ln62)> <Delay = 1.58>
+ST_5 : Operation 147 [1/1] (3.25ns)   --->   "%store_ln63 = store i1 1, i19 %visited_addr" [card_recognizer_hls.cpp:63]   --->   Operation 147 'store' 'store_ln63' <Predicate = (icmp_ln51 & and_ln60_1 & icmp_ln62 & !visited_load)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 307200> <RAM>
+ST_5 : Operation 148 [6/6] (6.41ns)   --->   "%conv2 = sitofp i32 %nx" [card_recognizer_hls.cpp:64]   --->   Operation 148 'sitofp' 'conv2' <Predicate = (icmp_ln51 & and_ln60_1 & icmp_ln62 & !visited_load)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_5 : Operation 149 [6/6] (6.41ns)   --->   "%conv3 = sitofp i32 %ny" [card_recognizer_hls.cpp:64]   --->   Operation 149 'sitofp' 'conv3' <Predicate = (icmp_ln51 & and_ln60_1 & icmp_ln62 & !visited_load)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_5 : Operation 150 [1/2] (3.25ns)   --->   "%visited_load_1 = load i19 %visited_addr_1" [card_recognizer_hls.cpp:62]   --->   Operation 150 'load' 'visited_load_1' <Predicate = (icmp_ln51 & and_ln60_3 & icmp_ln62_1)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 307200> <RAM>
+ST_5 : Operation 151 [1/1] (3.25ns)   --->   "%store_ln63 = store i1 1, i19 %visited_addr_1" [card_recognizer_hls.cpp:63]   --->   Operation 151 'store' 'store_ln63' <Predicate = (icmp_ln51 & and_ln60_3 & icmp_ln62_1 & !visited_load_1)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 307200> <RAM>
+ST_5 : Operation 152 [1/2] (3.25ns)   --->   "%binary_load_2 = load i19 %binary_addr_2" [card_recognizer_hls.cpp:62]   --->   Operation 152 'load' 'binary_load_2' <Predicate = (icmp_ln51 & and_ln60_5)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 2> <Depth = 307200> <RAM>
+ST_5 : Operation 153 [1/1] (0.95ns)   --->   "%icmp_ln62_2 = icmp_eq  i2 %binary_load_2, i2 3" [card_recognizer_hls.cpp:62]   --->   Operation 153 'icmp' 'icmp_ln62_2' <Predicate = (icmp_ln51 & and_ln60_5)> <Delay = 0.95> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.95> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 154 [1/1] (0.00ns)   --->   "%visited_addr_2 = getelementptr i1 %visited, i64 0, i64 %zext_ln62_2" [card_recognizer_hls.cpp:62]   --->   Operation 154 'getelementptr' 'visited_addr_2' <Predicate = (icmp_ln51 & and_ln60_5 & icmp_ln62_2)> <Delay = 0.00>
+ST_5 : Operation 155 [1/2] (6.91ns)   --->   "%mul_ln61_3 = mul i32 %ny_2, i32 %width_read" [card_recognizer_hls.cpp:61]   --->   Operation 155 'mul' 'mul_ln61_3' <Predicate = (icmp_ln51 & and_ln60_7)> <Delay = 6.91> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 1> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 156 [1/1] (0.00ns)   --->   "%trunc_ln61_3 = trunc i32 %mul_ln61_3" [card_recognizer_hls.cpp:61]   --->   Operation 156 'trunc' 'trunc_ln61_3' <Predicate = (icmp_ln51 & and_ln60_7)> <Delay = 0.00>
+ST_5 : Operation 157 [1/1] (2.16ns)   --->   "%nidx_3 = add i19 %trunc_ln61_3, i19 %trunc_ln58" [card_recognizer_hls.cpp:61]   --->   Operation 157 'add' 'nidx_3' <Predicate = (icmp_ln51 & and_ln60_7)> <Delay = 2.16> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.16> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 158 [1/1] (0.00ns)   --->   "%zext_ln62_3 = zext i19 %nidx_3" [card_recognizer_hls.cpp:62]   --->   Operation 158 'zext' 'zext_ln62_3' <Predicate = (icmp_ln51 & and_ln60_7)> <Delay = 0.00>
+ST_5 : Operation 159 [1/1] (0.00ns)   --->   "%binary_addr_3 = getelementptr i2 %binary, i64 0, i64 %zext_ln62_3" [card_recognizer_hls.cpp:62]   --->   Operation 159 'getelementptr' 'binary_addr_3' <Predicate = (icmp_ln51 & and_ln60_7)> <Delay = 0.00>
+ST_5 : Operation 160 [2/2] (3.25ns)   --->   "%binary_load_3 = load i19 %binary_addr_3" [card_recognizer_hls.cpp:62]   --->   Operation 160 'load' 'binary_load_3' <Predicate = (icmp_ln51 & and_ln60_7)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 2> <Depth = 307200> <RAM>
+
+State 6 <SV = 5> <Delay = 6.41>
+ST_6 : Operation 161 [5/6] (6.41ns)   --->   "%conv2 = sitofp i32 %nx" [card_recognizer_hls.cpp:64]   --->   Operation 161 'sitofp' 'conv2' <Predicate = (icmp_ln51 & and_ln60_1 & icmp_ln62 & !visited_load)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_6 : Operation 162 [5/6] (6.41ns)   --->   "%conv3 = sitofp i32 %ny" [card_recognizer_hls.cpp:64]   --->   Operation 162 'sitofp' 'conv3' <Predicate = (icmp_ln51 & and_ln60_1 & icmp_ln62 & !visited_load)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_6 : Operation 163 [6/6] (6.41ns)   --->   "%conv66_1 = sitofp i32 %nx_1" [card_recognizer_hls.cpp:64]   --->   Operation 163 'sitofp' 'conv66_1' <Predicate = (icmp_ln51 & and_ln60_3 & icmp_ln62_1 & !visited_load_1)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_6 : Operation 164 [6/6] (6.41ns)   --->   "%conv68_1 = sitofp i32 %ny" [card_recognizer_hls.cpp:64]   --->   Operation 164 'sitofp' 'conv68_1' <Predicate = (icmp_ln51 & and_ln60_3 & icmp_ln62_1 & !visited_load_1)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_6 : Operation 165 [2/2] (3.25ns)   --->   "%visited_load_2 = load i19 %visited_addr_2" [card_recognizer_hls.cpp:62]   --->   Operation 165 'load' 'visited_load_2' <Predicate = (icmp_ln51 & and_ln60_5 & icmp_ln62_2)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 307200> <RAM>
+ST_6 : Operation 166 [1/2] (3.25ns)   --->   "%binary_load_3 = load i19 %binary_addr_3" [card_recognizer_hls.cpp:62]   --->   Operation 166 'load' 'binary_load_3' <Predicate = (icmp_ln51 & and_ln60_7)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 2> <Depth = 307200> <RAM>
+ST_6 : Operation 167 [1/1] (0.95ns)   --->   "%icmp_ln62_3 = icmp_eq  i2 %binary_load_3, i2 3" [card_recognizer_hls.cpp:62]   --->   Operation 167 'icmp' 'icmp_ln62_3' <Predicate = (icmp_ln51 & and_ln60_7)> <Delay = 0.95> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.95> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 168 [1/1] (0.00ns)   --->   "%visited_addr_3 = getelementptr i1 %visited, i64 0, i64 %zext_ln62_3" [card_recognizer_hls.cpp:62]   --->   Operation 168 'getelementptr' 'visited_addr_3' <Predicate = (icmp_ln51 & and_ln60_7 & icmp_ln62_3)> <Delay = 0.00>
+
+State 7 <SV = 6> <Delay = 6.50>
+ST_7 : Operation 169 [4/6] (6.41ns)   --->   "%conv2 = sitofp i32 %nx" [card_recognizer_hls.cpp:64]   --->   Operation 169 'sitofp' 'conv2' <Predicate = (icmp_ln51 & and_ln60_1 & icmp_ln62 & !visited_load)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_7 : Operation 170 [4/6] (6.41ns)   --->   "%conv3 = sitofp i32 %ny" [card_recognizer_hls.cpp:64]   --->   Operation 170 'sitofp' 'conv3' <Predicate = (icmp_ln51 & and_ln60_1 & icmp_ln62 & !visited_load)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_7 : Operation 171 [5/6] (6.41ns)   --->   "%conv66_1 = sitofp i32 %nx_1" [card_recognizer_hls.cpp:64]   --->   Operation 171 'sitofp' 'conv66_1' <Predicate = (icmp_ln51 & and_ln60_3 & icmp_ln62_1 & !visited_load_1)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_7 : Operation 172 [5/6] (6.41ns)   --->   "%conv68_1 = sitofp i32 %ny" [card_recognizer_hls.cpp:64]   --->   Operation 172 'sitofp' 'conv68_1' <Predicate = (icmp_ln51 & and_ln60_3 & icmp_ln62_1 & !visited_load_1)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_7 : Operation 173 [1/2] (3.25ns)   --->   "%visited_load_2 = load i19 %visited_addr_2" [card_recognizer_hls.cpp:62]   --->   Operation 173 'load' 'visited_load_2' <Predicate = (icmp_ln51 & and_ln60_5 & icmp_ln62_2)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 307200> <RAM>
+ST_7 : Operation 174 [1/1] (3.25ns)   --->   "%store_ln63 = store i1 1, i19 %visited_addr_2" [card_recognizer_hls.cpp:63]   --->   Operation 174 'store' 'store_ln63' <Predicate = (icmp_ln51 & and_ln60_5 & icmp_ln62_2 & !visited_load_2)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 307200> <RAM>
+ST_7 : Operation 175 [6/6] (6.41ns)   --->   "%conv66_2 = sitofp i32 %nx_2" [card_recognizer_hls.cpp:64]   --->   Operation 175 'sitofp' 'conv66_2' <Predicate = (icmp_ln51 & and_ln60_5 & icmp_ln62_2 & !visited_load_2)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_7 : Operation 176 [6/6] (6.41ns)   --->   "%conv68_2 = sitofp i32 %ny_1" [card_recognizer_hls.cpp:64]   --->   Operation 176 'sitofp' 'conv68_2' <Predicate = (icmp_ln51 & and_ln60_5 & icmp_ln62_2 & !visited_load_2)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+State 8 <SV = 7> <Delay = 6.41>
+ST_8 : Operation 177 [3/6] (6.41ns)   --->   "%conv2 = sitofp i32 %nx" [card_recognizer_hls.cpp:64]   --->   Operation 177 'sitofp' 'conv2' <Predicate = (icmp_ln51 & and_ln60_1 & icmp_ln62 & !visited_load)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_8 : Operation 178 [3/6] (6.41ns)   --->   "%conv3 = sitofp i32 %ny" [card_recognizer_hls.cpp:64]   --->   Operation 178 'sitofp' 'conv3' <Predicate = (icmp_ln51 & and_ln60_1 & icmp_ln62 & !visited_load)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_8 : Operation 179 [4/6] (6.41ns)   --->   "%conv66_1 = sitofp i32 %nx_1" [card_recognizer_hls.cpp:64]   --->   Operation 179 'sitofp' 'conv66_1' <Predicate = (icmp_ln51 & and_ln60_3 & icmp_ln62_1 & !visited_load_1)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_8 : Operation 180 [4/6] (6.41ns)   --->   "%conv68_1 = sitofp i32 %ny" [card_recognizer_hls.cpp:64]   --->   Operation 180 'sitofp' 'conv68_1' <Predicate = (icmp_ln51 & and_ln60_3 & icmp_ln62_1 & !visited_load_1)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_8 : Operation 181 [5/6] (6.41ns)   --->   "%conv66_2 = sitofp i32 %nx_2" [card_recognizer_hls.cpp:64]   --->   Operation 181 'sitofp' 'conv66_2' <Predicate = (icmp_ln51 & and_ln60_5 & icmp_ln62_2 & !visited_load_2)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_8 : Operation 182 [5/6] (6.41ns)   --->   "%conv68_2 = sitofp i32 %ny_1" [card_recognizer_hls.cpp:64]   --->   Operation 182 'sitofp' 'conv68_2' <Predicate = (icmp_ln51 & and_ln60_5 & icmp_ln62_2 & !visited_load_2)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_8 : Operation 183 [2/2] (3.25ns)   --->   "%visited_load_3 = load i19 %visited_addr_3" [card_recognizer_hls.cpp:62]   --->   Operation 183 'load' 'visited_load_3' <Predicate = (icmp_ln51 & and_ln60_7 & icmp_ln62_3)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 307200> <RAM>
+
+State 9 <SV = 8> <Delay = 6.50>
+ST_9 : Operation 184 [2/6] (6.41ns)   --->   "%conv2 = sitofp i32 %nx" [card_recognizer_hls.cpp:64]   --->   Operation 184 'sitofp' 'conv2' <Predicate = (icmp_ln51 & and_ln60_1 & icmp_ln62 & !visited_load)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_9 : Operation 185 [2/6] (6.41ns)   --->   "%conv3 = sitofp i32 %ny" [card_recognizer_hls.cpp:64]   --->   Operation 185 'sitofp' 'conv3' <Predicate = (icmp_ln51 & and_ln60_1 & icmp_ln62 & !visited_load)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_9 : Operation 186 [3/6] (6.41ns)   --->   "%conv66_1 = sitofp i32 %nx_1" [card_recognizer_hls.cpp:64]   --->   Operation 186 'sitofp' 'conv66_1' <Predicate = (icmp_ln51 & and_ln60_3 & icmp_ln62_1 & !visited_load_1)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_9 : Operation 187 [3/6] (6.41ns)   --->   "%conv68_1 = sitofp i32 %ny" [card_recognizer_hls.cpp:64]   --->   Operation 187 'sitofp' 'conv68_1' <Predicate = (icmp_ln51 & and_ln60_3 & icmp_ln62_1 & !visited_load_1)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_9 : Operation 188 [4/6] (6.41ns)   --->   "%conv66_2 = sitofp i32 %nx_2" [card_recognizer_hls.cpp:64]   --->   Operation 188 'sitofp' 'conv66_2' <Predicate = (icmp_ln51 & and_ln60_5 & icmp_ln62_2 & !visited_load_2)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_9 : Operation 189 [4/6] (6.41ns)   --->   "%conv68_2 = sitofp i32 %ny_1" [card_recognizer_hls.cpp:64]   --->   Operation 189 'sitofp' 'conv68_2' <Predicate = (icmp_ln51 & and_ln60_5 & icmp_ln62_2 & !visited_load_2)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_9 : Operation 190 [1/2] (3.25ns)   --->   "%visited_load_3 = load i19 %visited_addr_3" [card_recognizer_hls.cpp:62]   --->   Operation 190 'load' 'visited_load_3' <Predicate = (icmp_ln51 & and_ln60_7 & icmp_ln62_3)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 307200> <RAM>
+ST_9 : Operation 191 [1/1] (3.25ns)   --->   "%store_ln63 = store i1 1, i19 %visited_addr_3" [card_recognizer_hls.cpp:63]   --->   Operation 191 'store' 'store_ln63' <Predicate = (icmp_ln51 & and_ln60_7 & icmp_ln62_3 & !visited_load_3)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 307200> <RAM>
+ST_9 : Operation 192 [6/6] (6.41ns)   --->   "%conv66_3 = sitofp i32 %nx_2" [card_recognizer_hls.cpp:64]   --->   Operation 192 'sitofp' 'conv66_3' <Predicate = (icmp_ln51 & and_ln60_7 & icmp_ln62_3 & !visited_load_3)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_9 : Operation 193 [6/6] (6.41ns)   --->   "%conv68_3 = sitofp i32 %ny_2" [card_recognizer_hls.cpp:64]   --->   Operation 193 'sitofp' 'conv68_3' <Predicate = (icmp_ln51 & and_ln60_7 & icmp_ln62_3 & !visited_load_3)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+State 10 <SV = 9> <Delay = 9.66>
+ST_10 : Operation 194 [1/6] (6.41ns)   --->   "%conv2 = sitofp i32 %nx" [card_recognizer_hls.cpp:64]   --->   Operation 194 'sitofp' 'conv2' <Predicate = (icmp_ln51 & and_ln60_1 & icmp_ln62 & !visited_load)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_10 : Operation 195 [1/6] (6.41ns)   --->   "%conv3 = sitofp i32 %ny" [card_recognizer_hls.cpp:64]   --->   Operation 195 'sitofp' 'conv3' <Predicate = (icmp_ln51 & and_ln60_1 & icmp_ln62 & !visited_load)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_10 : Operation 196 [1/1] (2.55ns)   --->   "%q_tail_10 = add i32 %q_tail_9, i32 1" [card_recognizer_hls.cpp:64]   --->   Operation 196 'add' 'q_tail_10' <Predicate = (icmp_ln51 & and_ln60_1 & icmp_ln62 & !visited_load)> <Delay = 2.55> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 197 [1/1] (0.00ns)   --->   "%queue_x_addr_1 = getelementptr i32 %queue_x, i64 0, i64 %sext_ln51" [card_recognizer_hls.cpp:64]   --->   Operation 197 'getelementptr' 'queue_x_addr_1' <Predicate = (icmp_ln51 & and_ln60_1 & icmp_ln62 & !visited_load)> <Delay = 0.00>
+ST_10 : Operation 198 [1/1] (0.00ns)   --->   "%queue_y_addr_1 = getelementptr i32 %queue_y, i64 0, i64 %sext_ln51" [card_recognizer_hls.cpp:64]   --->   Operation 198 'getelementptr' 'queue_y_addr_1' <Predicate = (icmp_ln51 & and_ln60_1 & icmp_ln62 & !visited_load)> <Delay = 0.00>
+ST_10 : Operation 199 [1/1] (3.25ns)   --->   "%store_ln64 = store i32 %conv2, i19 %queue_x_addr_1" [card_recognizer_hls.cpp:64]   --->   Operation 199 'store' 'store_ln64' <Predicate = (icmp_ln51 & and_ln60_1 & icmp_ln62 & !visited_load)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 307200> <RAM>
+ST_10 : Operation 200 [1/1] (3.25ns)   --->   "%store_ln64 = store i32 %conv3, i19 %queue_y_addr_1" [card_recognizer_hls.cpp:64]   --->   Operation 200 'store' 'store_ln64' <Predicate = (icmp_ln51 & and_ln60_1 & icmp_ln62 & !visited_load)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 307200> <RAM>
+ST_10 : Operation 201 [1/1] (1.58ns)   --->   "%br_ln65 = br void %for.inc74" [card_recognizer_hls.cpp:65]   --->   Operation 201 'br' 'br_ln65' <Predicate = (icmp_ln51 & and_ln60_1 & icmp_ln62 & !visited_load)> <Delay = 1.58>
+ST_10 : Operation 202 [2/6] (6.41ns)   --->   "%conv66_1 = sitofp i32 %nx_1" [card_recognizer_hls.cpp:64]   --->   Operation 202 'sitofp' 'conv66_1' <Predicate = (icmp_ln51 & and_ln60_3 & icmp_ln62_1 & !visited_load_1)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_10 : Operation 203 [2/6] (6.41ns)   --->   "%conv68_1 = sitofp i32 %ny" [card_recognizer_hls.cpp:64]   --->   Operation 203 'sitofp' 'conv68_1' <Predicate = (icmp_ln51 & and_ln60_3 & icmp_ln62_1 & !visited_load_1)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_10 : Operation 204 [3/6] (6.41ns)   --->   "%conv66_2 = sitofp i32 %nx_2" [card_recognizer_hls.cpp:64]   --->   Operation 204 'sitofp' 'conv66_2' <Predicate = (icmp_ln51 & and_ln60_5 & icmp_ln62_2 & !visited_load_2)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_10 : Operation 205 [3/6] (6.41ns)   --->   "%conv68_2 = sitofp i32 %ny_1" [card_recognizer_hls.cpp:64]   --->   Operation 205 'sitofp' 'conv68_2' <Predicate = (icmp_ln51 & and_ln60_5 & icmp_ln62_2 & !visited_load_2)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_10 : Operation 206 [5/6] (6.41ns)   --->   "%conv66_3 = sitofp i32 %nx_2" [card_recognizer_hls.cpp:64]   --->   Operation 206 'sitofp' 'conv66_3' <Predicate = (icmp_ln51 & and_ln60_7 & icmp_ln62_3 & !visited_load_3)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_10 : Operation 207 [5/6] (6.41ns)   --->   "%conv68_3 = sitofp i32 %ny_2" [card_recognizer_hls.cpp:64]   --->   Operation 207 'sitofp' 'conv68_3' <Predicate = (icmp_ln51 & and_ln60_7 & icmp_ln62_3 & !visited_load_3)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+State 11 <SV = 10> <Delay = 9.66>
+ST_11 : Operation 208 [1/1] (0.00ns)   --->   "%q_tail_2 = phi i32 %q_tail_10, void %if.then61, i32 %q_tail_9, void %for.body34, i32 %q_tail_9, void %if.then51, i32 %q_tail_9, void %land.lhs.true58"   --->   Operation 208 'phi' 'q_tail_2' <Predicate = (icmp_ln51)> <Delay = 0.00>
+ST_11 : Operation 209 [1/1] (1.58ns)   --->   "%br_ln60 = br i1 %and_ln60_3, void %for.inc74.1, void %if.then51.1" [card_recognizer_hls.cpp:60]   --->   Operation 209 'br' 'br_ln60' <Predicate = (icmp_ln51)> <Delay = 1.58>
+ST_11 : Operation 210 [1/1] (1.58ns)   --->   "%br_ln62 = br i1 %icmp_ln62_1, void %for.inc74.1, void %land.lhs.true58.1" [card_recognizer_hls.cpp:62]   --->   Operation 210 'br' 'br_ln62' <Predicate = (icmp_ln51 & and_ln60_3)> <Delay = 1.58>
+ST_11 : Operation 211 [1/1] (1.58ns)   --->   "%br_ln62 = br i1 %visited_load_1, void %if.then61.1, void %for.inc74.1" [card_recognizer_hls.cpp:62]   --->   Operation 211 'br' 'br_ln62' <Predicate = (icmp_ln51 & and_ln60_3 & icmp_ln62_1)> <Delay = 1.58>
+ST_11 : Operation 212 [1/6] (6.41ns)   --->   "%conv66_1 = sitofp i32 %nx_1" [card_recognizer_hls.cpp:64]   --->   Operation 212 'sitofp' 'conv66_1' <Predicate = (icmp_ln51 & and_ln60_3 & icmp_ln62_1 & !visited_load_1)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_11 : Operation 213 [1/6] (6.41ns)   --->   "%conv68_1 = sitofp i32 %ny" [card_recognizer_hls.cpp:64]   --->   Operation 213 'sitofp' 'conv68_1' <Predicate = (icmp_ln51 & and_ln60_3 & icmp_ln62_1 & !visited_load_1)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_11 : Operation 214 [1/1] (2.55ns)   --->   "%q_tail_11 = add i32 %q_tail_2, i32 1" [card_recognizer_hls.cpp:64]   --->   Operation 214 'add' 'q_tail_11' <Predicate = (icmp_ln51 & and_ln60_3 & icmp_ln62_1 & !visited_load_1)> <Delay = 2.55> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 215 [1/1] (0.00ns)   --->   "%zext_ln64 = zext i32 %q_tail_2" [card_recognizer_hls.cpp:64]   --->   Operation 215 'zext' 'zext_ln64' <Predicate = (icmp_ln51 & and_ln60_3 & icmp_ln62_1 & !visited_load_1)> <Delay = 0.00>
+ST_11 : Operation 216 [1/1] (0.00ns)   --->   "%queue_x_addr_2 = getelementptr i32 %queue_x, i64 0, i64 %zext_ln64" [card_recognizer_hls.cpp:64]   --->   Operation 216 'getelementptr' 'queue_x_addr_2' <Predicate = (icmp_ln51 & and_ln60_3 & icmp_ln62_1 & !visited_load_1)> <Delay = 0.00>
+ST_11 : Operation 217 [1/1] (0.00ns)   --->   "%queue_y_addr_2 = getelementptr i32 %queue_y, i64 0, i64 %zext_ln64" [card_recognizer_hls.cpp:64]   --->   Operation 217 'getelementptr' 'queue_y_addr_2' <Predicate = (icmp_ln51 & and_ln60_3 & icmp_ln62_1 & !visited_load_1)> <Delay = 0.00>
+ST_11 : Operation 218 [1/1] (3.25ns)   --->   "%store_ln64 = store i32 %conv66_1, i19 %queue_x_addr_2" [card_recognizer_hls.cpp:64]   --->   Operation 218 'store' 'store_ln64' <Predicate = (icmp_ln51 & and_ln60_3 & icmp_ln62_1 & !visited_load_1)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 307200> <RAM>
+ST_11 : Operation 219 [1/1] (3.25ns)   --->   "%store_ln64 = store i32 %conv68_1, i19 %queue_y_addr_2" [card_recognizer_hls.cpp:64]   --->   Operation 219 'store' 'store_ln64' <Predicate = (icmp_ln51 & and_ln60_3 & icmp_ln62_1 & !visited_load_1)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 307200> <RAM>
+ST_11 : Operation 220 [1/1] (1.58ns)   --->   "%br_ln65 = br void %for.inc74.1" [card_recognizer_hls.cpp:65]   --->   Operation 220 'br' 'br_ln65' <Predicate = (icmp_ln51 & and_ln60_3 & icmp_ln62_1 & !visited_load_1)> <Delay = 1.58>
+ST_11 : Operation 221 [2/6] (6.41ns)   --->   "%conv66_2 = sitofp i32 %nx_2" [card_recognizer_hls.cpp:64]   --->   Operation 221 'sitofp' 'conv66_2' <Predicate = (icmp_ln51 & and_ln60_5 & icmp_ln62_2 & !visited_load_2)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_11 : Operation 222 [2/6] (6.41ns)   --->   "%conv68_2 = sitofp i32 %ny_1" [card_recognizer_hls.cpp:64]   --->   Operation 222 'sitofp' 'conv68_2' <Predicate = (icmp_ln51 & and_ln60_5 & icmp_ln62_2 & !visited_load_2)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_11 : Operation 223 [4/6] (6.41ns)   --->   "%conv66_3 = sitofp i32 %nx_2" [card_recognizer_hls.cpp:64]   --->   Operation 223 'sitofp' 'conv66_3' <Predicate = (icmp_ln51 & and_ln60_7 & icmp_ln62_3 & !visited_load_3)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_11 : Operation 224 [4/6] (6.41ns)   --->   "%conv68_3 = sitofp i32 %ny_2" [card_recognizer_hls.cpp:64]   --->   Operation 224 'sitofp' 'conv68_3' <Predicate = (icmp_ln51 & and_ln60_7 & icmp_ln62_3 & !visited_load_3)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+State 12 <SV = 11> <Delay = 9.66>
+ST_12 : Operation 225 [1/1] (0.00ns)   --->   "%q_tail_4 = phi i32 %q_tail_11, void %if.then61.1, i32 %q_tail_2, void %for.inc74, i32 %q_tail_2, void %if.then51.1, i32 %q_tail_2, void %land.lhs.true58.1"   --->   Operation 225 'phi' 'q_tail_4' <Predicate = (icmp_ln51)> <Delay = 0.00>
+ST_12 : Operation 226 [1/1] (1.58ns)   --->   "%br_ln60 = br i1 %and_ln60_5, void %for.inc74.2, void %if.then51.2" [card_recognizer_hls.cpp:60]   --->   Operation 226 'br' 'br_ln60' <Predicate = (icmp_ln51)> <Delay = 1.58>
+ST_12 : Operation 227 [1/1] (1.58ns)   --->   "%br_ln62 = br i1 %icmp_ln62_2, void %for.inc74.2, void %land.lhs.true58.2" [card_recognizer_hls.cpp:62]   --->   Operation 227 'br' 'br_ln62' <Predicate = (icmp_ln51 & and_ln60_5)> <Delay = 1.58>
+ST_12 : Operation 228 [1/1] (1.58ns)   --->   "%br_ln62 = br i1 %visited_load_2, void %if.then61.2, void %for.inc74.2" [card_recognizer_hls.cpp:62]   --->   Operation 228 'br' 'br_ln62' <Predicate = (icmp_ln51 & and_ln60_5 & icmp_ln62_2)> <Delay = 1.58>
+ST_12 : Operation 229 [1/6] (6.41ns)   --->   "%conv66_2 = sitofp i32 %nx_2" [card_recognizer_hls.cpp:64]   --->   Operation 229 'sitofp' 'conv66_2' <Predicate = (icmp_ln51 & and_ln60_5 & icmp_ln62_2 & !visited_load_2)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_12 : Operation 230 [1/6] (6.41ns)   --->   "%conv68_2 = sitofp i32 %ny_1" [card_recognizer_hls.cpp:64]   --->   Operation 230 'sitofp' 'conv68_2' <Predicate = (icmp_ln51 & and_ln60_5 & icmp_ln62_2 & !visited_load_2)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_12 : Operation 231 [1/1] (2.55ns)   --->   "%q_tail_12 = add i32 %q_tail_4, i32 1" [card_recognizer_hls.cpp:64]   --->   Operation 231 'add' 'q_tail_12' <Predicate = (icmp_ln51 & and_ln60_5 & icmp_ln62_2 & !visited_load_2)> <Delay = 2.55> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 232 [1/1] (0.00ns)   --->   "%zext_ln64_1 = zext i32 %q_tail_4" [card_recognizer_hls.cpp:64]   --->   Operation 232 'zext' 'zext_ln64_1' <Predicate = (icmp_ln51 & and_ln60_5 & icmp_ln62_2 & !visited_load_2)> <Delay = 0.00>
+ST_12 : Operation 233 [1/1] (0.00ns)   --->   "%queue_x_addr_3 = getelementptr i32 %queue_x, i64 0, i64 %zext_ln64_1" [card_recognizer_hls.cpp:64]   --->   Operation 233 'getelementptr' 'queue_x_addr_3' <Predicate = (icmp_ln51 & and_ln60_5 & icmp_ln62_2 & !visited_load_2)> <Delay = 0.00>
+ST_12 : Operation 234 [1/1] (0.00ns)   --->   "%queue_y_addr_3 = getelementptr i32 %queue_y, i64 0, i64 %zext_ln64_1" [card_recognizer_hls.cpp:64]   --->   Operation 234 'getelementptr' 'queue_y_addr_3' <Predicate = (icmp_ln51 & and_ln60_5 & icmp_ln62_2 & !visited_load_2)> <Delay = 0.00>
+ST_12 : Operation 235 [1/1] (3.25ns)   --->   "%store_ln64 = store i32 %conv66_2, i19 %queue_x_addr_3" [card_recognizer_hls.cpp:64]   --->   Operation 235 'store' 'store_ln64' <Predicate = (icmp_ln51 & and_ln60_5 & icmp_ln62_2 & !visited_load_2)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 307200> <RAM>
+ST_12 : Operation 236 [1/1] (3.25ns)   --->   "%store_ln64 = store i32 %conv68_2, i19 %queue_y_addr_3" [card_recognizer_hls.cpp:64]   --->   Operation 236 'store' 'store_ln64' <Predicate = (icmp_ln51 & and_ln60_5 & icmp_ln62_2 & !visited_load_2)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 307200> <RAM>
+ST_12 : Operation 237 [1/1] (1.58ns)   --->   "%br_ln65 = br void %for.inc74.2" [card_recognizer_hls.cpp:65]   --->   Operation 237 'br' 'br_ln65' <Predicate = (icmp_ln51 & and_ln60_5 & icmp_ln62_2 & !visited_load_2)> <Delay = 1.58>
+ST_12 : Operation 238 [3/6] (6.41ns)   --->   "%conv66_3 = sitofp i32 %nx_2" [card_recognizer_hls.cpp:64]   --->   Operation 238 'sitofp' 'conv66_3' <Predicate = (icmp_ln51 & and_ln60_7 & icmp_ln62_3 & !visited_load_3)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_12 : Operation 239 [3/6] (6.41ns)   --->   "%conv68_3 = sitofp i32 %ny_2" [card_recognizer_hls.cpp:64]   --->   Operation 239 'sitofp' 'conv68_3' <Predicate = (icmp_ln51 & and_ln60_7 & icmp_ln62_3 & !visited_load_3)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+State 13 <SV = 12> <Delay = 6.41>
+ST_13 : Operation 240 [1/1] (0.00ns)   --->   "%q_tail_6 = phi i32 %q_tail_12, void %if.then61.2, i32 %q_tail_4, void %for.inc74.1, i32 %q_tail_4, void %if.then51.2, i32 %q_tail_4, void %land.lhs.true58.2"   --->   Operation 240 'phi' 'q_tail_6' <Predicate = (icmp_ln51)> <Delay = 0.00>
+ST_13 : Operation 241 [1/1] (1.58ns)   --->   "%br_ln60 = br i1 %and_ln60_7, void %for.inc74.3, void %if.then51.3" [card_recognizer_hls.cpp:60]   --->   Operation 241 'br' 'br_ln60' <Predicate = (icmp_ln51)> <Delay = 1.58>
+ST_13 : Operation 242 [1/1] (1.58ns)   --->   "%br_ln62 = br i1 %icmp_ln62_3, void %for.inc74.3, void %land.lhs.true58.3" [card_recognizer_hls.cpp:62]   --->   Operation 242 'br' 'br_ln62' <Predicate = (icmp_ln51 & and_ln60_7)> <Delay = 1.58>
+ST_13 : Operation 243 [1/1] (1.58ns)   --->   "%br_ln62 = br i1 %visited_load_3, void %if.then61.3, void %for.inc74.3" [card_recognizer_hls.cpp:62]   --->   Operation 243 'br' 'br_ln62' <Predicate = (icmp_ln51 & and_ln60_7 & icmp_ln62_3)> <Delay = 1.58>
+ST_13 : Operation 244 [2/6] (6.41ns)   --->   "%conv66_3 = sitofp i32 %nx_2" [card_recognizer_hls.cpp:64]   --->   Operation 244 'sitofp' 'conv66_3' <Predicate = (icmp_ln51 & and_ln60_7 & icmp_ln62_3 & !visited_load_3)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_13 : Operation 245 [2/6] (6.41ns)   --->   "%conv68_3 = sitofp i32 %ny_2" [card_recognizer_hls.cpp:64]   --->   Operation 245 'sitofp' 'conv68_3' <Predicate = (icmp_ln51 & and_ln60_7 & icmp_ln62_3 & !visited_load_3)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+State 14 <SV = 13> <Delay = 9.66>
+ST_14 : Operation 246 [1/6] (6.41ns)   --->   "%conv66_3 = sitofp i32 %nx_2" [card_recognizer_hls.cpp:64]   --->   Operation 246 'sitofp' 'conv66_3' <Predicate = (icmp_ln51 & and_ln60_7 & icmp_ln62_3 & !visited_load_3)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_14 : Operation 247 [1/6] (6.41ns)   --->   "%conv68_3 = sitofp i32 %ny_2" [card_recognizer_hls.cpp:64]   --->   Operation 247 'sitofp' 'conv68_3' <Predicate = (icmp_ln51 & and_ln60_7 & icmp_ln62_3 & !visited_load_3)> <Delay = 6.41> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_14 : Operation 248 [1/1] (2.55ns)   --->   "%q_tail_13 = add i32 %q_tail_6, i32 1" [card_recognizer_hls.cpp:64]   --->   Operation 248 'add' 'q_tail_13' <Predicate = (icmp_ln51 & and_ln60_7 & icmp_ln62_3 & !visited_load_3)> <Delay = 2.55> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 249 [1/1] (0.00ns)   --->   "%zext_ln64_2 = zext i32 %q_tail_6" [card_recognizer_hls.cpp:64]   --->   Operation 249 'zext' 'zext_ln64_2' <Predicate = (icmp_ln51 & and_ln60_7 & icmp_ln62_3 & !visited_load_3)> <Delay = 0.00>
+ST_14 : Operation 250 [1/1] (0.00ns)   --->   "%queue_x_addr_4 = getelementptr i32 %queue_x, i64 0, i64 %zext_ln64_2" [card_recognizer_hls.cpp:64]   --->   Operation 250 'getelementptr' 'queue_x_addr_4' <Predicate = (icmp_ln51 & and_ln60_7 & icmp_ln62_3 & !visited_load_3)> <Delay = 0.00>
+ST_14 : Operation 251 [1/1] (0.00ns)   --->   "%queue_y_addr_4 = getelementptr i32 %queue_y, i64 0, i64 %zext_ln64_2" [card_recognizer_hls.cpp:64]   --->   Operation 251 'getelementptr' 'queue_y_addr_4' <Predicate = (icmp_ln51 & and_ln60_7 & icmp_ln62_3 & !visited_load_3)> <Delay = 0.00>
+ST_14 : Operation 252 [1/1] (3.25ns)   --->   "%store_ln64 = store i32 %conv66_3, i19 %queue_x_addr_4" [card_recognizer_hls.cpp:64]   --->   Operation 252 'store' 'store_ln64' <Predicate = (icmp_ln51 & and_ln60_7 & icmp_ln62_3 & !visited_load_3)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 307200> <RAM>
+ST_14 : Operation 253 [1/1] (3.25ns)   --->   "%store_ln64 = store i32 %conv68_3, i19 %queue_y_addr_4" [card_recognizer_hls.cpp:64]   --->   Operation 253 'store' 'store_ln64' <Predicate = (icmp_ln51 & and_ln60_7 & icmp_ln62_3 & !visited_load_3)> <Delay = 3.25> <CoreInst = "RAM">   --->   Core 82 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 307200> <RAM>
+ST_14 : Operation 254 [1/1] (1.58ns)   --->   "%br_ln65 = br void %for.inc74.3" [card_recognizer_hls.cpp:65]   --->   Operation 254 'br' 'br_ln65' <Predicate = (icmp_ln51 & and_ln60_7 & icmp_ln62_3 & !visited_load_3)> <Delay = 1.58>
+ST_14 : Operation 255 [1/1] (0.00ns)   --->   "%q_tail_8 = phi i32 %q_tail_13, void %if.then61.3, i32 %q_tail_6, void %for.inc74.2, i32 %q_tail_6, void %if.then51.3, i32 %q_tail_6, void %land.lhs.true58.3"   --->   Operation 255 'phi' 'q_tail_8' <Predicate = (icmp_ln51)> <Delay = 0.00>
+ST_14 : Operation 256 [1/1] (1.58ns)   --->   "%store_ln51 = store i32 %q_tail_8, i32 %q_tail" [card_recognizer_hls.cpp:51]   --->   Operation 256 'store' 'store_ln51' <Predicate = (icmp_ln51)> <Delay = 1.58>
+ST_14 : Operation 257 [1/1] (1.58ns)   --->   "%store_ln51 = store i64 %add_ln54, i64 %q_head" [card_recognizer_hls.cpp:51]   --->   Operation 257 'store' 'store_ln51' <Predicate = (icmp_ln51)> <Delay = 1.58>
+ST_14 : Operation 258 [1/1] (0.00ns)   --->   "%br_ln51 = br void %while.cond" [card_recognizer_hls.cpp:51]   --->   Operation 258 'br' 'br_ln51' <Predicate = (icmp_ln51)> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 2.7ns.
+
+ <State 1>: 1.59ns
+The critical path consists of the following:
+	'alloca' operation ('q_tail') [9]  (0 ns)
+	'store' operation ('store_ln0') of constant 1 on local variable 'q_tail' [12]  (1.59 ns)
+
+ <State 2>: 3.52ns
+The critical path consists of the following:
+	'load' operation ('best_count', card_recognizer_hls.cpp:51) on local variable 'q_head' [16]  (0 ns)
+	'add' operation ('add_ln54', card_recognizer_hls.cpp:54) [21]  (3.52 ns)
+
+ <State 3>: 31.8ns
+The critical path consists of the following:
+	'load' operation ('p.y', card_recognizer_hls.cpp:53) on array 'queue_y' [29]  (3.25 ns)
+	'add' operation ('sh', C:\scratch\2022.2\hls_product\608\2022.2\src\shared\hls\clib/src/hls\utils/x_hls_utils.h:346) [62]  (1.92 ns)
+	'select' operation ('ush') [66]  (0.968 ns)
+	'lshr' operation ('r.V') [69]  (0 ns)
+	'select' operation ('val') [74]  (4.42 ns)
+	'sub' operation ('result.V') [75]  (2.55 ns)
+	'select' operation ('result.V', C:\scratch\2022.2\hls_product\608\2022.2\src\shared\hls\clib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:59) [76]  (0.698 ns)
+	'mul' operation ('mul_ln61_1', card_recognizer_hls.cpp:61) [120]  (12.6 ns)
+	'add' operation ('nidx', card_recognizer_hls.cpp:61) [122]  (2.17 ns)
+	'getelementptr' operation ('binary_addr_1', card_recognizer_hls.cpp:62) [124]  (0 ns)
+	'load' operation ('binary_load_1', card_recognizer_hls.cpp:62) on array 'binary' [125]  (3.25 ns)
+
+ <State 4>: 12.3ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln61_2', card_recognizer_hls.cpp:61) [155]  (6.91 ns)
+	'add' operation ('nidx', card_recognizer_hls.cpp:61) [157]  (2.17 ns)
+	'getelementptr' operation ('binary_addr_2', card_recognizer_hls.cpp:62) [159]  (0 ns)
+	'load' operation ('binary_load_2', card_recognizer_hls.cpp:62) on array 'binary' [160]  (3.25 ns)
+
+ <State 5>: 12.3ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln61_3', card_recognizer_hls.cpp:61) [189]  (6.91 ns)
+	'add' operation ('nidx', card_recognizer_hls.cpp:61) [191]  (2.17 ns)
+	'getelementptr' operation ('binary_addr_3', card_recognizer_hls.cpp:62) [193]  (0 ns)
+	'load' operation ('binary_load_3', card_recognizer_hls.cpp:62) on array 'binary' [194]  (3.25 ns)
+
+ <State 6>: 6.41ns
+The critical path consists of the following:
+	'sitofp' operation ('conv66_1', card_recognizer_hls.cpp:64) [134]  (6.41 ns)
+
+ <State 7>: 6.51ns
+The critical path consists of the following:
+	'sitofp' operation ('conv66_1', card_recognizer_hls.cpp:64) [134]  (6.41 ns)
+	blocking operation 0.095 ns on control path)
+
+ <State 8>: 6.41ns
+The critical path consists of the following:
+	'sitofp' operation ('conv2', card_recognizer_hls.cpp:64) [100]  (6.41 ns)
+
+ <State 9>: 6.51ns
+The critical path consists of the following:
+	'sitofp' operation ('conv66_1', card_recognizer_hls.cpp:64) [134]  (6.41 ns)
+	blocking operation 0.095 ns on control path)
+
+ <State 10>: 9.67ns
+The critical path consists of the following:
+	'sitofp' operation ('conv2', card_recognizer_hls.cpp:64) [100]  (6.41 ns)
+	'store' operation ('store_ln64', card_recognizer_hls.cpp:64) of variable 'conv2', card_recognizer_hls.cpp:64 on array 'queue_x' [105]  (3.25 ns)
+
+ <State 11>: 9.67ns
+The critical path consists of the following:
+	'sitofp' operation ('conv66_1', card_recognizer_hls.cpp:64) [134]  (6.41 ns)
+	'store' operation ('store_ln64', card_recognizer_hls.cpp:64) of variable 'conv66_1', card_recognizer_hls.cpp:64 on array 'queue_x' [140]  (3.25 ns)
+
+ <State 12>: 9.67ns
+The critical path consists of the following:
+	'sitofp' operation ('conv66_2', card_recognizer_hls.cpp:64) [169]  (6.41 ns)
+	'store' operation ('store_ln64', card_recognizer_hls.cpp:64) of variable 'conv66_2', card_recognizer_hls.cpp:64 on array 'queue_x' [175]  (3.25 ns)
+
+ <State 13>: 6.41ns
+The critical path consists of the following:
+	'sitofp' operation ('conv66_3', card_recognizer_hls.cpp:64) [203]  (6.41 ns)
+
+ <State 14>: 9.67ns
+The critical path consists of the following:
+	'sitofp' operation ('conv66_3', card_recognizer_hls.cpp:64) [203]  (6.41 ns)
+	'store' operation ('store_ln64', card_recognizer_hls.cpp:64) of variable 'conv66_3', card_recognizer_hls.cpp:64 on array 'queue_x' [209]  (3.25 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

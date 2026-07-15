@@ -1,0 +1,158 @@
+
+
+================================================================
+== Vitis HLS Report for 'find_largest_component_ccl_Pipeline_COPY_ROW'
+================================================================
+* Date:           Wed Jul 15 18:02:31 2026
+
+* Version:        2022.2 (Build 3670227 on Oct 13 2022)
+* Project:        card_recognizer_dram_hls
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z010i-clg225-1L
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  6.232 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |      162|      162|  1.620 us|  1.620 us|  162|  162|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +------------+---------+---------+----------+-----------+-----------+------+----------+
+        |            |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- COPY_ROW  |      160|      160|         2|          1|          1|   160|       yes|
+        +------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+----+-------+-------+-----+
+|       Name      | BRAM_18K| DSP|   FF  |  LUT  | URAM|
++-----------------+---------+----+-------+-------+-----+
+|DSP              |        -|   -|      -|      -|    -|
+|Expression       |        -|   -|      0|     28|    -|
+|FIFO             |        -|   -|      -|      -|    -|
+|Instance         |        -|   -|      0|      9|    -|
+|Memory           |        -|   -|      -|      -|    -|
+|Multiplexer      |        -|   -|      -|     36|    -|
+|Register         |        -|   -|     26|      -|    -|
++-----------------+---------+----+-------+-------+-----+
+|Total            |        0|   0|     26|     73|    0|
++-----------------+---------+----+-------+-------+-----+
+|Available        |      120|  80|  35200|  17600|    0|
++-----------------+---------+----+-------+-------+-----+
+|Utilization (%)  |        0|   0|     ~0|     ~0|    0|
++-----------------+---------+----+-------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    +------------------+--------------+---------+----+---+----+-----+
+    |     Instance     |    Module    | BRAM_18K| DSP| FF| LUT| URAM|
+    +------------------+--------------+---------+----+---+----+-----+
+    |mux_21_8_1_1_U44  |mux_21_8_1_1  |        0|   0|  0|   9|    0|
+    +------------------+--------------+---------+----+---+----+-----+
+    |Total             |              |        0|   0|  0|   9|    0|
+    +------------------+--------------+---------+----+---+----+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------+----------+----+---+----+------------+------------+
+    |     Variable Name    | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------+----------+----+---+----+------------+------------+
+    |add_ln189_fu_106_p2   |         +|   0|  0|  15|           8|           1|
+    |icmp_ln189_fu_100_p2  |      icmp|   0|  0|  11|           8|           8|
+    |ap_enable_pp0         |       xor|   0|  0|   2|           1|           2|
+    +----------------------+----------+----+---+----+------------+------------+
+    |Total                 |          |   0|  0|  28|          17|          11|
+    +----------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------+----+-----------+-----+-----------+
+    |           Name          | LUT| Input Size| Bits| Total Bits|
+    +-------------------------+----+-----------+-----+-----------+
+    |ap_done_int              |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter1  |   9|          2|    1|          2|
+    |ap_sig_allocacmp_x_2     |   9|          2|    8|         16|
+    |x_fu_38                  |   9|          2|    8|         16|
+    +-------------------------+----+-----------+-----+-----------+
+    |Total                    |  36|          8|   18|         36|
+    +-------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-----------------------------+---+----+-----+-----------+
+    |             Name            | FF| LUT| Bits| Const Bits|
+    +-----------------------------+---+----+-----+-----------+
+    |ap_CS_fsm                    |  1|   0|    1|          0|
+    |ap_done_reg                  |  1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1      |  1|   0|    1|          0|
+    |prev_label_V_1_addr_reg_175  |  7|   0|    7|          0|
+    |prev_label_V_addr_reg_170    |  7|   0|    7|          0|
+    |trunc_ln192_reg_180          |  1|   0|    1|          0|
+    |x_fu_38                      |  8|   0|    8|          0|
+    +-----------------------------+---+----+-----+-----------+
+    |Total                        | 26|   0|   26|          0|
+    +-----------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-------------------------+-----+-----+------------+----------------------------------------------+--------------+
+|        RTL Ports        | Dir | Bits|  Protocol  |                 Source Object                |    C Type    |
++-------------------------+-----+-----+------------+----------------------------------------------+--------------+
+|ap_clk                   |   in|    1|  ap_ctrl_hs|  find_largest_component_ccl_Pipeline_COPY_ROW|  return value|
+|ap_rst                   |   in|    1|  ap_ctrl_hs|  find_largest_component_ccl_Pipeline_COPY_ROW|  return value|
+|ap_start                 |   in|    1|  ap_ctrl_hs|  find_largest_component_ccl_Pipeline_COPY_ROW|  return value|
+|ap_done                  |  out|    1|  ap_ctrl_hs|  find_largest_component_ccl_Pipeline_COPY_ROW|  return value|
+|ap_idle                  |  out|    1|  ap_ctrl_hs|  find_largest_component_ccl_Pipeline_COPY_ROW|  return value|
+|ap_ready                 |  out|    1|  ap_ctrl_hs|  find_largest_component_ccl_Pipeline_COPY_ROW|  return value|
+|prev_label_V_1_address0  |  out|    7|   ap_memory|                                prev_label_V_1|         array|
+|prev_label_V_1_ce0       |  out|    1|   ap_memory|                                prev_label_V_1|         array|
+|prev_label_V_1_we0       |  out|    1|   ap_memory|                                prev_label_V_1|         array|
+|prev_label_V_1_d0        |  out|    8|   ap_memory|                                prev_label_V_1|         array|
+|prev_label_V_address0    |  out|    7|   ap_memory|                                  prev_label_V|         array|
+|prev_label_V_ce0         |  out|    1|   ap_memory|                                  prev_label_V|         array|
+|prev_label_V_we0         |  out|    1|   ap_memory|                                  prev_label_V|         array|
+|prev_label_V_d0          |  out|    8|   ap_memory|                                  prev_label_V|         array|
+|curr_label_V_address0    |  out|    7|   ap_memory|                                  curr_label_V|         array|
+|curr_label_V_ce0         |  out|    1|   ap_memory|                                  curr_label_V|         array|
+|curr_label_V_q0          |   in|    8|   ap_memory|                                  curr_label_V|         array|
+|curr_label_V_1_address0  |  out|    7|   ap_memory|                                curr_label_V_1|         array|
+|curr_label_V_1_ce0       |  out|    1|   ap_memory|                                curr_label_V_1|         array|
+|curr_label_V_1_q0        |   in|    8|   ap_memory|                                curr_label_V_1|         array|
++-------------------------+-----+-----+------------+----------------------------------------------+--------------+
+

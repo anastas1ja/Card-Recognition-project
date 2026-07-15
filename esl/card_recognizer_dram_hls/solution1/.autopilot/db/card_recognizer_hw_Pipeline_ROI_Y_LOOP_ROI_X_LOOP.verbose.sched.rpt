@@ -1,0 +1,228 @@
+
+
+================================================================
+== Vitis HLS Report for 'card_recognizer_hw_Pipeline_ROI_Y_LOOP_ROI_X_LOOP'
+================================================================
+* Date:           Wed Jul 15 18:02:27 2026
+
+* Version:        2022.2 (Build 3670227 on Oct 13 2022)
+* Project:        card_recognizer_dram_hls
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z010i-clg225-1L
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  6.302 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-------+-------+---------+
+    |  Latency (cycles) |  Latency (absolute) |    Interval   | Pipeline|
+    |   min   |   max   |    min   |    max   |  min  |  max  |   Type  |
+    +---------+---------+----------+----------+-------+-------+---------+
+    |    19205|    19205|  0.192 ms|  0.192 ms|  19205|  19205|       no|
+    +---------+---------+----------+----------+-------+-------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------------------+---------+---------+----------+-----------+-----------+-------+----------+
+        |                         |  Latency (cycles) | Iteration|  Initiation Interval  |  Trip |          |
+        |        Loop Name        |   min   |   max   |  Latency |  achieved |   target  | Count | Pipelined|
+        +-------------------------+---------+---------+----------+-----------+-----------+-------+----------+
+        |- ROI_Y_LOOP_ROI_X_LOOP  |    19203|    19203|         5|          1|          1|  19200|       yes|
+        +-------------------------+---------+---------+----------+-----------+-----------+-------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 5
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 5
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 5, States = { 1 2 3 4 5 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 6.30>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%roi_count_1 = alloca i32 1"   --->   Operation 8 'alloca' 'roi_count_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%x = alloca i32 1"   --->   Operation 9 'alloca' 'x' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%y = alloca i32 1"   --->   Operation 10 'alloca' 'y' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%indvar_flatten = alloca i32 1"   --->   Operation 11 'alloca' 'indvar_flatten' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i1 %binary_V, i64 666, i64 22, i64 18446744073709551615"   --->   Operation 12 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%zext_ln246_read = read i10 @_ssdm_op_Read.ap_auto.i10, i10 %zext_ln246"   --->   Operation 13 'read' 'zext_ln246_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%card_box_min_x_V_read = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %card_box_min_x_V"   --->   Operation 14 'read' 'card_box_min_x_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%trunc_ln9_read = read i15 @_ssdm_op_Read.ap_auto.i15, i15 %trunc_ln9"   --->   Operation 15 'read' 'trunc_ln9_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%zext_ln246_1_read = read i9 @_ssdm_op_Read.ap_auto.i9, i9 %zext_ln246_1"   --->   Operation 16 'read' 'zext_ln246_1_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%card_box_min_y_V_read = read i8 @_ssdm_op_Read.ap_auto.i8, i8 %card_box_min_y_V"   --->   Operation 17 'read' 'card_box_min_y_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (1.58ns)   --->   "%store_ln0 = store i15 0, i15 %indvar_flatten"   --->   Operation 18 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 19 [1/1] (1.58ns)   --->   "%store_ln0 = store i7 0, i7 %y"   --->   Operation 19 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 20 [1/1] (1.58ns)   --->   "%store_ln0 = store i8 0, i8 %x"   --->   Operation 20 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 21 [1/1] (1.58ns)   --->   "%store_ln0 = store i32 0, i32 %roi_count_1"   --->   Operation 21 'store' 'store_ln0' <Predicate = true> <Delay = 1.58>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.body28.i"   --->   Operation 22 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%y_2 = load i7 %y" [hls_fajlovi/card_recognizer_dram_hls.cpp:246]   --->   Operation 23 'load' 'y_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%indvar_flatten_load = load i15 %indvar_flatten" [hls_fajlovi/card_recognizer_dram_hls.cpp:246]   --->   Operation 24 'load' 'indvar_flatten_load' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%zext_ln246_2 = zext i7 %y_2" [hls_fajlovi/card_recognizer_dram_hls.cpp:246]   --->   Operation 25 'zext' 'zext_ln246_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%zext_ln246_3 = zext i7 %y_2" [hls_fajlovi/card_recognizer_dram_hls.cpp:246]   --->   Operation 26 'zext' 'zext_ln246_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 27 [1/1] (1.55ns)   --->   "%ult = icmp_ult  i8 %zext_ln246_3, i8 %card_box_min_y_V_read" [hls_fajlovi/card_recognizer_dram_hls.cpp:246]   --->   Operation 27 'icmp' 'ult' <Predicate = true> <Delay = 1.55> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.55> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 28 [1/1] (0.00ns) (grouped into LUT with out node and_ln252)   --->   "%rev20 = xor i1 %ult, i1 1" [hls_fajlovi/card_recognizer_dram_hls.cpp:246]   --->   Operation 28 'xor' 'rev20' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 29 [1/1] (1.66ns)   --->   "%notrhs = icmp_ult  i9 %zext_ln246_2, i9 %zext_ln246_1_read" [hls_fajlovi/card_recognizer_dram_hls.cpp:246]   --->   Operation 29 'icmp' 'notrhs' <Predicate = true> <Delay = 1.66> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.66> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 30 [1/1] (0.97ns) (out node of the LUT)   --->   "%and_ln252 = and i1 %notrhs, i1 %rev20" [hls_fajlovi/card_recognizer_dram_hls.cpp:252]   --->   Operation 30 'and' 'and_ln252' <Predicate = true> <Delay = 0.97> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 31 [1/1] (2.31ns)   --->   "%icmp_ln246 = icmp_eq  i15 %indvar_flatten_load, i15 19200" [hls_fajlovi/card_recognizer_dram_hls.cpp:246]   --->   Operation 31 'icmp' 'icmp_ln246' <Predicate = true> <Delay = 2.31> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 2.31> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 32 [1/1] (1.94ns)   --->   "%add_ln246 = add i15 %indvar_flatten_load, i15 1" [hls_fajlovi/card_recognizer_dram_hls.cpp:246]   --->   Operation 32 'add' 'add_ln246' <Predicate = true> <Delay = 1.94> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.94> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%br_ln246 = br i1 %icmp_ln246, void %for.inc42.i, void %_Z20analyze_top_left_roiPK7ap_uintILi1EE4BBoxi.exit.loopexit.exitStub" [hls_fajlovi/card_recognizer_dram_hls.cpp:246]   --->   Operation 33 'br' 'br_ln246' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%x_load = load i8 %x" [hls_fajlovi/card_recognizer_dram_hls.cpp:249]   --->   Operation 34 'load' 'x_load' <Predicate = (!icmp_ln246)> <Delay = 0.00>
+ST_1 : Operation 35 [1/1] (1.55ns)   --->   "%icmp_ln249 = icmp_eq  i8 %x_load, i8 160" [hls_fajlovi/card_recognizer_dram_hls.cpp:249]   --->   Operation 35 'icmp' 'icmp_ln249' <Predicate = (!icmp_ln246)> <Delay = 1.55> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.55> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 36 [1/1] (1.24ns)   --->   "%select_ln246 = select i1 %icmp_ln249, i8 0, i8 %x_load" [hls_fajlovi/card_recognizer_dram_hls.cpp:246]   --->   Operation 36 'select' 'select_ln246' <Predicate = (!icmp_ln246)> <Delay = 1.24> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 37 [1/1] (1.87ns)   --->   "%add_ln246_1 = add i7 %y_2, i7 1" [hls_fajlovi/card_recognizer_dram_hls.cpp:246]   --->   Operation 37 'add' 'add_ln246_1' <Predicate = (!icmp_ln246)> <Delay = 1.87> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 38 [1/1] (0.00ns)   --->   "%zext_ln246_4 = zext i7 %add_ln246_1" [hls_fajlovi/card_recognizer_dram_hls.cpp:246]   --->   Operation 38 'zext' 'zext_ln246_4' <Predicate = (!icmp_ln246)> <Delay = 0.00>
+ST_1 : Operation 39 [1/1] (0.00ns)   --->   "%zext_ln246_5 = zext i7 %add_ln246_1" [hls_fajlovi/card_recognizer_dram_hls.cpp:246]   --->   Operation 39 'zext' 'zext_ln246_5' <Predicate = (!icmp_ln246)> <Delay = 0.00>
+ST_1 : Operation 40 [1/1] (0.99ns)   --->   "%select_ln246_1 = select i1 %icmp_ln249, i7 %add_ln246_1, i7 %y_2" [hls_fajlovi/card_recognizer_dram_hls.cpp:246]   --->   Operation 40 'select' 'select_ln246_1' <Predicate = (!icmp_ln246)> <Delay = 0.99> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 41 [1/1] (0.00ns)   --->   "%zext_ln246_6 = zext i7 %select_ln246_1" [hls_fajlovi/card_recognizer_dram_hls.cpp:246]   --->   Operation 41 'zext' 'zext_ln246_6' <Predicate = (!icmp_ln246)> <Delay = 0.00>
+ST_1 : Operation 42 [3/3] (1.05ns) (grouped into DSP with root node add_ln253)   --->   "%mul_ln246 = mul i15 %zext_ln246_6, i15 %trunc_ln9_read" [hls_fajlovi/card_recognizer_dram_hls.cpp:246]   --->   Operation 42 'mul' 'mul_ln246' <Predicate = (!icmp_ln246)> <Delay = 1.05> <CoreInst = "DSP48">   --->   Core 119 'DSP48' <Latency = 3> <II = 1> <Delay = 2.15> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_1 : Operation 43 [1/1] (1.55ns)   --->   "%ult21 = icmp_ult  i8 %zext_ln246_5, i8 %card_box_min_y_V_read" [hls_fajlovi/card_recognizer_dram_hls.cpp:246]   --->   Operation 43 'icmp' 'ult21' <Predicate = (!icmp_ln246)> <Delay = 1.55> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.55> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 44 [1/1] (0.00ns) (grouped into LUT with out node and_ln252_1)   --->   "%rev22 = xor i1 %ult21, i1 1" [hls_fajlovi/card_recognizer_dram_hls.cpp:246]   --->   Operation 44 'xor' 'rev22' <Predicate = (!icmp_ln246)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 45 [1/1] (1.66ns)   --->   "%notrhs_mid1 = icmp_ult  i9 %zext_ln246_4, i9 %zext_ln246_1_read" [hls_fajlovi/card_recognizer_dram_hls.cpp:246]   --->   Operation 45 'icmp' 'notrhs_mid1' <Predicate = (!icmp_ln246)> <Delay = 1.66> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.66> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 46 [1/1] (0.00ns) (grouped into LUT with out node and_ln252_1)   --->   "%and_ln252_3 = and i1 %notrhs_mid1, i1 %rev22" [hls_fajlovi/card_recognizer_dram_hls.cpp:252]   --->   Operation 46 'and' 'and_ln252_3' <Predicate = (!icmp_ln246)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 47 [1/1] (0.00ns) (grouped into LUT with out node and_ln252_1)   --->   "%select_ln246_2 = select i1 %icmp_ln249, i1 %and_ln252_3, i1 %and_ln252" [hls_fajlovi/card_recognizer_dram_hls.cpp:246]   --->   Operation 47 'select' 'select_ln246_2' <Predicate = (!icmp_ln246)> <Delay = 0.00> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 48 [1/1] (0.00ns)   --->   "%zext_ln251 = zext i8 %select_ln246" [hls_fajlovi/card_recognizer_dram_hls.cpp:251]   --->   Operation 48 'zext' 'zext_ln251' <Predicate = (!icmp_ln246)> <Delay = 0.00>
+ST_1 : Operation 49 [1/1] (1.55ns)   --->   "%icmp_ln252 = icmp_ult  i8 %select_ln246, i8 %card_box_min_x_V_read" [hls_fajlovi/card_recognizer_dram_hls.cpp:252]   --->   Operation 49 'icmp' 'icmp_ln252' <Predicate = (!icmp_ln246)> <Delay = 1.55> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.55> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 50 [1/1] (0.00ns) (grouped into LUT with out node and_ln252_1)   --->   "%xor_ln252 = xor i1 %icmp_ln252, i1 1" [hls_fajlovi/card_recognizer_dram_hls.cpp:252]   --->   Operation 50 'xor' 'xor_ln252' <Predicate = (!icmp_ln246)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 51 [1/1] (1.77ns)   --->   "%icmp_ln252_1 = icmp_ult  i10 %zext_ln251, i10 %zext_ln246_read" [hls_fajlovi/card_recognizer_dram_hls.cpp:252]   --->   Operation 51 'icmp' 'icmp_ln252_1' <Predicate = (!icmp_ln246)> <Delay = 1.77> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 52 [1/1] (0.00ns) (grouped into LUT with out node and_ln252_1)   --->   "%and_ln252_2 = and i1 %xor_ln252, i1 %icmp_ln252_1" [hls_fajlovi/card_recognizer_dram_hls.cpp:252]   --->   Operation 52 'and' 'and_ln252_2' <Predicate = (!icmp_ln246)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 53 [1/1] (0.99ns) (out node of the LUT)   --->   "%and_ln252_1 = and i1 %and_ln252_2, i1 %select_ln246_2" [hls_fajlovi/card_recognizer_dram_hls.cpp:252]   --->   Operation 53 'and' 'and_ln252_1' <Predicate = (!icmp_ln246)> <Delay = 0.99> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 54 [1/1] (1.91ns)   --->   "%add_ln249 = add i8 %select_ln246, i8 1" [hls_fajlovi/card_recognizer_dram_hls.cpp:249]   --->   Operation 54 'add' 'add_ln249' <Predicate = (!icmp_ln246)> <Delay = 1.91> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.91> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 55 [1/1] (1.58ns)   --->   "%store_ln249 = store i15 %add_ln246, i15 %indvar_flatten" [hls_fajlovi/card_recognizer_dram_hls.cpp:249]   --->   Operation 55 'store' 'store_ln249' <Predicate = (!icmp_ln246)> <Delay = 1.58>
+ST_1 : Operation 56 [1/1] (1.58ns)   --->   "%store_ln249 = store i7 %select_ln246_1, i7 %y" [hls_fajlovi/card_recognizer_dram_hls.cpp:249]   --->   Operation 56 'store' 'store_ln249' <Predicate = (!icmp_ln246)> <Delay = 1.58>
+ST_1 : Operation 57 [1/1] (1.58ns)   --->   "%store_ln249 = store i8 %add_ln249, i8 %x" [hls_fajlovi/card_recognizer_dram_hls.cpp:249]   --->   Operation 57 'store' 'store_ln249' <Predicate = (!icmp_ln246)> <Delay = 1.58>
+
+State 2 <SV = 1> <Delay = 1.05>
+ST_2 : Operation 58 [2/3] (1.05ns) (grouped into DSP with root node add_ln253)   --->   "%mul_ln246 = mul i15 %zext_ln246_6, i15 %trunc_ln9_read" [hls_fajlovi/card_recognizer_dram_hls.cpp:246]   --->   Operation 58 'mul' 'mul_ln246' <Predicate = true> <Delay = 1.05> <CoreInst = "DSP48">   --->   Core 119 'DSP48' <Latency = 3> <II = 1> <Delay = 2.15> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+State 3 <SV = 2> <Delay = 2.10>
+ST_3 : Operation 59 [1/3] (0.00ns) (grouped into DSP with root node add_ln253)   --->   "%mul_ln246 = mul i15 %zext_ln246_6, i15 %trunc_ln9_read" [hls_fajlovi/card_recognizer_dram_hls.cpp:246]   --->   Operation 59 'mul' 'mul_ln246' <Predicate = true> <Delay = 0.00> <CoreInst = "DSP48">   --->   Core 119 'DSP48' <Latency = 3> <II = 1> <Delay = 2.15> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_3 : Operation 60 [1/1] (0.00ns)   --->   "%zext_ln249 = zext i8 %select_ln246" [hls_fajlovi/card_recognizer_dram_hls.cpp:249]   --->   Operation 60 'zext' 'zext_ln249' <Predicate = (and_ln252_1)> <Delay = 0.00>
+ST_3 : Operation 61 [2/2] (2.10ns) (root node of the DSP)   --->   "%add_ln253 = add i15 %zext_ln249, i15 %mul_ln246" [hls_fajlovi/card_recognizer_dram_hls.cpp:253]   --->   Operation 61 'add' 'add_ln253' <Predicate = (and_ln252_1)> <Delay = 2.10> <CoreInst = "DSP48">   --->   Core 119 'DSP48' <Latency = 3> <II = 1> <Delay = 2.15> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+State 4 <SV = 3> <Delay = 5.35>
+ST_4 : Operation 62 [1/2] (2.10ns) (root node of the DSP)   --->   "%add_ln253 = add i15 %zext_ln249, i15 %mul_ln246" [hls_fajlovi/card_recognizer_dram_hls.cpp:253]   --->   Operation 62 'add' 'add_ln253' <Predicate = (and_ln252_1)> <Delay = 2.10> <CoreInst = "DSP48">   --->   Core 119 'DSP48' <Latency = 3> <II = 1> <Delay = 2.15> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 63 [1/1] (0.00ns)   --->   "%zext_ln541 = zext i15 %add_ln253"   --->   Operation 63 'zext' 'zext_ln541' <Predicate = (and_ln252_1)> <Delay = 0.00>
+ST_4 : Operation 64 [1/1] (0.00ns)   --->   "%binary_V_addr = getelementptr i1 %binary_V, i64 0, i64 %zext_ln541"   --->   Operation 64 'getelementptr' 'binary_V_addr' <Predicate = (and_ln252_1)> <Delay = 0.00>
+ST_4 : Operation 65 [2/2] (3.25ns)   --->   "%binary_V_load = load i15 %binary_V_addr"   --->   Operation 65 'load' 'binary_V_load' <Predicate = (and_ln252_1)> <Delay = 3.25> <CoreInst = "RAM_2P_BRAM">   --->   Core 91 'RAM_2P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 19200> <RAM>
+ST_4 : Operation 77 [1/1] (0.00ns)   --->   "%roi_count_1_load = load i32 %roi_count_1"   --->   Operation 77 'load' 'roi_count_1_load' <Predicate = (icmp_ln246)> <Delay = 0.00>
+ST_4 : Operation 78 [1/1] (0.00ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %roi_count_2_out, i32 %roi_count_1_load"   --->   Operation 78 'write' 'write_ln0' <Predicate = (icmp_ln246)> <Delay = 0.00>
+ST_4 : Operation 79 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 79 'ret' 'ret_ln0' <Predicate = (icmp_ln246)> <Delay = 0.00>
+
+State 5 <SV = 4> <Delay = 5.54>
+ST_5 : Operation 66 [1/1] (0.00ns)   --->   "%roi_count_1_load_1 = load i32 %roi_count_1" [hls_fajlovi/card_recognizer_dram_hls.cpp:255]   --->   Operation 66 'load' 'roi_count_1_load_1' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 67 [1/1] (0.00ns)   --->   "%specloopname_ln0 = specloopname void @_ssdm_op_SpecLoopName, void @ROI_Y_LOOP_ROI_X_LOOP_str"   --->   Operation 67 'specloopname' 'specloopname_ln0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 68 [1/1] (0.00ns)   --->   "%speclooptripcount_ln0 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 19200, i64 19200, i64 19200"   --->   Operation 68 'speclooptripcount' 'speclooptripcount_ln0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 69 [1/1] (0.00ns)   --->   "%specpipeline_ln251 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_0" [hls_fajlovi/card_recognizer_dram_hls.cpp:251]   --->   Operation 69 'specpipeline' 'specpipeline_ln251' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 70 [1/1] (0.00ns)   --->   "%specloopname_ln243 = specloopname void @_ssdm_op_SpecLoopName, void @empty_16" [hls_fajlovi/card_recognizer_dram_hls.cpp:243]   --->   Operation 70 'specloopname' 'specloopname_ln243' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 71 [1/2] (3.25ns)   --->   "%binary_V_load = load i15 %binary_V_addr"   --->   Operation 71 'load' 'binary_V_load' <Predicate = (and_ln252_1)> <Delay = 3.25> <CoreInst = "RAM_2P_BRAM">   --->   Core 91 'RAM_2P_BRAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 19200> <RAM>
+ST_5 : Operation 72 [1/1] (2.55ns)   --->   "%add_ln255 = add i32 %roi_count_1_load_1, i32 1" [hls_fajlovi/card_recognizer_dram_hls.cpp:255]   --->   Operation 72 'add' 'add_ln255' <Predicate = (and_ln252_1)> <Delay = 2.55> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 73 [1/1] (0.00ns) (grouped into LUT with out node roi_count)   --->   "%roi_count_2 = select i1 %binary_V_load, i32 %add_ln255, i32 %roi_count_1_load_1" [hls_fajlovi/card_recognizer_dram_hls.cpp:254]   --->   Operation 73 'select' 'roi_count_2' <Predicate = (and_ln252_1)> <Delay = 0.00> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.69> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_5 : Operation 74 [1/1] (0.69ns) (out node of the LUT)   --->   "%roi_count = select i1 %and_ln252_1, i32 %roi_count_2, i32 %roi_count_1_load_1" [hls_fajlovi/card_recognizer_dram_hls.cpp:252]   --->   Operation 74 'select' 'roi_count' <Predicate = true> <Delay = 0.69> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.69> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_5 : Operation 75 [1/1] (1.58ns)   --->   "%store_ln249 = store i32 %roi_count, i32 %roi_count_1" [hls_fajlovi/card_recognizer_dram_hls.cpp:249]   --->   Operation 75 'store' 'store_ln249' <Predicate = true> <Delay = 1.58>
+ST_5 : Operation 76 [1/1] (0.00ns)   --->   "%br_ln249 = br void %for.body28.i" [hls_fajlovi/card_recognizer_dram_hls.cpp:249]   --->   Operation 76 'br' 'br_ln249' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 2.7ns.
+
+ <State 1>: 6.3ns
+The critical path consists of the following:
+	'alloca' operation ('x') [9]  (0 ns)
+	'load' operation ('x_load', hls_fajlovi/card_recognizer_dram_hls.cpp:249) on local variable 'x' [37]  (0 ns)
+	'icmp' operation ('icmp_ln249', hls_fajlovi/card_recognizer_dram_hls.cpp:249) [40]  (1.55 ns)
+	'select' operation ('select_ln246', hls_fajlovi/card_recognizer_dram_hls.cpp:246) [41]  (1.25 ns)
+	'add' operation ('add_ln249', hls_fajlovi/card_recognizer_dram_hls.cpp:249) [69]  (1.92 ns)
+	'store' operation ('store_ln249', hls_fajlovi/card_recognizer_dram_hls.cpp:249) of variable 'add_ln249', hls_fajlovi/card_recognizer_dram_hls.cpp:249 on local variable 'x' [72]  (1.59 ns)
+
+ <State 2>: 1.05ns
+The critical path consists of the following:
+	'mul' operation of DSP[62] ('mul_ln246', hls_fajlovi/card_recognizer_dram_hls.cpp:246) [47]  (1.05 ns)
+
+ <State 3>: 2.1ns
+The critical path consists of the following:
+	'mul' operation of DSP[62] ('mul_ln246', hls_fajlovi/card_recognizer_dram_hls.cpp:246) [47]  (0 ns)
+	'add' operation of DSP[62] ('add_ln253', hls_fajlovi/card_recognizer_dram_hls.cpp:253) [62]  (2.1 ns)
+
+ <State 4>: 5.35ns
+The critical path consists of the following:
+	'add' operation of DSP[62] ('add_ln253', hls_fajlovi/card_recognizer_dram_hls.cpp:253) [62]  (2.1 ns)
+	'getelementptr' operation ('binary_V_addr') [64]  (0 ns)
+	'load' operation ('binary_V_load') on array 'binary_V' [65]  (3.25 ns)
+
+ <State 5>: 5.54ns
+The critical path consists of the following:
+	'load' operation ('binary_V_load') on array 'binary_V' [65]  (3.25 ns)
+	'select' operation ('roi_count', hls_fajlovi/card_recognizer_dram_hls.cpp:254) [67]  (0 ns)
+	'select' operation ('roi_count', hls_fajlovi/card_recognizer_dram_hls.cpp:252) [68]  (0.698 ns)
+	'store' operation ('store_ln249', hls_fajlovi/card_recognizer_dram_hls.cpp:249) of variable 'roi_count', hls_fajlovi/card_recognizer_dram_hls.cpp:252 on local variable 'roi_count' [73]  (1.59 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

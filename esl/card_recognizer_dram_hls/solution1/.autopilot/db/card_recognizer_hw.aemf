@@ -1,0 +1,1089 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1784131355751">
+  <ports id="1" name="input_rgb" type="PortType" coreName="RAM_2P" coreId="1702129263" bitwidth="24" iftype="IfTypeRegister" arraysize="19200">
+    <dataOutputObjs>call</dataOutputObjs>
+  </ports>
+  <ports id="2" name="result_rank" type="PortType" originalName="result_rank" coreId="572669294" bitwidth="32" direction="DirOut">
+    <dataInputObjs>write</dataInputObjs>
+  </ports>
+  <ports id="3" name="result_suit" type="PortType" originalName="result_suit" coreId="2614736504" bitwidth="32" direction="DirOut">
+    <dataInputObjs>write</dataInputObjs>
+  </ports>
+  <ports id="4" name="width" type="PortType" originalName="width" coreId="2545283328" bitwidth="32">
+    <dataOutputObjs>read</dataOutputObjs>
+  </ports>
+  <ports id="5" name="height" type="PortType" originalName="height" coreId="0" bitwidth="32">
+    <dataOutputObjs>read</dataOutputObjs>
+  </ports>
+  <edges id="103" source_obj="//@ports.4" sink_obj="//@blocks.0/@node_objs.0"/>
+  <edges id="105" source_obj="//@ports.3" sink_obj="//@blocks.0/@node_objs.1"/>
+  <edges id="108" source_obj="//@blocks.0/@node_objs.0" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="109" source_obj="//@blocks.0/@node_objs.1" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="110" source_obj="//@blocks.0/@node_objs.3" sink_obj="//@blocks.0/@node_objs.4"/>
+  <edges id="113" source_obj="//@blocks.0/@node_objs.4" sink_obj="//@blocks.0/@node_objs.5"/>
+  <edges id="114" edge_type="CtrlEdge" source_obj="//@blocks.2" sink_obj="//@blocks.0/@node_objs.5"/>
+  <edges id="115" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@blocks.0/@node_objs.5"/>
+  <edges id="116" source_obj="//@blocks.0/@node_objs.3" sink_obj="//@blocks.1/@node_objs.0"/>
+  <edges id="119" source_obj="//@blocks.1/@node_objs.0" sink_obj="//@blocks.1/@node_objs.1"/>
+  <edges id="120" source_obj="//@ports.0" sink_obj="//@blocks.1/@node_objs.1"/>
+  <edges id="123" source_obj="//@blocks.1/@node_objs.0" sink_obj="//@blocks.1/@node_objs.2"/>
+  <edges id="124" edge_type="CtrlEdge" source_obj="//@blocks.2" sink_obj="//@blocks.1/@node_objs.3"/>
+  <edges id="127" source_obj="//@blocks.0/@node_objs.1" sink_obj="//@blocks.2/@node_objs.0"/>
+  <edges id="128" source_obj="//@blocks.0/@node_objs.0" sink_obj="//@blocks.2/@node_objs.0"/>
+  <edges id="129" source_obj="//@blocks.2/@node_objs.0" sink_obj="//@blocks.2/@node_objs.1"/>
+  <edges id="130" source_obj="//@blocks.2/@node_objs.0" sink_obj="//@blocks.2/@node_objs.2"/>
+  <edges id="131" source_obj="//@blocks.2/@node_objs.0" sink_obj="//@blocks.2/@node_objs.3"/>
+  <edges id="132" source_obj="//@blocks.2/@node_objs.0" sink_obj="//@blocks.2/@node_objs.4"/>
+  <edges id="133" source_obj="//@blocks.2/@node_objs.0" sink_obj="//@blocks.2/@node_objs.5"/>
+  <edges id="134" source_obj="//@blocks.2/@node_objs.0" sink_obj="//@blocks.2/@node_objs.6"/>
+  <edges id="135" source_obj="//@blocks.2/@node_objs.6" sink_obj="//@blocks.2/@node_objs.7"/>
+  <edges id="136" edge_type="CtrlEdge" source_obj="//@blocks.4" sink_obj="//@blocks.2/@node_objs.7"/>
+  <edges id="137" edge_type="CtrlEdge" source_obj="//@blocks.3" sink_obj="//@blocks.2/@node_objs.7"/>
+  <edges id="138" source_obj="//@blocks.2/@node_objs.1" sink_obj="//@blocks.3/@node_objs.0"/>
+  <edges id="139" source_obj="//@blocks.2/@node_objs.1" sink_obj="//@blocks.3/@node_objs.1"/>
+  <edges id="140" source_obj="//@blocks.2/@node_objs.3" sink_obj="//@blocks.3/@node_objs.2"/>
+  <edges id="143" source_obj="//@blocks.3/@node_objs.1" sink_obj="//@blocks.3/@node_objs.3"/>
+  <edges id="144" source_obj="//@blocks.3/@node_objs.3" sink_obj="//@blocks.3/@node_objs.4"/>
+  <edges id="145" source_obj="//@blocks.2/@node_objs.2" sink_obj="//@blocks.3/@node_objs.5"/>
+  <edges id="146" source_obj="//@blocks.2/@node_objs.4" sink_obj="//@blocks.3/@node_objs.6"/>
+  <edges id="148" source_obj="//@blocks.3/@node_objs.5" sink_obj="//@blocks.3/@node_objs.7"/>
+  <edges id="149" source_obj="//@blocks.3/@node_objs.7" sink_obj="//@blocks.3/@node_objs.8"/>
+  <edges id="150" source_obj="//@blocks.2/@node_objs.3" sink_obj="//@blocks.3/@node_objs.9"/>
+  <edges id="151" source_obj="//@blocks.3/@node_objs.4" sink_obj="//@blocks.3/@node_objs.10"/>
+  <edges id="152" source_obj="//@blocks.3/@node_objs.2" sink_obj="//@blocks.3/@node_objs.10"/>
+  <edges id="153" source_obj="//@blocks.3/@node_objs.3" sink_obj="//@blocks.3/@node_objs.11"/>
+  <edges id="154" source_obj="//@blocks.3/@node_objs.9" sink_obj="//@blocks.3/@node_objs.11"/>
+  <edges id="157" source_obj="//@blocks.3/@node_objs.10" sink_obj="//@blocks.3/@node_objs.12"/>
+  <edges id="162" source_obj="//@blocks.3/@node_objs.11" sink_obj="//@blocks.3/@node_objs.13"/>
+  <edges id="165" source_obj="//@blocks.3/@node_objs.13" sink_obj="//@blocks.3/@node_objs.14"/>
+  <edges id="170" source_obj="//@blocks.3/@node_objs.14" sink_obj="//@blocks.3/@node_objs.15"/>
+  <edges id="171" source_obj="//@blocks.3/@node_objs.15" sink_obj="//@blocks.3/@node_objs.16"/>
+  <edges id="174" source_obj="//@blocks.3/@node_objs.16" sink_obj="//@blocks.3/@node_objs.17"/>
+  <edges id="177" source_obj="//@blocks.3/@node_objs.10" sink_obj="//@blocks.3/@node_objs.18"/>
+  <edges id="180" source_obj="//@blocks.3/@node_objs.18" sink_obj="//@blocks.3/@node_objs.19"/>
+  <edges id="181" source_obj="//@blocks.3/@node_objs.19" sink_obj="//@blocks.3/@node_objs.20"/>
+  <edges id="182" source_obj="//@blocks.3/@node_objs.12" sink_obj="//@blocks.3/@node_objs.21"/>
+  <edges id="183" source_obj="//@blocks.3/@node_objs.17" sink_obj="//@blocks.3/@node_objs.21"/>
+  <edges id="184" source_obj="//@blocks.3/@node_objs.20" sink_obj="//@blocks.3/@node_objs.21"/>
+  <edges id="185" source_obj="//@blocks.3/@node_objs.21" sink_obj="//@blocks.3/@node_objs.22"/>
+  <edges id="186" source_obj="//@blocks.3/@node_objs.8" sink_obj="//@blocks.3/@node_objs.23"/>
+  <edges id="187" source_obj="//@blocks.3/@node_objs.6" sink_obj="//@blocks.3/@node_objs.23"/>
+  <edges id="188" source_obj="//@blocks.3/@node_objs.23" sink_obj="//@blocks.3/@node_objs.24"/>
+  <edges id="189" source_obj="//@blocks.3/@node_objs.24" sink_obj="//@blocks.3/@node_objs.25"/>
+  <edges id="192" source_obj="//@blocks.3/@node_objs.25" sink_obj="//@blocks.3/@node_objs.26"/>
+  <edges id="195" source_obj="//@blocks.3/@node_objs.26" sink_obj="//@blocks.3/@node_objs.27"/>
+  <edges id="197" source_obj="//@blocks.3/@node_objs.23" sink_obj="//@blocks.3/@node_objs.28"/>
+  <edges id="201" source_obj="//@blocks.3/@node_objs.27" sink_obj="//@blocks.3/@node_objs.29"/>
+  <edges id="208" source_obj="//@blocks.3/@node_objs.25" sink_obj="//@blocks.3/@node_objs.30"/>
+  <edges id="211" source_obj="//@blocks.3/@node_objs.28" sink_obj="//@blocks.3/@node_objs.31"/>
+  <edges id="212" source_obj="//@blocks.3/@node_objs.29" sink_obj="//@blocks.3/@node_objs.31"/>
+  <edges id="213" source_obj="//@blocks.3/@node_objs.30" sink_obj="//@blocks.3/@node_objs.31"/>
+  <edges id="216" source_obj="//@blocks.3/@node_objs.31" sink_obj="//@blocks.3/@node_objs.32"/>
+  <edges id="217" source_obj="//@blocks.3/@node_objs.28" sink_obj="//@blocks.3/@node_objs.33"/>
+  <edges id="218" source_obj="//@blocks.3/@node_objs.32" sink_obj="//@blocks.3/@node_objs.33"/>
+  <edges id="219" source_obj="//@blocks.3/@node_objs.30" sink_obj="//@blocks.3/@node_objs.33"/>
+  <edges id="220" source_obj="//@blocks.3/@node_objs.33" sink_obj="//@blocks.3/@node_objs.34"/>
+  <edges id="221" source_obj="//@blocks.3/@node_objs.21" sink_obj="//@blocks.3/@node_objs.35"/>
+  <edges id="224" source_obj="//@blocks.3/@node_objs.35" sink_obj="//@blocks.3/@node_objs.36"/>
+  <edges id="226" source_obj="//@blocks.3/@node_objs.22" sink_obj="//@blocks.3/@node_objs.36"/>
+  <edges id="227" source_obj="//@blocks.3/@node_objs.36" sink_obj="//@blocks.3/@node_objs.37"/>
+  <edges id="228" source_obj="//@blocks.3/@node_objs.33" sink_obj="//@blocks.3/@node_objs.38"/>
+  <edges id="231" source_obj="//@blocks.3/@node_objs.38" sink_obj="//@blocks.3/@node_objs.39"/>
+  <edges id="234" source_obj="//@blocks.3/@node_objs.34" sink_obj="//@blocks.3/@node_objs.39"/>
+  <edges id="235" source_obj="//@blocks.3/@node_objs.39" sink_obj="//@blocks.3/@node_objs.40"/>
+  <edges id="236" source_obj="//@blocks.3/@node_objs.37" sink_obj="//@blocks.3/@node_objs.41"/>
+  <edges id="237" source_obj="//@blocks.3/@node_objs.0" sink_obj="//@blocks.3/@node_objs.41"/>
+  <edges id="238" source_obj="//@blocks.3/@node_objs.40" sink_obj="//@blocks.3/@node_objs.42"/>
+  <edges id="239" source_obj="//@blocks.3/@node_objs.5" sink_obj="//@blocks.3/@node_objs.42"/>
+  <edges id="240" source_obj="//@blocks.0/@node_objs.1" sink_obj="//@blocks.3/@node_objs.43"/>
+  <edges id="243" source_obj="//@blocks.2/@node_objs.2" sink_obj="//@blocks.3/@node_objs.44"/>
+  <edges id="244" source_obj="//@blocks.3/@node_objs.42" sink_obj="//@blocks.3/@node_objs.44"/>
+  <edges id="245" source_obj="//@blocks.3/@node_objs.43" sink_obj="//@blocks.3/@node_objs.44"/>
+  <edges id="246" source_obj="//@blocks.2/@node_objs.1" sink_obj="//@blocks.3/@node_objs.44"/>
+  <edges id="247" source_obj="//@blocks.3/@node_objs.41" sink_obj="//@blocks.3/@node_objs.44"/>
+  <edges id="248" source_obj="//@blocks.0/@node_objs.2" sink_obj="//@blocks.3/@node_objs.44"/>
+  <edges id="249" source_obj="//@blocks.0/@node_objs.2" sink_obj="//@blocks.3/@node_objs.45"/>
+  <edges id="250" edge_type="CtrlEdge" source_obj="//@blocks.4" sink_obj="//@blocks.3/@node_objs.46"/>
+  <edges id="251" source_obj="//@blocks.3/@node_objs.45" sink_obj="//@blocks.4/@node_objs.0"/>
+  <edges id="252" edge_type="CtrlEdge" source_obj="//@blocks.3" sink_obj="//@blocks.4/@node_objs.0"/>
+  <edges id="254" edge_type="CtrlEdge" source_obj="//@blocks.2" sink_obj="//@blocks.4/@node_objs.0"/>
+  <edges id="257" source_obj="//@blocks.4/@node_objs.1" sink_obj="//@ports.1"/>
+  <edges id="258" source_obj="//@blocks.2/@node_objs.5" sink_obj="//@blocks.4/@node_objs.1"/>
+  <edges id="260" source_obj="//@blocks.4/@node_objs.2" sink_obj="//@ports.2"/>
+  <edges id="261" source_obj="//@blocks.4/@node_objs.0" sink_obj="//@blocks.4/@node_objs.2"/>
+  <edges id="262" sink_obj="//@blocks.1/@node_objs.1"/>
+  <edges id="263" sink_obj="//@blocks.1/@node_objs.2"/>
+  <edges id="264" sink_obj="//@blocks.1/@node_objs.2"/>
+  <edges id="265" sink_obj="//@blocks.2/@node_objs.0"/>
+  <edges id="266" sink_obj="//@blocks.3/@node_objs.44"/>
+  <edges id="504" edge_type="CtrlEdge" source_obj="//@blocks.0" sink_obj="//@blocks.1"/>
+  <edges id="505" edge_type="CtrlEdge" source_obj="//@blocks.0" sink_obj="//@blocks.2"/>
+  <edges id="506" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@blocks.2"/>
+  <edges id="507" edge_type="CtrlEdge" source_obj="//@blocks.2" sink_obj="//@blocks.3"/>
+  <edges id="508" edge_type="CtrlEdge" source_obj="//@blocks.2" sink_obj="//@blocks.4"/>
+  <edges id="509" edge_type="CtrlEdge" source_obj="//@blocks.3" sink_obj="//@blocks.4"/>
+  <edges id="510" edge_type="VirtEdge" source_obj="//@blocks.1/@node_objs.1" sink_obj="//@blocks.1/@node_objs.2"/>
+  <edges id="511" edge_type="VirtEdge" source_obj="//@blocks.1/@node_objs.2" sink_obj="//@blocks.2/@node_objs.0"/>
+  <edges id="512" edge_type="VirtEdge" source_obj="//@blocks.1/@node_objs.2" sink_obj="//@blocks.3/@node_objs.44"/>
+  <edges id="513" edge_type="VirtEdge" source_obj="//@blocks.2/@node_objs.0" sink_obj="//@blocks.3/@node_objs.44"/>
+  <edges id="514" edge_type="VirtEdge" source_obj="//@blocks.3/@node_objs.44" sink_obj="//@blocks.3/@node_objs.45"/>
+  <edges id="515" edge_type="VirtEdge" source_obj="//@blocks.1/@node_objs.1" sink_obj="//@blocks.1/@node_objs.2"/>
+  <edges id="516" edge_type="VirtEdge" source_obj="//@blocks.1/@node_objs.2" sink_obj="//@blocks.2/@node_objs.0"/>
+  <edges id="517" edge_type="VirtEdge" source_obj="//@blocks.1/@node_objs.2" sink_obj="//@blocks.3/@node_objs.44"/>
+  <edges id="518" edge_type="VirtEdge" source_obj="//@blocks.2/@node_objs.0" sink_obj="//@blocks.3/@node_objs.44"/>
+  <blocks id="33" name="entry" type="BlockType">
+    <controlOutputObjs>for.body.lr.ph.i</controlOutputObjs>
+    <controlOutputObjs>_Z8binarizePK7ap_uintILi8EEPS_ILi1EEii.exit</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="8" name="height_read" coreName="s_axilite" implIndex="s_axilite" control="no" opType="adapter" coreId="114" bitwidth="32" opcode="read" m_display="0" m_delay="1.0" m_topoIndex="1" m_clusterGroupNumber="-1">
+      <dataInputObjs>height</dataInputObjs>
+      <dataOutputObjs>mul</dataOutputObjs>
+      <dataOutputObjs>call</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="9" name="width_read" coreName="s_axilite" implIndex="s_axilite" control="no" opType="adapter" coreId="114" bitwidth="32" opcode="read" m_display="0" m_delay="1.0" m_topoIndex="2" m_clusterGroupNumber="-1">
+      <dataInputObjs>width</dataInputObjs>
+      <dataOutputObjs>mul</dataOutputObjs>
+      <dataOutputObjs>call</dataOutputObjs>
+      <dataOutputObjs>trunc</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="10" name="roi_count_2_loc" coreId="778530409" bitwidth="32" opcode="alloca" m_display="0" m_topoIndex="3" m_clusterGroupNumber="-1">
+      <dataOutputObjs>call</dataOutputObjs>
+      <dataOutputObjs>load</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="30" name="n" lineNumber="284" originalName="n" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="mul_32s_32s_32_2_1_U78" coreName="Multiplier" implIndex="auto" control="no" opType="mul" coreId="3" contextFuncName="card_recognizer_hw" bitwidth="32" opcode="mul" nodeLabel="1.0" nodeLatency="1" m_display="0" m_delay="6.91" m_topoIndex="4" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="284" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="card_recognizer_hw"/>
+      <dataInputObjs>read</dataInputObjs>
+      <dataInputObjs>read</dataInputObjs>
+      <dataOutputObjs>icmp</dataOutputObjs>
+      <dataOutputObjs>trunc</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="31" name="icmp_ln33" lineNumber="33" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="icmp_ln33_fu_192_p2" coreName="Cmp" implIndex="auto" control="no" opType="icmp" coreId="9" contextFuncName="to_grayscale" bitwidth="1" opcode="icmp" nodeLabel="3.0" m_display="0" m_delay="2.47" m_topoIndex="5" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="33" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="to_grayscale"/>
+      <dataInputObjs>mul</dataInputObjs>
+      <dataOutputObjs>br</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="32" name="br_ln33" lineNumber="33" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." coreId="0" contextFuncName="to_grayscale" opcode="br" nodeLabel="3.0" m_display="0" m_topoIndex="6" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="33" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="to_grayscale"/>
+      <dataInputObjs>icmp</dataInputObjs>
+      <controlInputObjs>_Z8binarizePK7ap_uintILi8EEPS_ILi1EEii.exit</controlInputObjs>
+      <controlInputObjs>for.body.lr.ph.i</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="hls_fajlovi/card_recognizer_dram_hls.cpp">
+      <validLinenumbers>284</validLinenumbers>
+      <validLinenumbers>33</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="38" name="for.body.lr.ph.i" type="BlockType">
+    <controlInputObjs>entry</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>_Z8binarizePK7ap_uintILi8EEPS_ILi1EEii.exit</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="34" name="trunc_ln33" lineNumber="33" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="trunc_ln33_fu_197_p1" coreId="0" contextFuncName="to_grayscale" bitwidth="31" opcode="trunc" nodeLabel="3.0" m_display="0" m_topoIndex="7" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="33" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="to_grayscale"/>
+      <dataInputObjs>mul</dataInputObjs>
+      <dataOutputObjs>call</dataOutputObjs>
+      <dataOutputObjs>call</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="35" name="_ln33" lineNumber="33" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="grp_card_recognizer_hw_Pipeline_GRAYSCALE_LOOP_fu_150" coreId="542329856" contextFuncName="to_grayscale" opcode="call" nodeLabel="3.0" nodeLatency="1" m_display="0" m_delay="4.05" m_topoIndex="8" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="33" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="to_grayscale"/>
+      <dataInputObjs>trunc</dataInputObjs>
+      <dataInputObjs>input_rgb</dataInputObjs>
+      <constName>card_recognizer_hw_Pipeline_GRAYSCALE_LOOP</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="36" name="_ln33" lineNumber="33" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="grp_card_recognizer_hw_Pipeline_BINARIZE_LOOP_fu_159" coreId="1701273971" contextFuncName="to_grayscale" opcode="call" nodeLabel="5.0" nodeLatency="1" m_display="0" m_delay="4.05" m_topoIndex="9" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="33" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="to_grayscale"/>
+      <dataInputObjs>trunc</dataInputObjs>
+      <constName>card_recognizer_hw_Pipeline_BINARIZE_LOOP</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="37" name="br_ln0" coreId="2619889856" opcode="br" nodeLabel="6.0" m_display="0" m_topoIndex="10" m_clusterGroupNumber="-1">
+      <controlInputObjs>_Z8binarizePK7ap_uintILi8EEPS_ILi1EEii.exit</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="hls_fajlovi/card_recognizer_dram_hls.cpp">
+      <validLinenumbers>33</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="47" name="_Z8binarizePK7ap_uintILi8EEPS_ILi1EEii.exit" type="BlockType">
+    <controlInputObjs>entry</controlInputObjs>
+    <controlInputObjs>for.body.lr.ph.i</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>phi</controlOutputObjs>
+    <controlOutputObjs>if.end.i</controlOutputObjs>
+    <controlOutputObjs>_Z20analyze_top_left_roiPK7ap_uintILi1EE4BBoxi.exit</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="39" name="call_ret" lineNumber="288" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="grp_find_largest_component_ccl_fu_168" coreId="2618127632" contextFuncName="card_recognizer_hw" bitwidth="65" opcode="call" nodeLabel="7.0" nodeLatency="1" m_display="0" m_topoIndex="11" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="288" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="card_recognizer_hw"/>
+      <dataInputObjs>read</dataInputObjs>
+      <dataInputObjs>read</dataInputObjs>
+      <dataOutputObjs>extractvalue</dataOutputObjs>
+      <dataOutputObjs>extractvalue</dataOutputObjs>
+      <dataOutputObjs>extractvalue</dataOutputObjs>
+      <dataOutputObjs>extractvalue</dataOutputObjs>
+      <dataOutputObjs>extractvalue</dataOutputObjs>
+      <dataOutputObjs>extractvalue</dataOutputObjs>
+      <constName>find_largest_component_ccl</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="40" name="card_box_min_x_V" lineNumber="288" originalName="card_box.min_x.V" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." coreId="2618189712" contextFuncName="card_recognizer_hw" bitwidth="8" opcode="extractvalue" nodeLabel="8.0" m_display="0" m_topoIndex="12" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="288" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="card_recognizer_hw"/>
+      <dataInputObjs>call</dataInputObjs>
+      <dataOutputObjs>zext</dataOutputObjs>
+      <dataOutputObjs>zext</dataOutputObjs>
+      <dataOutputObjs>call</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="41" name="card_box_min_y_V" lineNumber="288" originalName="card_box.min_y.V" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." coreId="0" contextFuncName="card_recognizer_hw" bitwidth="8" opcode="extractvalue" nodeLabel="8.0" m_display="0" m_topoIndex="13" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="288" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="card_recognizer_hw"/>
+      <dataInputObjs>call</dataInputObjs>
+      <dataOutputObjs>zext</dataOutputObjs>
+      <dataOutputObjs>call</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="42" name="card_box_max_x_V" lineNumber="288" originalName="card_box.max_x.V" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." coreId="2618416896" contextFuncName="card_recognizer_hw" bitwidth="8" opcode="extractvalue" nodeLabel="8.0" m_display="0" m_topoIndex="14" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="288" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="card_recognizer_hw"/>
+      <dataInputObjs>call</dataInputObjs>
+      <dataOutputObjs>zext</dataOutputObjs>
+      <dataOutputObjs>zext</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="43" name="card_box_max_y_V" lineNumber="288" originalName="card_box.max_y.V" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." coreId="1769299824" contextFuncName="card_recognizer_hw" bitwidth="8" opcode="extractvalue" nodeLabel="8.0" m_display="0" m_topoIndex="15" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="288" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="card_recognizer_hw"/>
+      <dataInputObjs>call</dataInputObjs>
+      <dataOutputObjs>zext</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="44" name="card_box_count" lineNumber="288" originalName="card_box.count" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." coreId="1599294464" contextFuncName="card_recognizer_hw" bitwidth="32" opcode="extractvalue" nodeLabel="8.0" m_display="0" m_topoIndex="16" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="288" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="card_recognizer_hw"/>
+      <dataInputObjs>call</dataInputObjs>
+      <dataOutputObjs>write</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="45" name="card_box_valid_V" lineNumber="288" originalName="card_box.valid.V" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." coreId="1936942336" contextFuncName="card_recognizer_hw" bitwidth="1" opcode="extractvalue" nodeLabel="8.0" m_display="0" m_topoIndex="17" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="288" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="card_recognizer_hw"/>
+      <dataInputObjs>call</dataInputObjs>
+      <dataOutputObjs>br</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="46" name="br_ln226" lineNumber="226" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." coreId="2618230264" contextFuncName="analyze_top_left_roi" opcode="br" nodeLabel="8.0" m_display="0" m_delay="1.58" m_topoIndex="18" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="226" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>extractvalue</dataInputObjs>
+      <controlInputObjs>_Z20analyze_top_left_roiPK7ap_uintILi1EE4BBoxi.exit</controlInputObjs>
+      <controlInputObjs>if.end.i</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="hls_fajlovi/card_recognizer_dram_hls.cpp">
+      <validLinenumbers>288</validLinenumbers>
+      <validLinenumbers>226</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="95" name="if.end.i" type="BlockType">
+    <controlInputObjs>_Z8binarizePK7ap_uintILi8EEPS_ILi1EEii.exit</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>phi</controlOutputObjs>
+    <controlOutputObjs>_Z20analyze_top_left_roiPK7ap_uintILi1EE4BBoxi.exit</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="48" name="zext_ln230" lineNumber="230" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="zext_ln230_fu_370_p1" coreId="2618201744" contextFuncName="analyze_top_left_roi" bitwidth="10" opcode="zext" nodeLabel="12.0" m_display="0" m_topoIndex="45" m_clusterGroupNumber="1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="230" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>extractvalue</dataInputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="49" name="zext_ln230_1" lineNumber="230" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="zext_ln230_1_fu_264_p1" coreId="0" contextFuncName="analyze_top_left_roi" bitwidth="9" opcode="zext" nodeLabel="11.0" m_display="0" m_topoIndex="28" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="230" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>extractvalue</dataInputObjs>
+      <dataOutputObjs>sub</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="50" name="zext_ln230_2" lineNumber="230" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="zext_ln230_2_fu_267_p1" coreId="1702257920" contextFuncName="analyze_top_left_roi" bitwidth="10" opcode="zext" nodeLabel="11.0" m_display="0" m_topoIndex="29" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="230" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>extractvalue</dataInputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="51" name="sub_ln230" lineNumber="230" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="sub_ln230_fu_270_p2" coreName="Adder" implIndex="fabric" control="no" opType="sub" coreId="1" contextFuncName="analyze_top_left_roi" bitwidth="9" opcode="sub" nodeLabel="11.0" m_display="0" m_delay="1.91" m_topoIndex="30" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="230" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>zext</dataInputObjs>
+      <dataOutputObjs>sext</dataOutputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="52" name="sext_ln231" lineNumber="231" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="sext_ln231_fu_276_p1" coreId="2618206352" contextFuncName="analyze_top_left_roi" bitwidth="10" opcode="sext" nodeLabel="11.0" m_display="0" m_topoIndex="31" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="231" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>sub</dataInputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="53" name="zext_ln231" lineNumber="231" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="zext_ln231_fu_225_p1" coreId="49" contextFuncName="analyze_top_left_roi" bitwidth="9" opcode="zext" nodeLabel="8.0" m_display="0" m_topoIndex="19" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="231" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>extractvalue</dataInputObjs>
+      <dataOutputObjs>sub</dataOutputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="54" name="zext_ln231_1" lineNumber="231" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="zext_ln231_1_fu_229_p1" coreId="0" contextFuncName="analyze_top_left_roi" bitwidth="10" opcode="zext" nodeLabel="8.0" m_display="0" m_topoIndex="20" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="231" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>extractvalue</dataInputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="55" name="sub_ln231" lineNumber="231" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="sub_ln231_fu_233_p2" coreName="Adder" implIndex="fabric" control="no" opType="sub" coreId="1" contextFuncName="analyze_top_left_roi" bitwidth="9" opcode="sub" nodeLabel="8.0" m_display="0" m_delay="1.91" m_topoIndex="21" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="231" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>zext</dataInputObjs>
+      <dataOutputObjs>sext</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="56" name="sext_ln233" lineNumber="233" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="sext_ln233_fu_239_p1" coreId="2618135936" contextFuncName="analyze_top_left_roi" bitwidth="10" opcode="sext" nodeLabel="8.0" m_display="0" m_topoIndex="22" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="233" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>sub</dataInputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="57" name="zext_ln233" lineNumber="233" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="zext_ln233_fu_280_p1" coreId="1347374924" contextFuncName="analyze_top_left_roi" bitwidth="9" opcode="zext" nodeLabel="11.0" m_display="0" m_topoIndex="32" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="233" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>extractvalue</dataInputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="58" name="add_ln233" lineNumber="233" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="add_ln233_fu_283_p2" coreName="Adder" implIndex="fabric" control="no" opType="add" coreId="1" contextFuncName="analyze_top_left_roi" bitwidth="10" opcode="add" nodeLabel="11.0" m_display="0" m_delay="1.82" m_topoIndex="33" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="233" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>sext</dataInputObjs>
+      <dataInputObjs>zext</dataInputObjs>
+      <dataOutputObjs>bitselect</dataOutputObjs>
+      <dataOutputObjs>partselect</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="59" name="add_ln233_1" lineNumber="233" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="add_ln233_1_fu_289_p2" coreName="TAddSub" implIndex="tadder" control="no" opType="all" coreId="10" contextFuncName="analyze_top_left_roi" bitwidth="9" opcode="add" nodeLabel="11.0" m_display="0" m_topoIndex="34" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="233" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>sub</dataInputObjs>
+      <dataInputObjs>zext</dataInputObjs>
+      <dataOutputObjs>sub</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="60" name="tmp" lineNumber="233" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="tmp_reg_554" coreId="0" contextFuncName="analyze_top_left_roi" bitwidth="1" opcode="bitselect" nodeLabel="11.0" m_display="0" m_topoIndex="35" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="233" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>add</dataInputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="61" name="sub_ln233" lineNumber="233" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="sub_ln233_fu_303_p2" coreName="TAddSub" implIndex="tadder" control="no" opType="all" coreId="10" contextFuncName="analyze_top_left_roi" bitwidth="9" opcode="sub" nodeLabel="11.0" m_display="0" m_delay="3.69" m_topoIndex="36" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="233" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>add</dataInputObjs>
+      <dataOutputObjs>partselect</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="62" name="trunc_ln233_1" lineNumber="233" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="trunc_ln233_1_reg_559" coreId="1162363731" contextFuncName="analyze_top_left_roi" bitwidth="7" opcode="partselect" nodeLabel="11.0" m_display="0" m_topoIndex="37" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="233" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>sub</dataInputObjs>
+      <dataOutputObjs>sext</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="63" name="sext_ln233_1" lineNumber="233" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="sext_ln233_1_fu_373_p1" coreId="1936484392" contextFuncName="analyze_top_left_roi" bitwidth="9" opcode="sext" nodeLabel="12.0" m_display="0" m_topoIndex="46" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="233" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>partselect</dataInputObjs>
+      <dataOutputObjs>zext</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="64" name="zext_ln233_1" lineNumber="233" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="zext_ln233_1_fu_376_p1" coreId="2618132960" contextFuncName="analyze_top_left_roi" bitwidth="10" opcode="zext" nodeLabel="12.0" m_display="0" m_topoIndex="47" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="233" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>sext</dataInputObjs>
+      <dataOutputObjs>sub</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="65" name="sub_ln233_1" lineNumber="233" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="sub_ln233_1_fu_380_p2" coreName="Adder" implIndex="fabric" control="no" opType="sub" coreId="1" contextFuncName="analyze_top_left_roi" bitwidth="10" opcode="sub" nodeLabel="12.0" m_display="0" m_delay="1.82" m_topoIndex="48" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="233" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>zext</dataInputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="66" name="trunc_ln233_2" lineNumber="233" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="trunc_ln233_2_reg_564" coreId="2534493440" contextFuncName="analyze_top_left_roi" bitwidth="8" opcode="partselect" nodeLabel="11.0" m_display="0" m_topoIndex="38" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="233" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>add</dataInputObjs>
+      <dataOutputObjs>sext</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="67" name="sext_ln233_2" lineNumber="233" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="sext_ln233_2_fu_386_p1" coreId="2618244856" contextFuncName="analyze_top_left_roi" bitwidth="9" opcode="sext" nodeLabel="12.0" m_display="0" m_topoIndex="49" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="233" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>partselect</dataInputObjs>
+      <dataOutputObjs>zext</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="68" name="zext_ln233_2" lineNumber="233" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="zext_ln233_2_fu_389_p1" coreId="1819113472" contextFuncName="analyze_top_left_roi" bitwidth="10" opcode="zext" nodeLabel="12.0" m_display="0" m_topoIndex="50" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="233" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>sext</dataInputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="69" name="roi_w" lineNumber="233" originalName="roi_w" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="roi_w_fu_393_p3" coreName="Sel" implIndex="auto_sel" control="no" opType="select" coreId="73" contextFuncName="analyze_top_left_roi" bitwidth="10" opcode="select" nodeLabel="12.0" m_display="0" m_delay="0.68" m_topoIndex="51" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="233" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>bitselect</dataInputObjs>
+      <dataInputObjs>sub</dataInputObjs>
+      <dataInputObjs>zext</dataInputObjs>
+      <dataOutputObjs>trunc</dataOutputObjs>
+      <dataOutputObjs>icmp</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="70" name="trunc_ln233" lineNumber="233" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="trunc_ln233_fu_400_p1" coreId="2618251024" contextFuncName="analyze_top_left_roi" bitwidth="9" opcode="trunc" nodeLabel="12.0" m_display="0" m_topoIndex="52" m_clusterGroupNumber="1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="233" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>select</dataInputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="71" name="add_ln234" lineNumber="234" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="add_ln234_fu_243_p2" coreName="Adder" implIndex="fabric" control="no" opType="add" coreId="1" contextFuncName="analyze_top_left_roi" bitwidth="10" opcode="add" nodeLabel="8.0" m_display="0" m_delay="1.82" m_topoIndex="23" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="234" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>sext</dataInputObjs>
+      <dataInputObjs>zext</dataInputObjs>
+      <dataOutputObjs>sext</dataOutputObjs>
+      <dataOutputObjs>bitselect</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="72" name="sext_ln234" lineNumber="234" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." coreId="1918989395" contextFuncName="analyze_top_left_roi" bitwidth="22" opcode="sext" nodeLabel="8.0" m_display="0" m_topoIndex="24" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="234" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>add</dataInputObjs>
+      <dataOutputObjs>mul</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="73" name="mul_ln234" lineNumber="234" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="mul_mul_10s_11ns_22_4_1_U79" coreName="DSP48" implIndex="dsp48" control="no" opType="mul" coreId="119" contextFuncName="analyze_top_left_roi" bitwidth="22" opcode="mul" nodeLabel="8.0" nodeLatency="3" m_display="0" m_delay="2.15" m_topoIndex="25" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="234" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>sext</dataInputObjs>
+      <dataOutputObjs>trunc</dataOutputObjs>
+      <dataOutputObjs>partselect</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="74" name="trunc_ln234" lineNumber="234" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="trunc_ln234_fu_329_p1" coreId="0" contextFuncName="analyze_top_left_roi" bitwidth="20" opcode="trunc" nodeLabel="11.0" m_display="0" m_topoIndex="39" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="234" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>mul</dataInputObjs>
+      <dataOutputObjs>sub</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="75" name="sub_ln234" lineNumber="234" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="sub_ln234_fu_332_p2" coreName="Adder" implIndex="fabric" control="no" opType="sub" coreId="1" contextFuncName="analyze_top_left_roi" bitwidth="20" opcode="sub" nodeLabel="11.0" m_display="0" m_delay="2.19" m_topoIndex="40" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="234" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>trunc</dataInputObjs>
+      <dataOutputObjs>partselect</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="76" name="tmp_2" lineNumber="234" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="tmp_2_reg_543" coreId="757935405" contextFuncName="analyze_top_left_roi" bitwidth="1" opcode="bitselect" nodeLabel="8.0" m_display="0" m_topoIndex="26" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="234" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>add</dataInputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="77" name="tmp_cast" lineNumber="234" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="tmp_cast_fu_338_p4" coreId="0" contextFuncName="analyze_top_left_roi" bitwidth="8" opcode="partselect" nodeLabel="11.0" m_display="0" m_topoIndex="41" m_clusterGroupNumber="2">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="234" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>sub</dataInputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="78" name="tmp_1_cast" lineNumber="234" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="tmp_1_cast_reg_569" coreId="0" contextFuncName="analyze_top_left_roi" bitwidth="8" opcode="partselect" nodeLabel="11.0" m_display="0" m_topoIndex="42" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="234" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>mul</dataInputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="79" name="select_ln234" lineNumber="234" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="select_ln234_fu_357_p3" coreName="Sel" implIndex="auto_sel" control="no" opType="select" coreId="73" contextFuncName="analyze_top_left_roi" bitwidth="8" opcode="select" nodeLabel="11.0" m_display="0" m_topoIndex="43" m_clusterGroupNumber="2">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="234" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>bitselect</dataInputObjs>
+      <dataInputObjs>partselect</dataInputObjs>
+      <dataInputObjs>partselect</dataInputObjs>
+      <dataOutputObjs>sub</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="80" name="sub_ln234_1" lineNumber="234" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="sub_ln234_1_fu_364_p2" coreName="Adder" implIndex="fabric" control="no" opType="sub" coreId="1" contextFuncName="analyze_top_left_roi" bitwidth="8" opcode="sub" nodeLabel="11.0" m_display="0" m_delay="1.91" m_topoIndex="44" m_clusterGroupNumber="2">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="234" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>select</dataInputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="81" name="roi_h" lineNumber="234" originalName="roi_h" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="roi_h_fu_404_p3" coreName="Sel" implIndex="auto_sel" control="no" opType="select" coreId="73" contextFuncName="analyze_top_left_roi" bitwidth="8" opcode="select" nodeLabel="12.0" m_display="0" m_delay="1.24" m_topoIndex="53" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="234" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>bitselect</dataInputObjs>
+      <dataInputObjs>sub</dataInputObjs>
+      <dataInputObjs>partselect</dataInputObjs>
+      <dataOutputObjs>trunc</dataOutputObjs>
+      <dataOutputObjs>icmp</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="82" name="trunc_ln234_1" lineNumber="234" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="trunc_ln234_1_fu_409_p1" coreId="1819113472" contextFuncName="analyze_top_left_roi" bitwidth="7" opcode="trunc" nodeLabel="12.0" m_display="0" m_topoIndex="54" m_clusterGroupNumber="3">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="234" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>select</dataInputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="83" name="icmp_ln235" lineNumber="235" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="icmp_ln235_fu_413_p2" coreName="Cmp" implIndex="auto" control="no" opType="icmp" coreId="9" contextFuncName="analyze_top_left_roi" bitwidth="1" opcode="icmp" nodeLabel="12.0" m_display="0" m_delay="1.77" m_topoIndex="55" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="235" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>select</dataInputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="84" name="roi_w_1" lineNumber="235" originalName="roi_w" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="roi_w_1_fu_419_p3" coreName="Sel" implIndex="auto_sel" control="no" opType="select" coreId="73" contextFuncName="analyze_top_left_roi" bitwidth="9" opcode="select" nodeLabel="12.0" m_display="0" m_topoIndex="56" m_clusterGroupNumber="1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="235" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>icmp</dataInputObjs>
+      <dataInputObjs>trunc</dataInputObjs>
+      <dataOutputObjs>zext</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="85" name="zext_ln233_3" lineNumber="233" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="zext_ln233_3_fu_427_p1" coreId="543649385" contextFuncName="analyze_top_left_roi" bitwidth="10" opcode="zext" nodeLabel="12.0" m_display="0" m_topoIndex="57" m_clusterGroupNumber="1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="233" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>select</dataInputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="86" name="icmp_ln236" lineNumber="236" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="icmp_ln236_fu_431_p2" coreName="Cmp" implIndex="auto" control="no" opType="icmp" coreId="9" contextFuncName="analyze_top_left_roi" bitwidth="1" opcode="icmp" nodeLabel="12.0" m_display="0" m_delay="1.55" m_topoIndex="58" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="236" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>select</dataInputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="87" name="roi_h_1" lineNumber="236" originalName="roi_h" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="roi_h_1_fu_437_p3" coreName="Sel" implIndex="auto_sel" control="no" opType="select" coreId="73" contextFuncName="analyze_top_left_roi" bitwidth="7" opcode="select" nodeLabel="12.0" m_display="0" m_topoIndex="59" m_clusterGroupNumber="3">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="236" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>icmp</dataInputObjs>
+      <dataInputObjs>trunc</dataInputObjs>
+      <dataOutputObjs>zext</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="88" name="zext_ln234" lineNumber="234" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="zext_ln234_fu_445_p1" coreId="0" contextFuncName="analyze_top_left_roi" bitwidth="9" opcode="zext" nodeLabel="12.0" m_display="0" m_topoIndex="60" m_clusterGroupNumber="3">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="234" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>select</dataInputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="89" name="x1" lineNumber="240" originalName="x1" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="x1_fu_449_p2" coreName="Adder" implIndex="fabric" control="no" opType="add" coreId="1" contextFuncName="analyze_top_left_roi" bitwidth="10" opcode="add" nodeLabel="12.0" m_display="0" m_delay="1.82" m_topoIndex="61" m_clusterGroupNumber="1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="240" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>zext</dataInputObjs>
+      <dataInputObjs>zext</dataInputObjs>
+      <dataOutputObjs>call</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="90" name="y1" lineNumber="241" originalName="y1" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="y1_fu_455_p2" coreName="Adder" implIndex="fabric" control="no" opType="add" coreId="1" contextFuncName="analyze_top_left_roi" bitwidth="9" opcode="add" nodeLabel="12.0" m_display="0" m_delay="1.91" m_topoIndex="62" m_clusterGroupNumber="3">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="241" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>zext</dataInputObjs>
+      <dataInputObjs>zext</dataInputObjs>
+      <dataOutputObjs>call</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="91" name="trunc_ln246" lineNumber="246" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="trunc_ln246_fu_261_p1" coreId="2618250640" contextFuncName="analyze_top_left_roi" bitwidth="15" opcode="trunc" nodeLabel="8.0" m_display="0" m_topoIndex="27" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="246" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="analyze_top_left_roi"/>
+      <dataInputObjs>read</dataInputObjs>
+      <dataOutputObjs>call</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="92" name="_ln288" lineNumber="288" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." rtlName="grp_card_recognizer_hw_Pipeline_ROI_Y_LOOP_ROI_X_LOOP_fu_176" coreId="895439701" contextFuncName="card_recognizer_hw" opcode="call" nodeLabel="13.0" nodeLatency="1" m_display="0" m_delay="3.63" m_topoIndex="63" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="288" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="card_recognizer_hw"/>
+      <dataInputObjs>extractvalue</dataInputObjs>
+      <dataInputObjs>add</dataInputObjs>
+      <dataInputObjs>trunc</dataInputObjs>
+      <dataInputObjs>extractvalue</dataInputObjs>
+      <dataInputObjs>add</dataInputObjs>
+      <dataInputObjs>alloca</dataInputObjs>
+      <constName>card_recognizer_hw_Pipeline_ROI_Y_LOOP_ROI_X_LOOP</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="93" name="roi_count_2_loc_load" coreId="1852795252" bitwidth="32" opcode="load" nodeLabel="15.0" m_display="0" m_topoIndex="64" m_clusterGroupNumber="-1">
+      <dataInputObjs>alloca</dataInputObjs>
+      <dataOutputObjs>phi</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="94" name="br_ln0" coreId="1330007552" opcode="br" nodeLabel="15.0" m_display="0" m_delay="1.58" m_topoIndex="65" m_clusterGroupNumber="-1">
+      <controlInputObjs>_Z20analyze_top_left_roiPK7ap_uintILi1EE4BBoxi.exit</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="hls_fajlovi/card_recognizer_dram_hls.cpp">
+      <validLinenumbers>230</validLinenumbers>
+      <validLinenumbers>231</validLinenumbers>
+      <validLinenumbers>233</validLinenumbers>
+      <validLinenumbers>234</validLinenumbers>
+      <validLinenumbers>235</validLinenumbers>
+      <validLinenumbers>236</validLinenumbers>
+      <validLinenumbers>240</validLinenumbers>
+      <validLinenumbers>241</validLinenumbers>
+      <validLinenumbers>246</validLinenumbers>
+      <validLinenumbers>288</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="100" name="_Z20analyze_top_left_roiPK7ap_uintILi1EE4BBoxi.exit" type="BlockType">
+    <controlInputObjs>_Z8binarizePK7ap_uintILi8EEPS_ILi1EEii.exit</controlInputObjs>
+    <controlInputObjs>if.end.i</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="96" name="roi_count_1" originalName="roi_count" coreId="2619893360" bitwidth="32" opcode="phi" nodeLabel="15.0" m_display="0" m_topoIndex="66" m_clusterGroupNumber="-1">
+      <dataInputObjs>load</dataInputObjs>
+      <dataOutputObjs>write</dataOutputObjs>
+      <controlInputObjs>if.end.i</controlInputObjs>
+      <controlInputObjs>_Z8binarizePK7ap_uintILi8EEPS_ILi1EEii.exit</controlInputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="97" name="result_rank_write_ln291" lineNumber="291" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." coreName="s_axilite" implIndex="s_axilite" control="no" opType="adapter" coreId="114" contextFuncName="card_recognizer_hw" opcode="write" nodeLabel="15.0" m_display="0" m_delay="1.0" m_topoIndex="67" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="291" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="card_recognizer_hw"/>
+      <dataInputObjs>extractvalue</dataInputObjs>
+      <dataOutputObjs>result_rank</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="98" name="result_suit_write_ln292" lineNumber="292" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." coreName="s_axilite" implIndex="s_axilite" control="no" opType="adapter" coreId="114" contextFuncName="card_recognizer_hw" opcode="write" nodeLabel="15.0" m_display="0" m_delay="1.0" m_topoIndex="68" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="292" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="card_recognizer_hw"/>
+      <dataInputObjs>phi</dataInputObjs>
+      <dataOutputObjs>result_suit</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="99" name="_ln293" lineNumber="293" fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" fileDirectory=".." coreId="1162363731" contextFuncName="card_recognizer_hw" opcode="ret" nodeLabel="15.0" m_display="0" m_topoIndex="69" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="hls_fajlovi/card_recognizer_dram_hls.cpp" linenumber="293" fileDirectory="C:\Users\astan\Desktop\moj_esl\esl\esl" functionName="card_recognizer_hw"/>
+    </node_objs>
+    <fileValidLineNumbers fileName="hls_fajlovi/card_recognizer_dram_hls.cpp">
+      <validLinenumbers>291</validLinenumbers>
+      <validLinenumbers>292</validLinenumbers>
+      <validLinenumbers>293</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <ScheduleInfo time="0"/>
+  <ScheduleInfo time="1"/>
+  <ScheduleInfo time="2"/>
+  <ScheduleInfo time="3"/>
+  <ScheduleInfo time="4"/>
+  <ScheduleInfo time="5"/>
+  <ScheduleInfo time="6"/>
+  <ScheduleInfo time="7"/>
+  <ScheduleInfo time="8"/>
+  <ScheduleInfo time="9"/>
+  <ScheduleInfo time="10"/>
+  <ScheduleInfo time="11"/>
+  <ScheduleInfo time="12"/>
+  <ScheduleInfo time="13"/>
+  <ScheduleInfo time="14"/>
+  <ScheduleInfo time="15"/>
+  <regnodes realName="sub_ln234_1_reg_574">
+    <nodeIds>80</nodeIds>
+  </regnodes>
+  <regnodes realName="card_box_max_x_V_reg_518">
+    <nodeIds>42</nodeIds>
+  </regnodes>
+  <regnodes realName="card_box_min_x_V_reg_506">
+    <nodeIds>40</nodeIds>
+  </regnodes>
+  <regnodes realName="tmp_2_reg_543">
+    <nodeIds>76</nodeIds>
+  </regnodes>
+  <regnodes realName="height_read_reg_472">
+    <nodeIds>8</nodeIds>
+  </regnodes>
+  <regnodes realName="tmp_1_cast_reg_569">
+    <nodeIds>78</nodeIds>
+  </regnodes>
+  <regnodes realName="card_box_valid_V_reg_529">
+    <nodeIds>45</nodeIds>
+  </regnodes>
+  <regnodes realName="trunc_ln246_reg_549">
+    <nodeIds>91</nodeIds>
+  </regnodes>
+  <regnodes realName="y1_reg_584">
+    <nodeIds>90</nodeIds>
+  </regnodes>
+  <regnodes realName="x1_reg_579">
+    <nodeIds>89</nodeIds>
+  </regnodes>
+  <regnodes realName="sext_ln234_reg_538">
+    <nodeIds>72</nodeIds>
+  </regnodes>
+  <regnodes realName="zext_ln231_reg_533">
+    <nodeIds>53</nodeIds>
+  </regnodes>
+  <regnodes realName="roi_count_1_reg_138">
+    <nodeIds>96</nodeIds>
+  </regnodes>
+  <regnodes realName="width_read_reg_478">
+    <nodeIds>9</nodeIds>
+  </regnodes>
+  <regnodes realName="trunc_ln233_1_reg_559">
+    <nodeIds>62</nodeIds>
+  </regnodes>
+  <regnodes realName="card_box_count_reg_524">
+    <nodeIds>44</nodeIds>
+  </regnodes>
+  <regnodes realName="trunc_ln33_reg_500">
+    <nodeIds>34</nodeIds>
+  </regnodes>
+  <regnodes realName="roi_count_2_loc_reg_485">
+    <nodeIds>10</nodeIds>
+  </regnodes>
+  <regnodes realName="trunc_ln233_2_reg_564">
+    <nodeIds>66</nodeIds>
+  </regnodes>
+  <regnodes realName="card_box_min_y_V_reg_513">
+    <nodeIds>41</nodeIds>
+  </regnodes>
+  <regnodes realName="tmp_reg_554">
+    <nodeIds>60</nodeIds>
+  </regnodes>
+  <regnodes realName="n_reg_491">
+    <nodeIds>30</nodeIds>
+  </regnodes>
+  <expressionNodes realName="tmp_cast_fu_338">
+    <nodeIds>77</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="add_ln234_fu_243">
+    <nodeIds>71</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="sub_ln233_fu_303">
+    <nodeIds>61</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="add_ln233_fu_283">
+    <nodeIds>58</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="sub_ln234_1_fu_364">
+    <nodeIds>80</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="tmp_fu_295">
+    <nodeIds>60</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="card_box_min_y_V_fu_205">
+    <nodeIds>41</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="sext_ln234_fu_249">
+    <nodeIds>72</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="zext_ln230_fu_370">
+    <nodeIds>48</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="add_ln233_1_fu_289">
+    <nodeIds>59</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="roi_count_2_loc_fu_108">
+    <nodeIds>10</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="icmp_ln236_fu_431">
+    <nodeIds>86</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="y1_fu_455">
+    <nodeIds>90</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="icmp_ln235_fu_413">
+    <nodeIds>83</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="zext_ln231_1_fu_229">
+    <nodeIds>54</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="zext_ln231_fu_225">
+    <nodeIds>53</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="sext_ln233_fu_239">
+    <nodeIds>56</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="sub_ln230_fu_270">
+    <nodeIds>51</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="trunc_ln233_2_fu_319">
+    <nodeIds>66</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="trunc_ln234_fu_329">
+    <nodeIds>74</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="trunc_ln33_fu_197">
+    <nodeIds>34</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="sext_ln233_2_fu_386">
+    <nodeIds>67</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="trunc_ln246_fu_261">
+    <nodeIds>91</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="sext_ln231_fu_276">
+    <nodeIds>52</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="zext_ln233_2_fu_389">
+    <nodeIds>68</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="zext_ln230_1_fu_264">
+    <nodeIds>49</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="card_box_count_fu_217">
+    <nodeIds>44</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="roi_count_1_phi_fu_142">
+    <nodeIds>96</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="zext_ln233_fu_280">
+    <nodeIds>57</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="x1_fu_449">
+    <nodeIds>89</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="zext_ln234_fu_445">
+    <nodeIds>88</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="roi_h_fu_404">
+    <nodeIds>81</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="tmp_2_fu_253">
+    <nodeIds>76</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="trunc_ln233_1_fu_309">
+    <nodeIds>62</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="sext_ln233_1_fu_373">
+    <nodeIds>63</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="tmp_1_cast_fu_348">
+    <nodeIds>78</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="zext_ln233_1_fu_376">
+    <nodeIds>64</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="roi_w_1_fu_419">
+    <nodeIds>84</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="card_box_valid_V_fu_221">
+    <nodeIds>45</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="card_box_min_x_V_fu_201">
+    <nodeIds>40</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="trunc_ln234_1_fu_409">
+    <nodeIds>82</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="select_ln234_fu_357">
+    <nodeIds>79</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="roi_w_fu_393">
+    <nodeIds>69</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="sub_ln231_fu_233">
+    <nodeIds>55</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="icmp_ln33_fu_192">
+    <nodeIds>31</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="sub_ln234_fu_332">
+    <nodeIds>75</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="card_box_max_y_V_fu_213">
+    <nodeIds>43</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="card_box_max_x_V_fu_209">
+    <nodeIds>42</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="trunc_ln233_fu_400">
+    <nodeIds>70</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="roi_h_1_fu_437">
+    <nodeIds>87</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="sub_ln233_1_fu_380">
+    <nodeIds>65</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="zext_ln230_2_fu_267">
+    <nodeIds>50</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="zext_ln233_3_fu_427">
+    <nodeIds>85</nodeIds>
+  </expressionNodes>
+  <moduleNodes realName="grp_find_largest_component_ccl_fu_168">
+    <nodeIds>39</nodeIds>
+  </moduleNodes>
+  <moduleNodes realName="grp_card_recognizer_hw_Pipeline_GRAYSCALE_LOOP_fu_150">
+    <nodeIds>35</nodeIds>
+  </moduleNodes>
+  <moduleNodes realName="grp_card_recognizer_hw_Pipeline_BINARIZE_LOOP_fu_159">
+    <nodeIds>36</nodeIds>
+  </moduleNodes>
+  <moduleNodes realName="grp_fu_464">
+    <nodeIds>73</nodeIds>
+  </moduleNodes>
+  <moduleNodes realName="grp_card_recognizer_hw_Pipeline_ROI_Y_LOOP_ROI_X_LOOP_fu_176">
+    <nodeIds>92</nodeIds>
+  </moduleNodes>
+  <moduleNodes realName="grp_fu_188">
+    <nodeIds>30</nodeIds>
+  </moduleNodes>
+  <ioNodes realName="height_read_read_fu_112">
+    <nodeIds>8</nodeIds>
+  </ioNodes>
+  <ioNodes realName="roi_count_2_loc_load_load_fu_460">
+    <nodeIds>93</nodeIds>
+  </ioNodes>
+  <ioNodes realName="write_ln291_write_fu_124">
+    <nodeIds>97</nodeIds>
+  </ioNodes>
+  <ioNodes realName="width_read_read_fu_118">
+    <nodeIds>9</nodeIds>
+  </ioNodes>
+  <ioNodes realName="write_ln292_write_fu_131">
+    <nodeIds>98</nodeIds>
+  </ioNodes>
+  <memoryPorts dataString="binary_V" portID="100">
+    <nodeIds>36</nodeIds>
+    <nodeIds>39</nodeIds>
+    <nodeIds>92</nodeIds>
+  </memoryPorts>
+  <memoryPorts dataString="gray_V" portID="100">
+    <nodeIds>35</nodeIds>
+    <nodeIds>36</nodeIds>
+  </memoryPorts>
+  <ioPorts name="height">
+    <contents name="read">
+      <nodeIds>8</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="result_rank">
+    <contents name="write">
+      <nodeIds>97</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="result_suit">
+    <contents name="write">
+      <nodeIds>98</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="width">
+    <contents name="read">
+      <nodeIds>9</nodeIds>
+    </contents>
+  </ioPorts>
+  <fsm>
+    <states id="1">
+      <operations id="8" stage="1" latency="1"/>
+      <operations id="9" stage="1" latency="1"/>
+      <operations id="10" stage="1" latency="1"/>
+    </states>
+    <states id="2">
+      <operations id="30" stage="2" latency="2"/>
+    </states>
+    <states id="3">
+      <operations id="30" stage="1" latency="2"/>
+    </states>
+    <states id="4">
+      <operations id="11" stage="1" latency="1"/>
+      <operations id="12" stage="1" latency="1"/>
+      <operations id="13" stage="1" latency="1"/>
+      <operations id="14" stage="1" latency="1"/>
+      <operations id="15" stage="1" latency="1"/>
+      <operations id="16" stage="1" latency="1"/>
+      <operations id="17" stage="1" latency="1"/>
+      <operations id="18" stage="1" latency="1"/>
+      <operations id="19" stage="1" latency="1"/>
+      <operations id="20" stage="1" latency="1"/>
+      <operations id="21" stage="1" latency="1"/>
+      <operations id="22" stage="1" latency="1"/>
+      <operations id="23" stage="1" latency="1"/>
+      <operations id="24" stage="1" latency="1"/>
+      <operations id="25" stage="1" latency="1"/>
+      <operations id="26" stage="1" latency="1"/>
+      <operations id="27" stage="1" latency="1"/>
+      <operations id="28" stage="1" latency="1"/>
+      <operations id="29" stage="1" latency="1"/>
+      <operations id="31" stage="1" latency="1"/>
+      <operations id="32" stage="1" latency="1"/>
+      <operations id="34" stage="1" latency="1"/>
+      <operations id="35" stage="2" latency="2"/>
+    </states>
+    <states id="5">
+      <operations id="35" stage="1" latency="2"/>
+    </states>
+    <states id="6">
+      <operations id="36" stage="2" latency="2"/>
+    </states>
+    <states id="7">
+      <operations id="36" stage="1" latency="2"/>
+      <operations id="37" stage="1" latency="1"/>
+    </states>
+    <states id="8">
+      <operations id="39" stage="2" latency="2"/>
+    </states>
+    <states id="9">
+      <operations id="39" stage="1" latency="2"/>
+      <operations id="40" stage="1" latency="1"/>
+      <operations id="41" stage="1" latency="1"/>
+      <operations id="42" stage="1" latency="1"/>
+      <operations id="43" stage="1" latency="1"/>
+      <operations id="44" stage="1" latency="1"/>
+      <operations id="45" stage="1" latency="1"/>
+      <operations id="46" stage="1" latency="1"/>
+      <operations id="53" stage="1" latency="1"/>
+      <operations id="54" stage="1" latency="1"/>
+      <operations id="55" stage="1" latency="1"/>
+      <operations id="56" stage="1" latency="1"/>
+      <operations id="71" stage="1" latency="1"/>
+      <operations id="72" stage="1" latency="1"/>
+      <operations id="73" stage="4" latency="4"/>
+      <operations id="76" stage="1" latency="1"/>
+      <operations id="91" stage="1" latency="1"/>
+    </states>
+    <states id="10">
+      <operations id="73" stage="3" latency="4"/>
+    </states>
+    <states id="11">
+      <operations id="73" stage="2" latency="4"/>
+    </states>
+    <states id="12">
+      <operations id="49" stage="1" latency="1"/>
+      <operations id="50" stage="1" latency="1"/>
+      <operations id="51" stage="1" latency="1"/>
+      <operations id="52" stage="1" latency="1"/>
+      <operations id="57" stage="1" latency="1"/>
+      <operations id="58" stage="1" latency="1"/>
+      <operations id="59" stage="1" latency="1"/>
+      <operations id="60" stage="1" latency="1"/>
+      <operations id="61" stage="1" latency="1"/>
+      <operations id="62" stage="1" latency="1"/>
+      <operations id="66" stage="1" latency="1"/>
+      <operations id="73" stage="1" latency="4"/>
+      <operations id="74" stage="1" latency="1"/>
+      <operations id="75" stage="1" latency="1"/>
+      <operations id="77" stage="1" latency="1"/>
+      <operations id="78" stage="1" latency="1"/>
+      <operations id="79" stage="1" latency="1"/>
+      <operations id="80" stage="1" latency="1"/>
+    </states>
+    <states id="13">
+      <operations id="48" stage="1" latency="1"/>
+      <operations id="63" stage="1" latency="1"/>
+      <operations id="64" stage="1" latency="1"/>
+      <operations id="65" stage="1" latency="1"/>
+      <operations id="67" stage="1" latency="1"/>
+      <operations id="68" stage="1" latency="1"/>
+      <operations id="69" stage="1" latency="1"/>
+      <operations id="70" stage="1" latency="1"/>
+      <operations id="81" stage="1" latency="1"/>
+      <operations id="82" stage="1" latency="1"/>
+      <operations id="83" stage="1" latency="1"/>
+      <operations id="84" stage="1" latency="1"/>
+      <operations id="85" stage="1" latency="1"/>
+      <operations id="86" stage="1" latency="1"/>
+      <operations id="87" stage="1" latency="1"/>
+      <operations id="88" stage="1" latency="1"/>
+      <operations id="89" stage="1" latency="1"/>
+      <operations id="90" stage="1" latency="1"/>
+    </states>
+    <states id="14">
+      <operations id="92" stage="2" latency="2"/>
+    </states>
+    <states id="15">
+      <operations id="92" stage="1" latency="2"/>
+    </states>
+    <states id="16">
+      <operations id="93" stage="1" latency="1"/>
+      <operations id="94" stage="1" latency="1"/>
+      <operations id="96" stage="1" latency="1"/>
+      <operations id="97" stage="1" latency="1"/>
+      <operations id="98" stage="1" latency="1"/>
+      <operations id="99" stage="1" latency="1"/>
+    </states>
+    <transitions inState="1" outState="2">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="2" outState="3">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="3" outState="4">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="4" outState="5">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="4" outState="8">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="5" outState="6">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="6" outState="7">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="7" outState="8">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="8" outState="9">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="9" outState="10">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="9" outState="16">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="10" outState="11">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="11" outState="12">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="12" outState="13">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="13" outState="14">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="14" outState="15">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="15" outState="16">
+      <condition id="-1"/>
+    </transitions>
+  </fsm>
+  <CFGRegionsRoot>
+    <cfgRegions mId="1" mTag="card_recognizer_hw" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1" mMinLatency="271846" mMaxLatency="329469">
+      <basicBlocks>33</basicBlocks>
+      <basicBlocks>38</basicBlocks>
+      <basicBlocks>47</basicBlocks>
+      <basicBlocks>95</basicBlocks>
+      <basicBlocks>100</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+  </CFGRegionsRoot>
+</cdfg:DBCdfg>

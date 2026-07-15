@@ -1,0 +1,35 @@
+{"sourceFile": [{
+      "name": "",
+      "directive": [
+        {
+          "functionName": "card_recognizer_hw",
+          "label": "",
+          "functionLabel": "",
+          "id": "1",
+          "sourceFile": "C:\/Users\/astan\/Desktop\/moj_esl\/esl\/esl\/card_recognizer_dram_hls\/solution1\/directives.tcl",
+          "sourceLine": "6",
+          "pragma": {
+            "name": "TOP",
+            "option": [{
+                "name": "name",
+                "value": "card_recognizer_hw"
+              }]
+          }
+        },
+        {
+          "functionName": "card_recognizer_hw",
+          "label": "",
+          "functionLabel": "",
+          "id": "2",
+          "sourceFile": "C:\/Users\/astan\/Desktop\/moj_esl\/esl\/esl\/card_recognizer_dram_hls\/solution1\/csynth.tcl",
+          "sourceLine": "15",
+          "pragma": {
+            "name": "TOP",
+            "option": [{
+                "name": "name",
+                "value": "card_recognizer_hw"
+              }]
+          }
+        }
+      ]
+    }]}

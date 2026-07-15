@@ -1,0 +1,191 @@
+
+
+================================================================
+== Vitis HLS Report for 'card_recognizer_hw_Pipeline_ROI_Y_LOOP_ROI_X_LOOP'
+================================================================
+* Date:           Wed Jul 15 18:02:33 2026
+
+* Version:        2022.2 (Build 3670227 on Oct 13 2022)
+* Project:        card_recognizer_dram_hls
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z010i-clg225-1L
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  6.302 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-------+-------+---------+
+    |  Latency (cycles) |  Latency (absolute) |    Interval   | Pipeline|
+    |   min   |   max   |    min   |    max   |  min  |  max  |   Type  |
+    +---------+---------+----------+----------+-------+-------+---------+
+    |    19205|    19205|  0.192 ms|  0.192 ms|  19205|  19205|       no|
+    +---------+---------+----------+----------+-------+-------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------------------+---------+---------+----------+-----------+-----------+-------+----------+
+        |                         |  Latency (cycles) | Iteration|  Initiation Interval  |  Trip |          |
+        |        Loop Name        |   min   |   max   |  Latency |  achieved |   target  | Count | Pipelined|
+        +-------------------------+---------+---------+----------+-----------+-----------+-------+----------+
+        |- ROI_Y_LOOP_ROI_X_LOOP  |    19203|    19203|         5|          1|          1|  19200|       yes|
+        +-------------------------+---------+---------+----------+-----------+-----------+-------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+----+-------+-------+-----+
+|       Name      | BRAM_18K| DSP|   FF  |  LUT  | URAM|
++-----------------+---------+----+-------+-------+-----+
+|DSP              |        -|   1|      -|      -|    -|
+|Expression       |        -|   -|      0|    274|    -|
+|FIFO             |        -|   -|      -|      -|    -|
+|Instance         |        -|   -|      -|      -|    -|
+|Memory           |        -|   -|      -|      -|    -|
+|Multiplexer      |        -|   -|      -|     81|    -|
+|Register         |        -|   -|    217|     64|    -|
++-----------------+---------+----+-------+-------+-----+
+|Total            |        0|   1|    217|    419|    0|
++-----------------+---------+----+-------+-------+-----+
+|Available        |      120|  80|  35200|  17600|    0|
++-----------------+---------+----+-------+-------+-----+
+|Utilization (%)  |        0|   1|     ~0|      2|    0|
++-----------------+---------+----+-------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    +-----------------------------------+-------------------------------+--------------+
+    |              Instance             |             Module            |  Expression  |
+    +-----------------------------------+-------------------------------+--------------+
+    |mac_muladd_7ns_15s_8ns_15_4_1_U69  |mac_muladd_7ns_15s_8ns_15_4_1  |  i0 + i1 * i2|
+    +-----------------------------------+-------------------------------+--------------+
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +--------------------------+----------+----+---+----+------------+------------+
+    |       Variable Name      | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +--------------------------+----------+----+---+----+------------+------------+
+    |add_ln246_1_fu_223_p2     |         +|   0|  0|  14|           7|           1|
+    |add_ln246_fu_200_p2       |         +|   0|  0|  20|          15|           1|
+    |add_ln249_fu_315_p2       |         +|   0|  0|  15|           8|           1|
+    |add_ln255_fu_346_p2       |         +|   0|  0|  39|          32|           1|
+    |and_ln252_1_fu_309_p2     |       and|   0|  0|   2|           1|           1|
+    |and_ln252_2_fu_303_p2     |       and|   0|  0|   2|           1|           1|
+    |and_ln252_3_fu_267_p2     |       and|   0|  0|   2|           1|           1|
+    |and_ln252_fu_188_p2       |       and|   0|  0|   2|           1|           1|
+    |icmp_ln246_fu_194_p2      |      icmp|   0|  0|  12|          15|          15|
+    |icmp_ln249_fu_209_p2      |      icmp|   0|  0|  11|           8|           8|
+    |icmp_ln252_1_fu_297_p2    |      icmp|   0|  0|  11|          10|          10|
+    |icmp_ln252_fu_285_p2      |      icmp|   0|  0|  11|           8|           8|
+    |notrhs_fu_182_p2          |      icmp|   0|  0|  11|           9|           9|
+    |notrhs_mid1_fu_261_p2     |      icmp|   0|  0|  11|           9|           9|
+    |ult21_fu_249_p2           |      icmp|   0|  0|  11|           8|           8|
+    |ult_fu_170_p2             |      icmp|   0|  0|  11|           8|           8|
+    |roi_count_2_fu_352_p3     |    select|   0|  0|  32|           1|          32|
+    |roi_count_fu_360_p3       |    select|   0|  0|  32|           1|          32|
+    |select_ln246_1_fu_237_p3  |    select|   0|  0|   7|           1|           7|
+    |select_ln246_2_fu_273_p3  |    select|   0|  0|   2|           1|           1|
+    |select_ln246_fu_215_p3    |    select|   0|  0|   8|           1|           1|
+    |ap_enable_pp0             |       xor|   0|  0|   2|           1|           2|
+    |rev20_fu_176_p2           |       xor|   0|  0|   2|           1|           2|
+    |rev22_fu_255_p2           |       xor|   0|  0|   2|           1|           2|
+    |xor_ln252_fu_291_p2       |       xor|   0|  0|   2|           1|           2|
+    +--------------------------+----------+----+---+----+------------+------------+
+    |Total                     |          |   0|  0| 274|         150|         164|
+    +--------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +--------------------------------------+----+-----------+-----+-----------+
+    |                 Name                 | LUT| Input Size| Bits| Total Bits|
+    +--------------------------------------+----+-----------+-----+-----------+
+    |ap_done_int                           |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter1               |   9|          2|    1|          2|
+    |ap_sig_allocacmp_indvar_flatten_load  |   9|          2|   15|         30|
+    |ap_sig_allocacmp_x_load               |   9|          2|    8|         16|
+    |ap_sig_allocacmp_y_2                  |   9|          2|    7|         14|
+    |indvar_flatten_fu_82                  |   9|          2|   15|         30|
+    |roi_count_1_fu_70                     |   9|          2|   32|         64|
+    |x_fu_74                               |   9|          2|    8|         16|
+    |y_fu_78                               |   9|          2|    7|         14|
+    +--------------------------------------+----+-----------+-----+-----------+
+    |Total                                 |  81|         18|   94|        188|
+    +--------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +------------------------------------+----+----+-----+-----------+
+    |                Name                | FF | LUT| Bits| Const Bits|
+    +------------------------------------+----+----+-----+-----------+
+    |and_ln252_1_reg_433                 |   1|   0|    1|          0|
+    |ap_CS_fsm                           |   1|   0|    1|          0|
+    |ap_done_reg                         |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1             |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter2             |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter3             |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter4             |   1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter1_reg    |   1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter2_reg    |   1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter3_reg    |   1|   0|    1|          0|
+    |icmp_ln246_reg_419                  |   1|   0|    1|          0|
+    |indvar_flatten_fu_82                |  15|   0|   15|          0|
+    |roi_count_1_fu_70                   |  32|   0|   32|          0|
+    |select_ln246_reg_423                |   8|   0|    8|          0|
+    |select_ln246_reg_423_pp0_iter1_reg  |   8|   0|    8|          0|
+    |x_fu_74                             |   8|   0|    8|          0|
+    |y_fu_78                             |   7|   0|    7|          0|
+    |and_ln252_1_reg_433                 |  64|  32|    1|          0|
+    |icmp_ln246_reg_419                  |  64|  32|    1|          0|
+    +------------------------------------+----+----+-----+-----------+
+    |Total                               | 217|  64|   91|          0|
+    +------------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------------+-----+-----+------------+---------------------------------------------------+--------------+
+|        RTL Ports       | Dir | Bits|  Protocol  |                   Source Object                   |    C Type    |
++------------------------+-----+-----+------------+---------------------------------------------------+--------------+
+|ap_clk                  |   in|    1|  ap_ctrl_hs|  card_recognizer_hw_Pipeline_ROI_Y_LOOP_ROI_X_LOOP|  return value|
+|ap_rst                  |   in|    1|  ap_ctrl_hs|  card_recognizer_hw_Pipeline_ROI_Y_LOOP_ROI_X_LOOP|  return value|
+|ap_start                |   in|    1|  ap_ctrl_hs|  card_recognizer_hw_Pipeline_ROI_Y_LOOP_ROI_X_LOOP|  return value|
+|ap_done                 |  out|    1|  ap_ctrl_hs|  card_recognizer_hw_Pipeline_ROI_Y_LOOP_ROI_X_LOOP|  return value|
+|ap_idle                 |  out|    1|  ap_ctrl_hs|  card_recognizer_hw_Pipeline_ROI_Y_LOOP_ROI_X_LOOP|  return value|
+|ap_ready                |  out|    1|  ap_ctrl_hs|  card_recognizer_hw_Pipeline_ROI_Y_LOOP_ROI_X_LOOP|  return value|
+|card_box_min_y_V        |   in|    8|     ap_none|                                   card_box_min_y_V|        scalar|
+|zext_ln246_1            |   in|    9|     ap_none|                                       zext_ln246_1|        scalar|
+|trunc_ln9               |   in|   15|     ap_none|                                          trunc_ln9|        scalar|
+|card_box_min_x_V        |   in|    8|     ap_none|                                   card_box_min_x_V|        scalar|
+|zext_ln246              |   in|   10|     ap_none|                                         zext_ln246|        scalar|
+|roi_count_2_out         |  out|   32|      ap_vld|                                    roi_count_2_out|       pointer|
+|roi_count_2_out_ap_vld  |  out|    1|      ap_vld|                                    roi_count_2_out|       pointer|
+|binary_V_address0       |  out|   15|   ap_memory|                                           binary_V|         array|
+|binary_V_ce0            |  out|    1|   ap_memory|                                           binary_V|         array|
+|binary_V_q0             |   in|    1|   ap_memory|                                           binary_V|         array|
++------------------------+-----+-----+------------+---------------------------------------------------+--------------+
+

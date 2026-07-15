@@ -1,0 +1,36 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../testbench.cpp in debug mode
+   Compiling ../../../../hls_fajlovi/card_recognizer_dram_hls.cpp in debug mode
+   Generating csim.exe
+
+========================================
+  CARD COMPONENT ANALYSIS HLS SIMULATION
+========================================
+
+[1] Ucitavanje slike: C:/Users/astan/Desktop/moj_esl/esl/esl/karta.jpeg
+    Slika ucitana: 480x640, kanala: 3
+    Napomena: testbench koristi 160x120 packed-RGB bafer; veca slika se sece, manja se dopunjava nulama.
+
+[2] Pokretanje hardverske akceleracije...
+
+[3] REZULTATI ANALIZE:
+    ===================
+    Card bbox white-pixel count: 2029
+    Top-left ROI white-pixel count: 246
+    ===================
+
+[4] NAPOMENA ZA VREME:
+    ---------------------------------
+    CSim simulacija: 72814 us (72 ms)
+    Ovo je funkcionalna simulacija na CPU-u.
+    Stvarno hardversko vreme citamo posle C Synthesis:
+    estimated clock, latency/II po petljama i resurse.
+    ---------------------------------
+
+========================================
+  SIMULACIJA ZAVRSENA!
+========================================
+
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************
