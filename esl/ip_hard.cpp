@@ -142,7 +142,7 @@ void Ip_hard::ip_thread()
         }
 
         // ── PHASE 2: binarise grayscale → work_binary ─────────────────────────
-        stage_binarizeTo(work_gray, work_binary, N, 120);
+        stage_binarizeAdaptiveTo(work_gray, work_binary, N, 120);
         wait(sc_time(N, SC_NS));
 
         // ── PHASE 3: BFS – find largest white component (card outline) ────────
@@ -169,7 +169,7 @@ void Ip_hard::ip_thread()
 
         // ── PHASE 6: grayscale + binarise corner ──────────────────────────────
         stage_toGrayscale(work_corner, work_grayC, 33, 90);
-        stage_binarizeTo (work_grayC, work_binC, 33 * 90, 100);
+        stage_binarizeAdaptiveTo(work_grayC, work_binC, 33 * 90, 100);
         wait(sc_time(33 * 90, SC_NS));
 
         // ── PHASE 7: find symbol bounding box (scan for black pixels) ─────────
@@ -210,8 +210,8 @@ void Ip_hard::ip_thread()
         // ── PHASE 9: grayscale + binarise rank & suit strips ──────────────────
         stage_toGrayscale(work_rankRGB, work_rankGray, symW, rankH);
         stage_toGrayscale(work_suitRGB, work_suitGray, symW, suitH);
-        stage_binarize(work_rankGray, symW * rankH, 120);
-        stage_binarize(work_suitGray, symW * suitH, 120);
+        stage_binarizeAdaptive(work_rankGray, symW * rankH, 120);
+        stage_binarizeAdaptive(work_suitGray, symW * suitH, 120);
 
         // ── PHASE 10: template matching ───────────────────────────────────────
         // matchers receive mbfs_* so they never touch bfs_* / work_comp.
@@ -253,6 +253,53 @@ void Ip_hard::stage_binarize(uint8_t* data, int n, int thr) {
 void Ip_hard::stage_binarizeTo(const uint8_t* src, uint8_t* dst, int n, int thr) {
     for (int i = 0; i < n; ++i)
         dst[i] = (src[i] > thr) ? 255 : 0;
+}
+
+static int _limitedOtsuThreshold(const uint8_t* src, int n, int fallbackThr) {
+    int hist[256] = {0};
+    for (int i = 0; i < n; ++i) hist[src[i]]++;
+
+    long long totalSum = 0;
+    for (int i = 0; i < 256; ++i) totalSum += (long long)i * hist[i];
+
+    long long bgSum = 0;
+    int bgWeight = 0;
+    int bestThr = fallbackThr;
+    double bestVar = -1.0;
+
+    for (int t = 0; t < 256; ++t) {
+        bgWeight += hist[t];
+        if (bgWeight == 0) continue;
+
+        int fgWeight = n - bgWeight;
+        if (fgWeight == 0) break;
+
+        bgSum += (long long)t * hist[t];
+        double bgMean = (double)bgSum / (double)bgWeight;
+        double fgMean = (double)(totalSum - bgSum) / (double)fgWeight;
+        double diff = bgMean - fgMean;
+        double variance = (double)bgWeight * (double)fgWeight * diff * diff;
+
+        if (variance > bestVar) {
+            bestVar = variance;
+            bestThr = t;
+        }
+    }
+
+    int minThr = std::max(0, fallbackThr - 35);
+    int maxThr = std::min(255, fallbackThr + 35);
+    return std::clamp(bestThr, minThr, maxThr);
+}
+
+void Ip_hard::stage_binarizeAdaptive(uint8_t* data, int n, int fallbackThr) {
+    int thr = _limitedOtsuThreshold(data, n, fallbackThr);
+    stage_binarize(data, n, thr);
+}
+
+void Ip_hard::stage_binarizeAdaptiveTo(const uint8_t* src, uint8_t* dst,
+                                       int n, int fallbackThr) {
+    int thr = _limitedOtsuThreshold(src, n, fallbackThr);
+    stage_binarizeTo(src, dst, n, thr);
 }
 
 void Ip_hard::stage_binarizeRaw(const uint8_t* src, uint8_t* dst,
@@ -484,6 +531,34 @@ void Ip_hard::stage_splitSymbol(const uint8_t* src, int w, int h,
                                  uint8_t* rankBuf, int& rankH,
                                  uint8_t* suitBuf, int& suitH) {
     int mid = static_cast<int>(h * 0.60f);
+
+    if (h >= 8) {
+        int y0 = std::max(1, h * 35 / 100);
+        int y1 = std::min(h - 2, h * 75 / 100);
+        int bestY = mid;
+        int bestInk = INT_MAX;
+
+        for (int y = y0; y <= y1; ++y) {
+            int ink = 0;
+            for (int yy = std::max(0, y - 1); yy <= std::min(h - 1, y + 1); ++yy) {
+                for (int x = 0; x < w; ++x) {
+                    int base = (yy * w + x) * 3;
+                    int gray = (int)(0.299f * src[base] +
+                                     0.587f * src[base + 1] +
+                                     0.114f * src[base + 2]);
+                    if (gray < 170) ++ink;
+                }
+            }
+
+            if (ink < bestInk) {
+                bestInk = ink;
+                bestY = y;
+            }
+        }
+
+        mid = std::clamp(bestY, 1, h - 1);
+    }
+
     rankH = mid; suitH = h - mid;
     for (int y = 0; y < mid; ++y)
         for (int x = 0; x < w; ++x)

@@ -56,6 +56,9 @@ protected:
     void     stage_toGrayscale  (const uint8_t* src, uint8_t* dst, int w, int h);
     void     stage_binarize     (uint8_t* data, int n, int thr);
     void     stage_binarizeTo   (const uint8_t* src, uint8_t* dst, int n, int thr);
+    void     stage_binarizeAdaptive(uint8_t* data, int n, int fallbackThr);
+    void     stage_binarizeAdaptiveTo(const uint8_t* src, uint8_t* dst,
+                                  int n, int fallbackThr);
     void     stage_binarizeRaw  (const uint8_t* src, uint8_t* dst,
                                   int w, int h, int ch, int thr = 120);
 
