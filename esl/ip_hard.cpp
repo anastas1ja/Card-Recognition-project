@@ -150,8 +150,7 @@ void Ip_hard::ip_thread()
         // Result stored in work_comp[0..compCount-1].
         // FIX BUG2: wait(5, SC_NS) per visited node is inside stage_findLargest.
         // CCL replacement for main card-outline detection.
-        std::array<Point2f,4> corners;
-        int compCount = stage_findLargestCclCorners(work_binary, W, H, corners);
+        int compCount = stage_findLargestCcl(work_binary, W, H, work_comp);
         if (compCount < 100) {
             card_rank = 0; card_suit = 0;
             status_ready = 1; done_event.notify();
@@ -161,6 +160,7 @@ void Ip_hard::ip_thread()
         // ── PHASE 4: perspective warp → 200×300 RGB ───────────────────────────
         // FIX BUG1: use work_rgb (not work_comp) as source.
         // work_comp still contains valid Point2f corner data from Phase 3.
+        auto corners = stage_findCorners(work_comp, compCount);
         stage_warpImage(work_rgb, W, H, corners, work_warped, 200, 300);
         wait(sc_time(200 * 300, SC_NS));
 
@@ -323,21 +323,17 @@ int Ip_hard::stage_findLargest(const uint8_t* binary, int w, int h,
     return bestCount;
 }
 
-int Ip_hard::stage_findLargestCclCorners(const uint8_t* binary, int w, int h,
-                                         std::array<Point2f,4>& corners)
+int Ip_hard::stage_findLargestCcl(const uint8_t* binary, int w, int h,
+                                  Point2f* outBuf)
 {
     const int n = w * h;
     const int maxLabels = n + 1;
 
+    std::vector<int> labels(n, 0);
     std::vector<int> prevLabel(w, 0);
     std::vector<int> currLabel(w, 0);
     std::vector<int> parent(maxLabels, 0);
     std::vector<int> count(maxLabels, 0);
-    std::vector<Point2f> tl(maxLabels), tr(maxLabels), br(maxLabels), bl(maxLabels);
-    std::vector<float> minSum(maxLabels, 1e9f);
-    std::vector<float> maxSum(maxLabels, -1e9f);
-    std::vector<float> minDiff(maxLabels, 1e9f);
-    std::vector<float> maxDiff(maxLabels, -1e9f);
 
     auto rootOf = [&](int label) {
         int r = label;
@@ -350,24 +346,8 @@ int Ip_hard::stage_findLargestCclCorners(const uint8_t* binary, int w, int h,
         return r;
     };
 
-    auto addPoint = [&](int label, int x, int y) {
-        Point2f p = {(float)x, (float)y};
-        float s = p.x + p.y;
-        float d = p.x - p.y;
-        if (s < minSum[label])  { minSum[label] = s; tl[label] = p; }
-        if (s > maxSum[label])  { maxSum[label] = s; br[label] = p; }
-        if (d < minDiff[label]) { minDiff[label] = d; tr[label] = p; }
-        if (d > maxDiff[label]) { maxDiff[label] = d; bl[label] = p; }
-        count[label]++;
-    };
-
     auto mergeLabels = [&](int keep, int drop) {
         if (keep == drop || keep == 0 || drop == 0 || count[drop] == 0) return keep;
-
-        if (minSum[drop] < minSum[keep])   { minSum[keep] = minSum[drop];   tl[keep] = tl[drop]; }
-        if (maxSum[drop] > maxSum[keep])   { maxSum[keep] = maxSum[drop];   br[keep] = br[drop]; }
-        if (minDiff[drop] < minDiff[keep]) { minDiff[keep] = minDiff[drop]; tr[keep] = tr[drop]; }
-        if (maxDiff[drop] > maxDiff[keep]) { maxDiff[keep] = maxDiff[drop]; bl[keep] = bl[drop]; }
 
         count[keep] += count[drop];
         count[drop] = 0;
@@ -409,7 +389,8 @@ int Ip_hard::stage_findLargestCclCorners(const uint8_t* binary, int w, int h,
 
             chosen = rootOf(chosen);
             currLabel[x] = chosen;
-            addPoint(chosen, x, y);
+            labels[idx] = chosen;
+            count[chosen]++;
         }
 
         prevLabel.swap(currLabel);
@@ -426,22 +407,21 @@ int Ip_hard::stage_findLargestCclCorners(const uint8_t* binary, int w, int h,
     }
 
     if (bestLabel == 0) {
-        corners = {Point2f{0,0}, Point2f{0,0}, Point2f{0,0}, Point2f{0,0}};
         return 0;
     }
 
-    float avgW = (_ptDist(tl[bestLabel], tr[bestLabel]) +
-                  _ptDist(bl[bestLabel], br[bestLabel])) / 2.0f;
-    float avgH = (_ptDist(tl[bestLabel], bl[bestLabel]) +
-                  _ptDist(tr[bestLabel], br[bestLabel])) / 2.0f;
-
-    if (avgW > avgH) {
-        corners = {bl[bestLabel], tl[bestLabel], tr[bestLabel], br[bestLabel]};
-    } else {
-        corners = {tl[bestLabel], tr[bestLabel], br[bestLabel], bl[bestLabel]};
+    int outCount = 0;
+    for (int y = 0; y < h; ++y) {
+        for (int x = 0; x < w; ++x) {
+            int idx = y * w + x;
+            int label = labels[idx];
+            if (label != 0 && rootOf(label) == bestLabel) {
+                outBuf[outCount++] = {(float)x, (float)y};
+            }
+        }
     }
 
-    return bestCount;
+    return outCount;
 }
 
 static float _ptDist(Point2f a, Point2f b) {

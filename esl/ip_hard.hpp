@@ -65,8 +65,8 @@ protected:
     int      stage_findLargest  (const uint8_t* binary, int w, int h,
                                   Point2f* outBuf,
                                   bool* visited, Point2f* queue, Point2f* region);
-    int      stage_findLargestCclCorners(const uint8_t* binary, int w, int h,
-                                  std::array<Point2f,4>& corners);
+    int      stage_findLargestCcl(const uint8_t* binary, int w, int h,
+                                  Point2f* outBuf);
     std::array<Point2f,4>
              stage_findCorners  (const Point2f* pts, int n);
     void     stage_warpImage    (const uint8_t* src, int srcW, int srcH,
