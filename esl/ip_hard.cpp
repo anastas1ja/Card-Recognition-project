@@ -536,7 +536,8 @@ int Ip_hard::stage_rankMatcher(const uint8_t* grayData, int w, int h) {
         for (int x = 0; x < cW; ++x)
             cropped[y*cW+x] = inv_buf[(int)(minY+y)*w + (int)(minX+x)];
 
-    int bestMatch = -1, minDiff = INT_MAX;
+    int bestMatch = -1;
+    float bestScore = 1e9f;
     static uint8_t resized[300*300], tplBin[300*300];
 
     for (int t = 0; t < NT; ++t) {
@@ -555,7 +556,12 @@ int Ip_hard::stage_rankMatcher(const uint8_t* grayData, int w, int h) {
         int diff = 0;
         for (int i = 0; i < tW*tH; ++i)
             if (resized[i] != tplBin[i]) ++diff;
-        if (diff < minDiff) { minDiff = diff; bestMatch = T[t].rank; }
+
+        float score = (float)diff / (float)(tW * tH);
+        if (score < bestScore) {
+            bestScore = score;
+            bestMatch = T[t].rank;
+        }
     }
     return bestMatch;
 }
@@ -596,7 +602,8 @@ int Ip_hard::stage_matchSuit(const uint8_t* grayData, int w, int h) {
         for (int x = 0; x < cW; ++x)
             cropped[y*cW+x] = inv_buf[(int)(minY+y)*w + (int)(minX+x)];
 
-    int bestMatch = -1, minDiff = INT_MAX;
+    int bestMatch = -1;
+    float bestScore = 1e9f;
     static uint8_t resized[300*300], tplBin[300*300];
 
     for (int t = 0; t < NT; ++t) {
@@ -615,7 +622,12 @@ int Ip_hard::stage_matchSuit(const uint8_t* grayData, int w, int h) {
         int diff = 0;
         for (int i = 0; i < tW*tH; ++i)
             if (resized[i] != tplBin[i]) ++diff;
-        if (diff < minDiff) { minDiff = diff; bestMatch = T[t].suit; }
+
+        float score = (float)diff / (float)(tW * tH);
+        if (score < bestScore) {
+            bestScore = score;
+            bestMatch = T[t].suit;
+        }
     }
     return bestMatch;
 }
