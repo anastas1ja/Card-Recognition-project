@@ -606,21 +606,22 @@ int Ip_hard::stage_matchSuit(const uint8_t* grayData, int w, int h) {
 
     uint8_t* inv_buf = work_suitGray;   // safe to reuse
     uint8_t  cropped[BUF];
-    Point2f  cBuf[BUF];
 
     int n = w * h;
     for (int i = 0; i < n; ++i) inv_buf[i] = 255 - grayData[i];
 
-    // FIX BUG3: use mbfs_*
-    int cCount = stage_findLargest(inv_buf, w, h, cBuf,
-                                   mbfs_visited, mbfs_queue, mbfs_region);
-    if (cCount == 0) return -1;
-
     float minX=(float)w, maxX=0, minY=(float)h, maxY=0;
-    for (int i = 0; i < cCount; ++i) {
-        minX = std::min(minX, cBuf[i].x); maxX = std::max(maxX, cBuf[i].x);
-        minY = std::min(minY, cBuf[i].y); maxY = std::max(maxY, cBuf[i].y);
+    bool found = false;
+    for (int y = 0; y < h; ++y) {
+        for (int x = 0; x < w; ++x) {
+            if (inv_buf[y * w + x] == 255) {
+                minX = std::min(minX, (float)x); maxX = std::max(maxX, (float)x);
+                minY = std::min(minY, (float)y); maxY = std::max(maxY, (float)y);
+                found = true;
+            }
+        }
     }
+    if (!found) return -1;
     minX = std::max(0.0f, minX-2); minY = std::max(0.0f, minY-2);
     maxX = std::min((float)w-1, maxX+2); maxY = std::min((float)h-1, maxY+2);
 
