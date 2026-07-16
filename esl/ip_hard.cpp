@@ -192,6 +192,11 @@ void Ip_hard::ip_thread()
             continue;
         }
 
+        minX = std::max(0.0f, minX - 2.0f);
+        minY = std::max(0.0f, minY - 2.0f);
+        maxX = std::min(32.0f, maxX + 2.0f);
+        maxY = std::min(89.0f, maxY + 2.0f);
+
         int symW = (int)(maxX - minX + 1);
         int symH = (int)(maxY - minY + 1);
         for (int y = 0; y < symH; ++y)
