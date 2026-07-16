@@ -442,74 +442,27 @@ static float _ptDist(Point2f a, Point2f b) {
 }
 
 std::array<Point2f,4> Ip_hard::stage_findCorners(const Point2f* pts, int n) {
-    Point2f tlAcc{0, 0}, trAcc{0, 0}, brAcc{0, 0}, blAcc{0, 0};
-    float tlScore[16], trScore[16], brScore[16], blScore[16];
-    Point2f tlPts[16], trPts[16], brPts[16], blPts[16];
-    int tlCount = 0, trCount = 0, brCount = 0, blCount = 0;
+    std::vector<cv::Point2f> compPts;
+    compPts.reserve(n);
+    for (int i = 0; i < n; ++i)
+        compPts.emplace_back(pts[i].x, pts[i].y);
 
-    auto addBestMin = [](float* scores, Point2f* bestPts, int& count,
-                         float score, Point2f p) {
-        if (count < 16) {
-            scores[count] = score;
-            bestPts[count] = p;
-            ++count;
-            return;
-        }
-        int worst = 0;
-        for (int i = 1; i < 16; ++i)
-            if (scores[i] > scores[worst]) worst = i;
-        if (score < scores[worst]) {
-            scores[worst] = score;
-            bestPts[worst] = p;
-        }
-    };
+    cv::RotatedRect rect = cv::minAreaRect(compPts);
+    cv::Point2f box[4];
+    rect.points(box);
 
-    auto addBestMax = [](float* scores, Point2f* bestPts, int& count,
-                         float score, Point2f p) {
-        if (count < 16) {
-            scores[count] = score;
-            bestPts[count] = p;
-            ++count;
-            return;
-        }
-        int worst = 0;
-        for (int i = 1; i < 16; ++i)
-            if (scores[i] < scores[worst]) worst = i;
-        if (score > scores[worst]) {
-            scores[worst] = score;
-            bestPts[worst] = p;
-        }
-    };
+    Point2f ordered[4];
+    for (int i = 0; i < 4; ++i)
+        ordered[i] = {box[i].x, box[i].y};
 
-    for (int i = 0; i < n; ++i) {
-        float s = pts[i].x + pts[i].y, d = pts[i].x - pts[i].y;
-        addBestMin(tlScore, tlPts, tlCount, s, pts[i]);
-        addBestMax(brScore, brPts, brCount, s, pts[i]);
-        addBestMin(trScore, trPts, trCount, d, pts[i]);
-        addBestMax(blScore, blPts, blCount, d, pts[i]);
+    Point2f center{0.0f, 0.0f};
+    for (int i = 0; i < 4; ++i) {
+        center.x += ordered[i].x;
+        center.y += ordered[i].y;
     }
+    center.x *= 0.25f;
+    center.y *= 0.25f;
 
-    auto averagePts = [](const Point2f* p, int count) {
-        Point2f out{0, 0};
-        for (int i = 0; i < count; ++i) {
-            out.x += p[i].x;
-            out.y += p[i].y;
-        }
-        if (count > 0) {
-            out.x /= (float)count;
-            out.y /= (float)count;
-        }
-        return out;
-    };
-
-    Point2f tl = averagePts(tlPts, tlCount);
-    Point2f tr = averagePts(trPts, trCount);
-    Point2f br = averagePts(brPts, brCount);
-    Point2f bl = averagePts(blPts, blCount);
-
-    Point2f center{(tl.x + tr.x + br.x + bl.x) * 0.25f,
-                   (tl.y + tr.y + br.y + bl.y) * 0.25f};
-    Point2f ordered[4] = {tl, tr, br, bl};
     std::sort(ordered, ordered + 4, [center](const Point2f& a, const Point2f& b) {
         return std::atan2(a.y - center.y, a.x - center.x) <
                std::atan2(b.y - center.y, b.x - center.x);
@@ -525,10 +478,10 @@ std::array<Point2f,4> Ip_hard::stage_findCorners(const Point2f* pts, int n) {
         }
     }
 
-    tl = ordered[tlIdx];
-    tr = ordered[(tlIdx + 1) % 4];
-    br = ordered[(tlIdx + 2) % 4];
-    bl = ordered[(tlIdx + 3) % 4];
+    Point2f tl = ordered[tlIdx];
+    Point2f tr = ordered[(tlIdx + 1) % 4];
+    Point2f br = ordered[(tlIdx + 2) % 4];
+    Point2f bl = ordered[(tlIdx + 3) % 4];
 
     if (_ptDist(tl, tr) > _ptDist(tl, bl)) {
         return {bl, tl, tr, br};
@@ -567,7 +520,6 @@ void Ip_hard::stage_warpImage(const uint8_t* src, int srcW, int srcH,
     cv::warpPerspective(inputMat, outputMat, M, cv::Size(dstW, dstH),
                         cv::INTER_LINEAR, cv::BORDER_REPLICATE);
 
-    // 6. Horizontalni flip (zadržan jer ga vaš algoritam zahteva)
 }
 void Ip_hard::stage_cropTopLeft(const uint8_t* src, int srcW,
                                  uint8_t* dst, int cW, int cH) {
