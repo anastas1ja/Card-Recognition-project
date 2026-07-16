@@ -16,6 +16,27 @@
 using namespace sc_core;
 using namespace sc_dt;
 
+static void filterBinary3x3(uint8_t* img, uint8_t* tmp, int w, int h)
+{
+    for (int y = 0; y < h; ++y) {
+        for (int x = 0; x < w; ++x) {
+            if (x == 0 || y == 0 || x == w - 1 || y == h - 1) {
+                tmp[y * w + x] = img[y * w + x];
+                continue;
+            }
+
+            int dark = 0;
+            for (int yy = -1; yy <= 1; ++yy)
+                for (int xx = -1; xx <= 1; ++xx)
+                    if (img[(y + yy) * w + (x + xx)] == 0) ++dark;
+
+            tmp[y * w + x] = (dark >= 4) ? 0 : 255;
+        }
+    }
+
+    std::memcpy(img, tmp, (size_t)(w * h));
+}
+
 // Constructor / Destructor
 
 
@@ -175,6 +196,7 @@ void Ip_hard::ip_thread()
         // ── PHASE 6: grayscale + binarise corner ──────────────────────────────
         stage_toGrayscale(work_corner, work_grayC, 50, 120);
         stage_binarizeTo(work_grayC, work_binC, 50 * 120, 120);
+        filterBinary3x3(work_binC, work_grayC, 50, 120);
         wait(sc_time(50 * 120, SC_NS));
         stbi_write_png("debug_roi_binary.png", 50, 120, 1, work_binC, 50);
 
@@ -223,6 +245,8 @@ void Ip_hard::ip_thread()
         stage_toGrayscale(work_suitRGB, work_suitGray, symW, suitH);
         stage_binarize(work_rankGray, symW * rankH, 120);
         stage_binarize(work_suitGray, symW * suitH, 120);
+        filterBinary3x3(work_rankGray, work_grayC, symW, rankH);
+        filterBinary3x3(work_suitGray, work_grayC, symW, suitH);
         stbi_write_png("debug_rank_binary.png", symW, rankH, 1, work_rankGray, symW);
         stbi_write_png("debug_suit_binary.png", symW, suitH, 1, work_suitGray, symW);
 
@@ -496,7 +520,7 @@ void Ip_hard::stage_cropTopLeft(const uint8_t* src, int srcW,
 void Ip_hard::stage_splitSymbol(const uint8_t* src, int w, int h,
                                  uint8_t* rankBuf, int& rankH,
                                  uint8_t* suitBuf, int& suitH) {
-    int mid = static_cast<int>(h * 0.52f);
+    int mid = static_cast<int>(h * 0.60f);
     rankH = mid; suitH = h - mid;
     for (int y = 0; y < mid; ++y)
         for (int x = 0; x < w; ++x)
