@@ -34,14 +34,14 @@ Ip_hard::Ip_hard(sc_module_name name) : sc_module(name)
     work_binary  = new uint8_t [MAX_PX];
     work_comp    = new Point2f [MAX_PX];
     work_warped  = new uint8_t [200 * 300 * 3];
-    work_corner  = new uint8_t [33 * 90 * 3];
-    work_grayC   = new uint8_t [33 * 90];
-    work_binC    = new uint8_t [33 * 90];
-    work_sym     = new uint8_t [33 * 90 * 3];
-    work_rankRGB = new uint8_t [33 * 90 * 3];
-    work_suitRGB = new uint8_t [33 * 90 * 3];
-    work_rankGray= new uint8_t [33 * 90];
-    work_suitGray= new uint8_t [33 * 90];
+    work_corner  = new uint8_t [40 * 100 * 3];
+    work_grayC   = new uint8_t [40 * 100];
+    work_binC    = new uint8_t [40 * 100];
+    work_sym     = new uint8_t [40 * 100 * 3];
+    work_rankRGB = new uint8_t [40 * 100 * 3];
+    work_suitRGB = new uint8_t [40 * 100 * 3];
+    work_rankGray= new uint8_t [40 * 100];
+    work_suitGray= new uint8_t [40 * 100];
 
     // ── Main BFS buffers (card outline) ──────────────────────────────────────
     bfs_visited  = new bool    [MAX_PX];
@@ -49,9 +49,9 @@ Ip_hard::Ip_hard(sc_module_name name) : sc_module(name)
     bfs_region   = new Point2f [MAX_PX];
 
     // ── Matcher BFS buffers (rank/suit crop) ─────────────────────
-    mbfs_visited = new bool    [33 * 90];
-    mbfs_queue   = new Point2f [33 * 90];
-    mbfs_region  = new Point2f [33 * 90];
+    mbfs_visited = new bool    [40 * 100];
+    mbfs_queue   = new Point2f [40 * 100];
+    mbfs_region  = new Point2f [40 * 100];
 
     SC_THREAD(ip_thread);
 }
@@ -164,20 +164,20 @@ void Ip_hard::ip_thread()
         stage_warpImage(work_rgb, W, H, corners, work_warped, 200, 300);
         wait(sc_time(200 * 300, SC_NS));
 
-        // ── PHASE 5: crop top-left 33×90 ──────────────────────────────────────
-        stage_cropTopLeft(work_warped, 200, work_corner, 33, 90);
+        // ── PHASE 5: crop top-left 40×100 ─────────────────────────────────────
+        stage_cropTopLeft(work_warped, 200, work_corner, 40, 100);
 
         // ── PHASE 6: grayscale + binarise corner ──────────────────────────────
-        stage_toGrayscale(work_corner, work_grayC, 33, 90);
-        stage_binarizeTo(work_grayC, work_binC, 33 * 90, 100);
-        wait(sc_time(33 * 90, SC_NS));
+        stage_toGrayscale(work_corner, work_grayC, 40, 100);
+        stage_binarizeTo(work_grayC, work_binC, 40 * 100, 100);
+        wait(sc_time(40 * 100, SC_NS));
 
         // ── PHASE 7: find symbol bounding box (scan for black pixels) ─────────
-        float minX = 33, maxX = 0, minY = 90, maxY = 0;
+        float minX = 40, maxX = 0, minY = 100, maxY = 0;
         bool  found = false;
-        for (int y = 0; y < 90; ++y) {
-            for (int x = 0; x < 33; ++x) {
-                if (work_binC[y * 33 + x] == 0) {   // black = symbol/digit
+        for (int y = 0; y < 100; ++y) {
+            for (int x = 0; x < 40; ++x) {
+                if (work_binC[y * 40 + x] == 0) {   // black = symbol/digit
                     if ((float)x < minX) minX = (float)x;
                     if ((float)x > maxX) maxX = (float)x;
                     if ((float)y < minY) minY = (float)y;
@@ -194,8 +194,8 @@ void Ip_hard::ip_thread()
 
         minX = std::max(0.0f, minX - 2.0f);
         minY = std::max(0.0f, minY - 2.0f);
-        maxX = std::min(32.0f, maxX + 2.0f);
-        maxY = std::min(89.0f, maxY + 2.0f);
+        maxX = std::min(39.0f, maxX + 2.0f);
+        maxY = std::min(99.0f, maxY + 2.0f);
 
         int symW = (int)(maxX - minX + 1);
         int symH = (int)(maxY - minY + 1);
@@ -203,7 +203,7 @@ void Ip_hard::ip_thread()
             for (int x = 0; x < symW; ++x)
                 for (int c = 0; c < 3; ++c)
                     work_sym[(y * symW + x) * 3 + c] =
-                        work_corner[((int)minY + y) * 33 * 3 +
+                        work_corner[((int)minY + y) * 40 * 3 +
                                     ((int)minX + x) * 3 + c];
 
         // ── PHASE 8: split rank (top 60%) / suit (bottom 40%) ─────────────────
@@ -513,7 +513,7 @@ int Ip_hard::stage_rankMatcher(const uint8_t* grayData, int w, int h) {
         {"Card_Imgs/Ranks/ace.jpg",  13}
     };
     const int NT = 13;
-    const int BUF = 33 * 90;
+    const int BUF = 40 * 100;
 
     uint8_t* inv_buf = work_rankGray;   // safe to reuse: caller won't read it again
     uint8_t  cropped[BUF];
@@ -579,7 +579,7 @@ int Ip_hard::stage_matchSuit(const uint8_t* grayData, int w, int h) {
         {"Card_Imgs/Suits/spades.jpg",   3}
     };
     const int NT  = 4;
-    const int BUF = 33 * 90;
+    const int BUF = 40 * 100;
 
     uint8_t* inv_buf = work_suitGray;   // safe to reuse
     uint8_t  cropped[BUF];
