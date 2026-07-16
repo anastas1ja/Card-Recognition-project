@@ -484,34 +484,6 @@ void Ip_hard::stage_splitSymbol(const uint8_t* src, int w, int h,
                                  uint8_t* rankBuf, int& rankH,
                                  uint8_t* suitBuf, int& suitH) {
     int mid = static_cast<int>(h * 0.60f);
-
-    if (h >= 8) {
-        int y0 = std::max(1, h * 35 / 100);
-        int y1 = std::min(h - 2, h * 75 / 100);
-        int bestY = mid;
-        int bestInk = INT_MAX;
-
-        for (int y = y0; y <= y1; ++y) {
-            int ink = 0;
-            for (int yy = std::max(0, y - 1); yy <= std::min(h - 1, y + 1); ++yy) {
-                for (int x = 0; x < w; ++x) {
-                    int base = (yy * w + x) * 3;
-                    int gray = (int)(0.299f * src[base] +
-                                     0.587f * src[base + 1] +
-                                     0.114f * src[base + 2]);
-                    if (gray < 170) ++ink;
-                }
-            }
-
-            if (ink < bestInk) {
-                bestInk = ink;
-                bestY = y;
-            }
-        }
-
-        mid = std::clamp(bestY, 1, h - 1);
-    }
-
     rankH = mid; suitH = h - mid;
     for (int y = 0; y < mid; ++y)
         for (int x = 0; x < w; ++x)
@@ -606,22 +578,21 @@ int Ip_hard::stage_matchSuit(const uint8_t* grayData, int w, int h) {
 
     uint8_t* inv_buf = work_suitGray;   // safe to reuse
     uint8_t  cropped[BUF];
+    Point2f  cBuf[BUF];
 
     int n = w * h;
     for (int i = 0; i < n; ++i) inv_buf[i] = 255 - grayData[i];
 
+    // FIX BUG3: use mbfs_*
+    int cCount = stage_findLargest(inv_buf, w, h, cBuf,
+                                   mbfs_visited, mbfs_queue, mbfs_region);
+    if (cCount == 0) return -1;
+
     float minX=(float)w, maxX=0, minY=(float)h, maxY=0;
-    bool found = false;
-    for (int y = 0; y < h; ++y) {
-        for (int x = 0; x < w; ++x) {
-            if (inv_buf[y * w + x] == 255) {
-                minX = std::min(minX, (float)x); maxX = std::max(maxX, (float)x);
-                minY = std::min(minY, (float)y); maxY = std::max(maxY, (float)y);
-                found = true;
-            }
-        }
+    for (int i = 0; i < cCount; ++i) {
+        minX = std::min(minX, cBuf[i].x); maxX = std::max(maxX, cBuf[i].x);
+        minY = std::min(minY, cBuf[i].y); maxY = std::max(maxY, cBuf[i].y);
     }
-    if (!found) return -1;
     minX = std::max(0.0f, minX-2); minY = std::max(0.0f, minY-2);
     maxX = std::min((float)w-1, maxX+2); maxY = std::min((float)h-1, maxY+2);
 
