@@ -146,6 +146,7 @@ void Ip_hard::ip_thread()
         // ── PHASE 2: binarise grayscale → work_binary ─────────────────────────
         stage_binarizeTo(work_gray, work_binary, N, 120);
         wait(sc_time(N, SC_NS));
+        stbi_write_png("debug_binary_full.png", W, H, 1, work_binary, W);
 
         // ── PHASE 3: BFS – find largest white component (card outline) ────────
         // Uses bfs_visited / bfs_queue / bfs_region.
@@ -169,11 +170,13 @@ void Ip_hard::ip_thread()
 
         // ── PHASE 5: crop top-left 40×100 ─────────────────────────────────────
         stage_cropTopLeft(work_warped, 200, work_corner, 40, 100);
+        stbi_write_png("debug_roi_rgb.png", 40, 100, 3, work_corner, 40 * 3);
 
         // ── PHASE 6: grayscale + binarise corner ──────────────────────────────
         stage_toGrayscale(work_corner, work_grayC, 40, 100);
-        stage_binarizeTo(work_grayC, work_binC, 40 * 100, 100);
+        stage_binarizeTo(work_grayC, work_binC, 40 * 100, 120);
         wait(sc_time(40 * 100, SC_NS));
+        stbi_write_png("debug_roi_binary.png", 40, 100, 1, work_binC, 40);
 
         // ── PHASE 7: find symbol bounding box (scan for black pixels) ─────────
         float minX = 40, maxX = 0, minY = 100, maxY = 0;
