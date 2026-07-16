@@ -463,33 +463,31 @@ void Ip_hard::stage_warpImage(const uint8_t* src, int srcW, int srcH,
                                const std::array<Point2f,4>& corners,
                                uint8_t* dst, int dstW, int dstH)
 {
-    // 1. Definiši izvorne tačke (4 ugla karte koje ste pronašli)
+    // 1. Definiši izvorne tačke (4 ugla)
     std::vector<cv::Point2f> srcPoints;
     for(const auto& p : corners) {
         srcPoints.push_back(cv::Point2f(p.x, p.y));
     }
 
-    // 2. Definiši ciljne tačke (gde želimo da ih preslikamo - pravougaonik 200x300)
+    // 2. Definiši ciljne tačke (pravougaonik 200x300)
     std::vector<cv::Point2f> dstPoints;
     dstPoints.push_back(cv::Point2f(0.0f, 0.0f));                 // Gornji levi
     dstPoints.push_back(cv::Point2f((float)dstW, 0.0f));          // Gornji desni
     dstPoints.push_back(cv::Point2f((float)dstW, (float)dstH));   // Donji desni
     dstPoints.push_back(cv::Point2f(0.0f, (float)dstH));          // Donji levi
 
-    // 3. Izračunaj matricu transformacije (OpenCV radi sve matematičke proračune)
+    // 3. Izračunaj matricu transformacije
     cv::Mat M = cv::getPerspectiveTransform(srcPoints, dstPoints);
 
-    // 4. Napravite OpenCV Mat objekat koji *gleda* u vaš 'work_rgb' bafer (bez kopiranja!)
-    // Ovo je ključno za performanse - ne trošimo memoriju, samo koristimo pokazivač.
+    // 4. Obavijte vaše baferove u OpenCV Mat strukture (Nema kopiranja podataka!)
     cv::Mat inputMat(srcH, srcW, CV_8UC3, (void*)src);
-
-    // 5. Napravite OpenCV Mat objekat koji *gleda* u vaš 'work_warped' izlazni bafer
     cv::Mat outputMat(dstH, dstW, CV_8UC3, (void*)dst);
 
-    // 6. Izvrši perspektivnu transformaciju direktno u vaš bafer!
-    cv::warpPerspective(inputMat, outputMat, M, cv::Size(dstW, dstH));
+    // 5. Izvrši perspektivnu transformaciju direktno u vaš izlazni bafer
+    // Korišćenje INTER_LINEAR daje najbolji odnos kvaliteta i brzine
+    cv::warpPerspective(inputMat, outputMat, M, cv::Size(dstW, dstH), cv::INTER_LINEAR);
 
-    // 7. Obrnuti horizontalno (ako vam je to potrebno zbog vašeg algoritma za rank/suit)
+    // 6. Horizontalni flip (zadržan jer ga vaš algoritam zahteva)
     for (int y = 0; y < dstH; ++y) {
         for (int x = 0; x < dstW / 2; ++x) {
             int l = (y * dstW + x) * 3;
@@ -498,7 +496,6 @@ void Ip_hard::stage_warpImage(const uint8_t* src, int srcW, int srcH,
         }
     }
 }
-
 void Ip_hard::stage_cropTopLeft(const uint8_t* src, int srcW,
                                  uint8_t* dst, int cW, int cH) {
     for (int y = 0; y < cH; ++y)
