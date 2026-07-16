@@ -12,7 +12,7 @@
 #include <algorithm>
 #include <climits>
 #include <vector>
-
+#include <opencv2/opencv.hpp>
 using namespace sc_core;
 using namespace sc_dt;
 
@@ -457,32 +457,46 @@ std::array<Point2f,4> Ip_hard::stage_findCorners(const Point2f* pts, int n) {
     return {tl, tr, br, bl};
 }
 
+
+
 void Ip_hard::stage_warpImage(const uint8_t* src, int srcW, int srcH,
                                const std::array<Point2f,4>& corners,
                                uint8_t* dst, int dstW, int dstH)
 {
+    // 1. Definiši izvorne tačke (4 ugla karte koje ste pronašli)
+    std::vector<cv::Point2f> srcPoints;
+    for(const auto& p : corners) {
+        srcPoints.push_back(cv::Point2f(p.x, p.y));
+    }
+
+    // 2. Definiši ciljne tačke (gde želimo da ih preslikamo - pravougaonik 200x300)
+    std::vector<cv::Point2f> dstPoints;
+    dstPoints.push_back(cv::Point2f(0.0f, 0.0f));                 // Gornji levi
+    dstPoints.push_back(cv::Point2f((float)dstW, 0.0f));          // Gornji desni
+    dstPoints.push_back(cv::Point2f((float)dstW, (float)dstH));   // Donji desni
+    dstPoints.push_back(cv::Point2f(0.0f, (float)dstH));          // Donji levi
+
+    // 3. Izračunaj matricu transformacije (OpenCV radi sve matematičke proračune)
+    cv::Mat M = cv::getPerspectiveTransform(srcPoints, dstPoints);
+
+    // 4. Napravite OpenCV Mat objekat koji *gleda* u vaš 'work_rgb' bafer (bez kopiranja!)
+    // Ovo je ključno za performanse - ne trošimo memoriju, samo koristimo pokazivač.
+    cv::Mat inputMat(srcH, srcW, CV_8UC3, (void*)src);
+
+    // 5. Napravite OpenCV Mat objekat koji *gleda* u vaš 'work_warped' izlazni bafer
+    cv::Mat outputMat(dstH, dstW, CV_8UC3, (void*)dst);
+
+    // 6. Izvrši perspektivnu transformaciju direktno u vaš bafer!
+    cv::warpPerspective(inputMat, outputMat, M, cv::Size(dstW, dstH));
+
+    // 7. Obrnuti horizontalno (ako vam je to potrebno zbog vašeg algoritma za rank/suit)
     for (int y = 0; y < dstH; ++y) {
-        float v = y / (float)(dstH-1);
-        for (int x = 0; x < dstW; ++x) {
-            float u = x / (float)(dstW-1);
-            Point2f top    = {(1-u)*corners[0].x + u*corners[1].x,
-                              (1-u)*corners[0].y + u*corners[1].y};
-            Point2f bottom = {(1-u)*corners[3].x + u*corners[2].x,
-                              (1-u)*corners[3].y + u*corners[2].y};
-            Point2f p      = {(1-v)*top.x + v*bottom.x,
-                              (1-v)*top.y + v*bottom.y};
-            int px = std::clamp((int)p.x, 0, srcW-1);
-            int py = std::clamp((int)p.y, 0, srcH-1);
-            for (int c = 0; c < 3; ++c)
-                dst[(y*dstW+x)*3+c] = src[(py*srcW+px)*3+c];
+        for (int x = 0; x < dstW / 2; ++x) {
+            int l = (y * dstW + x) * 3;
+            int r = (y * dstW + (dstW - 1 - x)) * 3;
+            for (int c = 0; c < 3; ++c) std::swap(dst[l + c], dst[r + c]);
         }
     }
-    // Horizontal flip in-place
-    for (int y = 0; y < dstH; ++y)
-        for (int x = 0; x < dstW/2; ++x) {
-            int l = (y*dstW+x)*3, r = (y*dstW+(dstW-1-x))*3;
-            for (int c = 0; c < 3; ++c) std::swap(dst[l+c], dst[r+c]);
-        }
 }
 
 void Ip_hard::stage_cropTopLeft(const uint8_t* src, int srcW,
