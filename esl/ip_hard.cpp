@@ -489,6 +489,30 @@ void Ip_hard::stage_splitSymbol(const uint8_t* src, int w, int h,
                                  uint8_t* rankBuf, int& rankH,
                                  uint8_t* suitBuf, int& suitH) {
     int mid = static_cast<int>(h * 0.60f);
+    int lo = std::max(1, h * 35 / 100);
+    int hi = std::min(h - 2, h * 75 / 100);
+
+    int bestY = mid;
+    int bestInk = w + 1;
+    for (int y = lo; y <= hi; ++y) {
+        int ink = 0;
+        for (int x = 0; x < w; ++x) {
+            int idx = (y * w + x) * 3;
+            int gray = (int)(src[idx + 0] * 0.30f +
+                             src[idx + 1] * 0.59f +
+                             src[idx + 2] * 0.11f);
+            if (gray < 120) ++ink;
+        }
+        if (ink < bestInk) {
+            bestInk = ink;
+            bestY = y;
+        }
+    }
+
+    if (bestInk <= std::max(1, w / 5)) {
+        mid = bestY;
+    }
+
     rankH = mid; suitH = h - mid;
     for (int y = 0; y < mid; ++y)
         for (int x = 0; x < w; ++x)
