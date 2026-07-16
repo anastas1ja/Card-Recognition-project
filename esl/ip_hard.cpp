@@ -442,18 +442,97 @@ static float _ptDist(Point2f a, Point2f b) {
 }
 
 std::array<Point2f,4> Ip_hard::stage_findCorners(const Point2f* pts, int n) {
-    Point2f tl=pts[0], tr=pts[0], br=pts[0], bl=pts[0];
-    float minSum=1e9f, maxSum=-1e9f, minDiff=1e9f, maxDiff=-1e9f;
+    Point2f tlAcc{0, 0}, trAcc{0, 0}, brAcc{0, 0}, blAcc{0, 0};
+    float tlScore[16], trScore[16], brScore[16], blScore[16];
+    Point2f tlPts[16], trPts[16], brPts[16], blPts[16];
+    int tlCount = 0, trCount = 0, brCount = 0, blCount = 0;
+
+    auto addBestMin = [](float* scores, Point2f* bestPts, int& count,
+                         float score, Point2f p) {
+        if (count < 16) {
+            scores[count] = score;
+            bestPts[count] = p;
+            ++count;
+            return;
+        }
+        int worst = 0;
+        for (int i = 1; i < 16; ++i)
+            if (scores[i] > scores[worst]) worst = i;
+        if (score < scores[worst]) {
+            scores[worst] = score;
+            bestPts[worst] = p;
+        }
+    };
+
+    auto addBestMax = [](float* scores, Point2f* bestPts, int& count,
+                         float score, Point2f p) {
+        if (count < 16) {
+            scores[count] = score;
+            bestPts[count] = p;
+            ++count;
+            return;
+        }
+        int worst = 0;
+        for (int i = 1; i < 16; ++i)
+            if (scores[i] < scores[worst]) worst = i;
+        if (score > scores[worst]) {
+            scores[worst] = score;
+            bestPts[worst] = p;
+        }
+    };
+
     for (int i = 0; i < n; ++i) {
         float s = pts[i].x + pts[i].y, d = pts[i].x - pts[i].y;
-        if (s < minSum)  { minSum  = s; tl = pts[i]; }
-        if (s > maxSum)  { maxSum  = s; br = pts[i]; }
-        if (d < minDiff) { minDiff = d; tr = pts[i]; }
-        if (d > maxDiff) { maxDiff = d; bl = pts[i]; }
+        addBestMin(tlScore, tlPts, tlCount, s, pts[i]);
+        addBestMax(brScore, brPts, brCount, s, pts[i]);
+        addBestMin(trScore, trPts, trCount, d, pts[i]);
+        addBestMax(blScore, blPts, blCount, d, pts[i]);
     }
-    float avgW = (_ptDist(tl,tr) + _ptDist(bl,br)) / 2.0f;
-    float avgH = (_ptDist(tl,bl) + _ptDist(tr,br)) / 2.0f;
-    if (avgW > avgH) return {bl, tl, tr, br};
+
+    auto averagePts = [](const Point2f* p, int count) {
+        Point2f out{0, 0};
+        for (int i = 0; i < count; ++i) {
+            out.x += p[i].x;
+            out.y += p[i].y;
+        }
+        if (count > 0) {
+            out.x /= (float)count;
+            out.y /= (float)count;
+        }
+        return out;
+    };
+
+    Point2f tl = averagePts(tlPts, tlCount);
+    Point2f tr = averagePts(trPts, trCount);
+    Point2f br = averagePts(brPts, brCount);
+    Point2f bl = averagePts(blPts, blCount);
+
+    Point2f center{(tl.x + tr.x + br.x + bl.x) * 0.25f,
+                   (tl.y + tr.y + br.y + bl.y) * 0.25f};
+    Point2f ordered[4] = {tl, tr, br, bl};
+    std::sort(ordered, ordered + 4, [center](const Point2f& a, const Point2f& b) {
+        return std::atan2(a.y - center.y, a.x - center.x) <
+               std::atan2(b.y - center.y, b.x - center.x);
+    });
+
+    int tlIdx = 0;
+    float bestSum = ordered[0].x + ordered[0].y;
+    for (int i = 1; i < 4; ++i) {
+        float s = ordered[i].x + ordered[i].y;
+        if (s < bestSum) {
+            bestSum = s;
+            tlIdx = i;
+        }
+    }
+
+    tl = ordered[tlIdx];
+    tr = ordered[(tlIdx + 1) % 4];
+    br = ordered[(tlIdx + 2) % 4];
+    bl = ordered[(tlIdx + 3) % 4];
+
+    if (_ptDist(tl, tr) > _ptDist(tl, bl)) {
+        return {bl, tl, tr, br};
+    }
     return {tl, tr, br, bl};
 }
 
@@ -472,9 +551,9 @@ void Ip_hard::stage_warpImage(const uint8_t* src, int srcW, int srcH,
     // 2. Definiši ciljne tačke (pravougaonik 200x300)
     std::vector<cv::Point2f> dstPoints;
     dstPoints.push_back(cv::Point2f(0.0f, 0.0f));                 // Gornji levi
-    dstPoints.push_back(cv::Point2f((float)dstW, 0.0f));          // Gornji desni
-    dstPoints.push_back(cv::Point2f((float)dstW, (float)dstH));   // Donji desni
-    dstPoints.push_back(cv::Point2f(0.0f, (float)dstH));          // Donji levi
+    dstPoints.push_back(cv::Point2f((float)(dstW - 1), 0.0f));          // Gornji desni
+    dstPoints.push_back(cv::Point2f((float)(dstW - 1), (float)(dstH - 1)));   // Donji desni
+    dstPoints.push_back(cv::Point2f(0.0f, (float)(dstH - 1)));          // Donji levi
 
     // 3. Izračunaj matricu transformacije
     cv::Mat M = cv::getPerspectiveTransform(srcPoints, dstPoints);
@@ -485,16 +564,10 @@ void Ip_hard::stage_warpImage(const uint8_t* src, int srcW, int srcH,
 
     // 5. Izvrši perspektivnu transformaciju direktno u vaš izlazni bafer
     // Korišćenje INTER_LINEAR daje najbolji odnos kvaliteta i brzine
-    cv::warpPerspective(inputMat, outputMat, M, cv::Size(dstW, dstH), cv::INTER_LINEAR);
+    cv::warpPerspective(inputMat, outputMat, M, cv::Size(dstW, dstH),
+                        cv::INTER_LINEAR, cv::BORDER_REPLICATE);
 
     // 6. Horizontalni flip (zadržan jer ga vaš algoritam zahteva)
-    for (int y = 0; y < dstH; ++y) {
-        for (int x = 0; x < dstW / 2; ++x) {
-            int l = (y * dstW + x) * 3;
-            int r = (y * dstW + (dstW - 1 - x)) * 3;
-            for (int c = 0; c < 3; ++c) std::swap(dst[l + c], dst[r + c]);
-        }
-    }
 }
 void Ip_hard::stage_cropTopLeft(const uint8_t* src, int srcW,
                                  uint8_t* dst, int cW, int cH) {
