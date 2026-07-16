@@ -223,6 +223,8 @@ void Ip_hard::ip_thread()
         stage_toGrayscale(work_suitRGB, work_suitGray, symW, suitH);
         stage_binarize(work_rankGray, symW * rankH, 120);
         stage_binarize(work_suitGray, symW * suitH, 120);
+        stbi_write_png("debug_rank_binary.png", symW, rankH, 1, work_rankGray, symW);
+        stbi_write_png("debug_suit_binary.png", symW, suitH, 1, work_suitGray, symW);
 
         // ── PHASE 10: template matching ───────────────────────────────────────
         // matchers receive mbfs_* so they never touch bfs_* / work_comp.
@@ -494,7 +496,7 @@ void Ip_hard::stage_cropTopLeft(const uint8_t* src, int srcW,
 void Ip_hard::stage_splitSymbol(const uint8_t* src, int w, int h,
                                  uint8_t* rankBuf, int& rankH,
                                  uint8_t* suitBuf, int& suitH) {
-    int mid = static_cast<int>(h * 0.60f);
+    int mid = static_cast<int>(h * 0.52f);
     rankH = mid; suitH = h - mid;
     for (int y = 0; y < mid; ++y)
         for (int x = 0; x < w; ++x)
