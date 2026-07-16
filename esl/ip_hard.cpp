@@ -5,7 +5,7 @@
 #include "stb_image.h"
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image_write.h"
-
+#include "adapter.hpp"
 #include "ip_hard.hpp"
 #include <cmath>
 #include <cstring>
