@@ -3,6 +3,8 @@
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
+#define STB_IMAGE_WRITE_IMPLEMENTATION
+#include "stb_image_write.h"
 
 #include "ip_hard.hpp"
 #include <cmath>
@@ -163,6 +165,7 @@ void Ip_hard::ip_thread()
         auto corners = stage_findCorners(work_comp, compCount);
         stage_warpImage(work_rgb, W, H, corners, work_warped, 200, 300);
         wait(sc_time(200 * 300, SC_NS));
+        stbi_write_png("debug_warped_card.png", 200, 300, 3, work_warped, 200 * 3);
 
         // ── PHASE 5: crop top-left 40×100 ─────────────────────────────────────
         stage_cropTopLeft(work_warped, 200, work_corner, 40, 100);
@@ -489,30 +492,6 @@ void Ip_hard::stage_splitSymbol(const uint8_t* src, int w, int h,
                                  uint8_t* rankBuf, int& rankH,
                                  uint8_t* suitBuf, int& suitH) {
     int mid = static_cast<int>(h * 0.60f);
-    int lo = std::max(1, h * 35 / 100);
-    int hi = std::min(h - 2, h * 75 / 100);
-
-    int bestY = mid;
-    int bestInk = w + 1;
-    for (int y = lo; y <= hi; ++y) {
-        int ink = 0;
-        for (int x = 0; x < w; ++x) {
-            int idx = (y * w + x) * 3;
-            int gray = (int)(src[idx + 0] * 0.30f +
-                             src[idx + 1] * 0.59f +
-                             src[idx + 2] * 0.11f);
-            if (gray < 120) ++ink;
-        }
-        if (ink < bestInk) {
-            bestInk = ink;
-            bestY = y;
-        }
-    }
-
-    if (bestInk <= std::max(1, w / 5)) {
-        mid = bestY;
-    }
-
     rankH = mid; suitH = h - mid;
     for (int y = 0; y < mid; ++y)
         for (int x = 0; x < w; ++x)
@@ -559,7 +538,7 @@ int Ip_hard::stage_rankMatcher(const uint8_t* grayData, int w, int h) {
     minX = std::max(0.0f, minX-2); minY = std::max(0.0f, minY-2);
     maxX = std::min((float)w-1, maxX+2); maxY = std::min((float)h-1, maxY+2);
 
-    int cW = (int)(maxX-minX), cH = (int)(maxY-minY);
+    int cW = (int)(maxX - minX + 1), cH = (int)(maxY - minY + 1);
     if (cW <= 0 || cH <= 0) return -1;
     for (int y = 0; y < cH; ++y)
         for (int x = 0; x < cW; ++x)
@@ -625,7 +604,7 @@ int Ip_hard::stage_matchSuit(const uint8_t* grayData, int w, int h) {
     minX = std::max(0.0f, minX-2); minY = std::max(0.0f, minY-2);
     maxX = std::min((float)w-1, maxX+2); maxY = std::min((float)h-1, maxY+2);
 
-    int cW = (int)(maxX-minX), cH = (int)(maxY-minY);
+    int cW = (int)(maxX - minX + 1), cH = (int)(maxY - minY + 1);
     if (cW <= 0 || cH <= 0) return -1;
     for (int y = 0; y < cH; ++y)
         for (int x = 0; x < cW; ++x)
