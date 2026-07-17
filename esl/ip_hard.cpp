@@ -192,7 +192,7 @@ void Ip_hard::ip_thread()
         wait(sc_time(finalW * finalH, SC_NS));
         stbi_write_png("debug_warped_card.png", finalW, finalH, 3, work_warped, finalW * 3);
         // ── PHASE 5: crop top-left 50×120 ─────────────────────────────────────
-        stage_cropTopLeft(work_warped, 200, work_corner, 50, 120);
+        stage_cropLeftColumn(work_warped, 200, work_corner, 50, 120); //zameni sa 300?
         stbi_write_png("debug_roi_rgb.png", 50, 120, 3, work_corner, 50 * 3);
 
         // ── PHASE 6: grayscale + binarise corner ──────────────────────────────
@@ -300,13 +300,21 @@ void Ip_hard::ip_thread()
                           work_suitRGB, suitH);
 
         // ── PHASE 9: grayscale + binarise rank & suit strips ──────────────────
-        stage_toGrayscale(work_rankRGB, work_rankGray, symW, rankH);
-        stage_toGrayscale(work_suitRGB, work_suitGray, symW, suitH);
-        stage_binarize(work_rankGray, symW * rankH, 120);
-        stage_binarize(work_suitGray, symW * suitH, 120);
-        stbi_write_png("debug_rank_binary.png", symW, rankH, 1, work_rankGray, symW);
-        stbi_write_png("debug_suit_binary.png", symW, suitH, 1, work_suitGray, symW);
+                // ── PHASE 9: grayscale + binarise rank & suit strips ──────────────────
+        stage_toGrayscale(work_rankRGB, work_rankGray, rankW, rankH);
+        stage_toGrayscale(work_suitRGB, work_suitGray, suitW, suitH);
 
+        // OBAVEZNO: Prvo ispišite GRAY sliku, da vidite da li su podaci tu!
+        stbi_write_png("debug_rank_gray.png", rankW, rankH, 1, work_rankGray, rankW); // Obratite pažnju na STRIDE
+        stbi_write_png("debug_suit_gray.png", suitW, suitH, 1, work_suitGray, suitW);
+
+        // Tek onda binarirajte
+        stage_binarize(work_rankGray, rankW * rankH, 120);
+        stage_binarize(work_suitGray, suitW * suitH, 120);
+
+        // Ispišite binarnu sliku sa TAČNIM STRIDE-om (rankW, a NE 50!)
+        stbi_write_png("debug_rank_binary.png", rankW, rankH, 1, work_rankGray, rankW);
+        stbi_write_png("debug_suit_binary.png", suitW, suitH, 1, work_suitGray, suitW);
         // ── PHASE 10: template matching ───────────────────────────────────────
         // matchers receive mbfs_* so they never touch bfs_* / work_comp.
         int rank = stage_rankMatcher(work_rankGray, symW, rankH);
@@ -341,7 +349,7 @@ void Ip_hard::stage_toGrayscale(const uint8_t* src, uint8_t* dst, int w, int h) 
 
 void Ip_hard::stage_binarize(uint8_t* data, int n, int thr) {
     for (int i = 0; i < n; ++i)
-        data[i] = (data[i] > thr) ? 255 : 0;
+        data[i] = (data[i] < thr) ? 255 : 0;
 }
 
 void Ip_hard::stage_binarizeTo(const uint8_t* src, uint8_t* dst, int n, int thr) {
@@ -573,12 +581,11 @@ void Ip_hard::stage_warpImage(const uint8_t* src, int srcW, int srcH,
     cv::warpPerspective(inputMat, outputMat, M, cv::Size(dstW, dstH),
                         cv::INTER_LINEAR, cv::BORDER_CONSTANT, cv::Scalar(255, 255, 255));
 }
-void Ip_hard::stage_cropTopLeft(const uint8_t* src, int srcW,
+void Ip_hard::stage_cropLeftColumn(const uint8_t* src, int srcW,
                                  uint8_t* dst, int cW, int cH) {
-    for (int y = 0; y < cH; ++y)
-        for (int x = 0; x < cW; ++x)
-            for (int c = 0; c < 3; ++c)
-                dst[(y*cW+x)*3+c] = src[(y*srcW+x)*3+c];
+   for (int y = 0; y < cH; ++y) {
+    std::memcpy(&dst[y * cW * 3], &src[y * srcW * 3], cW * 3 * sizeof(uint8_t));
+}
 }
 
 void Ip_hard::stage_splitSymbol(const uint8_t* src, int w, int h,
