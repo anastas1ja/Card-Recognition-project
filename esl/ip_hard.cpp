@@ -171,11 +171,24 @@ void Ip_hard::ip_thread()
         // ── PHASE 4: perspective warp → 200×300 RGB ───────────────────────────
         // FIX BUG1: use work_rgb (not work_comp) as source.
         // work_comp still contains valid Point2f corner data from Phase 3.
+               // ── PHASE 4: perspective warp ───────────────────────────────────────────
         auto corners = stage_findCorners(work_comp, compCount);
-        stage_warpImage(work_rgb, W, H, corners, work_warped, 200, 300);
-        wait(sc_time(200 * 300, SC_NS));
-        stbi_write_png("debug_warped_card.png", 200, 300, 3, work_warped, 200 * 3);
 
+        // DINAMIČKO RAČUNANJE PRAVE ŠIRINE I VISINE KARTE
+        float top_w    = _ptDist(corners[0], corners[1]); // Gornja ivica
+        float bottom_w = _ptDist(corners[3], corners[2]); // Donja ivica
+        float left_h   = _ptDist(corners[0], corners[3]); // Leva ivica
+        float right_h  = _ptDist(corners[1], corners[2]); // Desna ivica
+
+        int finalW = (int)((top_w + bottom_w) / 2.0f);
+        int finalH = (int)((left_h + right_h) / 2.0f);
+
+        // Bezbednosna provera (ako je detekcija loša, vrati na 200x300)
+        if (finalW < 10 || finalH < 10) { finalW = 200; finalH = 300; }
+
+        stage_warpImage(work_rgb, W, H, corners, work_warped, finalW, finalH);
+        wait(sc_time(finalW * finalH, SC_NS));
+        stbi_write_png("debug_warped_card.png", finalW, finalH, 3, work_warped, finalW * 3);
         // ── PHASE 5: crop top-left 50×120 ─────────────────────────────────────
         stage_cropTopLeft(work_warped, 200, work_corner, 50, 120);
         stbi_write_png("debug_roi_rgb.png", 50, 120, 3, work_corner, 50 * 3);
@@ -239,7 +252,7 @@ void Ip_hard::ip_thread()
             int ch = stats.at<int>(label, cv::CC_STAT_HEIGHT);
             int area = stats.at<int>(label, cv::CC_STAT_AREA);
 
-            bool verticalEdge = (ch > 35 && cw <= 5 && (x <= 3 || x + cw >= 47));
+            bool verticalEdge = (ch > 35 && cw <= 8);
             bool horizontalEdge = (cw > 25 && ch <= 4 && (y <= 3 || y + ch >= 117));
             if (area < 3 || verticalEdge || horizontalEdge) continue;
 
@@ -508,50 +521,22 @@ static float _ptDist(Point2f a, Point2f b) {
 }
 
 std::array<Point2f,4> Ip_hard::stage_findCorners(const Point2f* pts, int n) {
-    std::vector<cv::Point2f> compPts;
-    compPts.reserve(n);
-    for (int i = 0; i < n; ++i)
-        compPts.emplace_back(pts[i].x, pts[i].y);
+    if (n == 0) return {Point2f{0,0}, Point2f{0,0}, Point2f{0,0}, Point2f{0,0}};
+    
+    float min_sum = 1e9f, max_sum = -1e9f;
+    float min_diff = 1e9f, max_diff = -1e9f; // diff = x - y
+    Point2f tl{0,0}, br{0,0}, tr{0,0}, bl{0,0};
 
-    cv::RotatedRect rect = cv::minAreaRect(compPts);
-    cv::Point2f box[4];
-    rect.points(box);
-
-    Point2f ordered[4];
-    for (int i = 0; i < 4; ++i)
-        ordered[i] = {box[i].x, box[i].y};
-
-    Point2f center{0.0f, 0.0f};
-    for (int i = 0; i < 4; ++i) {
-        center.x += ordered[i].x;
-        center.y += ordered[i].y;
+    for (int i = 0; i < n; ++i) {
+        float s = pts[i].x + pts[i].y;
+        float d = pts[i].x - pts[i].y;
+        if (s < min_sum) { min_sum = s; tl = pts[i]; } // Gornji levi (min suma)
+        if (s > max_sum) { max_sum = s; br = pts[i]; } // Donji desni (max suma)
+        if (d > max_diff) { max_diff = d; tr = pts[i]; } // Gornji desni (max razlika)
+        if (d < min_diff) { min_diff = d; bl = pts[i]; } // Donji levi (min razlika)
     }
-    center.x *= 0.25f;
-    center.y *= 0.25f;
-
-    std::sort(ordered, ordered + 4, [center](const Point2f& a, const Point2f& b) {
-        return std::atan2(a.y - center.y, a.x - center.x) <
-               std::atan2(b.y - center.y, b.x - center.x);
-    });
-
-    int tlIdx = 0;
-    float bestSum = ordered[0].x + ordered[0].y;
-    for (int i = 1; i < 4; ++i) {
-        float s = ordered[i].x + ordered[i].y;
-        if (s < bestSum) {
-            bestSum = s;
-            tlIdx = i;
-        }
-    }
-
-    Point2f tl = ordered[tlIdx];
-    Point2f tr = ordered[(tlIdx + 1) % 4];
-    Point2f br = ordered[(tlIdx + 2) % 4];
-    Point2f bl = ordered[(tlIdx + 3) % 4];
-
-    if (_ptDist(tl, tr) > _ptDist(tl, bl)) {
-        return {bl, tl, tr, br};
-    }
+    
+    // Vraćamo tačno redosled: TL, TR, BR, BL (potreban za getPerspectiveTransform)
     return {tl, tr, br, bl};
 }
 
@@ -583,9 +568,10 @@ void Ip_hard::stage_warpImage(const uint8_t* src, int srcW, int srcH,
 
     // 5. Izvrši perspektivnu transformaciju direktno u vaš izlazni bafer
     // Korišćenje INTER_LINEAR daje najbolji odnos kvaliteta i brzine
+       // 5. Izvrši perspektivnu transformaciju
+    // BORDER_CONSTANT + Scalar(255,255,255) popunjava ostatak BELOM bojom
     cv::warpPerspective(inputMat, outputMat, M, cv::Size(dstW, dstH),
-                        cv::INTER_LINEAR, cv::BORDER_REPLICATE);
-
+                        cv::INTER_LINEAR, cv::BORDER_CONSTANT, cv::Scalar(255, 255, 255));
 }
 void Ip_hard::stage_cropTopLeft(const uint8_t* src, int srcW,
                                  uint8_t* dst, int cW, int cH) {
