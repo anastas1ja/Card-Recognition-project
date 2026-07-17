@@ -642,7 +642,7 @@ void Ip_hard::stage_splitSymbol(const uint8_t* src, int w, int h,
     std::fill(rankBuf, rankBuf + (w * rankH * 3), 255);
     std::fill(suitBuf, suitBuf + (w * suitH * 3), 255);
 
-    int rankCopyW = std::min(w, std::max(10, w * 70 / 100));
+    int rankCopyW = w;
     for (int y = 0; y < mid; ++y)
         for (int x = 0; x < rankCopyW; ++x)
             for (int c = 0; c < 3; ++c)
