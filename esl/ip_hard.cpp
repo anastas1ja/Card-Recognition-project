@@ -11,6 +11,7 @@
 #include <cstring>
 #include <algorithm>
 #include <climits>
+#include <cstdio>
 #include <vector>
 #include <opencv2/opencv.hpp>
 using namespace sc_core;
@@ -120,6 +121,13 @@ void Ip_hard::ip_thread()
 {
     while (true) {
         wait(start_event);
+
+        std::remove("debug_binary_full.png");
+        std::remove("debug_warped_card.png");
+        std::remove("debug_roi_rgb.png");
+        std::remove("debug_roi_binary.png");
+        std::remove("debug_rank_binary.png");
+        std::remove("debug_suit_binary.png");
 
         status_ready = 0;
         ctrl_start   = 0;
