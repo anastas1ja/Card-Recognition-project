@@ -542,10 +542,11 @@ void Ip_hard::stage_splitSymbol(const uint8_t* src, int w, int h,
                                  uint8_t* suitBuf, int& suitH) {
     int mid = static_cast<int>(h * 0.60f);
     std::vector<int> rowInk(h, 0);
+    int rankBandW = std::max(8, w * 65 / 100);
 
     for (int y = 0; y < h; ++y) {
         int ink = 0;
-        for (int x = 0; x < w; ++x) {
+        for (int x = 0; x < rankBandW; ++x) {
             int idx = (y * w + x) * 3;
             int gray = (int)(src[idx + 0] * 0.30f +
                              src[idx + 1] * 0.59f +
@@ -558,7 +559,7 @@ void Ip_hard::stage_splitSymbol(const uint8_t* src, int w, int h,
     int lo = std::max(2, h * 42 / 100);
     int hi = std::min(h - 3, h * 78 / 100);
     int bestY = mid;
-    int bestWin = w * 3 + 1;
+    int bestWin = rankBandW * 3 + 1;
 
     for (int y = lo; y <= hi; ++y) {
         int aboveInk = 0, belowInk = 0;
@@ -566,7 +567,7 @@ void Ip_hard::stage_splitSymbol(const uint8_t* src, int w, int h,
             if (y - k >= 0) aboveInk += rowInk[y - k];
             if (y + k < h) belowInk += rowInk[y + k];
         }
-        if (aboveInk < w / 2 || belowInk < w / 2) continue;
+        if (aboveInk < rankBandW / 2 || belowInk < rankBandW / 2) continue;
 
         int win = rowInk[y - 1] + rowInk[y] + rowInk[y + 1];
         if (win < bestWin) {
@@ -575,15 +576,20 @@ void Ip_hard::stage_splitSymbol(const uint8_t* src, int w, int h,
         }
     }
 
-    if (bestWin <= std::max(3, w / 3)) {
+    if (bestWin <= std::max(3, rankBandW / 3)) {
         mid = bestY;
     }
 
     rankH = mid; suitH = h - mid;
+    std::fill(rankBuf, rankBuf + (w * rankH * 3), 255);
+    std::fill(suitBuf, suitBuf + (w * suitH * 3), 255);
+
+    int rankCopyW = std::min(w, std::max(10, w * 70 / 100));
     for (int y = 0; y < mid; ++y)
-        for (int x = 0; x < w; ++x)
+        for (int x = 0; x < rankCopyW; ++x)
             for (int c = 0; c < 3; ++c)
                 rankBuf[(y*w+x)*3+c] = src[(y*w+x)*3+c];
+
     for (int y = 0; y < suitH; ++y)
         for (int x = 0; x < w; ++x)
             for (int c = 0; c < 3; ++c)
