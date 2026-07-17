@@ -541,6 +541,44 @@ void Ip_hard::stage_splitSymbol(const uint8_t* src, int w, int h,
                                  uint8_t* rankBuf, int& rankH,
                                  uint8_t* suitBuf, int& suitH) {
     int mid = static_cast<int>(h * 0.60f);
+    std::vector<int> rowInk(h, 0);
+
+    for (int y = 0; y < h; ++y) {
+        int ink = 0;
+        for (int x = 0; x < w; ++x) {
+            int idx = (y * w + x) * 3;
+            int gray = (int)(src[idx + 0] * 0.30f +
+                             src[idx + 1] * 0.59f +
+                             src[idx + 2] * 0.11f);
+            if (gray < 120) ++ink;
+        }
+        rowInk[y] = ink;
+    }
+
+    int lo = std::max(2, h * 42 / 100);
+    int hi = std::min(h - 3, h * 78 / 100);
+    int bestY = mid;
+    int bestWin = w * 3 + 1;
+
+    for (int y = lo; y <= hi; ++y) {
+        int aboveInk = 0, belowInk = 0;
+        for (int k = 2; k <= 8; ++k) {
+            if (y - k >= 0) aboveInk += rowInk[y - k];
+            if (y + k < h) belowInk += rowInk[y + k];
+        }
+        if (aboveInk < w / 2 || belowInk < w / 2) continue;
+
+        int win = rowInk[y - 1] + rowInk[y] + rowInk[y + 1];
+        if (win < bestWin) {
+            bestWin = win;
+            bestY = y;
+        }
+    }
+
+    if (bestWin <= std::max(3, w / 3)) {
+        mid = bestY;
+    }
+
     rankH = mid; suitH = h - mid;
     for (int y = 0; y < mid; ++y)
         for (int x = 0; x < w; ++x)
