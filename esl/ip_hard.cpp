@@ -210,7 +210,7 @@ void Ip_hard::ip_thread()
         float minX = 50, maxX = 0, minY = 120, maxY = 0;
         bool  found = false;
         for (int y = 0; y < 120; ++y) {
-            for (int x = leftEdge; x <= rightEdge; ++x) {
+            for (int x = 0; x < 50; ++x) {
                 if (work_binC[y * 50 + x] == 0) {   // black = symbol/digit
                     if ((float)x < minX) minX = (float)x;
                     if ((float)x > maxX) maxX = (float)x;
@@ -220,6 +220,44 @@ void Ip_hard::ip_thread()
                 }
             }
         }
+
+        cv::Mat roiMask(120, 50, CV_8UC1);
+        for (int y = 0; y < 120; ++y)
+            for (int x = 0; x < 50; ++x)
+                roiMask.at<unsigned char>(y, x) =
+                    (work_binC[y * 50 + x] == 0) ? 255 : 0;
+
+        cv::Mat labels, stats, centroids;
+        int nLabels = cv::connectedComponentsWithStats(roiMask, labels, stats, centroids, 8);
+        float ccMinX = 50, ccMaxX = 0, ccMinY = 120, ccMaxY = 0;
+        bool ccFound = false;
+
+        for (int label = 1; label < nLabels; ++label) {
+            int x = stats.at<int>(label, cv::CC_STAT_LEFT);
+            int y = stats.at<int>(label, cv::CC_STAT_TOP);
+            int cw = stats.at<int>(label, cv::CC_STAT_WIDTH);
+            int ch = stats.at<int>(label, cv::CC_STAT_HEIGHT);
+            int area = stats.at<int>(label, cv::CC_STAT_AREA);
+
+            bool verticalEdge = (ch > 35 && cw <= 5 && (x <= 3 || x + cw >= 47));
+            bool horizontalEdge = (cw > 25 && ch <= 4 && (y <= 3 || y + ch >= 117));
+            if (area < 3 || verticalEdge || horizontalEdge) continue;
+
+            ccMinX = std::min(ccMinX, (float)x);
+            ccMinY = std::min(ccMinY, (float)y);
+            ccMaxX = std::max(ccMaxX, (float)(x + cw - 1));
+            ccMaxY = std::max(ccMaxY, (float)(y + ch - 1));
+            ccFound = true;
+        }
+
+        if (ccFound) {
+            minX = ccMinX;
+            minY = ccMinY;
+            maxX = ccMaxX;
+            maxY = ccMaxY;
+            found = true;
+        }
+
         if (!found) {
             card_rank = 0; card_suit = 0;
             status_ready = 1; done_event.notify();
