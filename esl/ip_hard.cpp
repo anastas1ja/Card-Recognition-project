@@ -186,11 +186,31 @@ void Ip_hard::ip_thread()
         wait(sc_time(50 * 120, SC_NS));
         stbi_write_png("debug_roi_binary.png", 50, 120, 1, work_binC, 50);
 
+        int leftEdge = 0;
+        int rightEdge = 49;
+        for (int x = 0; x < 12; ++x) {
+            int colInk = 0;
+            for (int y = 0; y < 120; ++y)
+                if (work_binC[y * 50 + x] == 0) ++colInk;
+            if (colInk > 40) leftEdge = x + 1;
+        }
+        for (int x = 49; x >= 38; --x) {
+            int colInk = 0;
+            for (int y = 0; y < 120; ++y)
+                if (work_binC[y * 50 + x] == 0) ++colInk;
+            if (colInk > 40) rightEdge = x - 1;
+        }
+
         // ── PHASE 7: find symbol bounding box (scan for black pixels) ─────────
+        if (leftEdge >= rightEdge) {
+            leftEdge = 0;
+            rightEdge = 49;
+        }
+
         float minX = 50, maxX = 0, minY = 120, maxY = 0;
         bool  found = false;
         for (int y = 0; y < 120; ++y) {
-            for (int x = 0; x < 50; ++x) {
+            for (int x = leftEdge; x <= rightEdge; ++x) {
                 if (work_binC[y * 50 + x] == 0) {   // black = symbol/digit
                     if ((float)x < minX) minX = (float)x;
                     if ((float)x > maxX) maxX = (float)x;
