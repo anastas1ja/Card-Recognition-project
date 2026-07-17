@@ -216,103 +216,108 @@ void Ip_hard::ip_thread()
             if (colInk > 40) rightEdge = x - 1;
         }
 
-        // ── PHASE 7: find symbol bounding box (scan for black pixels) ─────────
-        if (leftEdge >= rightEdge) {
-            leftEdge = 0;
-            rightEdge = 49;
-        }
+           // ── PHASE 7: find rank and suit using pure C++ row scanning ────────────
+        int rankStartY = 0, rankEndY = 0;
+        int suitStartY = 0, suitEndY = 0;
+        int rankMinX = 50, rankMaxX = 0, suitMinX = 50, suitMaxX = 0;
 
-        float minX = 50, maxX = 0, minY = 120, maxY = 0;
-        bool  found = false;
-        for (int y = 0; y < 120; ++y) {
+        bool inRank = false;
+        int emptyRows = 0;
+        const int MIN_EMPTY_GAP = 4; 
+
+        for (int y = 0; y < 300; ++y) {
+            int ink = 0;
             for (int x = 0; x < 50; ++x) {
-                if (work_binC[y * 50 + x] == 0) {   // black = symbol/digit
-                    if ((float)x < minX) minX = (float)x;
-                    if ((float)x > maxX) maxX = (float)x;
-                    if ((float)y < minY) minY = (float)y;
-                    if ((float)y > maxY) maxY = (float)y;
-                    found = true;
+                if (work_binC[y * 50 + x] == 0) ink++; // 0 je crna mastila
+            }
+
+            if (ink > 0) {
+                if (!inRank) {
+                    inRank = true;
+                    rankStartY = y;
+                }
+                if (inRank) {
+                    rankEndY = y;
+                    for (int x = 0; x < 50; ++x) {
+                        if (work_binC[y * 50 + x] == 0) {
+                            if (x < rankMinX) rankMinX = x;
+                            if (x > rankMaxX) rankMaxX = x;
+                        }
+                    }
+                } else {
+                    suitEndY = y;
+                    for (int x = 0; x < 50; ++x) {
+                        if (work_binC[y * 50 + x] == 0) {
+                            if (x < suitMinX) suitMinX = x;
+                            if (x > suitMaxX) suitMaxX = x;
+                        }
+                    }
+                }
+                emptyRows = 0;
+            } else {
+                emptyRows++;
+                if (inRank && emptyRows > MIN_EMPTY_GAP) {
+                    inRank = false;
+                    suitStartY = y + 1;
                 }
             }
         }
 
-        cv::Mat roiMask(120, 50, CV_8UC1);
-        for (int y = 0; y < 120; ++y)
-            for (int x = 0; x < 50; ++x)
-                roiMask.at<unsigned char>(y, x) =
-                    (work_binC[y * 50 + x] == 0) ? 255 : 0;
-
-        cv::Mat labels, stats, centroids;
-        int nLabels = cv::connectedComponentsWithStats(roiMask, labels, stats, centroids, 8);
-        float ccMinX = 50, ccMaxX = 0, ccMinY = 120, ccMaxY = 0;
-        bool ccFound = false;
-
-        for (int label = 1; label < nLabels; ++label) {
-            int x = stats.at<int>(label, cv::CC_STAT_LEFT);
-            int y = stats.at<int>(label, cv::CC_STAT_TOP);
-            int cw = stats.at<int>(label, cv::CC_STAT_WIDTH);
-            int ch = stats.at<int>(label, cv::CC_STAT_HEIGHT);
-            int area = stats.at<int>(label, cv::CC_STAT_AREA);
-
-            bool verticalEdge = (ch > 35 && cw <= 8);
-            bool horizontalEdge = (cw > 25 && ch <= 4 && (y <= 3 || y + ch >= 117));
-            if (area < 3 || verticalEdge || horizontalEdge) continue;
-
-            ccMinX = std::min(ccMinX, (float)x);
-            ccMinY = std::min(ccMinY, (float)y);
-            ccMaxX = std::max(ccMaxX, (float)(x + cw - 1));
-            ccMaxY = std::max(ccMaxY, (float)(y + ch - 1));
-            ccFound = true;
+        // Zaštita ako nismo našli Suit
+        if (suitStartY == 0) {
+            suitStartY = rankEndY + 5;
+            suitEndY = 299;
         }
 
-        if (ccFound) {
-            minX = ccMinX;
-            minY = ccMinY;
-            maxX = ccMaxX;
-            maxY = ccMaxY;
-            found = true;
-        }
-
-        if (!found) {
+        // Provera da li je detekcija uspela
+        if (rankEndY <= rankStartY || suitEndY <= suitStartY) {
             card_rank = 0; card_suit = 0;
             status_ready = 1; done_event.notify();
             continue;
         }
 
-        minX = std::max(0.0f, minX - 2.0f);
-        minY = std::max(0.0f, minY - 2.0f);
-        maxX = std::min(49.0f, maxX + 2.0f);
-        maxY = std::min(119.0f, maxY + 2.0f);
+        // =================================================================
+        // OVDE DEKLARIŠEMO rankW i suitW (kompajler ih ovde traži!)
+        // =================================================================
+        int rankW = rankMaxX - rankMinX + 1;
+        int suitW = suitMaxX - suitMinX + 1;
+        int rankH = rankEndY - rankStartY + 1 + 4; // +4 za marginu
+        int suitH = suitEndY - suitStartY + 1 + 4; // +4 za marginu
 
-        int symW = (int)(maxX - minX + 1);
-        int symH = (int)(maxY - minY + 1);
-        for (int y = 0; y < symH; ++y)
-            for (int x = 0; x < symW; ++x)
+        // Bezbednosno ograničenje margina
+        rankMinX = std::max(0, rankMinX - 2); rankMaxX = std::min(49, rankMaxX + 2);
+        suitMinX = std::max(0, suitMinX - 2); suitMaxX = std::min(49, suitMaxX + 2);
+
+        // Iseci Rank u work_rankRGB
+        for (int y = 0; y < rankH; ++y)
+            for (int x = 0; x < rankW; ++x)
                 for (int c = 0; c < 3; ++c)
-                    work_sym[(y * symW + x) * 3 + c] =
-                        work_corner[((int)minY + y) * 50 * 3 +
-                                    ((int)minX + x) * 3 + c];
+                    work_rankRGB[(y * rankW + x) * 3 + c] = 
+                        work_corner[((rankStartY - 2 + y) * 50 + (rankMinX + x)) * 3 + c];
 
+        // Iseci Suit u work_suitRGB
+        for (int y = 0; y < suitH; ++y)
+            for (int x = 0; x < suitW; ++x)
+                for (int c = 0; c < 3; ++c)
+                    work_suitRGB[(y * suitW + x) * 3 + c] = 
+                        work_corner[((suitStartY - 2 + y) * 50 + (suitMinX + x)) * 3 + c];
         // ── PHASE 8: split rank (top 60%) / suit (bottom 40%) ─────────────────
         int rankH = 0, suitH = 0;
         stage_splitSymbol(work_sym, symW, symH,
                           work_rankRGB, rankH,
                           work_suitRGB, suitH);
 
-        // ── PHASE 9: grayscale + binarise rank & suit strips ──────────────────
-                // ── PHASE 9: grayscale + binarise rank & suit strips ──────────────────
+         // ── PHASE 9: grayscale + binarise rank & suit strips ──────────────────
         stage_toGrayscale(work_rankRGB, work_rankGray, rankW, rankH);
         stage_toGrayscale(work_suitRGB, work_suitGray, suitW, suitH);
-
-        // OBAVEZNO: Prvo ispišite GRAY sliku, da vidite da li su podaci tu!
-        stbi_write_png("debug_rank_gray.png", rankW, rankH, 1, work_rankGray, rankW); // Obratite pažnju na STRIDE
+        
+        // Ispis pre binarizacije (samo za debug)
+        stbi_write_png("debug_rank_gray.png", rankW, rankH, 1, work_rankGray, rankW);
         stbi_write_png("debug_suit_gray.png", suitW, suitH, 1, work_suitGray, suitW);
 
-        // Tek onda binarirajte
         stage_binarize(work_rankGray, rankW * rankH, 120);
         stage_binarize(work_suitGray, suitW * suitH, 120);
-
-        // Ispišite binarnu sliku sa TAČNIM STRIDE-om (rankW, a NE 50!)
+        
         stbi_write_png("debug_rank_binary.png", rankW, rankH, 1, work_rankGray, rankW);
         stbi_write_png("debug_suit_binary.png", suitW, suitH, 1, work_suitGray, suitW);
         // ── PHASE 10: template matching ───────────────────────────────────────
