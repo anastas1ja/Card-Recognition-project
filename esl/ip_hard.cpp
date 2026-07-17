@@ -192,14 +192,14 @@ void Ip_hard::ip_thread()
         wait(sc_time(finalW * finalH, SC_NS));
         stbi_write_png("debug_warped_card.png", finalW, finalH, 3, work_warped, finalW * 3);
         // ── PHASE 5: crop top-left 50×120 ─────────────────────────────────────
-        stage_cropLeftColumn(work_warped, 200, work_corner, 50, 120); //zameni sa 300?
-        stbi_write_png("debug_roi_rgb.png", 50, 120, 3, work_corner, 50 * 3);
+        stage_cropLeftColumn(work_warped, 200, work_corner, 50, 300); //zameni sa 300?
+        stbi_write_png("debug_roi_rgb.png", 50, 300, 3, work_corner, 50 * 3);
 
         // ── PHASE 6: grayscale + binarise corner ──────────────────────────────
-        stage_toGrayscale(work_corner, work_grayC, 50, 120);
-        stage_binarizeTo(work_grayC, work_binC, 50 * 120, 120);
-        wait(sc_time(50 * 120, SC_NS));
-        stbi_write_png("debug_roi_binary.png", 50, 120, 1, work_binC, 50);
+        stage_toGrayscale(work_corner, work_grayC, 50, 300);
+        stage_binarizeTo(work_grayC, work_binC, 50 * 300, 120);
+        wait(sc_time(50 * 300, SC_NS));
+        stbi_write_png("debug_roi_binary.png", 50, 300, 1, work_binC, 50);
 
         int leftEdge = 0;
         int rightEdge = 49;
