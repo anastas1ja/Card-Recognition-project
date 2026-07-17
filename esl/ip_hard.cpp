@@ -302,16 +302,16 @@ void Ip_hard::ip_thread()
                     work_suitRGB[(y * suitW + x) * 3 + c] = 
                         work_corner[((suitStartY - 2 + y) * 50 + (suitMinX + x)) * 3 + c];
         // ── PHASE 8: split rank (top 60%) / suit (bottom 40%) ─────────────────
-        int rankH = 0, suitH = 0;
-        stage_splitSymbol(work_sym, symW, symH,
-                          work_rankRGB, rankH,
-                          work_suitRGB, suitH);
+      //  int rankH = 0, suitH = 0;
+        //stage_sp//litSymbol(work_sym, symW, symH,
+                     //     work_rankRGB, rankH,
+                          //work_suitRGB, suitH);
 
-         // ── PHASE 9: grayscale + binarise rank & suit strips ──────────────────
+                // ── PHASE 9: grayscale + binarise rank & suit strips ──────────────────
         stage_toGrayscale(work_rankRGB, work_rankGray, rankW, rankH);
         stage_toGrayscale(work_suitRGB, work_suitGray, suitW, suitH);
         
-        // Ispis pre binarizacije (samo za debug)
+        // Dodajte ovo ako želite da vidite slike pre binarizacije
         stbi_write_png("debug_rank_gray.png", rankW, rankH, 1, work_rankGray, rankW);
         stbi_write_png("debug_suit_gray.png", suitW, suitH, 1, work_suitGray, suitW);
 
@@ -322,9 +322,12 @@ void Ip_hard::ip_thread()
         stbi_write_png("debug_suit_binary.png", suitW, suitH, 1, work_suitGray, suitW);
         // ── PHASE 10: template matching ───────────────────────────────────────
         // matchers receive mbfs_* so they never touch bfs_* / work_comp.
-        int rank = stage_rankMatcher(work_rankGray, symW, rankH);
-        int suit = stage_matchSuit  (work_suitGray, symW, suitH);
-
+                // ── PHASE 10: template matching ───────────────────────────────────────
+        // matchers receive mbfs_* so they never touch bfs_* / work_comp.
+               // ── PHASE 10: template matching ───────────────────────────────────────
+        // matchers receive mbfs_* so they never touch bfs_* / work_comp.
+        int rank = stage_rankMatcher(work_rankGray, rankW, rankH); // Zamenili smo symW sa rankW
+        int suit = stage_matchSuit  (work_suitGray, suitW, suitH); // Zamenili smo symW sa suitW
         card_rank = (rank >= 0) ? (uint32_t)rank : 0u;
         card_suit = (suit >= 0) ? (uint32_t)suit : 0u;
 
