@@ -72,7 +72,7 @@ protected:
     void     stage_warpImage    (const uint8_t* src, int srcW, int srcH,
                                   const std::array<Point2f,4>& corners,
                                   uint8_t* dst, int dstW, int dstH);
-    void     stage_cropTopLeft  (const uint8_t* src, int srcW,
+    void     stage_cropLeftColumn  (const uint8_t* src, int srcW,
                                   uint8_t* dst, int cW, int cH);
     void     stage_splitSymbol  (const uint8_t* src, int w, int h,
                                   uint8_t* rankBuf, int& rankH,
