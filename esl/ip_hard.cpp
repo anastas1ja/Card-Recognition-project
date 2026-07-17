@@ -602,11 +602,18 @@ int Ip_hard::stage_rankMatcher(const uint8_t* grayData, int w, int h) {
         stage_binarizeRaw(tplRaw, tplBin, tW, tH, tC);
         stbi_image_free(tplRaw);
 
-        int diff = 0;
-        for (int i = 0; i < tW*tH; ++i)
-            if (resized[i] != tplBin[i]) ++diff;
+        int falsePos = 0, falseNeg = 0, unionInk = 0;
+        for (int i = 0; i < tW*tH; ++i) {
+            bool a = (resized[i] == 0);
+            bool b = (tplBin[i] == 0);
+            if (a || b) ++unionInk;
+            if (a && !b) ++falsePos;
+            if (!a && b) ++falseNeg;
+        }
 
-        float score = (float)diff / (float)(tW * tH);
+        float score = (unionInk > 0)
+                    ? (float)(falsePos + falseNeg) / (float)unionInk
+                    : 1e9f;
         if (score < bestScore) {
             bestScore = score;
             bestMatch = T[t].rank;
