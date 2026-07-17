@@ -18,7 +18,9 @@ using namespace sc_core;
 using namespace sc_dt;
 
 // Constructor / Destructor
-
+static float _ptDist(Point2f a, Point2f b) {
+    return std::sqrt((a.x-b.x)*(a.x-b.x) + (a.y-b.y)*(a.y-b.y));
+}
 
 Ip_hard::Ip_hard(sc_module_name name) : sc_module(name)
 {
@@ -516,9 +518,7 @@ int Ip_hard::stage_findLargestCcl(const uint8_t* binary, int w, int h,
     return outCount;
 }
 
-static float _ptDist(Point2f a, Point2f b) {
-    return std::sqrt((a.x-b.x)*(a.x-b.x) + (a.y-b.y)*(a.y-b.y));
-}
+
 
 std::array<Point2f,4> Ip_hard::stage_findCorners(const Point2f* pts, int n) {
     if (n == 0) return {Point2f{0,0}, Point2f{0,0}, Point2f{0,0}, Point2f{0,0}};
