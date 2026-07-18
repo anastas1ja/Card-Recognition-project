@@ -244,9 +244,10 @@ struct Band { int startY=-1, endY=-1, minX=50, maxX=0; };
 std::vector<Band> bands;
 bool inBand = false;
 int emptyRows = 0;
-const int MIN_EMPTY_GAP = 4;
+const int MIN_EMPTY_GAP = 1;
+const int MAX_SCAN_Y = 90;
 
-for (int y = 0; y < 120; ++y) {
+for (int y = 0; y < MAX_SCAN_Y; ++y) {
     int ink = 0;
     int rowMinX = 50, rowMaxX = -1;
     for (int x = 0; x < 50; ++x) {
@@ -256,13 +257,8 @@ for (int y = 0; y < 120; ++y) {
             if (x > rowMaxX) rowMaxX = x;
         }
     }
-
     if (ink > 0) {
-        if (!inBand) {
-            bands.push_back(Band{});
-            bands.back().startY = y;
-            inBand = true;
-        }
+        if (!inBand) { bands.push_back(Band{}); bands.back().startY = y; inBand = true; }
         bands.back().endY = y;
         if (rowMinX < bands.back().minX) bands.back().minX = rowMinX;
         if (rowMaxX > bands.back().maxX) bands.back().maxX = rowMaxX;
