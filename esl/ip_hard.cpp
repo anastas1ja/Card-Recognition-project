@@ -341,6 +341,13 @@ printf("[P2] whiteCount=%d / %d (%.1f%%)\n", whiteCount, N, 100.0*whiteCount/N);
         
         stbi_write_png("debug_rank_binary.png", rankW, rankH, 1, work_rankGray, rankW);
         stbi_write_png("debug_suit_binary.png", suitW, suitH, 1, work_suitGray, suitW);
+        
+        int rankInk=0, suitInk=0;
+for (int i=0;i<rankW*rankH;++i) if (work_rankGray[i]==0) rankInk++;
+for (int i=0;i<suitW*suitH;++i) if (work_suitGray[i]==0) suitInk++;
+printf("[P9] rankW=%d rankH=%d rankInk=%d/%d | suitW=%d suitH=%d suitInk=%d/%d\n",
+       rankW, rankH, rankInk, rankW*rankH, suitW, suitH, suitInk, suitW*suitH);
+        
         // ── PHASE 10: template matching ───────────────────────────────────────
         // matchers receive mbfs_* so they never touch bfs_* / work_comp.
                 // ── PHASE 10: template matching ───────────────────────────────────────
