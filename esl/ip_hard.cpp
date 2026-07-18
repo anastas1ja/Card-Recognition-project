@@ -158,7 +158,10 @@ printf("[P1] gray avg=%.1f min=%u max=%u N=%d W=%d H=%d\n", (double)sum/N, mn, m
         
 
 // ── PHASE 2: binarise grayscale → work_binary ─────────────────────────
-        stage_binarizeTo(work_gray, work_binary, N, 120);
+        // posle P1 dijagnostike, pre stage_binarizeTo:
+int adaptiveThr = (mn + mx) / 2;   // sredina stvarnog opsega osvetljenosti
+printf("[P2-adaptive] using threshold=%d (was fixed 120)\n", adaptiveThr);
+stage_binarizeTo(work_gray, work_binary, N, adaptiveThr);
         wait(sc_time(N, SC_NS));
         stbi_write_png("debug_binary_full.png", W, H, 1, work_binary, W);
 int whiteCount=0;
