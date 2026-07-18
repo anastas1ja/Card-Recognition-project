@@ -234,7 +234,9 @@ printf("[P2] whiteCount=%d / %d (%.1f%%)\n", whiteCount, N, 100.0*whiteCount/N);
                 if (work_binC[y * 50 + x] == 0) ++colInk;
             if (colInk > 40) rightEdge = x - 1;
         }
-
+int binCInk = 0;
+for (int i = 0; i < 50*120; ++i) if (work_binC[i] == 0) binCInk++;
+printf("[P6] binC inkCount=%d / %d\n", binCInk, 50*120);
            // ── PHASE 7: find rank and suit using pure C++ row scanning ────────────
         int rankStartY = 0, rankEndY = 0;
         int suitStartY = 0, suitEndY = 0;
@@ -292,11 +294,14 @@ printf("[P2] whiteCount=%d / %d (%.1f%%)\n", whiteCount, N, 100.0*whiteCount/N);
 
         // Provera da li je detekcija uspela
         if (rankEndY <= rankStartY || suitEndY <= suitStartY) {
-            card_rank = 0; card_suit = 0;
+            printf("[PHASE7-FAIL] rankStartY=%d rankEndY=%d suitStartY=%d suitEndY=%d\n",
+           rankStartY, rankEndY, suitStartY, suitEndY);
+             card_rank = 0; card_suit = 0;
             status_ready = 1; done_event.notify();
             continue;
         }
-
+printf("[PHASE7-OK] rankStartY=%d rankEndY=%d suitStartY=%d suitEndY=%d\n",
+       rankStartY, rankEndY, suitStartY, suitEndY);
         // =================================================================
         // OVDE DEKLARIŠEMO rankW i suitW (kompajler ih ovde traži!)
         // =================================================================
