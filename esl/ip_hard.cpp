@@ -273,6 +273,9 @@ for (int y = 0; y < MAX_SCAN_Y; ++y) {
 }
 
 if (bands.size() < 2) {
+    printf("[PHASE7-FAIL] pronadjeno bands.size()=%zu (treba >=2)\n", bands.size());
+    for (size_t i = 0; i < bands.size(); ++i)
+        printf("   band[%zu]: y[%d,%d] x[%d,%d]\n", i, bands[i].startY, bands[i].endY, bands[i].minX, bands[i].maxX);
     card_rank = 0; card_suit = 0;
     status_ready = 1; done_event.notify();
     continue;
