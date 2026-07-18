@@ -800,7 +800,32 @@ void Ip_hard::stage_splitSymbol(const uint8_t* src, int w, int h,
             for (int c = 0; c < 3; ++c)
                 suitBuf[(y*w+x)*3+c] = src[((y+mid)*w+x)*3+c];
 }
+static void resizeBilinearGray(const uint8_t* src, int srcW, int srcH,
+                                uint8_t* dst, int dstW, int dstH)
+{
+    float xRatio = (srcW > 1) ? (float)(srcW - 1) / dstW : 0.0f;
+    float yRatio = (srcH > 1) ? (float)(srcH - 1) / dstH : 0.0f;
 
+    for (int y = 0; y < dstH; ++y) {
+        float srcYf = y * yRatio;
+        int y0 = (int)srcYf;
+        int y1 = std::min(y0 + 1, srcH - 1);
+        float fy = srcYf - y0;
+
+        for (int x = 0; x < dstW; ++x) {
+            float srcXf = x * xRatio;
+            int x0 = (int)srcXf;
+            int x1 = std::min(x0 + 1, srcW - 1);
+            float fx = srcXf - x0;
+
+            float top    = src[y0*srcW+x0] * (1-fx) + src[y0*srcW+x1] * fx;
+            float bottom = src[y1*srcW+x0] * (1-fx) + src[y1*srcW+x1] * fx;
+            float val    = top * (1-fy) + bottom * fy;
+
+            dst[y*dstW+x] = (uint8_t)(val + 0.5f);
+        }
+    }
+}
 // ── Template matchers (use mbfs_* to avoid clobbering main pipeline) ─────────
 
 int Ip_hard::stage_rankMatcher(const uint8_t* grayData, int w, int h) {
@@ -853,10 +878,7 @@ int Ip_hard::stage_rankMatcher(const uint8_t* grayData, int w, int h) {
         uint8_t* tplRaw = stbi_load(T[t].file, &tW, &tH, &tC, 0);
         if (!tplRaw) continue;
 
-        float xR = (float)cW/tW, yR = (float)cH/tH;
-        for (int y = 0; y < tH; ++y)
-            for (int x = 0; x < tW; ++x)
-                resized[y*tW+x] = cropped[(int)(y*yR)*cW + (int)(x*xR)];
+        resizeBilinearGray(cropped, cW, cH, resized, tW, tH);
 
         stage_binarizeRaw(tplRaw, tplBin, tW, tH, tC);
         stbi_image_free(tplRaw);
@@ -928,11 +950,8 @@ int Ip_hard::stage_matchSuit(const uint8_t* grayData, int w, int h) {
         uint8_t* tplRaw = stbi_load(T[t].file, &tW, &tH, &tC, 0);
         if (!tplRaw) continue;
 
-        float xR = (float)cW/tW, yR = (float)cH/tH;
-        for (int y = 0; y < tH; ++y)
-            for (int x = 0; x < tW; ++x)
-                resized[y*tW+x] = cropped[(int)(y*yR)*cW + (int)(x*xR)];
-
+        resizeBilinearGray(cropped, cW, cH, resized, tW, tH);
+        
         stage_binarizeRaw(tplRaw, tplBin, tW, tH, tC);
         stbi_image_free(tplRaw);
 
