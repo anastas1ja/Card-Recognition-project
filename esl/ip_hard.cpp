@@ -826,6 +826,21 @@ static void resizeBilinearGray(const uint8_t* src, int srcW, int srcH,
         }
     }
 }
+
+static bool tightBBox(const uint8_t* bin, int w, int h,
+                       int& minX, int& minY, int& maxX, int& maxY)
+{
+    minX = w; minY = h; maxX = -1; maxY = -1;
+    for (int y = 0; y < h; ++y)
+        for (int x = 0; x < w; ++x)
+            if (bin[y*w+x] == 255) {
+                if (x < minX) minX = x;
+                if (x > maxX) maxX = x;
+                if (y < minY) minY = y;
+                if (y > maxY) maxY = y;
+            }
+    return maxX >= minX && maxY >= minY;
+}
 // ── Template matchers (use mbfs_* to avoid clobbering main pipeline) ─────────
 
 int Ip_hard::stage_rankMatcher(const uint8_t* grayData, int w, int h) {
@@ -841,14 +856,13 @@ int Ip_hard::stage_rankMatcher(const uint8_t* grayData, int w, int h) {
     const int NT = 13;
     const int BUF = 50 * 120;
 
-    uint8_t* inv_buf = work_rankGray;   // safe to reuse: caller won't read it again
+    uint8_t* inv_buf = work_rankGray;
     uint8_t  cropped[BUF];
     Point2f  cBuf[BUF];
 
     int n = w * h;
     for (int i = 0; i < n; ++i) inv_buf[i] = 255 - grayData[i];
 
-    // FIX BUG3: use mbfs_* not bfs_*
     int cCount = stage_findLargest(inv_buf, w, h, cBuf,
                                    mbfs_visited, mbfs_queue, mbfs_region);
     if (cCount == 0) return -1;
@@ -870,23 +884,34 @@ int Ip_hard::stage_rankMatcher(const uint8_t* grayData, int w, int h) {
 
     int bestMatch = -1;
     float bestScore = 1e9f;
-    static uint8_t resized[300*300], tplBin[300*300];
+    static uint8_t tplBin[300*300];
+    static uint8_t tplCropped[300*300];
+    const int CANVAS_W = 60, CANVAS_H = 100;
+    static uint8_t canvasA[60*100], canvasB[60*100];
 
     for (int t = 0; t < NT; ++t) {
-
         int tW, tH, tC;
         uint8_t* tplRaw = stbi_load(T[t].file, &tW, &tH, &tC, 0);
         if (!tplRaw) continue;
 
-        resizeBilinearGray(cropped, cW, cH, resized, tW, tH);
-
         stage_binarizeRaw(tplRaw, tplBin, tW, tH, tC);
         stbi_image_free(tplRaw);
 
+        int tMinX, tMinY, tMaxX, tMaxY;
+        if (!tightBBox(tplBin, tW, tH, tMinX, tMinY, tMaxX, tMaxY)) continue;
+        int tCW = tMaxX - tMinX + 1, tCH = tMaxY - tMinY + 1;
+
+        for (int y = 0; y < tCH; ++y)
+            for (int x = 0; x < tCW; ++x)
+                tplCropped[y*tCW+x] = tplBin[(tMinY+y)*tW + (tMinX+x)];
+
+        resizeBilinearGray(cropped,    cW,  cH,  canvasA, CANVAS_W, CANVAS_H);
+        resizeBilinearGray(tplCropped, tCW, tCH, canvasB, CANVAS_W, CANVAS_H);
+
         int falsePos = 0, falseNeg = 0, unionInk = 0;
-        for (int i = 0; i < tW*tH; ++i) {
-            bool a = (resized[i] == 255);
-            bool b = (tplBin[i] == 255);
+        for (int i = 0; i < CANVAS_W*CANVAS_H; ++i) {
+            bool a = (canvasA[i] > 127);
+            bool b = (canvasB[i] > 127);
             if (a || b) ++unionInk;
             if (a && !b) ++falsePos;
             if (!a && b) ++falseNeg;
@@ -895,7 +920,7 @@ int Ip_hard::stage_rankMatcher(const uint8_t* grayData, int w, int h) {
         float score = (unionInk > 0)
                     ? (float)(falsePos + falseNeg) / (float)unionInk
                     : 1e9f;
-                    printf("   [rank-cand] %-28s tW=%d tH=%d score=%.4f\n", T[t].file, tW, tH, score);
+        printf("   [rank-cand] %-28s tW=%d tH=%d score=%.4f\n", T[t].file, tW, tH, score);
         if (score < bestScore) {
             bestScore = score;
             bestMatch = T[t].rank;
@@ -914,14 +939,13 @@ int Ip_hard::stage_matchSuit(const uint8_t* grayData, int w, int h) {
     const int NT  = 4;
     const int BUF = 50 * 120;
 
-    uint8_t* inv_buf = work_suitGray;   // safe to reuse
+    uint8_t* inv_buf = work_suitGray;
     uint8_t  cropped[BUF];
     Point2f  cBuf[BUF];
 
     int n = w * h;
     for (int i = 0; i < n; ++i) inv_buf[i] = 255 - grayData[i];
 
-    // FIX BUG3: use mbfs_*
     int cCount = stage_findLargest(inv_buf, w, h, cBuf,
                                    mbfs_visited, mbfs_queue, mbfs_region);
     if (cCount == 0) return -1;
@@ -943,25 +967,37 @@ int Ip_hard::stage_matchSuit(const uint8_t* grayData, int w, int h) {
 
     int bestMatch = -1;
     float bestScore = 1e9f;
-    static uint8_t resized[300*300], tplBin[300*300];
+    static uint8_t tplBin[300*300];
+    static uint8_t tplCropped[300*300];
+    const int CANVAS_W = 60, CANVAS_H = 100;
+    static uint8_t canvasA[60*100], canvasB[60*100];
 
     for (int t = 0; t < NT; ++t) {
         int tW, tH, tC;
         uint8_t* tplRaw = stbi_load(T[t].file, &tW, &tH, &tC, 0);
         if (!tplRaw) continue;
 
-        resizeBilinearGray(cropped, cW, cH, resized, tW, tH);
-        
         stage_binarizeRaw(tplRaw, tplBin, tW, tH, tC);
         stbi_image_free(tplRaw);
 
-      int diff = 0;
-for (int i = 0; i < tW*tH; ++i) {
-    bool aInk = (resized[i] == 255);   // mastilo u resized
-    bool bInk = (tplBin[i]  == 255);     // mastilo u template
-    if (aInk != bInk) ++diff;
-}
-        float score = (float)diff / (float)(tW * tH);
+        int tMinX, tMinY, tMaxX, tMaxY;
+        if (!tightBBox(tplBin, tW, tH, tMinX, tMinY, tMaxX, tMaxY)) continue;
+        int tCW = tMaxX - tMinX + 1, tCH = tMaxY - tMinY + 1;
+
+        for (int y = 0; y < tCH; ++y)
+            for (int x = 0; x < tCW; ++x)
+                tplCropped[y*tCW+x] = tplBin[(tMinY+y)*tW + (tMinX+x)];
+
+        resizeBilinearGray(cropped,    cW,  cH,  canvasA, CANVAS_W, CANVAS_H);
+        resizeBilinearGray(tplCropped, tCW, tCH, canvasB, CANVAS_W, CANVAS_H);
+
+        int diff = 0;
+        for (int i = 0; i < CANVAS_W*CANVAS_H; ++i) {
+            bool aInk = (canvasA[i] > 127);
+            bool bInk = (canvasB[i] > 127);
+            if (aInk != bInk) ++diff;
+        }
+        float score = (float)diff / (float)(CANVAS_W*CANVAS_H);
         printf("   [suit-cand] %-28s tW=%d tH=%d score=%.4f\n", T[t].file, tW, tH, score);
         if (score < bestScore) {
             bestScore = score;
