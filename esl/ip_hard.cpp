@@ -238,53 +238,56 @@ int binCInk = 0;
 for (int i = 0; i < 50*120; ++i) if (work_binC[i] == 0) binCInk++;
 printf("[P6] binC inkCount=%d / %d\n", binCInk, 50*120);
            // ── PHASE 7: find rank and suit using pure C++ row scanning ────────────
-        int rankStartY = 0, rankEndY = 0;
-        int suitStartY = 0, suitEndY = 0;
-        int rankMinX = 50, rankMaxX = 0, suitMinX = 50, suitMaxX = 0;
-        int rankSrcY0 = std::max(0, rankStartY - 2);
-        int suitSrcY0 = std::max(0, suitStartY - 2);
         
-        bool inRank = false;
-        int emptyRows = 0;
-        const int MIN_EMPTY_GAP = 4; 
+    // ── PHASE 7: find rank and suit as two separate ink bands ──────────────────
+struct Band { int startY=-1, endY=-1, minX=50, maxX=0; };
+std::vector<Band> bands;
+bool inBand = false;
+int emptyRows = 0;
+const int MIN_EMPTY_GAP = 4;
 
-        for (int y = 0; y < 120; ++y) {
-            int ink = 0;
-            for (int x = 0; x < 50; ++x) {
-                if (work_binC[y * 50 + x] == 0) ink++; // 0 je crna mastila
-            }
-
-            if (ink > 0) {
-                if (!inRank) {
-                    inRank = true;
-                    rankStartY = y;
-                }
-                if (inRank) {
-                    rankEndY = y;
-                    for (int x = 0; x < 50; ++x) {
-                        if (work_binC[y * 50 + x] == 0) {
-                            if (x < rankMinX) rankMinX = x;
-                            if (x > rankMaxX) rankMaxX = x;
-                        }
-                    }
-                } else {
-                    suitEndY = y;
-                    for (int x = 0; x < 50; ++x) {
-                        if (work_binC[y * 50 + x] == 0) {
-                            if (x < suitMinX) suitMinX = x;
-                            if (x > suitMaxX) suitMaxX = x;
-                        }
-                    }
-                }
-                emptyRows = 0;
-            } else {
-                emptyRows++;
-                if (inRank && emptyRows > MIN_EMPTY_GAP) {
-                    inRank = false;
-                    suitStartY = y + 1;
-                }
-            }
+for (int y = 0; y < 120; ++y) {
+    int ink = 0;
+    int rowMinX = 50, rowMaxX = -1;
+    for (int x = 0; x < 50; ++x) {
+        if (work_binC[y * 50 + x] == 0) {
+            ink++;
+            if (x < rowMinX) rowMinX = x;
+            if (x > rowMaxX) rowMaxX = x;
         }
+    }
+
+    if (ink > 0) {
+        if (!inBand) {
+            bands.push_back(Band{});
+            bands.back().startY = y;
+            inBand = true;
+        }
+        bands.back().endY = y;
+        if (rowMinX < bands.back().minX) bands.back().minX = rowMinX;
+        if (rowMaxX > bands.back().maxX) bands.back().maxX = rowMaxX;
+        emptyRows = 0;
+    } else {
+        emptyRows++;
+        if (inBand && emptyRows > MIN_EMPTY_GAP) inBand = false;
+    }
+}
+
+if (bands.size() < 2) {
+    card_rank = 0; card_suit = 0;
+    status_ready = 1; done_event.notify();
+    continue;
+}
+
+// prvi band (odozgo) = rank, drugi = suit
+int rankStartY = bands[0].startY, rankEndY = bands[0].endY;
+int rankMinX = bands[0].minX,     rankMaxX = bands[0].maxX;
+int suitStartY = bands[1].startY, suitEndY = bands[1].endY;
+int suitMinX = bands[1].minX,     suitMaxX = bands[1].maxX;
+
+printf("[PHASE7-OK] rank y[%d,%d] x[%d,%d] | suit y[%d,%d] x[%d,%d]\n",
+       rankStartY, rankEndY, rankMinX, rankMaxX,
+       suitStartY, suitEndY, suitMinX, suitMaxX);
 
         // Zaštita ako nismo našli Suit
         if (suitStartY == 0) {
