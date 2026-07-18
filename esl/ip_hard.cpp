@@ -279,24 +279,28 @@ auto splitByValley = [&](const Band& b) -> std::vector<Band> {
     if (h < 8) return { b };
 
     std::vector<int> rowInk(h, 0);
-    int avgInk = 0;
-    for (int y = 0; y < h; ++y) {
+    for (int y = 0; y < h; ++y)
         for (int x = 0; x < 50; ++x)
             if (work_binC[(y0 + y) * 50 + x] == 0) rowInk[y]++;
-        avgInk += rowInk[y];
-    }
-    avgInk /= h;
 
-    int lo = h * 45 / 100, hi = h * 70 / 100;
+    int lo = h * 35 / 100, hi = h * 78 / 100;
     int bestY = -1, bestVal = INT_MAX;
-    for (int y = lo; y <= hi; ++y) {
+    for (int y = lo; y <= hi; ++y)
         if (rowInk[y] < bestVal) { bestVal = rowInk[y]; bestY = y; }
+
+    bool valleyIsReal = false;
+    int splitY;
+    if (bestY >= 0) {
+        int leftMax = 0, rightMax = 0;
+        for (int y = 0; y <= bestY; ++y) leftMax = std::max(leftMax, rowInk[y]);
+        for (int y = bestY; y < h; ++y) rightMax = std::max(rightMax, rowInk[y]);
+        int refMax = std::min(leftMax, rightMax);
+        // "prava dolina": jasno niža od oba susedna vrha (relativni kriterijum,
+        // ne zavisi od globalnog proseka koji varira po obliku simbola)
+        valleyIsReal = (refMax > 0) && (bestVal <= refMax * 0.5f);
     }
 
-    // Prihvati valley SAMO ako je jasno tanji od proseka (pravi razmak),
-    // inače koristi fiksan proporcionalan prelom na 60% visine.
-    bool valleyIsReal = (bestY >= 0) && (bestVal <= avgInk / 3);
-    int splitY = valleyIsReal ? bestY : (h * 60 / 100);
+    splitY = valleyIsReal ? bestY : (h * 55 / 100);
 
     Band top, bot;
     top.startY = y0; top.endY = y0 + splitY;
