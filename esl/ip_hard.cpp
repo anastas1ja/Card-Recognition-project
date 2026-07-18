@@ -271,7 +271,44 @@ for (int y = 0; y < MAX_SCAN_Y; ++y) {
         if (inBand && emptyRows > MIN_EMPTY_GAP) inBand = false;
     }
 }
+// Ako je rank+suit slepljen u jedan band (nema čiste praznine), razdvoji ga
+// po "dolini" u profilu mastila po redovima — robusnije od traženja nule.
+auto splitByValley = [&](const Band& b) -> std::vector<Band> {
+    int y0 = b.startY, y1 = b.endY;
+    int h = y1 - y0 + 1;
+    if (h < 6) return { b };   // premalo da bi imalo smisla deliti
 
+    std::vector<int> rowInk(h, 0);
+    for (int y = 0; y < h; ++y)
+        for (int x = 0; x < 50; ++x)
+            if (work_binC[(y0 + y) * 50 + x] == 0) rowInk[y]++;
+
+    // traži minimum u srednjem delu (izbegava ivice bloka)
+    int lo = h * 30 / 100, hi = h * 75 / 100;
+    int bestY = -1, bestVal = INT_MAX;
+    for (int y = lo; y <= hi; ++y) {
+        if (rowInk[y] < bestVal) { bestVal = rowInk[y]; bestY = y; }
+    }
+    if (bestY < 0) return { b };
+
+    Band top, bot;
+    top.startY = y0; top.endY = y0 + bestY;
+    bot.startY = y0 + bestY + 1; bot.endY = y1;
+    for (int y = top.startY; y <= top.endY; ++y)
+        for (int x = 0; x < 50; ++x)
+            if (work_binC[y*50+x]==0) { top.minX=std::min(top.minX,x); top.maxX=std::max(top.maxX,x); }
+    for (int y = bot.startY; y <= bot.endY; ++y)
+        for (int x = 0; x < 50; ++x)
+            if (work_binC[y*50+x]==0) { bot.minX=std::min(bot.minX,x); bot.maxX=std::max(bot.maxX,x); }
+
+    if (top.maxX < top.minX || bot.maxX < bot.minX) return { b };
+    return { top, bot };
+};
+
+if (bands.size() == 1) {
+    auto split = splitByValley(bands[0]);
+    if (split.size() == 2) bands = split;
+}
 if (bands.size() < 2) {
     printf("[PHASE7-FAIL] pronadjeno bands.size()=%zu (treba >=2)\n", bands.size());
     for (size_t i = 0; i < bands.size(); ++i)
