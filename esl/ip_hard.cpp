@@ -838,6 +838,7 @@ int Ip_hard::stage_rankMatcher(const uint8_t* grayData, int w, int h) {
 
     int cW = (int)(maxX - minX + 1), cH = (int)(maxY - minY + 1);
     if (cW <= 0 || cH <= 0) return -1;
+    printf("[MATCHER-RANK] BFS-inner crop: cW=%d cH=%d (input was %dx%d)\n", cW, cH, w, h);
     for (int y = 0; y < cH; ++y)
         for (int x = 0; x < cW; ++x)
             cropped[y*cW+x] = inv_buf[(int)(minY+y)*w + (int)(minX+x)];
@@ -847,6 +848,7 @@ int Ip_hard::stage_rankMatcher(const uint8_t* grayData, int w, int h) {
     static uint8_t resized[300*300], tplBin[300*300];
 
     for (int t = 0; t < NT; ++t) {
+
         int tW, tH, tC;
         uint8_t* tplRaw = stbi_load(T[t].file, &tW, &tH, &tC, 0);
         if (!tplRaw) continue;
@@ -871,6 +873,7 @@ int Ip_hard::stage_rankMatcher(const uint8_t* grayData, int w, int h) {
         float score = (unionInk > 0)
                     ? (float)(falsePos + falseNeg) / (float)unionInk
                     : 1e9f;
+                    printf("   [rank-cand] %-28s tW=%d tH=%d score=%.4f\n", T[t].file, tW, tH, score);
         if (score < bestScore) {
             bestScore = score;
             bestMatch = T[t].rank;
@@ -911,6 +914,7 @@ int Ip_hard::stage_matchSuit(const uint8_t* grayData, int w, int h) {
 
     int cW = (int)(maxX - minX + 1), cH = (int)(maxY - minY + 1);
     if (cW <= 0 || cH <= 0) return -1;
+    printf("[MATCHER-SUIT] BFS-inner crop: cW=%d cH=%d (input was %dx%d)\n", cW, cH, w, h);
     for (int y = 0; y < cH; ++y)
         for (int x = 0; x < cW; ++x)
             cropped[y*cW+x] = inv_buf[(int)(minY+y)*w + (int)(minX+x)];
@@ -939,6 +943,7 @@ for (int i = 0; i < tW*tH; ++i) {
     if (aInk != bInk) ++diff;
 }
         float score = (float)diff / (float)(tW * tH);
+        printf("   [suit-cand] %-28s tW=%d tH=%d score=%.4f\n", T[t].file, tW, tH, score);
         if (score < bestScore) {
             bestScore = score;
             bestMatch = T[t].suit;
