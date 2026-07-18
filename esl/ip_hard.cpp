@@ -175,11 +175,12 @@ printf("[P2] whiteCount=%d / %d (%.1f%%)\n", whiteCount, N, 100.0*whiteCount/N);
         int compCount = stage_findLargestCcl(work_binary, W, H, work_comp);
        printf("[P3] compCount=%d\n", compCount);
         if (compCount < 100) {
+            printf("[PHASE3-FAIL] compCount=%d < 100, odbacujem frejm\n", compCount);
             card_rank = 0; card_suit = 0;
             status_ready = 1; done_event.notify();
             continue;
         }
-
+        printf("[PHASE3-OK] compCount=%d\n", compCount);
         // ── PHASE 4: perspective warp → 200×300 RGB ───────────────────────────
         // FIX BUG1: use work_rgb (not work_comp) as source.
         // work_comp still contains valid Point2f corner data from Phase 3.
@@ -202,10 +203,12 @@ printf("[P2] whiteCount=%d / %d (%.1f%%)\n", whiteCount, N, 100.0*whiteCount/N);
         const int finalH = 300;
 
         if (rawW < 10 || rawH < 10) {
+            printf("[PHASE4-FAIL] rawW=%.1f rawH=%.1f (premala kontura)\n", rawW, rawH);
             card_rank = 0; card_suit = 0;
             status_ready = 1; done_event.notify();
             continue;
         }
+        printf("[PHASE4-OK] rawW=%.1f rawH=%.1f\n", rawW, rawH);
 
         stage_warpImage(work_rgb, W, H, corners, work_warped, finalW, finalH);
         wait(sc_time(finalW * finalH, SC_NS));
@@ -274,7 +277,31 @@ if (bands.size() < 2) {
     status_ready = 1; done_event.notify();
     continue;
 }
+auto trimBandX = [&](Band& b) {
+    std::vector<int> colInk(50, 0);
+    for (int y = b.startY; y <= b.endY; ++y)
+        for (int x = 0; x < 50; ++x)
+            if (work_binC[y * 50 + x] == 0) colInk[x]++;
 
+    const int MIN_EMPTY_GAP_X = 2;
+    int x = 0;
+    while (x < 50 && colInk[x] == 0) x++;
+    int newMinX = x, newMaxX = x, emptyCols = 0;
+    for (; x < 50; ++x) {
+        if (colInk[x] > 0) {
+            newMaxX = x;
+            emptyCols = 0;
+        } else {
+            emptyCols++;
+            if (emptyCols > MIN_EMPTY_GAP_X) break;
+        }
+    }
+    b.minX = newMinX;
+    b.maxX = newMaxX;
+};
+
+trimBandX(bands[0]);
+trimBandX(bands[1]);
 // prvi band (odozgo) = rank, drugi = suit
 int rankStartY = bands[0].startY, rankEndY = bands[0].endY;
 int rankMinX = bands[0].minX,     rankMaxX = bands[0].maxX;
