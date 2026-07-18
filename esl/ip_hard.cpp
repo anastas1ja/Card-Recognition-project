@@ -343,22 +343,21 @@ auto trimBandHeightByWidthJump = [&](Band& b) {
                 rowMaxX[y] = std::max(rowMaxX[y], x);
             }
 
-    // "jezgro" širine ikonice iz prve trećine banda (vrh simbola je uzan)
-    int refRows = std::max(3, h / 3);
-    int coreWidth = 0;
-    for (int y = 0; y < std::min(refRows, h); ++y)
-        if (rowMaxX[y] >= rowMinX[y])
-            coreWidth = std::max(coreWidth, rowMaxX[y] - rowMinX[y] + 1);
-    if (coreWidth == 0) return;
+    const int SUDDEN_JUMP_PX = 14;   // nagli skok širine iz reda u red
+    const int MIN_ROWS_BEFORE_CHECK = 4; // ne gledaj skok na samom početku
 
-    // ako širina naglo skoči (2x+ jezgra i > 15px), to je početak dizajna karte — odseci tu
-    for (int y = refRows; y < h; ++y) {
-        if (rowMaxX[y] < rowMinX[y]) continue;
+    int prevWidth = -1;
+    for (int y = 0; y < h; ++y) {
+        if (rowMaxX[y] < rowMinX[y]) continue;   // prazan red, preskoči
         int w = rowMaxX[y] - rowMinX[y] + 1;
-        if (w > coreWidth * 2 && w > 15) {
-            b.endY = y0 + y - 1;
-            break;
+
+        if (prevWidth >= 0 && y >= MIN_ROWS_BEFORE_CHECK) {
+            if (w - prevWidth > SUDDEN_JUMP_PX) {
+                b.endY = y0 + y - 1;
+                return;
+            }
         }
+        prevWidth = w;
     }
 };
 
