@@ -330,13 +330,48 @@ if (bands.size() < 2) {
     status_ready = 1; done_event.notify();
     continue;
 }
+auto trimBandHeightByWidthJump = [&](Band& b) {
+    int y0 = b.startY, y1 = b.endY;
+    int h = y1 - y0 + 1;
+    if (h < 6) return;
+
+    std::vector<int> rowMinX(h, 50), rowMaxX(h, -1);
+    for (int y = 0; y < h; ++y)
+        for (int x = 0; x < 50; ++x)
+            if (work_binC[(y0+y)*50+x] == 0) {
+                rowMinX[y] = std::min(rowMinX[y], x);
+                rowMaxX[y] = std::max(rowMaxX[y], x);
+            }
+
+    // "jezgro" širine ikonice iz prve trećine banda (vrh simbola je uzan)
+    int refRows = std::max(3, h / 3);
+    int coreWidth = 0;
+    for (int y = 0; y < std::min(refRows, h); ++y)
+        if (rowMaxX[y] >= rowMinX[y])
+            coreWidth = std::max(coreWidth, rowMaxX[y] - rowMinX[y] + 1);
+    if (coreWidth == 0) return;
+
+    // ako širina naglo skoči (2x+ jezgra i > 15px), to je početak dizajna karte — odseci tu
+    for (int y = refRows; y < h; ++y) {
+        if (rowMaxX[y] < rowMinX[y]) continue;
+        int w = rowMaxX[y] - rowMinX[y] + 1;
+        if (w > coreWidth * 2 && w > 15) {
+            b.endY = y0 + y - 1;
+            break;
+        }
+    }
+};
+
+trimBandHeightByWidthJump(bands[0]);
+trimBandHeightByWidthJump(bands[1]);
+
 auto trimBandX = [&](Band& b) {
     std::vector<int> colInk(50, 0);
     for (int y = b.startY; y <= b.endY; ++y)
         for (int x = 0; x < 50; ++x)
             if (work_binC[y * 50 + x] == 0) colInk[x]++;
 
-    const int MIN_EMPTY_GAP_X = 2;
+    const int MIN_EMPTY_GAP_X = 5;
     int x = 0;
     while (x < 50 && colInk[x] == 0) x++;
     int newMinX = x, newMaxX = x, emptyCols = 0;
