@@ -367,12 +367,12 @@ void Ip_hard::stage_toGrayscale(const uint8_t* src, uint8_t* dst, int w, int h) 
 
 void Ip_hard::stage_binarize(uint8_t* data, int n, int thr) {
     for (int i = 0; i < n; ++i)
-        data[i] = (data[i] < thr) ? 255 : 0;
+        data[i] = (data[i] > thr) ? 255 : 0;
 }
 
 void Ip_hard::stage_binarizeTo(const uint8_t* src, uint8_t* dst, int n, int thr) {
     for (int i = 0; i < n; ++i)
-        dst[i] = (src[i] < thr) ? 255 : 0;
+        dst[i] = (src[i] > thr) ? 255 : 0;
 }
 
 void Ip_hard::stage_binarizeRaw(const uint8_t* src, uint8_t* dst,
@@ -388,7 +388,7 @@ void Ip_hard::stage_binarizeRaw(const uint8_t* src, uint8_t* dst,
                 (ch > 1 ? src[i*ch+1] * 0.59f : 0.0f) +
                 (ch > 2 ? src[i*ch+2] * 0.11f : 0.0f));
         }
-        dst[i] = (g < thr) ? 255 : 0;
+        dst[i] = (g > thr) ? 255 : 0;
     }
 }
 
