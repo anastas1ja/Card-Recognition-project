@@ -276,24 +276,33 @@ for (int y = 0; y < MAX_SCAN_Y; ++y) {
 auto splitByValley = [&](const Band& b) -> std::vector<Band> {
     int y0 = b.startY, y1 = b.endY;
     int h = y1 - y0 + 1;
-    if (h < 6) return { b };   // premalo da bi imalo smisla deliti
+    if (h < 8) return { b };
 
     std::vector<int> rowInk(h, 0);
-    for (int y = 0; y < h; ++y)
+    int avgInk = 0;
+    for (int y = 0; y < h; ++y) {
         for (int x = 0; x < 50; ++x)
             if (work_binC[(y0 + y) * 50 + x] == 0) rowInk[y]++;
+        avgInk += rowInk[y];
+    }
+    avgInk /= h;
 
-    // traži minimum u srednjem delu (izbegava ivice bloka)
-    int lo = h * 30 / 100, hi = h * 75 / 100;
+    int lo = h * 45 / 100, hi = h * 70 / 100;
     int bestY = -1, bestVal = INT_MAX;
     for (int y = lo; y <= hi; ++y) {
         if (rowInk[y] < bestVal) { bestVal = rowInk[y]; bestY = y; }
     }
-    if (bestY < 0) return { b };
+
+    // Prihvati valley SAMO ako je jasno tanji od proseka (pravi razmak),
+    // inače koristi fiksan proporcionalan prelom na 60% visine.
+    bool valleyIsReal = (bestY >= 0) && (bestVal <= avgInk / 3);
+    int splitY = valleyIsReal ? bestY : (h * 60 / 100);
 
     Band top, bot;
-    top.startY = y0; top.endY = y0 + bestY;
-    bot.startY = y0 + bestY + 1; bot.endY = y1;
+    top.startY = y0; top.endY = y0 + splitY;
+    bot.startY = y0 + splitY + 1; bot.endY = y1;
+    if (bot.startY > bot.endY) return { b };
+
     for (int y = top.startY; y <= top.endY; ++y)
         for (int x = 0; x < 50; ++x)
             if (work_binC[y*50+x]==0) { top.minX=std::min(top.minX,x); top.maxX=std::max(top.maxX,x); }
