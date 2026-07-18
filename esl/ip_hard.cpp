@@ -152,18 +152,25 @@ void Ip_hard::ip_thread()
             work_gray[i] = static_cast<uint8_t>(0.299f*r + 0.587f*g + 0.114f*b);
             wait(5, SC_NS);   // HW pixel processing latency
         }
+long sum=0; uint8_t mn=255, mx=0;
+for (int i=0;i<N;++i){ sum+=work_gray[i]; mn=std::min(mn,work_gray[i]); mx=std::max(mx,work_gray[i]); }
+printf("[P1] gray avg=%.1f min=%u max=%u N=%d W=%d H=%d\n", (double)sum/N, mn, mx, N, W, H);
+        
 
-        // ── PHASE 2: binarise grayscale → work_binary ─────────────────────────
+// ── PHASE 2: binarise grayscale → work_binary ─────────────────────────
         stage_binarizeTo(work_gray, work_binary, N, 120);
         wait(sc_time(N, SC_NS));
         stbi_write_png("debug_binary_full.png", W, H, 1, work_binary, W);
-
+int whiteCount=0;
+for (int i=0;i<N;++i) if (work_binary[i]==255) whiteCount++;
+printf("[P2] whiteCount=%d / %d (%.1f%%)\n", whiteCount, N, 100.0*whiteCount/N);
         // ── PHASE 3: BFS – find largest white component (card outline) ────────
         // Uses bfs_visited / bfs_queue / bfs_region.
         // Result stored in work_comp[0..compCount-1].
         // FIX BUG2: wait(5, SC_NS) per visited node is inside stage_findLargest.
         // CCL replacement for main card-outline detection.
         int compCount = stage_findLargestCcl(work_binary, W, H, work_comp);
+       printf("[P3] compCount=%d\n", compCount);
         if (compCount < 100) {
             card_rank = 0; card_suit = 0;
             status_ready = 1; done_event.notify();
