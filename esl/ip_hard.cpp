@@ -192,18 +192,26 @@ printf("[P2] whiteCount=%d / %d (%.1f%%)\n", whiteCount, N, 100.0*whiteCount/N);
         float left_h   = _ptDist(corners[0], corners[3]); // Leva ivica
         float right_h  = _ptDist(corners[1], corners[2]); // Desna ivica
 
-        int finalW = (int)((top_w + bottom_w) / 2.0f);
-        int finalH = (int)((left_h + right_h) / 2.0f);
-finalW = std::min(finalW, 200);   // ili neki razuman max
-finalH = std::min(finalH, 300);
-        // Bezbednosna provera (ako je detekcija loša, vrati na 200x300)
-        if (finalW < 10 || finalH < 10) { finalW = 200; finalH = 300; }
+       // Dinamički izračunata veličina koristi se SAMO za sanity-check;
+        // warp cilj ostaje fiksan 200x300 da bi ROI koordinate (rank/suit)
+        // bile predvidljive u sledećim fazama.
+        float rawW = (top_w + bottom_w) / 2.0f;
+        float rawH = (left_h + right_h) / 2.0f;
+
+        const int finalW = 200;
+        const int finalH = 300;
+
+        if (rawW < 10 || rawH < 10) {
+            card_rank = 0; card_suit = 0;
+            status_ready = 1; done_event.notify();
+            continue;
+        }
 
         stage_warpImage(work_rgb, W, H, corners, work_warped, finalW, finalH);
         wait(sc_time(finalW * finalH, SC_NS));
         stbi_write_png("debug_warped_card.png", finalW, finalH, 3, work_warped, finalW * 3);
         // ── PHASE 5: crop top-left 50×120 ─────────────────────────────────────
-        stage_cropLeftColumn(work_warped, 200, work_corner, 50, 120); //zameni sa 300?
+        stage_cropLeftColumn(work_warped, finalW, work_corner, 50, 120);
         stbi_write_png("debug_roi_rgb.png", 50, 120, 3, work_corner, 50 * 3);
 
         // ── PHASE 6: grayscale + binarise corner ──────────────────────────────
