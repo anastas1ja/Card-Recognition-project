@@ -184,7 +184,8 @@ void Ip_hard::ip_thread()
 
         int finalW = (int)((top_w + bottom_w) / 2.0f);
         int finalH = (int)((left_h + right_h) / 2.0f);
-
+finalW = std::min(finalW, 200);   // ili neki razuman max
+finalH = std::min(finalH, 300);
         // Bezbednosna provera (ako je detekcija loša, vrati na 200x300)
         if (finalW < 10 || finalH < 10) { finalW = 200; finalH = 300; }
 
@@ -220,7 +221,9 @@ void Ip_hard::ip_thread()
         int rankStartY = 0, rankEndY = 0;
         int suitStartY = 0, suitEndY = 0;
         int rankMinX = 50, rankMaxX = 0, suitMinX = 50, suitMaxX = 0;
-
+        int rankSrcY0 = std::max(0, rankStartY - 2);
+        int suitSrcY0 = std::max(0, suitStartY - 2);
+        
         bool inRank = false;
         int emptyRows = 0;
         const int MIN_EMPTY_GAP = 4; 
