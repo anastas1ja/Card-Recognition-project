@@ -828,7 +828,7 @@ int Ip_hard::stage_rankMatcher(const uint8_t* grayData, int w, int h) {
         int falsePos = 0, falseNeg = 0, unionInk = 0;
         for (int i = 0; i < tW*tH; ++i) {
             bool a = (resized[i] == 255);
-            bool b = (tplBin[i] == 0);
+            bool b = (tplBin[i] == 255);
             if (a || b) ++unionInk;
             if (a && !b) ++falsePos;
             if (!a && b) ++falseNeg;
@@ -901,7 +901,7 @@ int Ip_hard::stage_matchSuit(const uint8_t* grayData, int w, int h) {
       int diff = 0;
 for (int i = 0; i < tW*tH; ++i) {
     bool aInk = (resized[i] == 255);   // mastilo u resized
-    bool bInk = (tplBin[i]  == 0);     // mastilo u template
+    bool bInk = (tplBin[i]  == 255);     // mastilo u template
     if (aInk != bInk) ++diff;
 }
         float score = (float)diff / (float)(tW * tH);
